@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:keep/utilities/logger.dart';
 
-class Login extends StatelessWidget {
+class Login extends StatefulWidget {
   const Login({super.key});
 
   static const getStarted = "Welcome Back";
@@ -10,6 +11,14 @@ class Login extends StatelessWidget {
   static const login = "Login";
   static const user = "Don't have an account?";
   static const signUp = "Sign up";
+
+  @override
+  State<Login> createState() => _LoginState();
+}
+
+class _LoginState extends State<Login> {
+  final emailController = TextEditingController();
+  final passwordController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -26,7 +35,7 @@ class Login extends StatelessWidget {
         child: Column(
           children: [
             const Text(
-              getStarted,
+              Login.getStarted,
               style: TextStyle(
                 fontSize: 80,
                 color: Colors.white,
@@ -36,10 +45,12 @@ class Login extends StatelessWidget {
               height: 15,
             ),
             TextField(
+              style: const TextStyle(color: Colors.white),
+              controller: emailController,
               decoration: InputDecoration(
                   fillColor: Colors.black12,
                   filled: true,
-                  hintText: email,
+                  hintText: Login.email,
                   hintStyle: const TextStyle(color: Colors.white),
                   prefixIcon: const Icon(Icons.account_circle, size: 30),
                   enabledBorder: OutlineInputBorder(
@@ -53,11 +64,17 @@ class Login extends StatelessWidget {
             ),
             const SizedBox(height: 18),
             TextField(
+              controller: passwordController,
+              style: const TextStyle(color: Colors.white),
+              obscureText: true,
+              enableSuggestions: false,
+              autocorrect: false,
+              obscuringCharacter: "*",
               decoration: InputDecoration(
                 fillColor: Colors.black12,
                 filled: true,
                 hintStyle: const TextStyle(color: Colors.white),
-                hintText: password,
+                hintText: Login.password,
                 prefixIcon: const Icon(Icons.password, size: 30),
                 enabledBorder: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(25.0),
@@ -73,19 +90,25 @@ class Login extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 const Text(
-                  user,
+                  Login.user,
                   style: TextStyle(color: Colors.white),
                 ),
                 TextButton(
-                    onPressed: () => context.go("/signup"),
+                    onPressed: () => {context.go("/signup")},
                     child: const Text(
-                      signUp,
+                      Login.signUp,
                       style: TextStyle(color: Colors.red),
                     ))
               ],
             ),
             FilledButton(
-                onPressed: () => context.go("/"),
+                onPressed: () => {
+                      if (validateInput(emailController.text) ||
+                          validateInput(passwordController.text))
+                        {Foo.func()}
+                      else
+                        {context.go("/")}
+                    },
                 style: ButtonStyle(
                   backgroundColor: WidgetStateProperty.all(Colors.white),
                   minimumSize:
@@ -97,11 +120,22 @@ class Login extends StatelessWidget {
                     ),
                   ),
                 ),
-                child: const Text(login,
+                child: const Text(Login.login,
                     style: TextStyle(color: Colors.redAccent, fontSize: 20))),
           ],
         ),
       ),
     );
   }
+}
+
+bool validateInput(String value) {
+  bool errorStatus = false;
+
+  if (value.isEmpty) {
+    errorStatus = true;
+  } else {
+    errorStatus = false;
+  }
+  return errorStatus;
 }

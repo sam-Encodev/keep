@@ -143,7 +143,7 @@ Future<void> _saveChangesDialog(BuildContext context) {
                 Navigator.of(context).pop();
               },
               style: ButtonStyle(
-                minimumSize: WidgetStateProperty.all(Size(120, 40)),
+                minimumSize: WidgetStateProperty.all(const Size(120, 40)),
                 backgroundColor: WidgetStateProperty.all(Colors.redAccent),
                 elevation: WidgetStateProperty.all(0),
                 shape: WidgetStateProperty.all(
@@ -159,7 +159,7 @@ Future<void> _saveChangesDialog(BuildContext context) {
                 Navigator.of(context).pop();
               },
               style: ButtonStyle(
-                minimumSize: WidgetStateProperty.all(Size(120, 40)),
+                minimumSize: WidgetStateProperty.all(const Size(120, 40)),
                 backgroundColor: WidgetStateProperty.all(Colors.white),
                 elevation: WidgetStateProperty.all(0),
                 shape: WidgetStateProperty.all(

@@ -1,11 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:keep/utilities/logger.dart';
 
-class SearchNote extends StatelessWidget {
+class SearchNote extends StatefulWidget {
   const SearchNote({super.key});
 
+  @override
+  State<SearchNote> createState() => _SearchNote();
+}
+
+class _SearchNote extends State<SearchNote> {
   static const placeholder = "Search by keyword";
+  final textController = TextEditingController(text: "");
 
   @override
   Widget build(BuildContext context) {
@@ -14,6 +19,8 @@ class SearchNote extends StatelessWidget {
         automaticallyImplyLeading: false,
         backgroundColor: Colors.black87,
         title: TextField(
+          controller: textController,
+          style: const TextStyle(color: Colors.white),
           decoration: InputDecoration(
               fillColor: Colors.black12,
               filled: true,
@@ -32,7 +39,9 @@ class SearchNote extends StatelessWidget {
                     size: 30,
                     color: Colors.white,
                   ),
-                  onPressed: () => Foo.func()),
+                  onPressed: () => setState(() {
+                        textController.text = "";
+                      })),
               enabledBorder: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(25.0),
                 borderSide: const BorderSide(color: Colors.black12),
@@ -49,7 +58,6 @@ class SearchNote extends StatelessWidget {
         decoration: const BoxDecoration(
           color: Colors.black87,
         ),
-        child: const SizedBox(),
       ),
     );
   }

@@ -126,7 +126,7 @@ Future<void> _saveNoteDialog(BuildContext context) {
                 Navigator.of(context).pop();
               },
               style: ButtonStyle(
-                minimumSize: WidgetStateProperty.all(Size(120, 40)),
+                minimumSize: WidgetStateProperty.all(const Size(110, 40)),
                 backgroundColor: WidgetStateProperty.all(Colors.redAccent),
                 elevation: WidgetStateProperty.all(0),
                 shape: WidgetStateProperty.all(
