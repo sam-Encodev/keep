@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:keep/utilities/styles.dart';
+import 'package:dots_indicator/dots_indicator.dart';
 
 class FirstPage extends StatelessWidget {
   const FirstPage({super.key});
@@ -41,26 +43,23 @@ class FirstPage extends StatelessWidget {
             color: Colors.black87,
           ),
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: <Widget>[
-              const Column(
+              Column(
                 mainAxisSize: MainAxisSize.max,
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Text(
-                    'Image',
-                    style: TextStyle(color: Colors.red, fontSize: 20),
-                  ),
-                  SizedBox(height: 50),
-                  Text(
+                  buildSVG("illustration.svg"),
+                  const SizedBox(height: 50),
+                  const Text(
                     textHead,
                     style: TextStyle(
                         color: Colors.white,
                         fontSize: 20,
                         fontWeight: FontWeight.w800),
                   ),
-                  SizedBox(height: 15),
-                  Text(
+                  const SizedBox(height: 15),
+                  const Text(
                     textBody,
                     style: TextStyle(color: Colors.white, fontSize: 20),
                   )
@@ -69,18 +68,10 @@ class FirstPage extends StatelessWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: <Widget>[
-                  const Row(
-                    children: [
-                      SizedBox(
-                        width: 10,
-                        height: 150,
-                        child: Icon(
-                          Icons.minimize,
-                          size: 60,
-                          color: Colors.white,
-                        ),
-                      ),
-                    ],
+                  DotsIndicator(
+                    dotsCount: 3,
+                    position: 0,
+                    decorator: dotsStyle(),
                   ),
                   Row(
                     children: [
