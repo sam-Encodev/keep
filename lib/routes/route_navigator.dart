@@ -17,7 +17,7 @@ import 'package:go_router/go_router.dart';
 
 /// The route configuration.
 GoRouter router = GoRouter(
-  initialLocation: '/',
+  initialLocation: '/welcome/first',
   routes: [
     GoRoute(
       path: '/',

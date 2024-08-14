@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:keep/utilities/styles.dart';
 
 class EmptyState extends StatelessWidget {
   const EmptyState({super.key});
@@ -7,16 +8,13 @@ class EmptyState extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const SizedBox(
+    return SizedBox(
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Text(
-            'Image',
-            style: TextStyle(color: Colors.red, fontSize: 20),
-          ),
-          SizedBox(height: 10),
-          Text(
+          buildSVG("service_book.svg"),
+          const SizedBox(height: 10),
+          const Text(
             newNote,
             style: TextStyle(color: Colors.white, fontSize: 20),
           )
