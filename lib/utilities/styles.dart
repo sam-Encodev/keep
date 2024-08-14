@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+import 'package:dots_indicator/dots_indicator.dart';
 
 inputBorder() {
   //return type is OutlineInputBorder
@@ -27,5 +29,29 @@ errorStyle() {
     fontSize: 14,
     fontWeight: FontWeight.w400,
     color: Colors.redAccent,
+  );
+}
+
+dotsStyle() {
+  return DotsDecorator(
+    color: const Color(0xFFBDBDBD),
+    size: const Size(10.0, 5.0),
+    shape: RoundedRectangleBorder(
+      borderRadius: BorderRadius.circular(25.0),
+    ),
+    activeSize: const Size(22.0, 5.0),
+    activeShape: RoundedRectangleBorder(
+      borderRadius: BorderRadius.circular(25.0),
+    ),
+    spacing: const EdgeInsets.all(2.0),
+  );
+}
+
+buildSVG(String assetName) {
+  return SvgPicture.asset(
+    width: 70,
+    height: 250,
+    'assets/svg/$assetName',
+    semanticsLabel: assetName,
   );
 }
