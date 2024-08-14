@@ -1,3 +1,5 @@
+import 'package:keep/screens/welcome/onboarding.dart';
+
 import '../screens/home.dart';
 import '../screens/about.dart';
 import '../screens/login.dart';
@@ -17,7 +19,7 @@ import 'package:go_router/go_router.dart';
 
 /// The route configuration.
 GoRouter router = GoRouter(
-  initialLocation: '/welcome/first',
+  initialLocation: '/onboard',
   routes: [
     GoRoute(
       path: '/',
@@ -26,6 +28,10 @@ GoRouter router = GoRouter(
     GoRoute(
       path: '/about',
       builder: (context, state) => const About(),
+    ),
+    GoRoute(
+      path: '/onboard',
+      builder: (context, state) => const Onboard(),
     ),
     GoRoute(
       path: '/login',
