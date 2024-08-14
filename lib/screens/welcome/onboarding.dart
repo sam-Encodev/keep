@@ -35,7 +35,6 @@ class _OnboardState extends State<Onboard> with TickerProviderStateMixin {
 
   @override
   Widget build(BuildContext context) {
-
     return Scaffold(
         backgroundColor: Colors.black87,
         appBar: AppBar(
@@ -184,6 +183,7 @@ class PageIndicator extends StatelessWidget {
               IconButton(
                 onPressed: () {
                   if (currentPageIndex == 2) {
+                    context.pushReplacement('/');
                     return;
                   }
                   onUpdateCurrentPageIndex(currentPageIndex + 1);
