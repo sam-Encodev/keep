@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
 import 'package:keep/utilities/styles.dart';
 import 'package:dots_indicator/dots_indicator.dart';
-import 'package:keep/constants/text.dart';
 
 class ThirdPage extends StatelessWidget {
   const ThirdPage({super.key});
@@ -21,7 +19,7 @@ class ThirdPage extends StatelessWidget {
         backgroundColor: Colors.black87,
         actions: [
           FilledButton(
-              onPressed: () => context.pushReplacement('/'),
+              onPressed: () => {},
               style: ButtonStyle(
                 backgroundColor: WidgetStateProperty.all(Colors.white),
                 elevation: WidgetStateProperty.all(0),
@@ -77,7 +75,7 @@ class ThirdPage extends StatelessWidget {
                   Row(
                     children: [
                       IconButton(
-                        onPressed: () => context.pop(),
+                        onPressed: () => {},
                         style: ButtonStyle(
                             backgroundColor: WidgetStateProperty.all(
                                 Colors.deepPurpleAccent),
@@ -94,7 +92,7 @@ class ThirdPage extends StatelessWidget {
                       ),
                       const SizedBox(width: 10),
                       IconButton(
-                        onPressed: () => context.pushReplacement('/'),
+                        onPressed: () => {},
                         style: ButtonStyle(
                             backgroundColor: WidgetStateProperty.all(
                                 Colors.deepPurpleAccent),
