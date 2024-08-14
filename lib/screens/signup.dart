@@ -1,15 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:keep/forms/signup.dart';
 import 'package:go_router/go_router.dart';
 
 class Signup extends StatelessWidget {
   const Signup({super.key});
 
-  static const getStarted = "Get Started";
-  static const email = "Email";
-  static const password = "Password";
   static const login = "Login";
+  static const getStarted = "Get Started";
   static const user = "Already have an account?";
-  static const signUp = "Sign up";
 
   @override
   Widget build(BuildContext context) {
@@ -35,40 +33,7 @@ class Signup extends StatelessWidget {
             const SizedBox(
               height: 15,
             ),
-            TextField(
-              decoration: InputDecoration(
-                  fillColor: Colors.black12,
-                  filled: true,
-                  hintText: email,
-                  hintStyle: const TextStyle(color: Colors.white),
-                  prefixIcon: const Icon(Icons.account_circle, size: 30),
-                  enabledBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(25.0),
-                    borderSide: const BorderSide(color: Colors.black12),
-                  ),
-                  focusedBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(25.0),
-                    borderSide: const BorderSide(color: Colors.black54),
-                  )),
-            ),
-            const SizedBox(height: 18),
-            TextField(
-              decoration: InputDecoration(
-                fillColor: Colors.black12,
-                filled: true,
-                hintStyle: const TextStyle(color: Colors.white),
-                hintText: password,
-                prefixIcon: const Icon(Icons.password, size: 30),
-                enabledBorder: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(25.0),
-                  borderSide: const BorderSide(color: Colors.black12),
-                ),
-                focusedBorder: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(25.0),
-                  borderSide: const BorderSide(color: Colors.black54),
-                ),
-              ),
-            ),
+            const SignupForm(),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
@@ -84,21 +49,6 @@ class Signup extends StatelessWidget {
                     ))
               ],
             ),
-            FilledButton(
-                onPressed: () => context.go("/"),
-                style: ButtonStyle(
-                  backgroundColor: WidgetStateProperty.all(Colors.white),
-                  minimumSize:
-                      WidgetStateProperty.all(const Size(double.infinity, 40)),
-                  elevation: WidgetStateProperty.all(0),
-                  shape: WidgetStateProperty.all(
-                    RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(20.0),
-                    ),
-                  ),
-                ),
-                child: const Text(signUp,
-                    style: TextStyle(color: Colors.redAccent, fontSize: 20))),
           ],
         ),
       ),

@@ -1,0 +1,1 @@
+const errorEntry = "Please enter some text";

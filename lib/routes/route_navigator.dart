@@ -2,19 +2,22 @@ import '../screens/home.dart';
 import '../screens/about.dart';
 import '../screens/login.dart';
 import '../screens/signup.dart';
+import '../screens/error_screen.dart';
+
 import '../screens/notes/add_note.dart';
 import '../screens/notes/view_note.dart';
 import '../screens/notes/edit_note.dart';
 import '../screens/notes/search_note.dart';
+
 import '../screens/welcome/first_page.dart';
 import '../screens/welcome/second_page.dart';
 import '../screens/welcome/third_page.dart';
-import '../screens/error_screen.dart';
 
 import 'package:go_router/go_router.dart';
 
-final GoRouter _router = GoRouter(
-  initialLocation: '/notes/list',
+/// The route configuration.
+GoRouter router = GoRouter(
+  initialLocation: '/',
   routes: [
     GoRoute(
       path: '/',
