@@ -16,7 +16,6 @@ class Login extends StatefulWidget {
 class _LoginState extends State<Login> {
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
-  final bool _validate = false;
 
   @override
   Widget build(BuildContext context) {
