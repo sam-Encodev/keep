@@ -35,7 +35,6 @@ class _OnboardState extends State<Onboard> with TickerProviderStateMixin {
 
   @override
   Widget build(BuildContext context) {
-    final TextTheme textTheme = Theme.of(context).textTheme;
 
     return Scaffold(
         backgroundColor: Colors.black87,
@@ -146,7 +145,6 @@ class PageIndicator extends StatelessWidget {
     if (!isOnDesktopAndWeb) {
       return const SizedBox.shrink();
     }
-    final ColorScheme colorScheme = Theme.of(context).colorScheme;
 
     return Padding(
       padding: const EdgeInsets.all(8.0),
