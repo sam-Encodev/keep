@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:keep/constants/text.dart';
-import 'package:keep/utilities/form_styles.dart';
+import 'package:keep/utilities/styles.dart';
 
 class LoginForm extends StatefulWidget {
   const LoginForm({super.key});
