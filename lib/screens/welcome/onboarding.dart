@@ -6,15 +6,14 @@ import 'package:keep/utilities/styles.dart';
 import 'package:keep/screens/welcome/widget.dart';
 import 'package:dots_indicator/dots_indicator.dart';
 
-class Onboard extends StatefulWidget {
-  const Onboard({super.key});
+class Onboarding extends StatefulWidget {
+  const Onboarding({super.key});
 
   @override
-  State<Onboard> createState() => _OnboardState();
+  State<Onboarding> createState() => _OnboardState();
 }
 
-class _OnboardState extends State<Onboard> with TickerProviderStateMixin {
-  List<Map<String, Object>> stages = onboardStages;
+class _OnboardState extends State<Onboarding> with TickerProviderStateMixin {
   late PageController _pageViewController;
   late TabController _tabController;
   int _currentPageIndex = 0;
@@ -32,6 +31,40 @@ class _OnboardState extends State<Onboard> with TickerProviderStateMixin {
     _pageViewController.dispose();
     _tabController.dispose();
   }
+
+  bool get _isOnDesktopAndWeb {
+    if (kIsWeb) {
+      return true;
+    }
+    switch (defaultTargetPlatform) {
+      case TargetPlatform.macOS:
+      case TargetPlatform.linux:
+      case TargetPlatform.windows:
+        return true;
+      case TargetPlatform.android:
+      case TargetPlatform.iOS:
+      case TargetPlatform.fuchsia:
+        return true;
+    }
+  }
+
+  void _updateCurrentPageIndex(int index) {
+    _tabController.index = index;
+    _pageViewController.animateToPage(
+      index,
+      duration: const Duration(milliseconds: 400),
+      curve: Curves.easeInOut,
+    );
+  }
+
+  void _handlePageViewChanged(int currentPageIndex) {
+    _tabController.index = currentPageIndex;
+    setState(() {
+      _currentPageIndex = currentPageIndex;
+    });
+  }
+
+  final stages = Onboard().getStages();
 
   @override
   Widget build(BuildContext context) {
@@ -64,19 +97,13 @@ class _OnboardState extends State<Onboard> with TickerProviderStateMixin {
             Container(
               alignment: Alignment.center,
               padding: const EdgeInsets.all(20),
-              child: PageView(
+              child: PageView.builder(
+                itemBuilder: (BuildContext context, int index) {
+                  final stage = stages[index];
+                  return onBoardWidget(stage);
+                },
                 controller: _pageViewController,
                 onPageChanged: _handlePageViewChanged,
-                children: <Widget>[
-                  onBoardWidget("illustration.svg", "Intuitive note-taking",
-                      "Effortlessly organize your thought and ideas by keeping your important information at your fingertips."),
-                  onBoardWidget(
-                      "blog_header.svg",
-                      "Stay productive note-taking",
-                      "Stay productive on the go by ensuring you never forget anything important or vital."),
-                  onBoardWidget("challenges.svg", "Peace of mind",
-                      "Experience peace of mind with our automatic cloud syncing, ensuring your notes are securely backed up ans accessible."),
-                ],
               ),
             ),
             Container(
@@ -84,44 +111,12 @@ class _OnboardState extends State<Onboard> with TickerProviderStateMixin {
               child: PageIndicator(
                 tabController: _tabController,
                 currentPageIndex: _currentPageIndex,
-                onUpdateCurrentPageIndex: _updateCurrentPageIndex,
                 isOnDesktopAndWeb: _isOnDesktopAndWeb,
+                onUpdateCurrentPageIndex: _updateCurrentPageIndex,
               ),
             ),
           ],
         ));
-  }
-
-  void _handlePageViewChanged(int currentPageIndex) {
-    _tabController.index = currentPageIndex;
-    setState(() {
-      _currentPageIndex = currentPageIndex;
-    });
-  }
-
-  void _updateCurrentPageIndex(int index) {
-    _tabController.index = index;
-    _pageViewController.animateToPage(
-      index,
-      duration: const Duration(milliseconds: 400),
-      curve: Curves.easeInOut,
-    );
-  }
-
-  bool get _isOnDesktopAndWeb {
-    if (kIsWeb) {
-      return true;
-    }
-    switch (defaultTargetPlatform) {
-      case TargetPlatform.macOS:
-      case TargetPlatform.linux:
-      case TargetPlatform.windows:
-        return true;
-      case TargetPlatform.android:
-      case TargetPlatform.iOS:
-      case TargetPlatform.fuchsia:
-        return true;
-    }
   }
 }
 

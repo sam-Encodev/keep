@@ -1,12 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:keep/utilities/styles.dart';
 
-onBoardWidget(String assetName, String title, String body) {
+onBoardWidget(item) {
+  String image = item["image"];
+  String title = item["title"];
+  String body = item["body"];
+
   return Column(
     mainAxisSize: MainAxisSize.max,
     mainAxisAlignment: MainAxisAlignment.center,
     children: [
-      buildSVG(assetName),
+      buildSVG(image),
       const SizedBox(height: 50),
       Text(
         title,

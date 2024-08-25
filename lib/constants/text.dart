@@ -1,13 +1,13 @@
 const skip = "Skip";
 const errorEntry = "Please enter some text";
 
-const onboardStages = [
+const stages = [
   {
     "id": 0,
     "title": "Intuitive note-taking",
     "body":
         "Effortlessly organize your thought and ideas by keeping your important information at your fingertips.",
-    "image": "assets/svg/illustration.svg",
+    "image": "illustration.svg",
     "next_route": "",
   },
   {
@@ -15,15 +15,21 @@ const onboardStages = [
     "title": "Stay productive note-taking",
     "body":
         "Stay productive on the go by ensuring you never forget anything important or vital.",
-    "image": "assets/svg/blog_header.svg",
+    "image": "blog_header.svg",
     "next_route": ""
   },
   {
-    "id": 1,
+    "id": 2,
     "title": "Peace of mind",
     "body":
         "Experience peace of mind with our automatic cloud syncing, ensuring your notes are securely backed up ans accessible.",
-    "image": "assets/svg/challenges.svg",
+    "image": "challenges.svg",
     "next_route": ""
   }
 ];
+
+class Onboard {
+  getStages() {
+    return stages;
+  }
+}

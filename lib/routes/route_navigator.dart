@@ -31,7 +31,7 @@ GoRouter router = GoRouter(
     ),
     GoRoute(
       path: '/onboard',
-      builder: (context, state) => const Onboard(),
+      builder: (context, state) => const Onboarding(),
     ),
     GoRoute(
       path: '/login',
