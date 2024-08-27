@@ -2,17 +2,18 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:keep/utilities/logger.dart';
 import 'package:keep/utilities/switch_color.dart';
-import 'package:keep/utilities/data.dart';
+import 'package:keep/providers/notes_provider.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-class ViewNote extends StatelessWidget {
-  ViewNote({super.key});
-
-  final notes = NotesData().getNotes();
+class ViewNote extends ConsumerWidget {
+  const ViewNote({super.key});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     final extraString = GoRouterState.of(context).pathParameters['noteId'];
-    final note = notes[int.parse(extraString!)];
+    var getNotes = ref.watch(noteNotifierProvider);
+    var transformNotes = getNotes.toList();
+    var note = transformNotes[int.parse(extraString!)];
 
     return Scaffold(
       appBar: AppBar(
@@ -43,7 +44,7 @@ class ViewNote extends StatelessWidget {
                   ),
                 )),
             icon: const Icon(Icons.circle),
-            color: SwitchColor.switchColor(note['color']!),
+            color: SwitchColor.switchColor(note.color),
             onPressed: () => _colorPickerDialog(context),
           ),
           IconButton(
@@ -74,12 +75,12 @@ class ViewNote extends StatelessWidget {
                 shrinkWrap: true,
                 children: <Widget>[
                   const SizedBox(height: 30),
-                  Text('${note['title']}',
+                  Text(note.title,
                       style: const TextStyle(
                         color: Colors.white,
                         fontSize: 30,
                       )),
-                  Text('${note['desc']}',
+                  Text(note.description,
                       style:
                           const TextStyle(color: Colors.white, fontSize: 20)),
                 ],
@@ -201,7 +202,7 @@ Future<void> _colorPickerDialog(BuildContext context) {
             mainAxisSize: MainAxisSize.min,
             children: colors
                 .map((e) => TextButton.icon(
-                      onPressed: () => Foo.func(),
+                      onPressed: () => Logger.info("empty"),
                       icon: ClipOval(
                           child: Container(
                               height: 30,

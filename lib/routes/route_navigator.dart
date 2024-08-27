@@ -19,11 +19,11 @@ import 'package:go_router/go_router.dart';
 
 /// The route configuration.
 GoRouter router = GoRouter(
-  initialLocation: '/onboard',
+  initialLocation: '/',
   routes: [
     GoRoute(
       path: '/',
-      builder: (context, state) => Home(),
+      builder: (context, state) => const Home(),
     ),
     GoRoute(
       path: '/about',
@@ -59,7 +59,7 @@ GoRouter router = GoRouter(
     ),
     GoRoute(
       path: '/notes/:noteId',
-      builder: (context, state) => ViewNote(),
+      builder: (context, state) => const ViewNote(),
     ),
     GoRoute(
       path: '/notes/edit/:noteId',
