@@ -1,4 +1,4 @@
-class Foo {
+class Logger {
   // ignore: avoid_print
-  static void func() => print('Hello');
+  static void info(text) => print(text);
 }

@@ -47,6 +47,30 @@ dotsStyle() {
   );
 }
 
+transportInputBorder() {
+  return const OutlineInputBorder(
+    borderSide: BorderSide(color: Colors.transparent),
+  );
+}
+
+transparentFocusedBorder() {
+  return const OutlineInputBorder(
+    borderSide: BorderSide(color: Colors.transparent),
+  );
+}
+
+transparentErrorBorder() {
+  return const OutlineInputBorder(
+    borderSide: BorderSide(color: Colors.transparent),
+  );
+}
+
+transparentEnabledBorder() {
+  return const OutlineInputBorder(
+    borderSide: BorderSide(color: Colors.transparent),
+  );
+}
+
 buildSVG(String assetName) {
   return SvgPicture.asset(
     width: 70,

@@ -1,9 +1,33 @@
 import 'package:flutter/material.dart';
 
+const colors = [
+  {
+    "name": 'red',
+  },
+  {
+    "name": 'orange',
+  },
+  {
+    "name": 'yellow',
+  },
+  {
+    "name": 'green',
+  },
+  {
+    "name": 'blue',
+  },
+  {
+    "name": 'indigo',
+  },
+  {
+    "name": 'white',
+  }
+];
+
 class SwitchColor {
-  static Color switchColor(String color) {
+  static Color switchColor([String color = ""]) {
     switch (color) {
-      case 'red':
+      case "red":
         return Colors.redAccent;
       case "orange":
         return Colors.orange;
@@ -15,8 +39,10 @@ class SwitchColor {
         return Colors.blue;
       case 'indigo':
         return Colors.indigo;
-      default:
+      case 'white':
         return Colors.white;
+      default:
+        return Colors.lightGreenAccent;
     }
   }
 }
