@@ -1,15 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:keep/utilities/data.dart';
-import 'package:keep/screens/empty_state.dart';
 import 'package:keep/screens/notes/list_notes.dart';
 
 class Home extends StatelessWidget {
-  Home({super.key});
+  const Home({super.key});
 
   static const appName = "Notes";
-
-  final notes = NotesData().getNotes();
 
   @override
   Widget build(BuildContext context) {
@@ -54,7 +50,7 @@ class Home extends StatelessWidget {
           decoration: const BoxDecoration(
             color: Colors.black87,
           ),
-          child: notes.isEmpty ? const EmptyState() : ListNotes(data: notes)),
+          child: const ListNotes()),
       floatingActionButton: FloatingActionButton(
         onPressed: () => context.push('/notes/new'),
         foregroundColor: Colors.white,

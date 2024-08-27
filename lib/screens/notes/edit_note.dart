@@ -219,7 +219,7 @@ Future<void> _colorPickerDialog(BuildContext context) {
             children: colors
                 .map((e) => TextButton.icon(
                       //  print(e.values.last);
-                      onPressed: () => Foo.func(),
+                      onPressed: () => Logger.info("empty"),
                       icon: ClipOval(
                           child: Container(
                               height: 30,
