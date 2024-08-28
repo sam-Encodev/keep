@@ -1,6 +1,3 @@
-const skip = "Skip";
-const errorEntry = "Please enter some text";
-
 const stages = [
   {
     "id": 0,

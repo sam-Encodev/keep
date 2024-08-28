@@ -1,5 +1,9 @@
 const appName = "Notes";
 const newNote = "Create your first note";
+const errorEntry = "Please enter some text";
+
+// Onboard
+const skip = "Skip";
 
 // About
 const name = "Kwame Opam";
@@ -26,13 +30,11 @@ const noAccount = "Don't have an account?";
 const goBack = "Return Home";
 const pageNotFound = "Page not found";
 
-// EditNote
+// Note
 const no = "No";
 const yes = "Yes";
 const title = "Title";
 const pickColor = "Pick a color";
 const description = "Type something...";
-const prompt = "Are you sure you want to save?";
-
-// Search
 const placeholder = "Search by keyword";
+const prompt = "Are you sure you want to save?";
