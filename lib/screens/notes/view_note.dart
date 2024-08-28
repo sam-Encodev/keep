@@ -43,21 +43,9 @@ class ViewNote extends ConsumerWidget {
                     borderRadius: BorderRadius.circular(10.0),
                   ),
                 )),
-            icon: const Icon(Icons.circle),
-            color: SwitchColor.switchColor(note.color),
-            onPressed: () => _colorPickerDialog(context),
-          ),
-          IconButton(
-            style: ButtonStyle(
-                backgroundColor: WidgetStateProperty.all(Colors.black87),
-                shape: WidgetStateProperty.all(
-                  RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(10.0),
-                  ),
-                )),
-            icon: const Icon(Icons.save),
+            icon: const Icon(Icons.edit),
             color: Colors.white,
-            onPressed: () => _saveNoteDialog(context),
+            onPressed: () => {context.push('/notes/edit/${note.id}')},
           ),
         ],
       ),
