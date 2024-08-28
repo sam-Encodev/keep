@@ -15,3 +15,5 @@ Packages used:
 - [Slidable](https://pub.dev/packages/flutter_slidable) A Flutter implementation of slidable list item with directional slide actions that can be dismissed.
 
 ## Screenshots
+| Home | About | Add Note | View Note | Edit Note | Delete Note | Search Note | Pick Color |
+|----------|----------|----------|----------|----------|----------|----------|----------|
