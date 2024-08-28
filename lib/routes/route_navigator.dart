@@ -11,10 +11,6 @@ import '../screens/notes/view_note.dart';
 import '../screens/notes/edit_note.dart';
 import '../screens/notes/search_note.dart';
 
-import '../screens/welcome/first_page.dart';
-import '../screens/welcome/second_page.dart';
-import '../screens/welcome/third_page.dart';
-
 import 'package:go_router/go_router.dart';
 
 /// The route configuration.
@@ -40,18 +36,6 @@ GoRouter router = GoRouter(
     GoRoute(
       path: '/signup',
       builder: (context, state) => const Signup(),
-    ),
-    GoRoute(
-      path: '/welcome/first',
-      builder: (context, state) => const FirstPage(),
-    ),
-    GoRoute(
-      path: '/welcome/second',
-      builder: (context, state) => const SecondPage(),
-    ),
-    GoRoute(
-      path: '/welcome/third',
-      builder: (context, state) => const ThirdPage(),
     ),
     GoRoute(
       path: '/notes/new',
