@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:keep/utilities/styles.dart';
 
-onBoardWidget(item) {
+onBoard(item) {
   String image = item["image"];
   String title = item["title"];
   String body = item["body"];

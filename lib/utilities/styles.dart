@@ -79,3 +79,10 @@ buildSVG(String assetName) {
     semanticsLabel: assetName,
   );
 }
+
+buildText(String data) {
+  return Text(
+    data,
+    style: const TextStyle(color: Colors.white, fontSize: 20),
+  );
+}
