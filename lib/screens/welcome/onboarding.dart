@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/foundation.dart';
 import 'package:go_router/go_router.dart';
-import 'package:keep/constants/text.dart';
+import 'package:keep/constants/onboard.dart';
 import 'package:keep/utilities/styles.dart';
 import 'package:keep/screens/welcome/widget.dart';
 import 'package:dots_indicator/dots_indicator.dart';
@@ -147,7 +147,7 @@ class PageIndicator extends StatelessWidget {
         children: <Widget>[
           DotsIndicator(
             dotsCount: tabController.length,
-            position: currentPageIndex.toDouble(),
+            position: currentPageIndex,
             decorator: dotsStyle(),
           ),
           Row(
