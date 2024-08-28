@@ -1,17 +1,14 @@
-import 'package:keep/screens/welcome/onboarding.dart';
-
-import '../screens/home.dart';
-import '../screens/about.dart';
-import '../screens/login.dart';
-import '../screens/signup.dart';
-import '../screens/error_screen.dart';
-
-import '../screens/notes/add_note.dart';
-import '../screens/notes/view_note.dart';
-import '../screens/notes/edit_note.dart';
-import '../screens/notes/search_note.dart';
-
+import 'package:keep/screens/home.dart';
+import 'package:keep/screens/about.dart';
+import 'package:keep/screens/login.dart';
+import 'package:keep/screens/signup.dart';
 import 'package:go_router/go_router.dart';
+import 'package:keep/screens/error_screen.dart';
+import 'package:keep/screens/notes/add_note.dart';
+import 'package:keep/screens/notes/view_note.dart';
+import 'package:keep/screens/notes/edit_note.dart';
+import 'package:keep/screens/notes/search_note.dart';
+import 'package:keep/screens/welcome/onboarding.dart';
 
 /// The route configuration.
 GoRouter router = GoRouter(
