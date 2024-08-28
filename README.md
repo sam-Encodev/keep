@@ -6,7 +6,7 @@ Functionalities include:
 - View
 - Edit
 - Delete
-- Search
+- Search (yet to be implemented)
 
 Packages used:
 - [Jiffy](https://pub.dev/packages/jiffy) Jiffy is a Flutter (Android, IOS and Web) date time package for parsing, manipulating, querying and formatting dates and time.
