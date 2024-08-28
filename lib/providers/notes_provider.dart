@@ -26,10 +26,24 @@ class NoteNotifier extends Notifier<Set<Note>> {
     }
   }
 
-  void removeNote(Note note) {
-    if (state.contains(note)) {
-      state = state.where((p) => p.id != note.id).toSet();
-    }
+  void removeNote(noteID) {
+    state = state.where((p) => p.id != noteID).toSet();
+
+    // if (state.contains(noteID)) {
+    //   state = state.where((p) => p.id != noteID).toSet();
+    // }
+  }
+
+  void editNote(Note note) {
+    // Logger.info({"new": note.color});
+    var oldNote = state.where((p) => p.id == note.id);
+    // Logger.info({"old": oldNote.first.color});
+    oldNote.first.title = note.title;
+    oldNote.first.description = note.description;
+    oldNote.first.color = note.color;
+    oldNote.first.timestamp = note.timestamp;
+
+    state = {...state};
   }
 }
 
