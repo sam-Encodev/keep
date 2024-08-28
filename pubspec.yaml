@@ -39,7 +39,6 @@ dependencies:
   flutter_svg: ^2.0.5
   dots_indicator: ^3.0.0
   flutter_riverpod: ^2.5.1
-  uuid: ^4.4.2
   riverpod_annotation: ^2.3.5
   jiffy: ^6.3.1
   flutter_slidable: ^3.1.1
