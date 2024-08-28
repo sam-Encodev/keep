@@ -1,13 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:keep/forms/login.dart';
 import 'package:go_router/go_router.dart';
+import 'package:keep/constants/text.dart';
 
 class Login extends StatefulWidget {
   const Login({super.key});
-
-  static const signUp = "Sign up";
-  static const getStarted = "Welcome Back";
-  static const user = "Don't have an account?";
 
   @override
   State<Login> createState() => _LoginState();
@@ -29,7 +26,7 @@ class _LoginState extends State<Login> {
         child: Column(
           children: [
             const Text(
-              Login.getStarted,
+              welcomeBack,
               style: TextStyle(
                 fontSize: 80,
                 color: Colors.white,
@@ -43,13 +40,13 @@ class _LoginState extends State<Login> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 const Text(
-                  Login.user,
+                  noAccount,
                   style: TextStyle(color: Colors.white),
                 ),
                 TextButton(
                     onPressed: () => {context.go("/signup")},
                     child: const Text(
-                      Login.signUp,
+                      signUp,
                       style: TextStyle(color: Colors.red),
                     ))
               ],

@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:keep/constants/text.dart';
 import 'package:keep/utilities/styles.dart';
 
 class EmptyState extends StatelessWidget {
   const EmptyState({super.key});
-
-  static const newNote = "Create your first note";
 
   @override
   Widget build(BuildContext context) {

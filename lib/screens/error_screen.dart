@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:keep/constants/text.dart';
 
 class ErrorScreen extends StatelessWidget {
   const ErrorScreen({super.key});
-  static const newNote = "Create your first note";
-  static const message = "Page not found";
-  static const goBack = "Return Home";
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -23,7 +22,7 @@ class ErrorScreen extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               const Text(
-                message,
+                pageNotFound,
                 style: TextStyle(color: Colors.white, fontSize: 20),
               ),
               const SizedBox(height: 10),

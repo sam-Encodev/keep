@@ -1,13 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:keep/forms/signup.dart';
 import 'package:go_router/go_router.dart';
+import 'package:keep/constants/text.dart';
 
 class Signup extends StatelessWidget {
   const Signup({super.key});
-
-  static const login = "Login";
-  static const getStarted = "Get Started";
-  static const user = "Already have an account?";
 
   @override
   Widget build(BuildContext context) {
@@ -38,7 +35,7 @@ class Signup extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 const Text(
-                  user,
+                  haveAnAccount,
                   style: TextStyle(color: Colors.white),
                 ),
                 TextButton(

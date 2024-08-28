@@ -1,6 +1,7 @@
 import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:keep/models/note.dart';
+import 'package:keep/constants/text.dart';
 import 'package:go_router/go_router.dart';
 import 'package:keep/utilities/styles.dart';
 import 'package:keep/utilities/logger.dart';
@@ -20,17 +21,10 @@ class AddNote extends ConsumerStatefulWidget {
 class AddNoteForm extends ConsumerState<AddNote> {
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
-  static const no = "No";
-  static const yes = "Yes";
-  static const title = "Title";
-  static const pickColor = "Pick a color";
-  static const description = "Type something...";
-  static const prompt = "Are you sure you want to save?";
-
   late int _counter;
   String? _titleField;
   String? _descriptionField;
-  String? _color = "yellow";
+  String? _color = colors[2].values.first;
   final String _timestamp = DateTime.timestamp().toString();
 
   var randomNumber = Random().nextInt(7) + 3;

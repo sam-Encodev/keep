@@ -1,15 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:keep/constants/text.dart';
 import 'package:go_router/go_router.dart';
+import 'package:keep/utilities/styles.dart';
 
 class About extends StatelessWidget {
   const About({super.key});
-
-  static const author = "Made by Samuel Martey";
-  static const designer = "Designed by Samuel Martey";
-  static const icons = "Icons - PNG and SVG";
-  static const font = "Font - Nunito";
-  static const signOut = "Sign out";
-  static const version = "Version 1.0.0";
 
   @override
   Widget build(BuildContext context) {
@@ -45,17 +40,11 @@ class About extends StatelessWidget {
                 alignment: Alignment.centerLeft,
                 child: ListView(
                   shrinkWrap: true,
-                  children: const <Widget>[
-                    Text(
-                      author,
-                      style: TextStyle(color: Colors.white, fontSize: 20),
-                    ),
-                    Text(designer,
-                        style: TextStyle(color: Colors.white, fontSize: 20)),
-                    Text(icons,
-                        style: TextStyle(color: Colors.white, fontSize: 20)),
-                    Text(font,
-                        style: TextStyle(color: Colors.white, fontSize: 20)),
+                  children: <Widget>[
+                    buildText(font),
+                    buildText(icons),
+                    buildText(author),
+                    buildText(designer),
                   ],
                 ),
               ),
@@ -78,8 +67,8 @@ class About extends StatelessWidget {
                           style: TextStyle(
                               color: Colors.redAccent, fontSize: 20))),
                   const SizedBox(height: 10),
-                  const Text(version,
-                      style: TextStyle(color: Colors.white, fontSize: 20)),
+                  buildText(version),
+                  const SizedBox(height: 15),
                 ],
               ),
             ],

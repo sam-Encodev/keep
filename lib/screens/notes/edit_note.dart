@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:keep/constants/text.dart';
 import 'package:keep/models/note.dart';
 import 'package:go_router/go_router.dart';
 import 'package:keep/utilities/styles.dart';
@@ -16,13 +17,6 @@ class EditNote extends ConsumerStatefulWidget {
 
 class EditNoteForm extends ConsumerState<EditNote> {
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
-
-  static const no = "No";
-  static const yes = "Yes";
-  static const title = "Title";
-  static const pickColor = "Pick a color";
-  static const description = "Type something...";
-  static const prompt = "Are you sure you want to save?";
 
   String? _color;
   String? _titleField;

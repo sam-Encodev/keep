@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:keep/constants/text.dart';
 
 class SearchNote extends StatefulWidget {
   const SearchNote({super.key});
@@ -9,7 +10,6 @@ class SearchNote extends StatefulWidget {
 }
 
 class _SearchNote extends State<SearchNote> {
-  static const placeholder = "Search by keyword";
   final textController = TextEditingController(text: "");
 
   @override

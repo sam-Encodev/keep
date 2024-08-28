@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:keep/constants/text.dart';
 import 'package:keep/screens/notes/list_notes.dart';
 
 class Home extends StatelessWidget {
   const Home({super.key});
-
-  static const appName = "Notes";
 
   @override
   Widget build(BuildContext context) {
