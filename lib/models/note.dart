@@ -6,9 +6,9 @@ class Note {
     required this.timestamp,
     required this.description,
   });
-  final int id;
-  final String title;
-  final String color;
-  final String timestamp;
-  final String description;
+  int id;
+  String title;
+  String color;
+  String timestamp;
+  String description;
 }
