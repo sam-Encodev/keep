@@ -12,7 +12,7 @@ import 'package:keep/screens/notes/search_note.dart';
 
 /// The route configuration.
 GoRouter router = GoRouter(
-  initialLocation: '/',
+  initialLocation: '/onboard',
   routes: [
     GoRoute(
       path: '/',
