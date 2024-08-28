@@ -17,3 +17,4 @@ Packages used:
 ## Screenshots
 | Home | About | Add Note | View Note | Edit Note | Delete Note | Search Note | Pick Color |
 |----------|----------|----------|----------|----------|----------|----------|----------|
+![Simulator Screenshot - iPhone 15 - 2024-08-28 at 18 20 28](https://github.com/user-attachments/assets/fc622358-7dec-4d64-a211-2ca36646abdb) | ![Simulator Screenshot - iPhone 15 - 2024-08-28 at 18 21 43](https://github.com/user-attachments/assets/9a6c15e2-ea4e-4e73-a93d-fcd42dc07f28) | ![Simulator Screenshot - iPhone 15 - 2024-08-28 at 18 21 10](https://github.com/user-attachments/assets/a424b627-2da1-4190-a286-6ebbd29a1f5b)
