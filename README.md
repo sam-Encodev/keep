@@ -1,4 +1,4 @@
-![Simulator Screenshot - iPhone 15 - 2024-08-28 at 18 57 43](https://github.com/user-attachments/assets/7fc5064d-9ddb-4856-ba3d-ea63b640f7a6)# Keep
+# Keep
 
 A simple notes app built with Flutter.
 Functionalities include:
