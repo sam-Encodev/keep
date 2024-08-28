@@ -5,6 +5,7 @@ import 'package:keep/screens/empty_state.dart';
 import 'package:keep/utilities/switch_color.dart';
 import 'package:keep/providers/notes_provider.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_slidable/flutter_slidable.dart';
 
 class ListNotes extends ConsumerStatefulWidget {
   const ListNotes({super.key});
@@ -13,7 +14,13 @@ class ListNotes extends ConsumerStatefulWidget {
   ConsumerState<ListNotes> createState() => _ListNotesState();
 }
 
-class _ListNotesState extends ConsumerState<ListNotes> {
+class _ListNotesState extends ConsumerState<ListNotes>
+    with SingleTickerProviderStateMixin {
+  late final controller = SlidableController(this);
+
+  static const spacing = 8.0;
+  static const padding = 10.0;
+
   @override
   Widget build(BuildContext context) {
     var getNotes = ref.watch(noteNotifierProvider);
@@ -22,31 +29,65 @@ class _ListNotesState extends ConsumerState<ListNotes> {
     return getNotes.isEmpty
         ? const EmptyState()
         : ListView.separated(
-            itemCount: getNotes.length,
+            itemCount: getNotes.length.toInt(),
             itemBuilder: (BuildContext context, int index) {
-              return Container(
-                decoration: BoxDecoration(
-                    color: SwitchColor.switchColor(note[index].color),
-                    borderRadius: BorderRadius.circular(10)),
-                child: ListTile(
-                  onTap: () => context.push('/notes/${note[index].id}'),
-                  title: Text(
-                    note[index].title,
-                    style: const TextStyle(
-                        color: Colors.black87,
-                        fontWeight: FontWeight.bold,
-                        fontSize: 23),
-                  ),
-                  subtitle: Text(
-                    dateFormatter(note[index].timestamp),
-                    style: const TextStyle(color: Colors.black87),
+              return Slidable(
+                key: ValueKey(index),
+                endActionPane: ActionPane(
+                  motion: const ScrollMotion(),
+                  children: [
+                    const SizedBox(width: spacing),
+                    SlidableAction(
+                        label: 'Edit',
+                        icon: Icons.edit,
+                        backgroundColor: Colors.black87,
+                        foregroundColor: Colors.white,
+                        borderRadius: BorderRadius.circular(10),
+                        padding:
+                            const EdgeInsets.symmetric(horizontal: padding),
+                        onPressed: (_) =>
+                            {context.push('/notes/edit/${note[index].id}')}),
+                    const SizedBox(width: spacing),
+                    SlidableAction(
+                      icon: Icons.delete,
+                      label: 'Delete',
+                      backgroundColor: Colors.black87,
+                      foregroundColor: Colors.white,
+                      borderRadius: BorderRadius.circular(10),
+                      padding: const EdgeInsets.symmetric(horizontal: padding),
+                      onPressed: (_) => {
+                        ref
+                            .read(noteNotifierProvider.notifier)
+                            .removeNote(note[index].id),
+                        controller.close()
+                      },
+                    ),
+                  ],
+                ),
+                child: Container(
+                  decoration: BoxDecoration(
+                      color: SwitchColor.switchColor(note[index].color),
+                      borderRadius: BorderRadius.circular(10)),
+                  child: ListTile(
+                    onTap: () => context.push('/notes/${note[index].id}'),
+                    title: Text(
+                      note[index].title,
+                      style: const TextStyle(
+                          color: Colors.black,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 23),
+                    ),
+                    subtitle: Text(
+                      dateFormatter(note[index].timestamp),
+                      style: const TextStyle(color: Colors.black87),
+                    ),
                   ),
                 ),
               );
             },
             separatorBuilder: (BuildContext context, int index) =>
                 const Divider(
-              height: 9,
+              height: spacing,
               color: Colors.black87,
             ),
           );
