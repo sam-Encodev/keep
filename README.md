@@ -1,4 +1,4 @@
-# Keep
+![Simulator Screenshot - iPhone 15 - 2024-08-28 at 18 53 30](https://github.com/user-attachments/assets/c8fb0907-a4a7-4167-9f2d-918c923f23fe)# Keep
 
 A simple notes app built with Flutter.
 Functionalities include:
@@ -19,7 +19,7 @@ Packages used:
 ### Onboard Screens
 | 1 | 2 | 3 |
 |----------|----------|----------|
-![Simulator Screenshot - iPhone 15 - 2024-08-28 at 18 20 28](https://github.com/user-attachments/assets/fc622358-7dec-4d64-a211-2ca36646abdb) | ![Simulator Screenshot - iPhone 15 - 2024-08-28 at 18 21 43](https://github.com/user-attachments/assets/9a6c15e2-ea4e-4e73-a93d-fcd42dc07f28) | ![Simulator Screenshot - iPhone 15 - 2024-08-28 at 18 21 10](https://github.com/user-attachments/assets/a424b627-2da1-4190-a286-6ebbd29a1f5b)
+![Simulator Screenshot - iPhone 15 - 2024-08-28 at 18 53 30](https://github.com/user-attachments/assets/b498b151-c180-42db-931f-db79264a12a2) | ![Simulator Screenshot - iPhone 15 - 2024-08-28 at 18 53 33](https://github.com/user-attachments/assets/9127aa5b-1f74-4c89-8662-efc473859cec) | ![Simulator Screenshot - iPhone 15 - 2024-08-28 at 18 53 37](https://github.com/user-attachments/assets/e8aa3b59-1798-4860-9246-fb001bbd778f)
 
 ### Main Screens
 | Home | About | Login | Signup | Empty State | Error State |
