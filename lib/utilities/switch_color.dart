@@ -25,7 +25,7 @@ const colors = [
 ];
 
 class SwitchColor {
-  static Color switchColor([String color = ""]) {
+  static Color switchColor([color = ""]) {
     switch (color) {
       case "red":
         return Colors.redAccent;
