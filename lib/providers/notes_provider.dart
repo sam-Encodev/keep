@@ -1,3 +1,4 @@
+import 'package:jiffy/jiffy.dart';
 import 'package:keep/models/note.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
@@ -15,7 +16,9 @@ class NoteNotifier extends Notifier<Set<Note>> {
           id: 1,
           title: "Sleep",
           description: "I lied",
-          timestamp: DateTime.timestamp().toString(),
+          timestamp: Jiffy.parse(DateTime.timestamp().toString())
+              .subtractDuration(const Duration(days: 10, hours: 6))
+              .format(),
           color: "yellow"),
     };
   }
