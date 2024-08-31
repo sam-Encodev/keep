@@ -38,8 +38,6 @@ class Home extends StatelessWidget {
             icon: const Icon(Icons.info),
             color: Colors.white,
             onPressed: () => context.push("/about"),
-            // ignore: avoid_print
-            // onPressed: () => print(notes[1]),
           ),
         ],
       ),
