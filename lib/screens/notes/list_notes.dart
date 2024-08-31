@@ -7,22 +7,16 @@ import 'package:keep/providers/notes_provider.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 
-class ListNotes extends ConsumerStatefulWidget {
-  const ListNotes({super.key});
+class ListNotes extends ConsumerWidget {
+  ListNotes({super.key});
 
-  @override
-  ConsumerState<ListNotes> createState() => _ListNotesState();
-}
-
-class _ListNotesState extends ConsumerState<ListNotes>
-    with SingleTickerProviderStateMixin {
-  late final controller = SlidableController(this);
+  late final controller = SlidableController(this as TickerProvider);
 
   static const spacing = 8.0;
   static const padding = 10.0;
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     var getNotes = ref.watch(noteNotifierProvider);
     var note = getNotes.toList();
 
