@@ -49,7 +49,7 @@ class Home extends StatelessWidget {
           decoration: const BoxDecoration(
             color: Colors.black87,
           ),
-          child: const ListNotes()),
+          child: ListNotes()),
       floatingActionButton: FloatingActionButton(
         onPressed: () => context.push('/notes/new'),
         foregroundColor: Colors.white,
