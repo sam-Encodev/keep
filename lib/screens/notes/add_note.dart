@@ -1,14 +1,11 @@
-import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:keep/models/note.dart';
 import 'package:keep/constants/text.dart';
 import 'package:go_router/go_router.dart';
 import 'package:keep/utilities/styles.dart';
 import 'package:keep/utilities/logger.dart';
-import 'package:keep/constants/onboard.dart';
 import 'package:keep/utilities/switch_color.dart';
 import 'package:keep/providers/notes_provider.dart';
-import 'package:keep/providers/counter_provider.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 class AddNote extends ConsumerStatefulWidget {
@@ -21,17 +18,15 @@ class AddNote extends ConsumerStatefulWidget {
 class AddNoteForm extends ConsumerState<AddNote> {
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
-  late int _counter;
   String? _titleField;
   String? _descriptionField;
   String? _color = colors[2].values.first;
   final String _timestamp = DateTime.timestamp().toString();
 
-  var randomNumber = Random().nextInt(7) + 3;
   @override
   Widget build(BuildContext context) {
-    ref.watch(noteNotifierProvider);
-    _counter = ref.watch(counterProvider);
+    var getNotes = ref.watch(noteNotifierProvider);
+    var index = getNotes.length;
 
     return Scaffold(
       appBar: AppBar(
@@ -168,7 +163,7 @@ class AddNoteForm extends ConsumerState<AddNote> {
                                       ref
                                           .read(noteNotifierProvider.notifier)
                                           .addNote(Note(
-                                              id: _counter,
+                                              id: index,
                                               title: "$_titleField",
                                               description: "$_descriptionField",
                                               timestamp: _timestamp,
