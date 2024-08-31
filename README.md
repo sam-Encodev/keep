@@ -24,7 +24,8 @@ Packages used:
 ### Main Screens
 | Home | About | Signup | Login | Empty State | Error State |
 |----------|----------|----------|----------|----------|----------|
-![Simulator Screenshot - iPhone 15 - 2024-08-28 at 18 20 28](https://github.com/user-attachments/assets/fc622358-7dec-4d64-a211-2ca36646abdb) | ![Simulator Screenshot - iPhone 15 - 2024-08-28 at 18 21 43](https://github.com/user-attachments/assets/9a6c15e2-ea4e-4e73-a93d-fcd42dc07f28) | ![Simulator Screenshot - iPhone 15 - 2024-08-28 at 18 53 56](https://github.com/user-attachments/assets/e0b170fd-6b97-476c-8db3-a2cba231c85f) | ![Simulator Screenshot - iPhone 15 - 2024-08-28 at 18 53 52](https://github.com/user-attachments/assets/dcb22499-025c-4ba3-8c26-c808bc956e82) | ![Simulator Screenshot - iPhone 15 - 2024-08-28 at 18 56 08](https://github.com/user-attachments/assets/c922b91b-97d9-4109-aafa-8a35f344caaa) | ![Simulator Screenshot - iPhone 15 - 2024-08-28 at 18 57 43](https://github.com/user-attachments/assets/1b7f11b2-6a30-46cf-872a-451730e69d6e)
+![Simulator Screenshot - iPhone 15 - 2024-08-28 at 18 20 28](https://github.com/user-attachments/assets/fc622358-7dec-4d64-a211-2ca36646abdb) | ![Simulator Screenshot - iPhone 15 - 2024-08-28 at 18 21 43](https://github.com/user-attachments/assets/9a6c15e2-ea4e-4e73-a93d-fcd42dc07f28) | ![Simulator Screenshot - iPhone 15 - 2024-08-28 at 18 53 56](https://github.com/user-attachments/assets/e0b170fd-6b97-476c-8db3-a2cba231c85f) | ![Simulator Screenshot - iPhone 15 - 2024-08-28 at 18 53 52](https://github.com/user-attachments/assets/dcb22499-025c-4ba3-8c26-c808bc956e82) | ![Simulator Screenshot - iPhone 15 - 2024-08-28 at 18 56 08](https://github.com/user-attachments/assets/c922b91b-97d9-4109-aafa-8a35f344caaa) | ![Simulator Screenshot - iPhone 15 - 2024-08-29 at 23 24 47](https://github.com/user-attachments/assets/b7758f41-eea9-4838-9d64-da9d8fa85d60)
+
 
 ### Note Screens
 | Create | View | Edit | Delete | Search | Pick Color |
