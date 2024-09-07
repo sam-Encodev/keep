@@ -40,11 +40,11 @@ GoRouter router([String? initialLocation]) => GoRouter(
           builder: (context, state) => const AddNote(),
         ),
         GoRoute(
-          path: RouteNames.notesNoteId("noteId"),
+          path: RouteNames.notesNoteId(":noteId"),
           builder: (context, state) => const ViewNote(),
         ),
         GoRoute(
-          path: RouteNames.notesEditNoteId("noteId"),
+          path: RouteNames.notesEditNoteId(":noteId"),
           builder: (context, state) => const EditNote(),
         ),
         GoRoute(
