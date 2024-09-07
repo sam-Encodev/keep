@@ -18,7 +18,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp.router(
       title: notes,
-      routerConfig: router,
+      routerConfig: router(),
       debugShowCheckedModeBanner: false,
     );
   }

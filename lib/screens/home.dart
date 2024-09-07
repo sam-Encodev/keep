@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:keep/constants/text.dart';
+import 'package:keep/routes/route_names.dart';
 import 'package:keep/screens/notes/list_notes.dart';
 
 class Home extends StatelessWidget {
@@ -25,7 +26,7 @@ class Home extends StatelessWidget {
                 )),
             icon: const Icon(Icons.search),
             color: Colors.white,
-            onPressed: () => context.push("/search"),
+            onPressed: () => context.push(RouteNames.search),
           ),
           IconButton(
             style: ButtonStyle(
@@ -37,7 +38,7 @@ class Home extends StatelessWidget {
                 )),
             icon: const Icon(Icons.info),
             color: Colors.white,
-            onPressed: () => context.push("/about"),
+            onPressed: () => context.push(RouteNames.about),
           ),
         ],
       ),
@@ -49,7 +50,7 @@ class Home extends StatelessWidget {
           ),
           child: ListNotes()),
       floatingActionButton: FloatingActionButton(
-        onPressed: () => context.push('/notes/new'),
+        onPressed: () => context.push(RouteNames.notesNew),
         foregroundColor: Colors.white,
         backgroundColor: Colors.black54,
         child: const Icon(Icons.add, size: 30),

@@ -5,6 +5,7 @@ import 'package:keep/constants/text.dart';
 import 'package:keep/utilities/styles.dart';
 import 'package:keep/constants/widgets.dart';
 import 'package:keep/constants/onboard.dart';
+import 'package:keep/routes/route_names.dart';
 import 'package:dots_indicator/dots_indicator.dart';
 
 class Onboarding extends StatefulWidget {
@@ -76,7 +77,7 @@ class _OnboardState extends State<Onboarding> with TickerProviderStateMixin {
           backgroundColor: Colors.black87,
           actions: [
             FilledButton(
-                onPressed: () => context.pushReplacement('/'),
+                onPressed: () => context.pushReplacement(RouteNames.home),
                 style: ButtonStyle(
                   backgroundColor: WidgetStateProperty.all(Colors.white),
                   elevation: WidgetStateProperty.all(0),
@@ -179,7 +180,7 @@ class PageIndicator extends StatelessWidget {
               IconButton(
                 onPressed: () {
                   if (currentPageIndex == 2) {
-                    context.pushReplacement('/');
+                    context.pushReplacement(RouteNames.home);
                     return;
                   }
                   onUpdateCurrentPageIndex(currentPageIndex + 1);
