@@ -1,11 +1,11 @@
 class RouteNames {
   static const home = "/";
   static const about = "/about";
-  static const onboard = "/onboard";
   static const login = "/login";
-  static const signup = "/signup";
-  static const notesNew = "/notes/new";
-  static const notesNoteId = "/notes/:noteId";
-  static const notesEditNoteId = "/notes/edit/:noteId";
   static const search = "/search";
+  static const signup = "/signup";
+  static const onboard = "/onboard";
+  static const notesNew = "/notes/new";
+  static notesNoteId(noteId) => "/notes/:$noteId";
+  static notesEditNoteId(noteId) => "/notes/edit/:$noteId";
 }
