@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:keep/routes/route_names.dart';
 import 'package:keep/providers/notes_provider.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -43,7 +44,8 @@ class ViewNote extends ConsumerWidget {
                 )),
             icon: const Icon(Icons.edit),
             color: Colors.white,
-            onPressed: () => {context.push('/notes/edit/${note.id}')},
+            onPressed: () =>
+                {context.push(RouteNames.notesEditNoteId(note.id))},
           ),
         ],
       ),

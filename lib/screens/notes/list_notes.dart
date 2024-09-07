@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:keep/utilities/date.dart';
+import 'package:keep/routes/route_names.dart';
 import 'package:keep/screens/empty_state.dart';
 import 'package:keep/utilities/switch_color.dart';
 import 'package:keep/providers/notes_provider.dart';
@@ -40,7 +41,7 @@ class ListNotes extends ConsumerWidget {
                         padding:
                             const EdgeInsets.symmetric(horizontal: padding),
                         onPressed: (_) =>
-                            {context.push('/notes/edit/${note[index].id}')}),
+                            {context.push(RouteNames.notesEditNoteId(note[index].id),)},),
                     const SizedBox(width: spacing),
                     SlidableAction(
                       icon: Icons.delete,
@@ -63,7 +64,7 @@ class ListNotes extends ConsumerWidget {
                       color: SwitchColor.switchColor(note[index].color),
                       borderRadius: BorderRadius.circular(10)),
                   child: ListTile(
-                    onTap: () => context.push('/notes/${note[index].id}'),
+                    onTap: () => context.push(RouteNames.notesNoteId(note[index].id)),
                     title: Text(
                       note[index].title,
                       style: const TextStyle(
