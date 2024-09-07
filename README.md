@@ -1,4 +1,5 @@
-# Keep
+# Keep 
+![Github Actions](https://github.com/github/docs/actions/workflows/test.yml/badge.svg)
 
 A simple notes app built with Flutter.
 Functionalities include:
