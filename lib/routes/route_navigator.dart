@@ -1,3 +1,4 @@
+import 'package:keep/routes/routes.dart';
 import 'package:keep/screens/home.dart';
 import 'package:keep/screens/about.dart';
 import 'package:keep/screens/login.dart';
@@ -15,39 +16,39 @@ GoRouter router = GoRouter(
   initialLocation: '/onboard',
   routes: [
     GoRoute(
-      path: '/',
+      path: Routes.home,
       builder: (context, state) => const Home(),
     ),
     GoRoute(
-      path: '/about',
+      path: Routes.about,
       builder: (context, state) => const About(),
     ),
     GoRoute(
-      path: '/onboard',
+      path: Routes.onboard,
       builder: (context, state) => const Onboarding(),
     ),
     GoRoute(
-      path: '/login',
+      path: Routes.login,
       builder: (context, state) => const Login(),
     ),
     GoRoute(
-      path: '/signup',
+      path: Routes.signup,
       builder: (context, state) => const Signup(),
     ),
     GoRoute(
-      path: '/notes/new',
+      path: Routes.notesNew,
       builder: (context, state) => const AddNote(),
     ),
     GoRoute(
-      path: '/notes/:noteId',
+      path: Routes.notesNoteId,
       builder: (context, state) => const ViewNote(),
     ),
     GoRoute(
-      path: '/notes/edit/:noteId',
+      path: Routes.notesEditNoteId,
       builder: (context, state) => const EditNote(),
     ),
     GoRoute(
-      path: '/search',
+      path: Routes.search,
       builder: (context, state) => const SearchNote(),
     ),
   ],
