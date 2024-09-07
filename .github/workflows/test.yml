@@ -14,10 +14,12 @@ jobs:
         uses: actions/checkout@v4.1.7
       - name: Set up Flutter
         uses: subosito/flutter-action@v2.16.0
+        id: flutter-action
         with:
-          channel: stable
-          cache: true
-          flutter-version-file: pubspec.yaml    
+          architecture: x64
+      - run: |
+         git config --global --add safe.directory /opt/hostedtoolcache/flutter/${{ steps.flutter-action.outputs.CHANNEL }}-${{ steps.flutter-action.outputs.VERSION }}-${{ steps.flutter-action.outputs.ARCHITECTURE }}
+         flutter --version 
       - run: flutter --version
       - name: Install dependencies
         run: flutter pub get
