@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:keep/constants/text.dart';
 import 'package:keep/models/note.dart';
+import 'package:keep/constants/text.dart';
 import 'package:go_router/go_router.dart';
 import 'package:keep/utilities/styles.dart';
+import 'package:keep/constants/widgets.dart';
 import 'package:keep/routes/route_names.dart';
 import 'package:keep/utilities/switch_color.dart';
 import 'package:keep/providers/notes_provider.dart';
@@ -175,6 +176,8 @@ class EditNoteForm extends ConsumerState<EditNote> {
                                             fontSize: 20))),
                                 FilledButton(
                                     onPressed: () {
+                                      // Logger.info(_color ?? _oldColor);
+                                      String? finalColor = _color ?? _oldColor;
                                       ref
                                           .read(noteNotifierProvider.notifier)
                                           .editNote(Note(
@@ -182,9 +185,10 @@ class EditNoteForm extends ConsumerState<EditNote> {
                                               title: "$_titleField",
                                               description: "$_descriptionField",
                                               timestamp: _timestamp,
-                                              color: "$_color"));
+                                              color: "$finalColor"));
                                       Navigator.of(context).pop();
                                       context.pop(RouteNames.home);
+                                      snackBar(context, "Note", "updated");
                                     },
                                     style: ButtonStyle(
                                       minimumSize: WidgetStateProperty.all(
