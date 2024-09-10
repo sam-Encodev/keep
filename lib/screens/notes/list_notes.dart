@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:keep/utilities/date.dart';
+import 'package:keep/constants/widgets.dart';
 import 'package:keep/routes/route_names.dart';
 import 'package:keep/screens/empty_state.dart';
 import 'package:keep/utilities/switch_color.dart';
@@ -33,15 +34,18 @@ class ListNotes extends ConsumerWidget {
                   children: [
                     const SizedBox(width: spacing),
                     SlidableAction(
-                        label: 'Edit',
-                        icon: Icons.edit,
-                        backgroundColor: Colors.black87,
-                        foregroundColor: Colors.white,
-                        borderRadius: BorderRadius.circular(10),
-                        padding:
-                            const EdgeInsets.symmetric(horizontal: padding),
-                        onPressed: (_) =>
-                            {context.push(RouteNames.notesEditNoteId(note[index].id),)},),
+                      label: 'Edit',
+                      icon: Icons.edit,
+                      backgroundColor: Colors.black87,
+                      foregroundColor: Colors.white,
+                      borderRadius: BorderRadius.circular(10),
+                      padding: const EdgeInsets.symmetric(horizontal: padding),
+                      onPressed: (_) => {
+                        context.push(
+                          RouteNames.notesEditNoteId(note[index].id),
+                        )
+                      },
+                    ),
                     const SizedBox(width: spacing),
                     SlidableAction(
                       icon: Icons.delete,
@@ -54,7 +58,7 @@ class ListNotes extends ConsumerWidget {
                         ref
                             .read(noteNotifierProvider.notifier)
                             .removeNote(note[index].id),
-                        controller.close()
+                        snackBar(context, note[index].title, "deleted")
                       },
                     ),
                   ],
@@ -64,7 +68,8 @@ class ListNotes extends ConsumerWidget {
                       color: SwitchColor.switchColor(note[index].color),
                       borderRadius: BorderRadius.circular(10)),
                   child: ListTile(
-                    onTap: () => context.push(RouteNames.notesNoteId(note[index].id)),
+                    onTap: () =>
+                        context.push(RouteNames.notesNoteId(note[index].id)),
                     title: Text(
                       note[index].title,
                       style: const TextStyle(

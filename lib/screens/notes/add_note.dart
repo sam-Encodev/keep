@@ -4,6 +4,7 @@ import 'package:keep/constants/text.dart';
 import 'package:go_router/go_router.dart';
 import 'package:keep/utilities/styles.dart';
 import 'package:keep/utilities/logger.dart';
+import 'package:keep/constants/widgets.dart';
 import 'package:keep/routes/route_names.dart';
 import 'package:keep/utilities/switch_color.dart';
 import 'package:keep/providers/notes_provider.dart';
@@ -172,6 +173,7 @@ class AddNoteForm extends ConsumerState<AddNote> {
 
                                       Navigator.of(context).pop();
                                       context.pop(RouteNames.home);
+                                      snackBar(context, "$_titleField", "added");
                                     },
                                     style: ButtonStyle(
                                       minimumSize: WidgetStateProperty.all(

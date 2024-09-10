@@ -25,3 +25,8 @@ onBoard(item) {
     ],
   );
 }
+
+snackBar(context, item, text) {
+  return ScaffoldMessenger.of(context)
+      .showSnackBar(SnackBar(content: Text('$item $text')));
+}
