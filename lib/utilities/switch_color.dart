@@ -21,6 +21,9 @@ const colors = [
   },
   {
     "name": 'white',
+  },
+  {
+    "name": 'lightGreenAccent',
   }
 ];
 
