@@ -38,3 +38,7 @@ const pickColor = "Pick a color";
 const description = "Type something...";
 const placeholder = "Search by keyword";
 const prompt = "Are you sure you want to save?";
+
+// Profile
+const profile = "Profile";
+const editProfile = "Edit Profile";
