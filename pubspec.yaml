@@ -42,6 +42,7 @@ dependencies:
   riverpod_annotation: ^2.3.5
   jiffy: ^6.3.1
   flutter_slidable: ^3.1.1
+  faker_dart: ^0.2.2
 
 dev_dependencies:
   flutter_test:
