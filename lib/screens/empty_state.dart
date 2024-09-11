@@ -3,7 +3,10 @@ import 'package:keep/constants/text.dart';
 import 'package:keep/utilities/styles.dart';
 
 class EmptyState extends StatelessWidget {
-  const EmptyState({super.key});
+  final String uri;
+  final bool hideText;
+
+  const EmptyState({super.key, required this.uri, this.hideText = false});
 
   @override
   Widget build(BuildContext context) {
@@ -11,12 +14,13 @@ class EmptyState extends StatelessWidget {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          buildSVG("service_book.svg"),
+          buildSVG(uri),
           const SizedBox(height: 10),
-          const Text(
-            newNote,
-            style: TextStyle(color: Colors.white, fontSize: 20),
-          )
+          if (!hideText)
+            const Text(
+              newNote,
+              style: TextStyle(color: Colors.white, fontSize: 20),
+            )
         ],
       ),
     );

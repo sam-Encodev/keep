@@ -21,7 +21,7 @@ class ListNotes extends ConsumerWidget {
     var note = getNotes.toList();
 
     return getNotes.isEmpty
-        ? const EmptyState()
+        ? const EmptyState(uri: "service_book.svg")
         : ListView.separated(
             itemCount: getNotes.length.toInt(),
             itemBuilder: (BuildContext context, int index) {
