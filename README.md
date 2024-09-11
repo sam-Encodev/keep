@@ -7,7 +7,7 @@ Functionalities include:
 - View
 - Edit
 - Delete
-- Search (yet to be implemented)
+- Search
 
 Packages used:
 - [Jiffy](https://pub.dev/packages/jiffy) a date time package for parsing, manipulating, querying and formatting dates and time.
