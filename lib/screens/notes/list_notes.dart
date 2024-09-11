@@ -18,7 +18,7 @@ class ListNotes extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     var getNotes = ref.watch(noteNotifierProvider);
-    var note = getNotes.toList();
+    var notes = getNotes.toList();
 
     return getNotes.isEmpty
         ? const EmptyState(uri: "service_book.svg")
@@ -40,7 +40,7 @@ class ListNotes extends ConsumerWidget {
                       padding: const EdgeInsets.symmetric(horizontal: padding),
                       onPressed: (_) => {
                         context.push(
-                          RouteNames.editNote(note[index].id),
+                          RouteNames.editNote(notes[index].id),
                         )
                       },
                     ),
@@ -55,28 +55,28 @@ class ListNotes extends ConsumerWidget {
                       onPressed: (_) => {
                         ref
                             .read(noteNotifierProvider.notifier)
-                            .removeNote(note[index].id),
-                        snackBar(context, note[index].title, "deleted")
+                            .removeNote(notes[index].id),
+                        snackBar(context, notes[index].title, "deleted")
                       },
                     ),
                   ],
                 ),
                 child: Container(
                   decoration: BoxDecoration(
-                      color: SwitchColor.switchColor(note[index].color),
+                      color: SwitchColor.switchColor(notes[index].color),
                       borderRadius: BorderRadius.circular(10)),
                   child: ListTile(
                     onTap: () =>
-                        context.push(RouteNames.viewNote(note[index].id)),
+                        context.push(RouteNames.viewNote(notes[index].id)),
                     title: Text(
-                      note[index].title,
+                      notes[index].title,
                       style: const TextStyle(
                           color: Colors.black,
                           fontWeight: FontWeight.bold,
                           fontSize: 23),
                     ),
                     subtitle: Text(
-                      dateFormatter(note[index].timestamp),
+                      dateFormatter(notes[index].timestamp),
                       style: const TextStyle(color: Colors.black87),
                     ),
                   ),
