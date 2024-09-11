@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:keep/forms/signup.dart';
 import 'package:go_router/go_router.dart';
 import 'package:keep/constants/text.dart';
+import 'package:keep/routes/route_names.dart';
 
 class Signup extends StatefulWidget {
   const Signup({super.key});
@@ -44,7 +45,7 @@ class _SignupState extends State<Signup> {
                   style: TextStyle(color: Colors.white),
                 ),
                 TextButton(
-                    onPressed: () => context.go("/login"),
+                    onPressed: () => context.go(RouteNames.login),
                     child: const Text(
                       login,
                       style: TextStyle(color: Colors.red),
