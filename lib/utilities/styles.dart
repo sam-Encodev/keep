@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:dots_indicator/dots_indicator.dart';
 
+const spacing = 8.0;
+const padding = 10.0;
+
 inputBorder() {
   //return type is OutlineInputBorder
   return OutlineInputBorder(
