@@ -6,11 +6,10 @@ import 'package:keep/routes/route_navigator.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 void main() {
-  testWidgets('Navigates to Signup Page', (WidgetTester tester) async {
+  testWidgets('Navigates to Home Page', (WidgetTester tester) async {
     await tester.pumpWidget(ProviderScope(
-      child: MaterialApp.router(routerConfig: router(RouteNames.signup)),
+      child: MaterialApp.router(routerConfig: router(RouteNames.home)),
     ));
-
-    expect(find.text(getStarted), findsOneWidget);
+    expect(find.text(appName), findsOneWidget);
   });
 }
