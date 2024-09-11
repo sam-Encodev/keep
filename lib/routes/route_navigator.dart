@@ -10,6 +10,8 @@ import 'package:keep/screens/notes/add_note.dart';
 import 'package:keep/screens/notes/view_note.dart';
 import 'package:keep/screens/notes/edit_note.dart';
 import 'package:keep/screens/notes/search_note.dart';
+import 'package:keep/screens/profile/edit_profile.dart';
+import 'package:keep/screens/profile/view_profile.dart';
 
 /// The route configuration.
 GoRouter router([String? initialLocation]) => GoRouter(
@@ -50,6 +52,14 @@ GoRouter router([String? initialLocation]) => GoRouter(
         GoRoute(
           path: RouteNames.search,
           builder: (context, state) => const SearchNote(),
+        ),
+        GoRoute(
+          path: RouteNames.viewProfile(":userId"),
+          builder: (context, state) => const Profile(),
+        ),
+        GoRoute(
+          path: RouteNames.editProfile(":userId"),
+          builder: (context, state) => const EditProfile(),
         ),
       ],
       errorBuilder: (context, state) => const ErrorScreen(),
