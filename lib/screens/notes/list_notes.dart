@@ -42,7 +42,7 @@ class ListNotes extends ConsumerWidget {
                       padding: const EdgeInsets.symmetric(horizontal: padding),
                       onPressed: (_) => {
                         context.push(
-                          RouteNames.notesEditNoteId(note[index].id),
+                          RouteNames.editNote(note[index].id),
                         )
                       },
                     ),
@@ -69,7 +69,7 @@ class ListNotes extends ConsumerWidget {
                       borderRadius: BorderRadius.circular(10)),
                   child: ListTile(
                     onTap: () =>
-                        context.push(RouteNames.notesNoteId(note[index].id)),
+                        context.push(RouteNames.viewNote(note[index].id)),
                     title: Text(
                       note[index].title,
                       style: const TextStyle(
