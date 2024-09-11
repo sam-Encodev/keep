@@ -19,7 +19,7 @@ final _rootNavigatorKey = GlobalKey<NavigatorState>();
 /// The route configuration.
 GoRouter router([String? initialLocation]) => GoRouter(
       navigatorKey: _rootNavigatorKey,
-      initialLocation: initialLocation ?? RouteNames.search,
+      initialLocation: initialLocation ?? RouteNames.onboard,
       routes: [
         GoRoute(
           path: RouteNames.home,
