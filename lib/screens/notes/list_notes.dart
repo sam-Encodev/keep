@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:keep/utilities/date.dart';
+import 'package:keep/utilities/styles.dart';
 import 'package:keep/constants/widgets.dart';
 import 'package:keep/routes/route_names.dart';
 import 'package:keep/screens/empty_state.dart';
@@ -13,9 +14,6 @@ class ListNotes extends ConsumerWidget {
   ListNotes({super.key});
 
   late final controller = SlidableController(this as TickerProvider);
-
-  static const spacing = 8.0;
-  static const padding = 10.0;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
