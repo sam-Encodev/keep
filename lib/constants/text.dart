@@ -36,7 +36,7 @@ const yes = "Yes";
 const title = "Title";
 const pickColor = "Pick a color";
 const description = "Type something...";
-const placeholder = "Search by keyword";
+const placeholder = "Search by title";
 const prompt = "Are you sure you want to save?";
 
 // Profile
