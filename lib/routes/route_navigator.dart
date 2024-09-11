@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:keep/screens/home.dart';
 import 'package:keep/screens/about.dart';
 import 'package:keep/screens/login.dart';
@@ -13,9 +14,12 @@ import 'package:keep/screens/notes/search_note.dart';
 import 'package:keep/screens/profile/edit_profile.dart';
 import 'package:keep/screens/profile/view_profile.dart';
 
+final _rootNavigatorKey = GlobalKey<NavigatorState>();
+
 /// The route configuration.
 GoRouter router([String? initialLocation]) => GoRouter(
-      initialLocation: initialLocation ?? RouteNames.onboard,
+      navigatorKey: _rootNavigatorKey,
+      initialLocation: initialLocation ?? RouteNames.search,
       routes: [
         GoRoute(
           path: RouteNames.home,
