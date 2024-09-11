@@ -3,7 +3,6 @@ import 'package:keep/models/note.dart';
 import 'package:keep/constants/text.dart';
 import 'package:go_router/go_router.dart';
 import 'package:keep/utilities/styles.dart';
-import 'package:keep/utilities/logger.dart';
 import 'package:keep/constants/widgets.dart';
 import 'package:keep/routes/route_names.dart';
 import 'package:keep/utilities/switch_color.dart';
@@ -77,7 +76,6 @@ class AddNoteForm extends ConsumerState<AddNote> {
                       children: colors
                           .map((e) => TextButton.icon(
                                 onPressed: () {
-                                  Logger.info("empty");
                                   Navigator.of(context).pop();
                                   setState(() {
                                     _color = e.values.first.toString();
@@ -161,7 +159,6 @@ class AddNoteForm extends ConsumerState<AddNote> {
                                             fontSize: 20))),
                                 FilledButton(
                                     onPressed: () {
-                                      // Logger.info(str);
                                       ref
                                           .read(noteNotifierProvider.notifier)
                                           .addNote(Note(

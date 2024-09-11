@@ -128,9 +128,7 @@ class NoteNotifier extends Notifier<List<Note>> {
   }
 
   void editNote(Note note) {
-    // Logger.info({"new": note.color});
     var oldNote = state.where((p) => p.id == note.id);
-    // Logger.info({"old": oldNote.first.color});
     oldNote.first.title = note.title;
     oldNote.first.description = note.description;
     oldNote.first.color = note.color;

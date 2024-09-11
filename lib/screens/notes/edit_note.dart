@@ -86,12 +86,10 @@ class EditNoteForm extends ConsumerState<EditNote> {
                       children: colors
                           .map((e) => TextButton.icon(
                                 onPressed: () {
-                                  // Logger.info({"before": _color});
                                   setState(() {
                                     _color = e.values.first.toString();
                                   });
 
-                                  // Logger.info({"after": _color});
                                   Navigator.of(context).pop();
                                 },
                                 icon: ClipOval(
@@ -122,10 +120,6 @@ class EditNoteForm extends ConsumerState<EditNote> {
               icon: const Icon(Icons.save),
               color: Colors.white,
               onPressed: () => {
-                    // Logger.info({"_titleField": _titleField}),
-                    // Logger.info({"_descriptionField": _descriptionField}),
-                    // Logger.info({"color": _color}),
-
                     if (_titleField != null && _descriptionField != null)
                       {
                         showDialog<void>(
@@ -176,7 +170,6 @@ class EditNoteForm extends ConsumerState<EditNote> {
                                             fontSize: 20))),
                                 FilledButton(
                                     onPressed: () {
-                                      // Logger.info(_color ?? _oldColor);
                                       String? finalColor = _color ?? _oldColor;
                                       ref
                                           .read(noteNotifierProvider.notifier)
