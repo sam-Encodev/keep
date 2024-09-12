@@ -48,28 +48,31 @@ class About extends StatelessWidget {
                   ],
                 ),
               ),
-              Column(
-                children: <Widget>[
-                  FilledButton(
-                      onPressed: () => context.go("/login"),
-                      style: ButtonStyle(
-                        backgroundColor: WidgetStateProperty.all(Colors.white),
-                        minimumSize: WidgetStateProperty.all(
-                            const Size(double.infinity, 40)),
-                        elevation: WidgetStateProperty.all(0),
-                        shape: WidgetStateProperty.all(
-                          RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(20.0),
+              SizedBox(
+                height: 100,
+                child: Column(
+                  children: [
+                    FilledButton(
+                        onPressed: () => context.go("/login"),
+                        style: ButtonStyle(
+                          backgroundColor:
+                              WidgetStateProperty.all(Colors.white),
+                          minimumSize: WidgetStateProperty.all(
+                              const Size(double.infinity, 40)),
+                          elevation: WidgetStateProperty.all(0),
+                          shape: WidgetStateProperty.all(
+                            RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(20.0),
+                            ),
                           ),
                         ),
-                      ),
-                      child: const Text(signOut,
-                          style: TextStyle(
-                              color: Colors.redAccent, fontSize: 20))),
-                  const SizedBox(height: 10),
-                  buildText(version),
-                  const SizedBox(height: 15),
-                ],
+                        child: const Text(signOut,
+                            style: TextStyle(
+                                color: Colors.redAccent, fontSize: 20))),
+                    const SizedBox(height: 10),
+                    buildText(version),
+                  ],
+                ),
               ),
             ],
           )),
