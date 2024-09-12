@@ -55,18 +55,7 @@ class About extends StatelessWidget {
                   children: [
                     FilledButton(
                         onPressed: () => context.go(RouteNames.login),
-                        style: ButtonStyle(
-                          backgroundColor:
-                              WidgetStateProperty.all(Colors.white),
-                          minimumSize: WidgetStateProperty.all(
-                              const Size(double.infinity, 40)),
-                          elevation: WidgetStateProperty.all(0),
-                          shape: WidgetStateProperty.all(
-                            RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(20.0),
-                            ),
-                          ),
-                        ),
+                        style: buttonStyle(),
                         child: const Text(signOut,
                             style: TextStyle(
                                 color: Colors.redAccent, fontSize: 20))),

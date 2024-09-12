@@ -5,6 +5,19 @@ import 'package:dots_indicator/dots_indicator.dart';
 const spacing = 8.0;
 const padding = 10.0;
 
+buttonStyle() {
+  return ButtonStyle(
+    backgroundColor: WidgetStateProperty.all(Colors.white),
+    minimumSize: WidgetStateProperty.all(const Size(double.infinity, 40)),
+    elevation: WidgetStateProperty.all(0),
+    shape: WidgetStateProperty.all(
+      RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(20.0),
+      ),
+    ),
+  );
+}
+
 inputBorder() {
   //return type is OutlineInputBorder
   return OutlineInputBorder(

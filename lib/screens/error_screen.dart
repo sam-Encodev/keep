@@ -27,17 +27,7 @@ class ErrorScreen extends StatelessWidget {
               const SizedBox(height: 10),
               FilledButton(
                   onPressed: () => context.go(RouteNames.home),
-                  style: ButtonStyle(
-                    backgroundColor: WidgetStateProperty.all(Colors.white),
-                    minimumSize: WidgetStateProperty.all(
-                        const Size(double.infinity, 40)),
-                    elevation: WidgetStateProperty.all(0),
-                    shape: WidgetStateProperty.all(
-                      RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(20.0),
-                      ),
-                    ),
-                  ),
+                  style: buttonStyle(),
                   child: const Text(goBack,
                       style: TextStyle(color: Colors.redAccent, fontSize: 20))),
             ],

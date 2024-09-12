@@ -204,17 +204,7 @@ class _Profile extends ConsumerState<Profile> {
                   ),
                   const SizedBox(height: spacing),
                   FilledButton(
-                      style: ButtonStyle(
-                        backgroundColor: WidgetStateProperty.all(Colors.white),
-                        minimumSize: WidgetStateProperty.all(
-                            const Size(double.infinity, 40)),
-                        elevation: WidgetStateProperty.all(0),
-                        shape: WidgetStateProperty.all(
-                          RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(20.0),
-                          ),
-                        ),
-                      ),
+                      style: buttonStyle(),
                       onPressed: () {
                         // Validate will return true if the form is valid, or false if
                         // the form is invalid.
