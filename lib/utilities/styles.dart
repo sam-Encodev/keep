@@ -5,9 +5,9 @@ import 'package:dots_indicator/dots_indicator.dart';
 const spacing = 8.0;
 const padding = 10.0;
 
-buttonStyle() {
+buttonStyle({color = Colors.white}) {
   return ButtonStyle(
-    backgroundColor: WidgetStateProperty.all(Colors.white),
+    backgroundColor: WidgetStateProperty.all(color),
     minimumSize: WidgetStateProperty.all(const Size(double.infinity, 40)),
     elevation: WidgetStateProperty.all(0),
     shape: WidgetStateProperty.all(

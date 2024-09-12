@@ -147,59 +147,44 @@ class EditNoteForm extends ConsumerState<EditNote> {
                               ),
                               actionsAlignment: MainAxisAlignment.center,
                               actions: <Widget>[
-                                FilledButton(
-                                    onPressed: () {
-                                      Navigator.of(context).pop();
-                                    },
-                                    style: ButtonStyle(
-                                      minimumSize: WidgetStateProperty.all(
-                                          const Size(110, 40)),
-                                      backgroundColor: WidgetStateProperty.all(
-                                          Colors.redAccent),
-                                      elevation: WidgetStateProperty.all(0),
-                                      shape: WidgetStateProperty.all(
-                                        RoundedRectangleBorder(
-                                          borderRadius:
-                                              BorderRadius.circular(20.0),
-                                        ),
-                                      ),
-                                    ),
-                                    child: const Text(no,
-                                        style: TextStyle(
-                                            color: Colors.white,
-                                            fontSize: 20))),
-                                FilledButton(
-                                    onPressed: () {
-                                      String? finalColor = _color ?? _oldColor;
-                                      ref
-                                          .read(noteNotifierProvider.notifier)
-                                          .editNote(Note(
-                                              id: note.id,
-                                              title: "$_titleField",
-                                              description: "$_descriptionField",
-                                              timestamp: _timestamp,
-                                              color: "$finalColor"));
-                                      Navigator.of(context).pop();
-                                      context.pop(RouteNames.home);
-                                      snackBar(context, "Note", "updated");
-                                    },
-                                    style: ButtonStyle(
-                                      minimumSize: WidgetStateProperty.all(
-                                          const Size(110, 40)),
-                                      backgroundColor:
-                                          WidgetStateProperty.all(Colors.white),
-                                      elevation: WidgetStateProperty.all(0),
-                                      shape: WidgetStateProperty.all(
-                                        RoundedRectangleBorder(
-                                          borderRadius:
-                                              BorderRadius.circular(20.0),
-                                        ),
-                                      ),
-                                    ),
-                                    child: const Text(yes,
-                                        style: TextStyle(
-                                            color: Colors.redAccent,
-                                            fontSize: 20))),
+                                SizedBox(
+                                  width: 110,
+                                  child: FilledButton(
+                                      onPressed: () {
+                                        Navigator.of(context).pop();
+                                      },
+                                      style: buttonStyle(
+                                          color: Colors.redAccent),
+                                      child: const Text(no,
+                                          style: TextStyle(
+                                              color: Colors.white,
+                                              fontSize: 20))),
+                                ),
+                                SizedBox(
+                                  width: 110,
+                                  child: FilledButton(
+                                      onPressed: () {
+                                        String? finalColor =
+                                            _color ?? _oldColor;
+                                        ref
+                                            .read(noteNotifierProvider.notifier)
+                                            .editNote(Note(
+                                                id: note.id,
+                                                title: "$_titleField",
+                                                description:
+                                                    "$_descriptionField",
+                                                timestamp: _timestamp,
+                                                color: "$finalColor"));
+                                        Navigator.of(context).pop();
+                                        context.pop(RouteNames.home);
+                                        snackBar(context, "Note", "updated");
+                                      },
+                                      style: buttonStyle(),
+                                      child: const Text(yes,
+                                          style: TextStyle(
+                                              color: Colors.redAccent,
+                                              fontSize: 20))),
+                                ),
                               ],
                             );
                           },

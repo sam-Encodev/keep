@@ -76,21 +76,16 @@ class _OnboardState extends State<Onboarding> with TickerProviderStateMixin {
           automaticallyImplyLeading: false,
           backgroundColor: Colors.black87,
           actions: [
-            FilledButton(
-                onPressed: () => context.pushReplacement(RouteNames.home),
-                style: ButtonStyle(
-                  backgroundColor: WidgetStateProperty.all(Colors.white),
-                  elevation: WidgetStateProperty.all(0),
-                  shape: WidgetStateProperty.all(
-                    RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(20.0),
-                    ),
-                  ),
-                ),
-                child: const Text(
-                  skip,
-                  style: TextStyle(color: Colors.redAccent),
-                ))
+            SizedBox(
+              width: 78,
+              child: FilledButton(
+                  onPressed: () => context.pushReplacement(RouteNames.home),
+                  style: buttonStyle(),
+                  child: const Text(
+                    skip,
+                    style: TextStyle(color: Colors.redAccent),
+                  )),
+            )
           ],
         ),
         body: Column(
