@@ -1,6 +1,6 @@
 const appName = "Notes";
 const newNote = "Create your first note";
-const errorEntry = "Please enter some text";
+const errorEntry = "can't be blank";
 
 // Onboard
 const skip = "Skip";
@@ -9,9 +9,9 @@ const skip = "Skip";
 const name = "Kwame Opam";
 const signOut = "Sign out";
 const font = "Font - Nunito";
+const author = "Made by $name";
 const version = "Version 1.0.0";
 const icons = "Icons - PNG and SVG";
-const author = "Made by $name";
 const designer = "Designed by $name";
 
 // Sign up
@@ -35,8 +35,8 @@ const no = "No";
 const yes = "Yes";
 const title = "Title";
 const pickColor = "Pick a color";
-const description = "Type something...";
 const placeholder = "Search by title";
+const description = "Type something...";
 const prompt = "Are you sure you want to save?";
 
 // Profile
@@ -46,3 +46,11 @@ const editProfile = "Edit Profile";
 // Form
 const email = "Email";
 const password = "Password";
+const updateProfile = "Update Profile";
+
+// Profile
+const lastName = "Last Name";
+const firstName = "First Name";
+const newPassword = "New Password";
+const currentPassword = "Current Password";
+
