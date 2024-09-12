@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:keep/constants/text.dart';
 import 'package:go_router/go_router.dart';
 import 'package:keep/utilities/styles.dart';
+import 'package:keep/routes/route_names.dart';
 
 class About extends StatelessWidget {
   const About({super.key});
@@ -53,7 +54,7 @@ class About extends StatelessWidget {
                 child: Column(
                   children: [
                     FilledButton(
-                        onPressed: () => context.go("/login"),
+                        onPressed: () => context.go(RouteNames.login),
                         style: ButtonStyle(
                           backgroundColor:
                               WidgetStateProperty.all(Colors.white),

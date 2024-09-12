@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:keep/constants/text.dart';
+import 'package:keep/routes/route_names.dart';
 import 'package:keep/utilities/styles.dart';
 
 class ErrorScreen extends StatelessWidget {
@@ -25,7 +26,7 @@ class ErrorScreen extends StatelessWidget {
               buildSVG("error_404.svg"),
               const SizedBox(height: 10),
               FilledButton(
-                  onPressed: () => context.go("/"),
+                  onPressed: () => context.go(RouteNames.home),
                   style: ButtonStyle(
                     backgroundColor: WidgetStateProperty.all(Colors.white),
                     minimumSize: WidgetStateProperty.all(
