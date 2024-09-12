@@ -93,22 +93,24 @@ class _OnboardState extends State<Onboarding> with TickerProviderStateMixin {
                 ))
           ],
         ),
-        body: Stack(
-          alignment: Alignment.bottomCenter,
+        body: Column(
           children: <Widget>[
-            Container(
-              alignment: Alignment.center,
-              padding: const EdgeInsets.all(20),
-              child: PageView.builder(
-                itemBuilder: (BuildContext context, int index) {
-                  final stage = stages[index];
-                  return onBoard(stage);
-                },
-                controller: _pageViewController,
-                onPageChanged: _handlePageViewChanged,
+            Expanded(
+              child: Container(
+                alignment: Alignment.center,
+                padding: const EdgeInsets.all(20),
+                child: PageView.builder(
+                  itemBuilder: (BuildContext context, int index) {
+                    final stage = stages[index];
+                    return onBoard(stage);
+                  },
+                  controller: _pageViewController,
+                  onPageChanged: _handlePageViewChanged,
+                ),
               ),
             ),
             Container(
+              height: 130,
               padding: const EdgeInsets.all(20),
               child: PageIndicator(
                 tabController: _tabController,
