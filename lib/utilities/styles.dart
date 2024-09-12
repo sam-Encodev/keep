@@ -29,7 +29,7 @@ errorBorder() {
 
 errorStyle() {
   return const TextStyle(
-    fontSize: 14,
+    fontSize: 12,
     fontWeight: FontWeight.w400,
     color: Colors.redAccent,
   );
