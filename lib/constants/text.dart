@@ -42,3 +42,7 @@ const prompt = "Are you sure you want to save?";
 // Profile
 const profile = "Profile";
 const editProfile = "Edit Profile";
+
+// Form
+const email = "Email";
+const password = "Password";
