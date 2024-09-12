@@ -5,6 +5,16 @@ import 'package:dots_indicator/dots_indicator.dart';
 const spacing = 8.0;
 const padding = 10.0;
 
+iconButtonStyle() {
+  return ButtonStyle(
+      backgroundColor: WidgetStateProperty.all(Colors.black87),
+      shape: WidgetStateProperty.all(
+        RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(10.0),
+        ),
+      ));
+}
+
 buttonStyle({color = Colors.white}) {
   return ButtonStyle(
     backgroundColor: WidgetStateProperty.all(color),

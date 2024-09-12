@@ -45,13 +45,7 @@ class EditNoteForm extends ConsumerState<EditNote> {
         leading: Padding(
           padding: const EdgeInsets.all(8.0),
           child: IconButton(
-            style: ButtonStyle(
-                backgroundColor: WidgetStateProperty.all(Colors.black87),
-                shape: WidgetStateProperty.all(
-                  RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(10.0),
-                  ),
-                )),
+            style: iconButtonStyle(),
             padding: EdgeInsets.zero,
             icon: const Icon(Icons.arrow_back, size: 30),
             color: Colors.white,
@@ -60,13 +54,7 @@ class EditNoteForm extends ConsumerState<EditNote> {
         ),
         actions: [
           IconButton(
-            style: ButtonStyle(
-                backgroundColor: WidgetStateProperty.all(Colors.black87),
-                shape: WidgetStateProperty.all(
-                  RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(10.0),
-                  ),
-                )),
+            style: iconButtonStyle(),
             icon: const Icon(Icons.circle),
             color: SwitchColor.switchColor(_color ?? _oldColor),
             onPressed: () => showDialog<void>(
@@ -110,13 +98,7 @@ class EditNoteForm extends ConsumerState<EditNote> {
                 }),
           ),
           IconButton(
-              style: ButtonStyle(
-                  backgroundColor: WidgetStateProperty.all(Colors.black87),
-                  shape: WidgetStateProperty.all(
-                    RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(10.0),
-                    ),
-                  )),
+              style: iconButtonStyle(),
               icon: const Icon(Icons.save),
               color: Colors.white,
               onPressed: () => {
