@@ -4,6 +4,7 @@ import 'package:keep/screens/about.dart';
 import 'package:keep/screens/login.dart';
 import 'package:keep/screens/signup.dart';
 import 'package:go_router/go_router.dart';
+import 'package:keep/screens/profile.dart';
 import 'package:keep/screens/onboarding.dart';
 import 'package:keep/routes/route_names.dart';
 import 'package:keep/screens/error_screen.dart';
@@ -11,8 +12,6 @@ import 'package:keep/screens/notes/add_note.dart';
 import 'package:keep/screens/notes/view_note.dart';
 import 'package:keep/screens/notes/edit_note.dart';
 import 'package:keep/screens/notes/search_note.dart';
-import 'package:keep/screens/profile/edit_profile.dart';
-import 'package:keep/screens/profile/view_profile.dart';
 
 final _rootNavigatorKey = GlobalKey<NavigatorState>();
 
@@ -58,12 +57,8 @@ GoRouter router([String? initialLocation]) => GoRouter(
           builder: (context, state) => const SearchNote(),
         ),
         GoRoute(
-          path: RouteNames.viewProfile(":userId"),
+          path: RouteNames.profile(":userId"),
           builder: (context, state) => const Profile(),
-        ),
-        GoRoute(
-          path: RouteNames.editProfile(":userId"),
-          builder: (context, state) => const EditProfile(),
         ),
       ],
       errorBuilder: (context, state) => const ErrorScreen(),

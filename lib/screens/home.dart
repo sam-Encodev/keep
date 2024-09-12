@@ -3,12 +3,15 @@ import 'package:go_router/go_router.dart';
 import 'package:keep/constants/text.dart';
 import 'package:keep/routes/route_names.dart';
 import 'package:keep/screens/notes/list_notes.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-class Home extends StatelessWidget {
+class Home extends ConsumerWidget {
   const Home({super.key});
 
+  static const userId = 0;
+
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: false,
@@ -39,6 +42,18 @@ class Home extends StatelessWidget {
             icon: const Icon(Icons.info),
             color: Colors.white,
             onPressed: () => context.push(RouteNames.about),
+          ),
+          IconButton(
+            style: ButtonStyle(
+                backgroundColor: WidgetStateProperty.all(Colors.black87),
+                shape: WidgetStateProperty.all(
+                  RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(10.0),
+                  ),
+                )),
+            icon: const Icon(Icons.account_circle_rounded),
+            color: Colors.white,
+            onPressed: () => context.push(RouteNames.profile(0)),
           ),
         ],
       ),
