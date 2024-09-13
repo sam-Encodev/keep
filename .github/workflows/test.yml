@@ -33,6 +33,16 @@ jobs:
         with:
           name: test-logs
           path: log/
+      - name: Code Coverage Summary Report
+        uses: irongut/CodeCoverageSummary@v1.3.0
+        with:
+          filename: coverage.cobertura.xml
+      - name: Upload coverage results
+        if: success()
+        uses: actions/upload-artifact@v4
+        with:
+          name: code-coverage
+          path: coverage/
       - name: Telegram notification
         if: always()
         uses: cbrgm/telegram-github-action@v1.0.26
