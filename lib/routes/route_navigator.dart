@@ -19,6 +19,7 @@ final _rootNavigatorKey = GlobalKey<NavigatorState>();
 GoRouter router([String? initialLocation]) => GoRouter(
       navigatorKey: _rootNavigatorKey,
       initialLocation: initialLocation ?? RouteNames.onboard,
+      redirect: (context, state) {},
       routes: [
         GoRoute(
           path: RouteNames.home,
