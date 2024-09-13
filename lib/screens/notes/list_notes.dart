@@ -77,7 +77,8 @@ class ListNotes extends ConsumerWidget {
                     ),
                     subtitle: Text(
                       dateFormatter(notes[index].timestamp),
-                      style: const TextStyle(color: Colors.black87),
+                      style:
+                          const TextStyle(color: Colors.black87, fontSize: 13),
                     ),
                   ),
                 ),
