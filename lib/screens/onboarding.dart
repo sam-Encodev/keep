@@ -99,6 +99,7 @@ class _OnboardState extends State<Onboarding> with TickerProviderStateMixin {
                     final stage = stages[index];
                     return onBoard(stage);
                   },
+                  itemCount: stages.length,
                   controller: _pageViewController,
                   onPageChanged: _handlePageViewChanged,
                 ),
