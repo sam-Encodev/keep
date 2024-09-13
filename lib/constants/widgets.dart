@@ -22,7 +22,7 @@ onBoard(item) {
         padding: const EdgeInsets.symmetric(horizontal: 20),
         child: Text(
           body,
-          style: const TextStyle(color: Colors.white, fontSize: 20),
+          style: const TextStyle(color: Colors.white, fontSize: 17),
         ),
       )
     ],
