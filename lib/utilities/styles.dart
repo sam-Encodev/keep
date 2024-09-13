@@ -103,6 +103,7 @@ buildSVG(String assetName) {
     height: 250,
     'assets/svg/$assetName',
     semanticsLabel: assetName,
+    key: UniqueKey(),
   );
 }
 
