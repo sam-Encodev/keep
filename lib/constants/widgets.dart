@@ -18,9 +18,12 @@ onBoard(item) {
             color: Colors.white, fontSize: 20, fontWeight: FontWeight.w800),
       ),
       const SizedBox(height: 15),
-      Text(
-        body,
-        style: const TextStyle(color: Colors.white, fontSize: 20),
+      Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 20),
+        child: Text(
+          body,
+          style: const TextStyle(color: Colors.white, fontSize: 20),
+        ),
       )
     ],
   );
