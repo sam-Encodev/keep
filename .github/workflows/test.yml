@@ -41,7 +41,7 @@ jobs:
         if: success()
         uses: actions/upload-artifact@v4
         with:
-          name: code-coverage
+          name: coverage.cobertura.xml
           path: coverage/
       - name: Telegram notification
         if: always()
