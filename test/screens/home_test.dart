@@ -1,5 +1,5 @@
-import 'package:keep/main.dart';
 import 'package:flutter/material.dart';
+import 'package:keep/widgets/keep.dart';
 import 'package:keep/constants/text.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -7,7 +7,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 void main() {
   testWidgets('Navigates to Home Page', (WidgetTester tester) async {
     await tester.pumpWidget(const ProviderScope(
-      child: MyApp(),
+      child: Keep(),
     ));
 
     // Onboarding
