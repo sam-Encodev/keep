@@ -17,7 +17,7 @@ class UserNotifier extends Notifier<List<User>> {
             lastName: Ffaker().faker.name.lastName()),
         User(
             id: 1,
-            email: "sleeo@gmail.com",
+            email: "sleep@gmail.com",
             password: "12345",
             createdAt: "2024-09-09T18:09:01.922343",
             updatedAt: "2024-09-09T18:09:01.922343",
