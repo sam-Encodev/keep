@@ -25,6 +25,8 @@ jobs:
       - run: flutter --version
       - name: Install dependencies
         run: flutter pub get
+      - name: Update dependencies
+        run: flutter pub outdated
       - name: Run tests
         run: flutter test
       - name: Upload test logs
