@@ -17,12 +17,18 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 final _rootNavigatorKey = GlobalKey<NavigatorState>();
 final goRouterProvider = Provider<GoRouter>((ref) {
-  // final appState = ref.watch(appStateProvider);
+  final appState = ref.watch(appStateProvider);
 
   return GoRouter(
     navigatorKey: _rootNavigatorKey,
     initialLocation: RouteNames.onboard,
-    redirect: (context, state) { },
+    redirect: (context, state) {
+      // if (appState == true) {
+      //   return RouteNames.onboard;
+      // }
+      //
+      // return RouteNames.login;
+    },
     routes: [
       GoRoute(
         path: RouteNames.home,
