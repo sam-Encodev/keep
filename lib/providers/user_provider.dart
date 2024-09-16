@@ -46,6 +46,16 @@ class UserNotifier extends Notifier<List<User>> {
     return user;
   }
 
+  void findUser(User user) {
+    var data = state.where((p) => p.email == user.email).toList().first;
+    if (data.password == user.password) {
+      setUser(user);
+      ref.read(goRouterProvider).go(RouteNames.home);
+    } else {
+
+    }
+  }
+
   void addUser(User user) {
     if (!state.contains(user)) {
       state = [...state, user];
