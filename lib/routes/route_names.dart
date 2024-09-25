@@ -1,12 +1,12 @@
 class RouteNames {
-  static const home = "/";
+  static const home = "/notes";
   static const about = "/about";
   static const login = "/login";
-  static const search = "/search";
   static const signup = "/signup";
   static const onboard = "/onboard";
-  static const notesNew = "/notes/new";
-  static viewNote(noteId) => "/notes/$noteId";
+  static const search = "search";
+  static const newNote = "new";
+  static viewNote(noteId) => "/$noteId";
   static profile(userId) => "/profile/$userId";
   static editNote(noteId) => "/notes/edit/$noteId";
 }
