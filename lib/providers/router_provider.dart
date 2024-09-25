@@ -12,63 +12,69 @@ import 'package:keep/screens/notes/add_note.dart';
 import 'package:keep/screens/notes/view_note.dart';
 import 'package:keep/screens/notes/edit_note.dart';
 import 'package:keep/screens/notes/search_note.dart';
-import 'package:keep/providers/app_state_provider.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 final _rootNavigatorKey = GlobalKey<NavigatorState>();
+
 final goRouterProvider = Provider<GoRouter>((ref) {
-  final appState = ref.watch(appStateProvider);
 
   return GoRouter(
     navigatorKey: _rootNavigatorKey,
-    initialLocation: RouteNames.onboard,
+    initialLocation: RouteNames.login,
     redirect: (context, state) {
-      // if (appState == true) {
-      //   return RouteNames.onboard;
-      // }
-      //
-      // return RouteNames.login;
+      return null;
     },
     routes: [
       GoRoute(
-        path: RouteNames.home,
-        builder: (context, state) => const Home(),
-      ),
+          name: 'notes',
+          path: RouteNames.home,
+          builder: (context, state) => const Home(),
+          routes: [
+            GoRoute(
+              name: "add-note",
+              path: RouteNames.newNote,
+              builder: (context, state) => const AddNote(),
+            ),
+            GoRoute(
+              name: "search-note",
+              path: RouteNames.search,
+              builder: (context, state) => const SearchNote(),
+            ),
+          ]),
       GoRoute(
-        path: RouteNames.about,
-        builder: (context, state) => const About(),
-      ),
-      GoRoute(
-        path: RouteNames.onboard,
-        builder: (context, state) => const Onboarding(),
-      ),
-      GoRoute(
-        path: RouteNames.login,
-        builder: (context, state) => const Login(),
-      ),
-      GoRoute(
-        path: RouteNames.signup,
-        builder: (context, state) => const Signup(),
-      ),
-      GoRoute(
-        path: RouteNames.notesNew,
-        builder: (context, state) => const AddNote(),
-      ),
-      GoRoute(
+        name: "view-note",
         path: RouteNames.viewNote(":noteId"),
         builder: (context, state) => const ViewNote(),
       ),
       GoRoute(
+        name: "edit-note",
         path: RouteNames.editNote(":noteId"),
         builder: (context, state) => const EditNote(),
       ),
       GoRoute(
-        path: RouteNames.search,
-        builder: (context, state) => const SearchNote(),
+        name: "about",
+        path: RouteNames.about,
+        builder: (context, state) => const About(),
       ),
       GoRoute(
+        name: 'profile',
         path: RouteNames.profile(":userId"),
         builder: (context, state) => const Profile(),
+      ),
+      GoRoute(
+        name: 'onboard',
+        path: RouteNames.onboard,
+        builder: (context, state) => const Onboarding(),
+      ),
+      GoRoute(
+        name: 'login',
+        path: RouteNames.login,
+        builder: (context, state) => const Login(),
+      ),
+      GoRoute(
+        name: 'signup',
+        path: RouteNames.signup,
+        builder: (context, state) => const Signup(),
       ),
     ],
     errorBuilder: (context, state) => const ErrorScreen(),
