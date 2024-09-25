@@ -46,6 +46,7 @@ jobs:
           message: |
             Status: ${{ job.status }}
             Author: ${{ github.actor }}
+            Repo: ${{ github.repository }}
             Workflow: ${{ github.workflow }}
             Commit: ${{ github.event.head_commit.message }}
  
