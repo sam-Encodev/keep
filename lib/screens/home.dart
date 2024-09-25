@@ -9,8 +9,6 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 class Home extends ConsumerWidget {
   const Home({super.key});
 
-  static const userId = 0;
-
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     return Scaffold(
@@ -24,19 +22,19 @@ class Home extends ConsumerWidget {
             style: iconButtonStyle(),
             icon: const Icon(Icons.search),
             color: Colors.white,
-            onPressed: () => context.push(RouteNames.search),
+            onPressed: () => context.go('/notes/search'),
           ),
           IconButton(
             style: iconButtonStyle(),
             icon: const Icon(Icons.info),
             color: Colors.white,
-            onPressed: () => context.push(RouteNames.about),
+            onPressed: () => context.go(RouteNames.about),
           ),
           IconButton(
             style: iconButtonStyle(),
             icon: const Icon(Icons.account_circle_rounded),
             color: Colors.white,
-            onPressed: () => context.push(RouteNames.profile(0)),
+            onPressed: () => context.go(RouteNames.profile(0)),
           ),
         ],
       ),
@@ -48,7 +46,7 @@ class Home extends ConsumerWidget {
           ),
           child: ListNotes()),
       floatingActionButton: FloatingActionButton(
-        onPressed: () => context.push(RouteNames.notesNew),
+        onPressed: () => context.go('/notes/add'),
         foregroundColor: Colors.white,
         backgroundColor: Colors.black54,
         child: const Icon(Icons.add, size: 30),

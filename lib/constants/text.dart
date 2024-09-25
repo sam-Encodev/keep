@@ -1,9 +1,10 @@
-const appName = "Notes";
-const newNote = "Create your first note";
-const errorEntry = "can't be blank";
-
 // Onboard
 const skip = "Skip";
+
+// App
+const appName = "Notes";
+const errorEntry = "can't be blank";
+const newNote = "Create your first note";
 
 // About
 const name = "Kwame Opam";
@@ -53,4 +54,3 @@ const lastName = "Last Name";
 const firstName = "First Name";
 const newPassword = "New Password";
 const currentPassword = "Current Password";
-

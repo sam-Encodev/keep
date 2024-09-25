@@ -7,15 +7,17 @@ import 'package:keep/constants/widgets.dart';
 import 'package:keep/constants/onboard.dart';
 import 'package:keep/routes/route_names.dart';
 import 'package:dots_indicator/dots_indicator.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-class Onboarding extends StatefulWidget {
+class Onboarding extends ConsumerStatefulWidget {
   const Onboarding({super.key});
 
   @override
-  State<Onboarding> createState() => _OnboardState();
+  ConsumerState<Onboarding> createState() => _OnboardState();
 }
 
-class _OnboardState extends State<Onboarding> with TickerProviderStateMixin {
+class _OnboardState extends ConsumerState<Onboarding>
+    with TickerProviderStateMixin {
   late PageController _pageViewController;
   late TabController _tabController;
   int _currentPageIndex = 0;
@@ -79,7 +81,7 @@ class _OnboardState extends State<Onboarding> with TickerProviderStateMixin {
             SizedBox(
               width: 78,
               child: FilledButton(
-                  onPressed: () => context.pushReplacement(RouteNames.home),
+                  onPressed: () => {context.go(RouteNames.home)},
                   style: buttonStyle(),
                   child: const Text(
                     skip,
@@ -173,7 +175,7 @@ class PageIndicator extends StatelessWidget {
               IconButton(
                 onPressed: () {
                   if (currentPageIndex == 2) {
-                    context.pushReplacement(RouteNames.home);
+                    context.go(RouteNames.home);
                     return;
                   }
                   onUpdateCurrentPageIndex(currentPageIndex + 1);
