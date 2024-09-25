@@ -3,12 +3,13 @@ import 'package:keep/constants/text.dart';
 import 'package:go_router/go_router.dart';
 import 'package:keep/utilities/styles.dart';
 import 'package:keep/routes/route_names.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-class About extends StatelessWidget {
+class About extends ConsumerWidget {
   const About({super.key});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     return Scaffold(
       appBar: AppBar(
           backgroundColor: Colors.black87,
@@ -48,7 +49,7 @@ class About extends StatelessWidget {
                 child: Column(
                   children: [
                     FilledButton(
-                        onPressed: () => context.go(RouteNames.login),
+                        onPressed: () => {context.go(RouteNames.login)},
                         style: buttonStyle(),
                         child: const Text(signOut,
                             style: TextStyle(
