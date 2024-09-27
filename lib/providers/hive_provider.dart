@@ -3,16 +3,11 @@ import 'package:hive_flutter/hive_flutter.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 class HiveState extends Notifier {
-    // ignore: prefer_typing_uninitialized_variables
-    var box;
+  // ignore: prefer_typing_uninitialized_variables
+  var box;
   @override
   build() {
-    box = Hive.box('keep').get('onBoard', defaultValue: "");
-    return box;
-  }
-
-  void write() {
-    box = Hive.box('keep').put('onBoard', '');
+    return Hive.box('keep').get('onBoard', defaultValue: "");
   }
 
   void delete() {
@@ -21,7 +16,6 @@ class HiveState extends Notifier {
 
   void update(value) {
     box = Hive.box('keep').put('onBoard', value);
-    box;
   }
 }
 
