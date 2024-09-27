@@ -45,8 +45,7 @@ class UserNotifier extends Notifier<List<User>> {
   void addUser(User user) {
     if (!state.contains(user)) {
       state = [...state, user];
-      ref.read(authNotifierProvider.notifier).setUser(user);
-      ref.read(goRouterProvider).go(RouteNames.home);
+      ref.read(goRouterProvider).go(RouteNames.login);
     }
   }
 
