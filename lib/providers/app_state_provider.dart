@@ -1,47 +1,37 @@
 import 'dart:async';
-import 'package:keep/utilities/logger.dart';
+import 'package:keep/routes/route_names.dart';
+import 'package:keep/providers/hive_provider.dart';
+import 'package:keep/providers/router_provider.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 class AppState extends Notifier {
-  late final bool _initialized = false;
-  late final bool _loggedIn = false;
-  late final bool _onboardingComplete = false;
-
-  bool get isInitialized => _initialized;
-  bool get isLoggedIn => _loggedIn;
-  bool get isOnboardingComplete => _onboardingComplete;
-
   @override
   build() {
-    return _initialized;
+    return onBoardState();
   }
 
   void initializeApp() {
     Timer(
       const Duration(milliseconds: 2000),
       () {
-        // _initialized = true;
-        Logger.info("initialized");
+        onBoardState();
       },
     );
   }
 
   void completeOnboarding() {
-    Logger.info("onboardingComplete");
-    // _onboardingComplete = true;
+    ref.read(hiveProvider.notifier).update('onBoarded');
+    ref.read(goRouterProvider).go(RouteNames.home);
   }
 
-  void login(String username, String password) {
-    Logger.info("loggedIn");
-    // _loggedIn = true;
-  }
+  void onBoardState() {
+    var data = ref.watch(hiveProvider);
 
-  void logout() {
-    Logger.info("loggedOut");
-    // _loggedIn = false;
-    // _onboardingComplete = false;
-    // _initialized = false;
-    // initializeApp();
+    if (data == 'onBoarded') {
+      ref.read(goRouterProvider).go(RouteNames.home);
+    } else {
+      ref.read(goRouterProvider).go(RouteNames.onboard);
+    }
   }
 }
 
