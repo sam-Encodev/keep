@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/foundation.dart';
-import 'package:go_router/go_router.dart';
 import 'package:keep/constants/text.dart';
 import 'package:keep/utilities/styles.dart';
 import 'package:keep/constants/widgets.dart';
 import 'package:keep/constants/onboard.dart';
-import 'package:keep/routes/route_names.dart';
 import 'package:dots_indicator/dots_indicator.dart';
+import 'package:keep/providers/app_state_provider.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 class Onboarding extends ConsumerStatefulWidget {
@@ -81,7 +80,9 @@ class _OnboardState extends ConsumerState<Onboarding>
             SizedBox(
               width: 78,
               child: FilledButton(
-                  onPressed: () => {context.go(RouteNames.home)},
+                  onPressed: () => {
+                        ref.read(appStateProvider.notifier).completeOnboarding()
+                      },
                   style: buttonStyle(),
                   child: const Text(
                     skip,
@@ -117,7 +118,7 @@ class _OnboardState extends ConsumerState<Onboarding>
   }
 }
 
-class PageIndicator extends StatelessWidget {
+class PageIndicator extends ConsumerWidget {
   const PageIndicator({
     super.key,
     required this.tabController,
@@ -132,7 +133,7 @@ class PageIndicator extends StatelessWidget {
   final bool isOnDesktopAndWeb;
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     if (!isOnDesktopAndWeb) {
       return const SizedBox.shrink();
     }
@@ -175,7 +176,7 @@ class PageIndicator extends StatelessWidget {
               IconButton(
                 onPressed: () {
                   if (currentPageIndex == 2) {
-                    context.go(RouteNames.home);
+                    ref.read(appStateProvider.notifier).completeOnboarding();
                     return;
                   }
                   onUpdateCurrentPageIndex(currentPageIndex + 1);
