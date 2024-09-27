@@ -5,18 +5,13 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 class AppState extends Notifier {
   @override
-  build() {
-    return null;
-  }
+  build() {}
 
   void completeOnboarding() {
-    redirectHome();
+    ref.read(hiveProvider.notifier).update('onBoard');
+    loginState();
   }
 
-  void redirectLogin() {
-    ref.read(goRouterProvider).go(RouteNames.login);
-    ref.read(hiveProvider.notifier).update('');
-  }
 
   void redirectHome() {
     ref.read(goRouterProvider).go(RouteNames.home);
@@ -24,6 +19,19 @@ class AppState extends Notifier {
 
   void redirectOnBoard() {
     ref.read(goRouterProvider).go(RouteNames.onboard);
+  }
+
+  void loginState() {
+    var info = ref.watch(hiveProvider);
+    if (info == "") {
+      ref.read(appStateProvider.notifier).redirectOnBoard();
+    } else {
+      ref.read(appStateProvider.notifier).redirectHome();
+    }
+  }
+
+  void logoutState() {
+    ref.read(goRouterProvider).go(RouteNames.login);
   }
 }
 
