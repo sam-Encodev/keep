@@ -83,34 +83,6 @@ class NoteNotifier extends Notifier<List<Note>> {
                 .subtractDuration(const Duration(days: 10, hours: 6))
                 .format(),
             color: "yellow"),
-        // Note(
-        //     id: 11,
-        //     title: "Game",
-        //     description: "I lied",
-        //     timestamp: "2024-03-02T15:18:29.922343",
-        //     color: "red"),
-        // Note(
-        //     id: 12,
-        //     title: "Sleep",
-        //     description: "I lied",
-        //     timestamp: Jiffy.parse(DateTime.timestamp().toString())
-        //         .subtractDuration(const Duration(days: 10, hours: 6))
-        //         .format(),
-        //     color: "yellow"),
-        // Note(
-        //     id: 13,
-        //     title: "Game",
-        //     description: "I lied",
-        //     timestamp: "2024-03-02T15:18:29.922343",
-        //     color: "red"),
-        // Note(
-        //     id: 14,
-        //     title: "Sleep",
-        //     description: "I lied",
-        //     timestamp: Jiffy.parse(DateTime.timestamp().toString())
-        //         .subtractDuration(const Duration(days: 10, hours: 6))
-        //         .format(),
-        //     color: "yellow"),
       ];
 
   void addNote(Note note) {
@@ -121,10 +93,6 @@ class NoteNotifier extends Notifier<List<Note>> {
 
   void removeNote(noteID) {
     state = state.where((p) => p.id != noteID).toList();
-
-    // if (state.contains(noteID)) {
-    //   state = state.where((p) => p.id != noteID).toSet();
-    // }
   }
 
   void editNote(Note note) {
