@@ -7,20 +7,23 @@ class HiveState extends Notifier {
 
   @override
   build() {
-    box = Hive.box('keep').get('key', defaultValue: "");
+    box = Hive.box('keep').get('onBoard', defaultValue: "initialize");
     return box;
   }
 
   void write() {
-    box = Hive.box('keep').put('key', '');
+    box = Hive.box('keep').put('onBoard', '');
+    box;
   }
 
   void delete() {
-    box = Hive.box('keep').delete('key');
+    box = Hive.box('keep').delete('onBoard');
+    box;
   }
 
   void update(value) {
-    box = Hive.box('keep').put('key', value);
+    box = Hive.box('keep').put('onBoard', value);
+    box;
   }
 }
 
