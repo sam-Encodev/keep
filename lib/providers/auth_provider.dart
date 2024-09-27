@@ -1,8 +1,6 @@
 import 'package:keep/models/user.dart';
-import 'package:keep/routes/route_names.dart';
-import 'package:keep/providers/hive_provider.dart';
 import 'package:keep/providers/user_provider.dart';
-import 'package:keep/providers/router_provider.dart';
+import 'package:keep/providers/app_state_provider.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 class AuthNotifier extends Notifier {
@@ -46,8 +44,7 @@ class AuthNotifier extends Notifier {
         createdAt: "",
         updatedAt: "",
         firstName: "");
-    ref.read(hiveProvider.notifier).update('initialize');
-    ref.read(goRouterProvider).go(RouteNames.login);
+    ref.read(appStateProvider.notifier).redirectLogin();
   }
 }
 
