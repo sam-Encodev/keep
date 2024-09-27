@@ -3,6 +3,7 @@ import 'package:keep/models/user.dart';
 import 'package:keep/constants/text.dart';
 import 'package:keep/utilities/styles.dart';
 import 'package:keep/utilities/ffaker.dart';
+import 'package:keep/providers/auth_provider.dart';
 import 'package:keep/providers/user_provider.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -89,7 +90,7 @@ class _SignupFormState extends ConsumerState<SignupForm> {
                 // the form is invalid.
                 if (_formKey.currentState!.validate()) {
                   // Process data.
-                  ref.read(userNotifierProvider.notifier).addUser(User(
+                  ref.read(authNotifierProvider.notifier).signup(User(
                       id: index,
                       lastName: lastName,
                       firstName: firstName,
