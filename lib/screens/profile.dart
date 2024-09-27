@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:keep/constants/text.dart';
 import 'package:go_router/go_router.dart';
 import 'package:keep/utilities/styles.dart';
-import 'package:keep/providers/user_provider.dart';
+import 'package:keep/providers/auth_provider.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 class Profile extends ConsumerStatefulWidget {
@@ -17,7 +17,6 @@ class _Profile extends ConsumerState<Profile> {
 
   static const spacing = 8.0;
   static const labelSize = 15.0;
-  static const labelSpacer = 11.0;
 
   String? _email;
   String? _lastName;
@@ -30,10 +29,7 @@ class _Profile extends ConsumerState<Profile> {
   Widget build(
     BuildContext context,
   ) {
-    final extraString = GoRouterState.of(context).pathParameters['userId'];
-    var getUsers = ref.watch(userNotifierProvider);
-    var transformUsers = getUsers.toList();
-    var user = transformUsers[int.parse(extraString!)];
+    var currentUser = ref.watch(authNotifierProvider);
 
     return Scaffold(
         appBar: AppBar(
@@ -42,12 +38,11 @@ class _Profile extends ConsumerState<Profile> {
           leading: Padding(
             padding: const EdgeInsets.all(spacing),
             child: IconButton(
-              style: iconButtonStyle(),
-              padding: EdgeInsets.zero,
-              icon: const Icon(Icons.arrow_back, size: 30),
-              color: Colors.white,
-              onPressed: () => context.pop(),
-            ),
+                style: iconButtonStyle(),
+                padding: EdgeInsets.zero,
+                icon: const Icon(Icons.arrow_back, size: 30),
+                color: Colors.white,
+                onPressed: () => {context.pop()}),
           ),
           title: const Text(profile,
               style: TextStyle(color: Colors.white, fontSize: 20)),
@@ -72,7 +67,7 @@ class _Profile extends ConsumerState<Profile> {
                   Padding(
                     padding: const EdgeInsets.all(spacing),
                     child: TextFormField(
-                      initialValue: user.firstName,
+                      initialValue: currentUser.firstName,
                       style: const TextStyle(color: Colors.white),
                       decoration: InputDecoration(
                           fillColor: Colors.black12,
@@ -95,13 +90,13 @@ class _Profile extends ConsumerState<Profile> {
                   const Padding(
                     padding: EdgeInsets.all(spacing),
                     child: Text(lastName,
-                        style:
-                            TextStyle(color: Colors.white, fontSize: labelSize)),
+                        style: TextStyle(
+                            color: Colors.white, fontSize: labelSize)),
                   ),
                   Padding(
                     padding: const EdgeInsets.all(spacing),
                     child: TextFormField(
-                      initialValue: user.lastName,
+                      initialValue: currentUser.lastName,
                       style: const TextStyle(color: Colors.white),
                       decoration: InputDecoration(
                         fillColor: Colors.black12,
@@ -125,13 +120,13 @@ class _Profile extends ConsumerState<Profile> {
                   const Padding(
                     padding: EdgeInsets.all(spacing),
                     child: Text(email,
-                        style:
-                            TextStyle(color: Colors.white, fontSize: labelSize)),
+                        style: TextStyle(
+                            color: Colors.white, fontSize: labelSize)),
                   ),
                   Padding(
                     padding: const EdgeInsets.all(spacing),
                     child: TextFormField(
-                      initialValue: user.email,
+                      initialValue: currentUser.email,
                       style: const TextStyle(color: Colors.white),
                       decoration: InputDecoration(
                         fillColor: Colors.black12,
@@ -155,13 +150,13 @@ class _Profile extends ConsumerState<Profile> {
                   const Padding(
                     padding: EdgeInsets.all(spacing),
                     child: Text(currentPassword,
-                        style:
-                            TextStyle(color: Colors.white, fontSize: labelSize)),
+                        style: TextStyle(
+                            color: Colors.white, fontSize: labelSize)),
                   ),
                   Padding(
                     padding: const EdgeInsets.all(spacing),
                     child: TextFormField(
-                      initialValue: user.password,
+                      initialValue: currentUser.password,
                       obscureText: true,
                       enableSuggestions: false,
                       autocorrect: false,
@@ -187,8 +182,8 @@ class _Profile extends ConsumerState<Profile> {
                   const Padding(
                     padding: EdgeInsets.all(spacing),
                     child: Text(newPassword,
-                        style:
-                            TextStyle(color: Colors.white, fontSize: labelSize)),
+                        style: TextStyle(
+                            color: Colors.white, fontSize: labelSize)),
                   ),
                   Padding(
                     padding: const EdgeInsets.all(spacing),
