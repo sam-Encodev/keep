@@ -3,10 +3,10 @@ import 'package:keep/models/note.dart';
 import 'package:keep/constants/text.dart';
 import 'package:go_router/go_router.dart';
 import 'package:keep/utilities/styles.dart';
-import 'package:keep/constants/widgets.dart';
 import 'package:keep/routes/route_names.dart';
 import 'package:keep/utilities/switch_color.dart';
 import 'package:keep/providers/notes_provider.dart';
+import 'package:keep/providers/router_provider.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 class AddNote extends ConsumerStatefulWidget {
@@ -134,22 +134,22 @@ class AddNoteForm extends ConsumerState<AddNote> {
                                 SizedBox(
                                   width: 110,
                                   child: FilledButton(
-                                      onPressed: () {
-                                        ref
-                                            .read(noteNotifierProvider.notifier)
-                                            .addNote(Note(
-                                                id: index,
-                                                title: "$_titleField",
-                                                description:
-                                                    "$_descriptionField",
-                                                timestamp: _timestamp,
-                                                color: "$_color"));
-
-                                        Navigator.of(context).pop();
-                                        context.pop(RouteNames.home);
-                                        snackBar(
-                                            context, "$_titleField", "added");
-                                      },
+                                      onPressed: () => {
+                                            ref
+                                                .read(noteNotifierProvider
+                                                    .notifier)
+                                                .addNote(Note(
+                                                    id: index,
+                                                    title: "$_titleField",
+                                                    description:
+                                                        "$_descriptionField",
+                                                    timestamp: _timestamp,
+                                                    color: "$_color")),
+                                            Navigator.of(context).pop(),
+                                            ref
+                                                .read(goRouterProvider)
+                                                .go(RouteNames.home)
+                                          },
                                       style: buttonStyle(),
                                       child: const Text(yes,
                                           style: TextStyle(

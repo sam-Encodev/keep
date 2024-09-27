@@ -3,10 +3,9 @@ import 'package:keep/models/note.dart';
 import 'package:keep/constants/text.dart';
 import 'package:go_router/go_router.dart';
 import 'package:keep/utilities/styles.dart';
-import 'package:keep/constants/widgets.dart';
-import 'package:keep/routes/route_names.dart';
 import 'package:keep/utilities/switch_color.dart';
 import 'package:keep/providers/notes_provider.dart';
+import 'package:keep/providers/router_provider.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 class EditNote extends ConsumerStatefulWidget {
@@ -135,8 +134,8 @@ class EditNoteForm extends ConsumerState<EditNote> {
                                       onPressed: () {
                                         Navigator.of(context).pop();
                                       },
-                                      style: buttonStyle(
-                                          color: Colors.redAccent),
+                                      style:
+                                          buttonStyle(color: Colors.redAccent),
                                       child: const Text(no,
                                           style: TextStyle(
                                               color: Colors.white,
@@ -158,8 +157,7 @@ class EditNoteForm extends ConsumerState<EditNote> {
                                                 timestamp: _timestamp,
                                                 color: "$finalColor"));
                                         Navigator.of(context).pop();
-                                        context.pop(RouteNames.home);
-                                        snackBar(context, "Note", "updated");
+                                        ref.read(goRouterProvider).pop();
                                       },
                                       style: buttonStyle(),
                                       child: const Text(yes,

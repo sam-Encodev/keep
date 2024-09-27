@@ -33,8 +33,7 @@ class ViewNote extends ConsumerWidget {
             style: iconButtonStyle(),
             icon: const Icon(Icons.edit),
             color: Colors.white,
-            onPressed: () =>
-                {context.push(RouteNames.editNote(note.id))},
+            onPressed: () => {context.push(RouteNames.editNote(note.id))},
           ),
         ],
       ),
