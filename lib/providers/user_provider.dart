@@ -39,7 +39,7 @@ class UserNotifier extends Notifier<List<User>> {
     var data = state.where((p) => p.email == user.email).toList().first;
     if (data.password == user.password) {
       ref.read(authNotifierProvider.notifier).setUser(user);
-      ref.read(appStateProvider.notifier).redirectHome();
+      ref.read(appStateProvider.notifier).loginState();
     } else {}
   }
 
