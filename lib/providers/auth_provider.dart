@@ -44,7 +44,7 @@ class AuthNotifier extends Notifier {
         createdAt: "",
         updatedAt: "",
         firstName: "");
-    ref.read(appStateProvider.notifier).redirectLogin();
+    ref.read(appStateProvider.notifier).logoutState();
   }
 }
 
