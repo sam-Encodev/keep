@@ -6,7 +6,7 @@ class RouteNames {
   static const onboard = "/onboard";
   static const search = "search";
   static const newNote = "new";
-  static viewNote(noteId) => "/$noteId";
+  static viewNote(noteId) => "/notes/$noteId";
   static profile(userId) => "/profile/$userId";
   static editNote(noteId) => "/notes/edit/$noteId";
 }
