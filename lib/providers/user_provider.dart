@@ -3,6 +3,7 @@ import 'package:keep/utilities/ffaker.dart';
 import 'package:keep/routes/route_names.dart';
 import 'package:keep/providers/auth_provider.dart';
 import 'package:keep/providers/router_provider.dart';
+import 'package:keep/providers/app_state_provider.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 class UserNotifier extends Notifier<List<User>> {
@@ -38,7 +39,7 @@ class UserNotifier extends Notifier<List<User>> {
     var data = state.where((p) => p.email == user.email).toList().first;
     if (data.password == user.password) {
       ref.read(authNotifierProvider.notifier).setUser(user);
-      ref.read(goRouterProvider).go(RouteNames.home);
+      ref.read(appStateProvider.notifier).onBoardState();
     } else {}
   }
 
