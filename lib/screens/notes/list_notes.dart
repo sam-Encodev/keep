@@ -18,7 +18,7 @@ class ListNotes extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     var getNotes = ref.watch(noteNotifierProvider);
-    var notes = getNotes.toList();
+    var notes = getNotes.reversed.toList();
 
     return getNotes.isEmpty
         ? const EmptyState(uri: "service_book.svg")
