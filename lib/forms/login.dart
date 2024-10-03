@@ -35,6 +35,7 @@ class _LoginFormState extends ConsumerState<LoginForm> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
           TextFormField(
+            key: const Key(email),
             style: const TextStyle(color: Colors.white),
             decoration: InputDecoration(
               fillColor: Colors.black12,
@@ -59,6 +60,7 @@ class _LoginFormState extends ConsumerState<LoginForm> {
           ),
           const SizedBox(height: 18),
           TextFormField(
+            key: const Key(password),
             obscureText: true,
             enableSuggestions: false,
             autocorrect: false,
@@ -85,6 +87,7 @@ class _LoginFormState extends ConsumerState<LoginForm> {
           ),
           const SizedBox(height: 18),
           FilledButton(
+              key: const Key(login),
               style: buttonStyle(),
               onPressed: () {
                 // Validate will return true if the form is valid, or false if
