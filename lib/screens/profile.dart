@@ -67,6 +67,7 @@ class _Profile extends ConsumerState<Profile> {
                   Padding(
                     padding: const EdgeInsets.all(spacing),
                     child: TextFormField(
+                      key: const Key(firstName),
                       initialValue: currentUser.firstName,
                       style: const TextStyle(color: Colors.white),
                       decoration: InputDecoration(
@@ -96,6 +97,7 @@ class _Profile extends ConsumerState<Profile> {
                   Padding(
                     padding: const EdgeInsets.all(spacing),
                     child: TextFormField(
+                      key: const Key(lastName),
                       initialValue: currentUser.lastName,
                       style: const TextStyle(color: Colors.white),
                       decoration: InputDecoration(
@@ -126,6 +128,7 @@ class _Profile extends ConsumerState<Profile> {
                   Padding(
                     padding: const EdgeInsets.all(spacing),
                     child: TextFormField(
+                      key: const Key(email),
                       initialValue: currentUser.email,
                       style: const TextStyle(color: Colors.white),
                       decoration: InputDecoration(
@@ -156,6 +159,7 @@ class _Profile extends ConsumerState<Profile> {
                   Padding(
                     padding: const EdgeInsets.all(spacing),
                     child: TextFormField(
+                      key: const Key(password),
                       initialValue: currentUser.password,
                       obscureText: true,
                       enableSuggestions: false,
@@ -188,6 +192,7 @@ class _Profile extends ConsumerState<Profile> {
                   Padding(
                     padding: const EdgeInsets.all(spacing),
                     child: TextFormField(
+                      key: const Key(confirmPassword),
                       obscureText: true,
                       enableSuggestions: false,
                       autocorrect: false,

@@ -48,6 +48,7 @@ const editProfile = "Edit Profile";
 const email = "Email";
 const password = "Password";
 const updateProfile = "Update Profile";
+const confirmPassword = "Confirmz Password";
 
 // Profile
 const lastName = "Last Name";
@@ -58,5 +59,5 @@ const currentPassword = "Current Password";
 // User Info
 const userPassword = "12345";
 const userEmail = "game@gmail.com";
-const newUserEmail= "jones@gmail.com";
-const newUserPassword= "12345";
+const newUserEmail = "jones@gmail.com";
+const newUserPassword = "12345";

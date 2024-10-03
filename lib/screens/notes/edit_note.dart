@@ -192,6 +192,7 @@ class EditNoteForm extends ConsumerState<EditNote> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
                       TextFormField(
+                        key: const Key(title),
                         initialValue: note.title,
                         onChanged: (val) =>
                             {_titleField = val.isEmpty ? null : val},
@@ -219,6 +220,7 @@ class EditNoteForm extends ConsumerState<EditNote> {
                         },
                       ),
                       TextFormField(
+                        key: const Key(description),
                         initialValue: note.description,
                         onChanged: (val) =>
                             {_descriptionField = val.isEmpty ? null : val},

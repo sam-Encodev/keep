@@ -183,6 +183,7 @@ class AddNoteForm extends ConsumerState<AddNote> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
                       TextFormField(
+                        key: const Key(title),
                         maxLines: 1,
                         style:
                             const TextStyle(color: Colors.white, fontSize: 55),
@@ -206,6 +207,7 @@ class AddNoteForm extends ConsumerState<AddNote> {
                         },
                       ),
                       TextFormField(
+                        key: const Key(description),
                         maxLines: 10,
                         enableSuggestions: false,
                         autocorrect: false,
