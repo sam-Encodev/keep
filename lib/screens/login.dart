@@ -29,7 +29,7 @@ class _LoginState extends State<Login> {
             const Text(
               welcomeBack,
               style: TextStyle(
-                fontSize: 80,
+                fontSize: 75,
                 color: Colors.white,
               ),
             ),

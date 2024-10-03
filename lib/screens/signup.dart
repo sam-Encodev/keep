@@ -29,7 +29,7 @@ class _SignupState extends State<Signup> {
             const Text(
               getStarted,
               style: TextStyle(
-                fontSize: 80,
+                fontSize: 75,
                 color: Colors.white,
               ),
             ),
