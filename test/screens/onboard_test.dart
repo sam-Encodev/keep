@@ -11,6 +11,19 @@ void main() {
       child: Keep(),
     ));
 
+    // Login
+    expect(find.text(welcomeBack), findsOneWidget);
+    expect(find.text(noAccount), findsOneWidget);
+    expect(find.text(signUp), findsOneWidget);
+    expect(find.text(email), findsOneWidget);
+    expect(find.text(password), findsOneWidget);
+    Finder emailField = find.byKey(const Key(email));
+    await tester.enterText(emailField, userEmail);
+    Finder passwordField = find.byKey(const Key(password));
+    await tester.enterText(passwordField, userPassword);
+    await tester.tap(find.byKey(const Key(login)));
+    await tester.pumpAndSettle(const Duration(seconds: 5));
+
     // Onboarding 1
     expect(find.text(skip), findsOneWidget);
     expect(find.byIcon(Icons.arrow_left), findsNothing);
