@@ -1,0 +1,30 @@
+name: Build CI
+on: [push]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4.2.1
+      - name: Set up Flutter
+        uses: subosito/flutter-action@v2.16.0
+        id: flutter-action
+        with:
+          cache: true
+          channel: stable
+          architecture: x64
+      - run: |
+          git config --global --add safe.directory /opt/hostedtoolcache/flutter/${{ steps.flutter-action.outputs.CHANNEL }}-${{ steps.flutter-action.outputs.VERSION }}-${{ steps.flutter-action.outputs.ARCHITECTURE }}
+          flutter --version 
+      - run: flutter --version
+      - name: Install dependencies
+        run: flutter pub get
+      - name: Update dependencies
+        run: flutter pub upgrade --major-versions
+      - run: flutter build apk
+      - name: Upload a Build Artifact
+        if: success()
+        uses: actions/upload-artifact@v4.4.3
+        with:
+          name: release-apk
+          path: build/app/outputs/apk/release/app-release.apk
