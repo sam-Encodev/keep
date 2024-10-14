@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:keep/screens/about.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:keep/screens/error_screen.dart';
 
 void main() {
-  testWidgets('show to About Page', (WidgetTester tester) async {
+  testWidgets('show to Error Page', (WidgetTester tester) async {
     await tester.pumpWidget(const MaterialApp(
-      home: About(),
+      home: ErrorScreen(),
     ));
   });
 }
