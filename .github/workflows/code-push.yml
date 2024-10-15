@@ -24,4 +24,4 @@ jobs:
               run: flutter pub upgrade --major-versions
             - name: Checkout code
               uses: actions/checkout@v4.2.1
-            - uses: ./.github/actions/flutter-test
+            - uses: ./.github/actions/flutter-test/
