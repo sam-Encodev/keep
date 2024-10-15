@@ -11,7 +11,7 @@ jobs:
         with:
           distribution: 'oracle'
           java-version: '17'
-      - name: Install dependencies
+      - name: Update os packages
         run: |
             sudo apt-get update
       - uses: subosito/flutter-action@v2.16.0
@@ -22,9 +22,9 @@ jobs:
       - run: |
           git config --global --add safe.directory /opt/hostedtoolcache/flutter/${{ steps.flutter-action.outputs.CHANNEL }}-${{ steps.flutter-action.outputs.VERSION }}-${{ steps.flutter-action.outputs.ARCHITECTURE }}
           flutter --version
-      - name: Install dependencies
+      - name: Install flutter dependencies
         run: flutter pub get
-      - name: Update dependencies
+      - name: Update flutter dependencies
         run: flutter pub upgrade --major-versions
       - name: Build APK
         run: flutter build apk
