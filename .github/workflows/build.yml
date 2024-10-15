@@ -1,35 +1,35 @@
-name: Build
-on: []
-jobs:
-  build:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v4.2.1
-      - name: Setup Java JDK
-        uses: actions/setup-java@v4.4.0
-        with:
-          distribution: 'oracle'
-          java-version: '17'
-      - name: Update os packages
-        run: |
-            sudo apt-get update
-      - uses: subosito/flutter-action@v2.16.0
-        id: flutter-action
-        with:
-          cache: true
-          channel: stable
-      - run: |
-          git config --global --add safe.directory /opt/hostedtoolcache/flutter/${{ steps.flutter-action.outputs.CHANNEL }}-${{ steps.flutter-action.outputs.VERSION }}-${{ steps.flutter-action.outputs.ARCHITECTURE }}
-          flutter --version
-      - name: Install flutter dependencies
-        run: flutter pub get
-      - name: Update flutter dependencies
-        run: flutter pub upgrade --major-versions
-      - name: Build APK
-        run: flutter build apk
-      - name: Archive APK
-        uses: actions/upload-artifact@v4.4.3
-        with:
-          name: release-apk
-          path: build/app/outputs/flutter-apk/*.apk
+# name: Build
+# on: []
+# jobs:
+  # build:
+    # runs-on: ubuntu-latest
+    # steps:
+    #   - name: Checkout code
+    #     uses: actions/checkout@v4.2.1
+    #   - name: Setup Java JDK
+    #     uses: actions/setup-java@v4.4.0
+    #     with:
+    #       distribution: 'oracle'
+    #       java-version: '17'
+    #   - name: Update os packages
+    #     run: |
+    #         sudo apt-get update
+    #   - uses: subosito/flutter-action@v2.16.0
+    #     id: flutter-action
+    #     with:
+    #       cache: true
+    #       channel: stable
+    #   - run: |
+    #       git config --global --add safe.directory /opt/hostedtoolcache/flutter/${{ steps.flutter-action.outputs.CHANNEL }}-${{ steps.flutter-action.outputs.VERSION }}-${{ steps.flutter-action.outputs.ARCHITECTURE }}
+    #       flutter --version
+    #   - name: Install flutter dependencies
+    #     run: flutter pub get
+    #   - name: Update flutter dependencies
+    #     run: flutter pub upgrade --major-versions
+    #   - name: Build APK
+    #     run: flutter build apk
+    #   - name: Archive APK
+    #     uses: actions/upload-artifact@v4.4.3
+    #     with:
+    #       name: release-apk
+    #       path: build/app/outputs/flutter-apk/*.apk
