@@ -29,7 +29,6 @@ jobs:
         with:
           name: debug-build
           path: build/app/outputs/apk/debug/*.apk
-
       - name: Archive App
         uses: actions/upload-artifact@v2
         with:
