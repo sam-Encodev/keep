@@ -12,9 +12,9 @@ jobs:
         with:
           distribution: 'oracle'
           java-version: '17'
-      - uses: subosito/flutter-action@v1
+      - uses: subosito/flutter-action@v2.16.0
         with:
-          channel: 'stable'
+          channel: stable
       - run: |
           git config --global --add safe.directory /opt/hostedtoolcache/flutter/${{ steps.flutter-action.outputs.CHANNEL }}-${{ steps.flutter-action.outputs.VERSION }}-${{ steps.flutter-action.outputs.ARCHITECTURE }}
           flutter --version
