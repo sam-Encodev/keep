@@ -23,14 +23,9 @@ jobs:
       - name: Update dependencies
         run: flutter pub upgrade --major-versions
       - name: Build APK
-        run: flutter build apk --release
+        run: flutter build apk
       - name: Archive APK
         uses: actions/upload-artifact@v4.4.3
         with:
-          name: debug-build
-          path: build/app/outputs/apk/debug/*.apk
-      - name: Archive App
-        uses: actions/upload-artifact@v4.4.3
-        with:
-          name: debug-build
+          name: release-apk
           path: build/app/outputs/flutter-apk/*.apk
