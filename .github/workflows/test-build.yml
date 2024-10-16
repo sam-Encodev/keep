@@ -82,5 +82,6 @@ jobs:
         with:
           name: test-apk
           path: build/app/outputs/flutter-apk/*.apk
-      - name: Output workflow run ID & artifact ID
-        run:  echo '${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}/artifacts/${{ steps.artifact-upload-step.outputs.artifact-id }}'
+
+      - name: Output artifact ID
+        run:  echo 'Artifact ID is ${{ steps.artifact-upload-step.outputs.artifact-id }}'
