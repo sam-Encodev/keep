@@ -37,51 +37,16 @@ jobs:
           path: log/
       - name: Telegram notification
         if: always()
-        uses: cbrgm/telegram-github-action@v1.0.26
+        uses: cbrgm/telegram-github-action@v1.0.27
         with:
           protect-content: true
-          disable-web-page-preview: true
+          disable-web-page-preview: false
           token: ${{ secrets.TELEGRAM_TOKEN }}
           to: ${{ secrets.TELEGRAM_CHAT_ID }}
           message: |
             Status: ${{ job.status }}
             Author: ${{ github.actor }}
-            Repo: ${{ github.repository }}
             Workflow: ${{ github.workflow }}
             Commit: ${{ github.event.head_commit.message }}
-  build:
-    runs-on: ubuntu-latest
-    needs: [test]
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v4.2.1
-      - name: Setup Java JDK
-        uses: actions/setup-java@v4.4.0
-        with:
-          distribution: 'oracle'
-          java-version: '17'
-      - name: Update os packages
-        run: |
-            sudo apt-get update
-      - uses: subosito/flutter-action@v2.16.0
-        id: flutter-action
-        with:
-          cache: true
-          channel: stable
-      - run: |
-          git config --global --add safe.directory /opt/hostedtoolcache/flutter/${{ steps.flutter-action.outputs.CHANNEL }}-${{ steps.flutter-action.outputs.VERSION }}-${{ steps.flutter-action.outputs.ARCHITECTURE }}
-          flutter --version
-      - name: Install flutter dependencies
-        run: flutter pub get
-      - name: Update flutter dependencies
-        run: flutter pub upgrade --major-versions
-      - name: Build APK
-        run: flutter build apk
-      - name: Archive APK
-        uses: actions/upload-artifact@v4.4.3
-        id: artifact-upload-step
-        with:
-          name: test-apk
-          path: build/app/outputs/flutter-apk/*.apk
-      - name: Output artifact download link
-        run:  echo '${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}/artifacts/${{ steps.artifact-upload-step.outputs.artifact-id }}'
+            View changes: '${{ github.server_url }}/${{ github.repository }}/commit/${{ github.sha }}'
+            View job: '${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}/job/${{ github.job }}'
