@@ -94,4 +94,4 @@ jobs:
           message: |
             Workflow: ${{ github.workflow }}
             Author: ${{ github.actor }}
-            DL: '${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}/artifacts/${{ steps.artifact-upload-step.outputs.artifact-id }}'
+            DL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}/artifacts/${{ steps.artifact-upload-step.outputs.artifact-id }}
