@@ -4,16 +4,17 @@ const skip = "Skip";
 // App
 const appName = "Notes";
 const errorEntry = "can't be blank";
+const errorLastNameEntry = "Last name can't be blank";
 const newNote = "Create your first note";
 
 // About
-const name = "Kwame Opam";
+const devName = "Kwame Opam";
 const signOut = "Sign out";
 const font = "Font - Nunito";
-const author = "Made by $name";
+const author = "Made by $devName";
 const version = "Version 1.0.0";
 const icons = "Icons - PNG and SVG";
-const designer = "Designed by $name";
+const designer = "Designed by $devName";
 
 // Sign up
 const login = "Login";
@@ -51,6 +52,7 @@ const updateProfile = "Update Profile";
 const confirmPassword = "Confirmz Password";
 
 // Profile
+const name = "Name";
 const lastName = "Last Name";
 const firstName = "First Name";
 const newPassword = "New Password";
