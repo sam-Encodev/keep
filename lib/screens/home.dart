@@ -5,6 +5,7 @@ import 'package:keep/utilities/styles.dart';
 import 'package:keep/routes/route_names.dart';
 import 'package:keep/screens/notes/list_notes.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_popup/flutter_popup.dart';
 
 class Home extends ConsumerWidget {
   const Home({super.key});
@@ -24,17 +25,38 @@ class Home extends ConsumerWidget {
             color: Colors.white,
             onPressed: () => context.push('/notes/search'),
           ),
-          IconButton(
-            style: iconButtonStyle(),
-            icon: const Icon(Icons.info),
-            color: Colors.white,
-            onPressed: () => context.push(RouteNames.about),
-          ),
-          IconButton(
-            style: iconButtonStyle(),
-            icon: const Icon(Icons.account_circle_rounded),
-            color: Colors.white,
-            onPressed: () => context.push(RouteNames.profile(0)),
+          CustomPopup(
+            backgroundColor: Colors.black87,
+            showArrow: false,
+            content: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                IconButton(
+                  icon: const Icon(Icons.info),
+                  color: Colors.white,
+                  onPressed: () => {
+                    Navigator.of(context).pop(),
+                    context.push(RouteNames.about)
+                  },
+                ),
+                IconButton(
+                  icon: const Icon(Icons.account_circle_rounded),
+                  color: Colors.white,
+                  onPressed: () => {
+                    Navigator.of(context).pop(),
+                    context.push(RouteNames.profile(0))
+                  },
+                ),
+              ],
+            ),
+            child: Container(
+              padding: EdgeInsets.only(left: 5, right: 10),
+              child: const Icon(
+                color: Colors.white,
+                Icons.more_vert,
+                opticalSize: 10.0,
+              ),
+            ),
           ),
         ],
       ),
