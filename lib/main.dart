@@ -3,11 +3,10 @@ import 'package:keep/widgets/app_start_up.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 Future<void> main() async {
-
   runApp(
-    const ProviderScope(
+    ProviderScope(
         child: MaterialApp(
-      home: AppStartUp(),
+      home: const AppStartUp(),
       debugShowCheckedModeBanner: false,
     )),
   );
