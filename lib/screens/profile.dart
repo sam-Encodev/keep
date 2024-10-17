@@ -30,6 +30,7 @@ class _Profile extends ConsumerState<Profile> {
     BuildContext context,
   ) {
     var currentUser = ref.watch(authNotifierProvider);
+    var userName = currentUser.firstName + " " + currentUser.lastName;
 
     return Scaffold(
         appBar: AppBar(
@@ -60,15 +61,15 @@ class _Profile extends ConsumerState<Profile> {
                 children: <Widget>[
                   const Padding(
                     padding: EdgeInsets.all(spacing),
-                    child: Text(firstName,
+                    child: Text(name,
                         style: TextStyle(
                             color: Colors.white, fontSize: labelSize)),
                   ),
                   Padding(
                     padding: const EdgeInsets.all(spacing),
                     child: TextFormField(
-                      key: const Key(firstName),
-                      initialValue: currentUser.firstName,
+                      key: const Key(name),
+                      initialValue: userName,
                       style: const TextStyle(color: Colors.white),
                       decoration: InputDecoration(
                           fillColor: Colors.black12,
@@ -79,42 +80,22 @@ class _Profile extends ConsumerState<Profile> {
                           focusedErrorBorder: errorBorder(),
                           errorStyle: errorStyle()),
                       validator: (String? value) {
-                        if (value == null || value.isEmpty) {
+                        final splitName = value?.split(' ');
+
+                        if (value == null ||
+                            value.isEmpty ||
+                            splitName![0].isEmpty ||
+                            splitName.length == 1) {
                           return errorEntry;
                         }
 
-                        _firstName = value;
-                        return null;
-                      },
-                    ),
-                  ),
-                  const Padding(
-                    padding: EdgeInsets.all(spacing),
-                    child: Text(lastName,
-                        style: TextStyle(
-                            color: Colors.white, fontSize: labelSize)),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.all(spacing),
-                    child: TextFormField(
-                      key: const Key(lastName),
-                      initialValue: currentUser.lastName,
-                      style: const TextStyle(color: Colors.white),
-                      decoration: InputDecoration(
-                        fillColor: Colors.black12,
-                        filled: true,
-                        enabledBorder: inputBorder(),
-                        focusedBorder: focusBorder(),
-                        errorBorder: inputBorder(),
-                        focusedErrorBorder: errorBorder(),
-                        errorStyle: errorStyle(),
-                      ),
-                      validator: (String? value) {
-                        if (value == null || value.isEmpty) {
-                          return errorEntry;
+                        if (splitName.reversed.first.isEmpty) {
+                          return errorLastNameEntry;
                         }
 
-                        _lastName = value;
+                        _firstName = splitName[0];
+                        _lastName = splitName[1];
+
                         return null;
                       },
                     ),
