@@ -29,6 +29,7 @@ void main() {
     await tester.pumpAndSettle(const Duration(seconds: 5));
 
     // Home
+    expect(find.byIcon(Icons.more_vert), findsOneWidget);
     expect(find.byIcon(Icons.search), findsOneWidget);
     await tester.tap(find.byIcon(Icons.search));
     await tester.pumpAndSettle(const Duration(seconds: 5));

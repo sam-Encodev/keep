@@ -29,9 +29,12 @@ void main() {
     await tester.pumpAndSettle(const Duration(seconds: 5));
 
     // Home
+    expect(find.byIcon(Icons.add), findsOneWidget);
     expect(find.byIcon(Icons.search), findsOneWidget);
+    expect(find.byIcon(Icons.more_vert), findsOneWidget);
+    await tester.tap(find.byIcon(Icons.more_vert));
+    await tester.pumpAndSettle(const Duration(seconds: 5));
     expect(find.byIcon(Icons.info), findsOneWidget);
     expect(find.byIcon(Icons.account_circle_rounded), findsOneWidget);
-    expect(find.byIcon(Icons.add), findsOneWidget);
   });
 }
