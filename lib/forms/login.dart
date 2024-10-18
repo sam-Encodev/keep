@@ -19,84 +19,90 @@ class _LoginFormState extends ConsumerState<LoginForm> {
 
   @override
   Widget build(BuildContext context) {
-
     return Form(
       key: _formKey,
       autovalidateMode: AutovalidateMode.onUserInteraction,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
-          TextFormField(
-            key: const Key(email),
-            style: const TextStyle(color: Colors.white),
-            decoration: InputDecoration(
-              fillColor: Colors.black12,
-              filled: true,
-              hintText: email,
-              hintStyle: const TextStyle(color: Colors.white),
-              prefixIcon: const Icon(Icons.account_circle, size: 30),
-              enabledBorder: inputBorder(),
-              focusedBorder: focusBorder(),
-              errorBorder: inputBorder(),
-              focusedErrorBorder: errorBorder(),
-              errorStyle: errorStyle(),
-            ),
-            validator: (String? value) {
-              if (value == null || value.isEmpty) {
-                return errorEntry;
-              }
-
-              _emailField = value;
-              return null;
-            },
-          ),
-          const SizedBox(height: 18),
-          TextFormField(
-            key: const Key(password),
-            obscureText: true,
-            enableSuggestions: false,
-            autocorrect: false,
-            obscuringCharacter: "*",
-            style: const TextStyle(color: Colors.white),
-            decoration: InputDecoration(
+          Padding(
+            padding: const EdgeInsets.only(top: spacing),
+            child: TextFormField(
+              key: const Key(email),
+              style: const TextStyle(color: Colors.white),
+              decoration: InputDecoration(
                 fillColor: Colors.black12,
                 filled: true,
+                hintText: email,
                 hintStyle: const TextStyle(color: Colors.white),
-                hintText: password,
-                prefixIcon: const Icon(Icons.password, size: 30),
+                prefixIcon: const Icon(Icons.account_circle, size: 30),
                 enabledBorder: inputBorder(),
                 focusedBorder: focusBorder(),
                 errorBorder: inputBorder(),
                 focusedErrorBorder: errorBorder(),
-                errorStyle: errorStyle()),
-            validator: (String? value) {
-              if (value == null || value.isEmpty) {
-                return errorEntry;
-              }
-              _passwordField = value;
-              return null;
-            },
-          ),
-          const SizedBox(height: 18),
-          FilledButton(
-              key: const Key(login),
-              style: buttonStyle(),
-              onPressed: () {
-                // Validate will return true if the form is valid, or false if
-                // the form is invalid.
-                if (_formKey.currentState!.validate()) {
-                  // Process data.
-                  ref.read(authNotifierProvider.notifier).login(
-                      email: _emailField.toString(),
-                      password: _passwordField.toString());
-                } else {
-                  setState(() {});
-                  //   snackBar(
-                  //       context, "User", "invalid");
+                errorStyle: errorStyle(),
+              ),
+              validator: (String? value) {
+                if (value == null || value.isEmpty) {
+                  return errorEntry;
                 }
+
+                _emailField = value;
+                return null;
               },
-              child: const Text(login,
-                  style: TextStyle(color: Colors.redAccent, fontSize: 20))),
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.only(top: spacing),
+            child: TextFormField(
+              key: const Key(password),
+              obscureText: true,
+              enableSuggestions: false,
+              autocorrect: false,
+              obscuringCharacter: "*",
+              style: const TextStyle(color: Colors.white),
+              decoration: InputDecoration(
+                  fillColor: Colors.black12,
+                  filled: true,
+                  hintStyle: const TextStyle(color: Colors.white),
+                  hintText: password,
+                  prefixIcon: const Icon(Icons.password, size: 30),
+                  enabledBorder: inputBorder(),
+                  focusedBorder: focusBorder(),
+                  errorBorder: inputBorder(),
+                  focusedErrorBorder: errorBorder(),
+                  errorStyle: errorStyle()),
+              validator: (String? value) {
+                if (value == null || value.isEmpty) {
+                  return errorEntry;
+                }
+                _passwordField = value;
+                return null;
+              },
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.only(top: spacing),
+            child: FilledButton(
+                key: const Key(login),
+                style: buttonStyle(),
+                onPressed: () {
+                  // Validate will return true if the form is valid, or false if
+                  // the form is invalid.
+                  if (_formKey.currentState!.validate()) {
+                    // Process data.
+                    ref.read(authNotifierProvider.notifier).login(
+                        email: _emailField.toString(),
+                        password: _passwordField.toString());
+                  } else {
+                    setState(() {});
+                    //   snackBar(
+                    //       context, "User", "invalid");
+                  }
+                },
+                child: const Text(login,
+                    style: TextStyle(color: Colors.redAccent, fontSize: 20))),
+          ),
         ],
       ),
     );
