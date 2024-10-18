@@ -26,10 +26,11 @@ class _LoginState extends State<Login> {
         ),
         child: Column(
           children: [
-            const Text(
+            Text(
               welcomeBack,
-              style: TextStyle(
-                fontSize: 75,
+              textAlign: TextAlign.left,
+              style: const TextStyle(
+                fontSize: 60,
                 color: Colors.white,
               ),
             ),

@@ -28,8 +28,9 @@ class _SignupState extends State<Signup> {
           children: [
             const Text(
               getStarted,
+              textAlign: TextAlign.left,
               style: TextStyle(
-                fontSize: 75,
+                fontSize: 60,
                 color: Colors.white,
               ),
             ),
