@@ -26,7 +26,7 @@ class NoteNotifier extends Notifier<List<Note>> {
             timestamp: Jiffy.parse(DateTime.timestamp().toString())
                 .subtractDuration(const Duration(days: 10, hours: 6))
                 .format(),
-            color: "lightGreenAccent"),
+            color: "pink"),
         Note(
             id: 3,
             title: "Game",
@@ -68,7 +68,7 @@ class NoteNotifier extends Notifier<List<Note>> {
             timestamp: Jiffy.parse(DateTime.timestamp().toString())
                 .subtractDuration(const Duration(days: 10, hours: 6))
                 .format(),
-            color: "lightGreenAccent"),
+            color: "lime"),
         Note(
             id: 9,
             title: "Game",

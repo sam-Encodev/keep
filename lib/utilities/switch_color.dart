@@ -5,26 +5,29 @@ const colors = [
     "name": 'red',
   },
   {
-    "name": 'orange',
+    "name": 'blue',
   },
   {
-    "name": 'yellow',
+    "name": 'pink',
+  },
+  {
+    "name": 'lime',
   },
   {
     "name": 'green',
   },
   {
-    "name": 'blue',
+    "name": 'white',
   },
   {
     "name": 'indigo',
   },
   {
-    "name": 'white',
+    "name": 'yellow',
   },
   {
-    "name": 'lightGreenAccent',
-  }
+    "name": 'orange',
+  },
 ];
 
 class SwitchColor {
@@ -44,8 +47,10 @@ class SwitchColor {
         return Colors.indigo;
       case 'white':
         return Colors.white;
+      case 'pink':
+        return Colors.pink;
       default:
-        return Colors.lightGreenAccent;
+        return Colors.lime;
     }
   }
 }
