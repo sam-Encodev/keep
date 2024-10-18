@@ -40,7 +40,7 @@ void main() {
     expect(find.text(font), findsOneWidget);
     expect(find.text(icons), findsOneWidget);
     expect(find.text(author), findsOneWidget);
-    expect(find.text(signOut), findsOneWidget);
+    expect(find.text(version), findsOneWidget);
     expect(find.text(designer), findsOneWidget);
     expect(find.byIcon(Icons.arrow_back), findsOneWidget);
   });

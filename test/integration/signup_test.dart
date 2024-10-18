@@ -23,8 +23,15 @@ void main() {
     // Signup
     expect(find.text(getStarted), findsOneWidget);
     expect(find.text(signUp), findsOneWidget);
+    expect(find.text(firstName), findsOneWidget);
+    expect(find.text(lastName), findsOneWidget);
     expect(find.text(email), findsOneWidget);
     expect(find.text(password), findsOneWidget);
+
+    Finder firstNameField = find.byKey(const Key(firstName));
+    await tester.enterText(firstNameField, newUserFirstname);
+    Finder lastNameField = find.byKey(const Key(lastName));
+    await tester.enterText(lastNameField, newUserLastName);
     Finder emailField = find.byKey(const Key(email));
     await tester.enterText(emailField, newUserEmail);
     Finder passwordField = find.byKey(const Key(password));

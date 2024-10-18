@@ -36,5 +36,6 @@ void main() {
     await tester.pumpAndSettle(const Duration(seconds: 5));
     expect(find.byIcon(Icons.info), findsOneWidget);
     expect(find.byIcon(Icons.account_circle_rounded), findsOneWidget);
+    expect(find.byIcon(Icons.logout), findsOneWidget);
   });
 }
