@@ -17,7 +17,6 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 final _rootNavigatorKey = GlobalKey<NavigatorState>();
 
 final goRouterProvider = Provider<GoRouter>((ref) {
-
   return GoRouter(
     navigatorKey: _rootNavigatorKey,
     initialLocation: RouteNames.login,
@@ -40,17 +39,17 @@ final goRouterProvider = Provider<GoRouter>((ref) {
               path: RouteNames.search,
               builder: (context, state) => const SearchNote(),
             ),
+            GoRoute(
+              name: "view-note",
+              path: RouteNames.view,
+              builder: (context, state) => const ViewNote(),
+            ),
+            GoRoute(
+              name: "edit-note",
+              path: RouteNames.edit,
+              builder: (context, state) => const EditNote(),
+            )
           ]),
-      GoRoute(
-        name: "view-note",
-        path: RouteNames.viewNote(":noteId"),
-        builder: (context, state) => const ViewNote(),
-      ),
-      GoRoute(
-        name: "edit-note",
-        path: RouteNames.editNote(":noteId"),
-        builder: (context, state) => const EditNote(),
-      ),
       GoRoute(
         name: "about",
         path: RouteNames.about,
