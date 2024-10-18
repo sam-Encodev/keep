@@ -3,6 +3,7 @@ import 'package:keep/models/note.dart';
 import 'package:keep/constants/text.dart';
 import 'package:go_router/go_router.dart';
 import 'package:keep/utilities/styles.dart';
+import 'package:keep/constants/widgets.dart';
 import 'package:keep/utilities/switch_color.dart';
 import 'package:keep/providers/notes_provider.dart';
 import 'package:keep/providers/router_provider.dart';
@@ -79,12 +80,7 @@ class EditNoteForm extends ConsumerState<EditNote> {
 
                                   Navigator.of(context).pop();
                                 },
-                                icon: ClipOval(
-                                    child: Container(
-                                        height: 30,
-                                        width: 30,
-                                        color: SwitchColor.switchColor(
-                                            e.values.first.toString()))),
+                                icon: colorClip(e.values.first.toString()),
                                 label: Text(
                                   e.values.first.toString(),
                                   style: const TextStyle(

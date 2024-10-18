@@ -3,6 +3,7 @@ import 'package:keep/models/note.dart';
 import 'package:keep/constants/text.dart';
 import 'package:go_router/go_router.dart';
 import 'package:keep/utilities/styles.dart';
+import 'package:keep/constants/widgets.dart';
 import 'package:keep/routes/route_names.dart';
 import 'package:keep/utilities/switch_color.dart';
 import 'package:keep/providers/notes_provider.dart';
@@ -64,17 +65,13 @@ class AddNoteForm extends ConsumerState<AddNote> {
                       children: colors
                           .map((e) => TextButton.icon(
                                 onPressed: () {
-                                  Navigator.of(context).pop();
                                   setState(() {
                                     _color = e.values.first.toString();
                                   });
+
+                                  Navigator.of(context).pop();
                                 },
-                                icon: ClipOval(
-                                    child: Container(
-                                        height: 30,
-                                        width: 30,
-                                        color: SwitchColor.switchColor(
-                                            e.values.first))),
+                                icon: colorClip(e.values.first.toString()),
                                 label: Text(
                                   e.values.first.toString(),
                                   style: const TextStyle(

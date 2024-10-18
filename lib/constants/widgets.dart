@@ -1,5 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:keep/utilities/styles.dart';
+import 'package:keep/utilities/switch_color.dart';
+
+colorClip(value) {
+  return ClipOval(
+      child: Container(
+          height: 30, width: 30, color: SwitchColor.switchColor(value)));
+}
 
 onBoard(item) {
   String image = item["image"];
