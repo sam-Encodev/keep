@@ -3,15 +3,18 @@ import 'package:go_router/go_router.dart';
 import 'package:keep/constants/text.dart';
 import 'package:keep/utilities/styles.dart';
 import 'package:keep/routes/route_names.dart';
+import 'package:flutter_popup/flutter_popup.dart';
+import 'package:keep/providers/auth_provider.dart';
 import 'package:keep/screens/notes/list_notes.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:flutter_popup/flutter_popup.dart';
 
 class Home extends ConsumerWidget {
   const Home({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    var currentUser = ref.watch(authNotifierProvider);
+
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: false,
@@ -44,7 +47,15 @@ class Home extends ConsumerWidget {
                   color: Colors.white,
                   onPressed: () => {
                     Navigator.of(context).pop(),
-                    context.push(RouteNames.profile(0))
+                    context.push(RouteNames.profile(currentUser.id))
+                  },
+                ),
+                IconButton(
+                  icon: const Icon(Icons.logout),
+                  color: Colors.white,
+                  onPressed: () => {
+                    Navigator.of(context).pop(),
+                    ref.read(authNotifierProvider.notifier).logout()
                   },
                 ),
               ],
