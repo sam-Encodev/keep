@@ -31,8 +31,8 @@ class AuthNotifier extends Notifier {
     ref.read(userNotifierProvider.notifier).addUser(user);
   }
 
-  void login(User user) {
-    ref.read(userNotifierProvider.notifier).findUser(user);
+  void login({email, password}) {
+    ref.read(userNotifierProvider.notifier).findUser(email, password);
   }
 
   void logout() {

@@ -33,10 +33,10 @@ class UserNotifier extends Notifier<List<User>> {
             lastName: Ffaker().faker.name.lastName()),
       ];
 
-  void findUser(User user) {
-    var data = state.where((p) => p.email == user.email).toList().first;
-    if (data.password == user.password) {
-      ref.read(authNotifierProvider.notifier).setUser(user);
+  void findUser(email, password) {
+    var data = state.where((p) => p.email == email).toList().first;
+    if (data.password == password) {
+      ref.read(authNotifierProvider.notifier).setUser(data);
       ref.read(appStateProvider.notifier).loginState();
     } else {}
   }

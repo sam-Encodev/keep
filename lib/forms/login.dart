@@ -1,10 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:keep/models/user.dart';
 import 'package:keep/constants/text.dart';
 import 'package:keep/utilities/styles.dart';
-import 'package:keep/utilities/ffaker.dart';
 import 'package:keep/providers/auth_provider.dart';
-import 'package:keep/providers/user_provider.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 class LoginForm extends ConsumerStatefulWidget {
@@ -19,14 +16,9 @@ class _LoginFormState extends ConsumerState<LoginForm> {
 
   String? _emailField;
   String? _passwordField;
-  final lastName = Ffaker().faker.name.lastName();
-  final firstName = Ffaker().faker.name.firstName();
-  final String _timestamp = DateTime.timestamp().toString();
 
   @override
   Widget build(BuildContext context) {
-    var getUsers = ref.watch(userNotifierProvider);
-    var index = getUsers.length;
 
     return Form(
       key: _formKey,
@@ -94,17 +86,13 @@ class _LoginFormState extends ConsumerState<LoginForm> {
                 // the form is invalid.
                 if (_formKey.currentState!.validate()) {
                   // Process data.
-                   ref.read(authNotifierProvider.notifier).login(User(
-                      id: index,
-                      lastName: lastName,
-                      firstName: firstName,
-                      createdAt: _timestamp,
+                  ref.read(authNotifierProvider.notifier).login(
                       email: _emailField.toString(),
-                      password: _passwordField.toString()));
+                      password: _passwordField.toString());
                 } else {
                   setState(() {});
-                //   snackBar(
-                //       context, "User", "invalid");
+                  //   snackBar(
+                  //       context, "User", "invalid");
                 }
               },
               child: const Text(login,
