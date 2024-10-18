@@ -60,6 +60,8 @@ const currentPassword = "Current Password";
 
 // User Info
 const userPassword = "12345";
+const newUserLastName = "User";
+const newUserFirstname = "Test";
 const newUserPassword = "12345";
 const userEmail = "game@gmail.com";
 const newUserEmail = "jones@gmail.com";
