@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:keep/constants/text.dart';
 import 'package:go_router/go_router.dart';
 import 'package:keep/utilities/styles.dart';
-import 'package:keep/providers/auth_provider.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 class About extends ConsumerWidget {
@@ -44,22 +43,7 @@ class About extends ConsumerWidget {
                   ],
                 ),
               ),
-              SizedBox(
-                height: 100,
-                child: Column(
-                  children: [
-                    FilledButton(
-                        onPressed: () =>
-                            {ref.read(authNotifierProvider.notifier).logout()},
-                        style: buttonStyle(),
-                        child: const Text(signOut,
-                            style: TextStyle(
-                                color: Colors.redAccent, fontSize: 20))),
-                    const SizedBox(height: 10),
-                    buildText(version),
-                  ],
-                ),
-              ),
+              buildText(version, height: 5.0),
             ],
           )),
     );

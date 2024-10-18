@@ -107,9 +107,9 @@ buildSVG(String assetName) {
   );
 }
 
-buildText(String data) {
+buildText(String data, {height = 0.0}) {
   return Text(
     data,
-    style: const TextStyle(color: Colors.white, fontSize: 20),
+    style: TextStyle(color: Colors.white, fontSize: 20, height: height),
   );
 }
