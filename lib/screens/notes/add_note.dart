@@ -159,7 +159,10 @@ class AddNoteForm extends ConsumerState<AddNote> {
                         )
                       }
                     else
-                      {}
+                      {
+                        snackBar(context,
+                            message: "Title and description can't save blank.")
+                      }
                   }),
         ],
       ),
