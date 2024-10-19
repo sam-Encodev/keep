@@ -17,6 +17,10 @@ class AppState extends Notifier {
   void logoutState() {
     ref.read(goRouterProvider).go(RouteNames.login);
   }
+
+  void homeState() {
+    ref.read(goRouterProvider).go(RouteNames.home);
+  }
 }
 
 final appStateProvider = NotifierProvider(() {
