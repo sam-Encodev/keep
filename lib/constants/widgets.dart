@@ -55,7 +55,7 @@ snackBar(context, {message}) {
 
 switchIcon(message) {
   if (message.toString().contains("deleted")) {
-    return Icon(Icons.error_outline, color: Colors.green);
+    return Icon(Icons.check_circle_outline_outlined, color: Colors.green);
   }
-  return Icon(Icons.error_outline, color: Colors.red);
+  return Icon(Icons.error_outline_outlined, color: Colors.red);
 }
