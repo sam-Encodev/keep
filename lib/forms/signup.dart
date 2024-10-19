@@ -151,16 +151,17 @@ class _SignupFormState extends ConsumerState<SignupForm> {
                   // the form is invalid.
                   if (_formKey.currentState!.validate()) {
                     // Process data.
-                    var res = ref.read(authNotifierProvider.notifier).signup(User(
-                        id: index,
-                        firstName: _firstNameField.toString(),
-                        lastName: _lastNameField.toString(),
-                        createdAt: _timestamp,
-                        email: _emailField.toString().toLowerCase(),
-                        password: _passwordField.toString()));
+                    var res = ref.read(authNotifierProvider.notifier).signup(
+                        User(
+                            id: index,
+                            firstName: _firstNameField.toString(),
+                            lastName: _lastNameField.toString(),
+                            createdAt: _timestamp,
+                            email: _emailField.toString().toLowerCase(),
+                            password: _passwordField.toString()));
 
                     if (res == false) {
-                      snackBar(context, "Email", "already exists");
+                      snackBar(context, message: "Email already exists");
                     }
                   } else {
                     setState(() {});

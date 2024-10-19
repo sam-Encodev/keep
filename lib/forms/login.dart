@@ -97,7 +97,7 @@ class _LoginFormState extends ConsumerState<LoginForm> {
                         password: _passwordField.toString());
 
                     if (res == false) {
-                      snackBar(context, "Login", "invalid");
+                      snackBar(context, message: "Login failed");
                     }
                   }
                 },
