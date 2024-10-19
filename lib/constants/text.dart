@@ -37,8 +37,8 @@ const no = "No";
 const yes = "Yes";
 const title = "Title";
 const pickColor = "Pick a color";
+const description = "Description";
 const placeholder = "Search by title";
-const description = "Type something...";
 const prompt = "Are you sure you want to save?";
 
 // Profile
