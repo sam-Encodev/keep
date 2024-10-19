@@ -124,7 +124,8 @@ class _SearchNote extends ConsumerState<SearchNote> {
                             ref
                                 .read(noteNotifierProvider.notifier)
                                 .removeNote(notes[index].id),
-                            snackBar(context, notes[index].title, "deleted")
+                            snackBar(context,
+                                message: "${notes[index].title} deleted")
                           },
                         ),
                       ],
