@@ -36,28 +36,25 @@ onBoard(item) {
   );
 }
 
-snackBar(
-  context,
-  text,
-) {
+snackBar(context, {message}) {
   return ScaffoldMessenger.of(context).showSnackBar(SnackBar(
       content: Row(
     mainAxisAlignment: MainAxisAlignment.start,
     children: [
       Padding(
         padding: const EdgeInsets.only(right: spacing),
-        child: switchIcon(text),
+        child: switchIcon(message),
       ),
       Text(
-        text,
+        message,
         style: TextStyle(color: Colors.white),
       )
     ],
   )));
 }
 
-switchIcon(text) {
-  if (text.toString().contains("deleted")) {
+switchIcon(message) {
+  if (message.toString().contains("deleted")) {
     return Icon(Icons.error_outline, color: Colors.green);
   }
   return Icon(Icons.error_outline, color: Colors.red);
