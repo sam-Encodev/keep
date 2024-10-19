@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:keep/models/user.dart';
 import 'package:keep/constants/text.dart';
 import 'package:go_router/go_router.dart';
 import 'package:keep/utilities/styles.dart';
+import 'package:keep/constants/widgets.dart';
 import 'package:keep/providers/auth_provider.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -18,11 +20,9 @@ class _Profile extends ConsumerState<Profile> {
   static const spacing = 8.0;
   static const labelSize = 15.0;
 
-  String? _email;
   String? _lastName;
   String? _firstName;
   String? _newPassword;
-  String? _currentPassword;
   final String _updateAt = DateTime.timestamp().toString();
 
   @override
@@ -109,6 +109,7 @@ class _Profile extends ConsumerState<Profile> {
                   Padding(
                     padding: const EdgeInsets.all(spacing),
                     child: TextFormField(
+                      readOnly: true,
                       key: const Key(email),
                       initialValue: currentUser.email,
                       style: const TextStyle(color: Colors.white),
@@ -122,12 +123,12 @@ class _Profile extends ConsumerState<Profile> {
                         errorStyle: errorStyle(),
                       ),
                       validator: (String? value) {
-                        if (value == null || value.isEmpty) {
-                          return errorEntry;
-                        }
-
-                        _email = value;
-                        return null;
+                        // if (value == null || value.isEmpty) {
+                        //   return errorEntry;
+                        // }
+                        //
+                        // _email = value;
+                        // return null;
                       },
                     ),
                   ),
@@ -140,6 +141,7 @@ class _Profile extends ConsumerState<Profile> {
                   Padding(
                     padding: const EdgeInsets.all(spacing),
                     child: TextFormField(
+                      readOnly: true,
                       key: const Key(password),
                       initialValue: currentUser.password,
                       obscureText: true,
@@ -156,11 +158,11 @@ class _Profile extends ConsumerState<Profile> {
                           focusedErrorBorder: errorBorder(),
                           errorStyle: errorStyle()),
                       validator: (String? value) {
-                        if (value == null || value.isEmpty) {
-                          return errorEntry;
-                        }
-                        _currentPassword = value;
-                        return null;
+                        // if (value == null || value.isEmpty) {
+                        //   return errorEntry;
+                        // }
+                        // _currentPassword = value;
+                        // return null;
                       },
                     ),
                   ),
@@ -205,8 +207,19 @@ class _Profile extends ConsumerState<Profile> {
                           // the form is invalid.
                           if (_formKey.currentState!.validate()) {
                             // Process data.
-                          } else {
-                            setState(() {});
+                            var res =
+                                ref.read(authNotifierProvider.notifier).edit(
+                                    User(
+                                      id: currentUser.id,
+                                      firstName: _firstName.toString(),
+                                      lastName: _lastName.toString(),
+                                      updatedAt: _updateAt,
+                                    ),
+                                    _newPassword.toString());
+
+                            if (res == false) {
+                              snackBar(context, "Update", "failed");
+                            }
                           }
                         },
                         child: const Text(updateProfile,
