@@ -49,7 +49,7 @@ const editProfile = "Edit Profile";
 const email = "Email";
 const password = "Password";
 const updateProfile = "Update Profile";
-const confirmPassword = "Confirmz Password";
+const confirmPassword = "Confirm Password";
 
 // Profile
 const name = "Name";
@@ -65,3 +65,6 @@ const newUserFirstname = "Test";
 const newUserPassword = "12345";
 const userEmail = "game@gmail.com";
 const newUserEmail = "jones@gmail.com";
+
+// Add
+const addErrorEntry = "Title & description $errorEntry";
