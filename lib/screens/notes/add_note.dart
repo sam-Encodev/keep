@@ -188,7 +188,7 @@ class AddNoteForm extends ConsumerState<AddNote> {
                           fillColor: Colors.black87,
                           filled: false,
                           hintText: title,
-                          hintStyle: const TextStyle(color: Colors.white),
+                          hintStyle: TextStyle(color: Colors.grey[600]),
                           enabledBorder: transparentEnabledBorder(),
                           focusedBorder: transparentFocusedBorder(),
                           errorBorder: transparentEnabledBorder(),
@@ -213,8 +213,8 @@ class AddNoteForm extends ConsumerState<AddNote> {
                         decoration: InputDecoration(
                           fillColor: Colors.black87,
                           filled: false,
-                          hintStyle: const TextStyle(color: Colors.white),
                           hintText: description,
+                          hintStyle: TextStyle(color: Colors.grey[600]),
                           enabledBorder: transparentEnabledBorder(),
                           focusedBorder: transparentFocusedBorder(),
                           errorBorder: transparentEnabledBorder(),

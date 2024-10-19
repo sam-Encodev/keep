@@ -44,7 +44,7 @@ class _SearchNote extends ConsumerState<SearchNote> {
               fillColor: Colors.black12,
               filled: true,
               hintText: placeholder,
-              hintStyle: const TextStyle(color: Colors.white),
+              hintStyle: TextStyle(color: Colors.grey[600]),
               prefixIcon: IconButton(
                   icon: const Icon(
                     Icons.arrow_back,

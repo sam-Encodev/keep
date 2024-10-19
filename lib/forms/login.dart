@@ -35,7 +35,7 @@ class _LoginFormState extends ConsumerState<LoginForm> {
                 fillColor: Colors.black12,
                 filled: true,
                 hintText: email,
-                hintStyle: const TextStyle(color: Colors.white),
+                hintStyle: TextStyle(color: Colors.grey[600]),
                 prefixIcon: const Icon(Icons.account_circle, size: 30),
                 enabledBorder: inputBorder(),
                 focusedBorder: focusBorder(),
@@ -65,8 +65,8 @@ class _LoginFormState extends ConsumerState<LoginForm> {
               decoration: InputDecoration(
                   fillColor: Colors.black12,
                   filled: true,
-                  hintStyle: const TextStyle(color: Colors.white),
                   hintText: password,
+                  hintStyle: TextStyle(color: Colors.grey[600]),
                   prefixIcon: const Icon(Icons.password, size: 30),
                   enabledBorder: inputBorder(),
                   focusedBorder: focusBorder(),

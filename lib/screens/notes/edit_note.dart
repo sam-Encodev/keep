@@ -189,17 +189,17 @@ class EditNoteForm extends ConsumerState<EditNote> {
                     children: <Widget>[
                       TextFormField(
                         key: const Key(title),
+                        maxLines: 1,
                         initialValue: note.title,
                         onChanged: (val) =>
                             {_titleField = val.isEmpty ? null : val},
-                        maxLines: 1,
                         style:
                             const TextStyle(color: Colors.white, fontSize: 55),
                         decoration: InputDecoration(
                           fillColor: Colors.black87,
                           filled: false,
                           hintText: title,
-                          hintStyle: const TextStyle(color: Colors.white),
+                          hintStyle: TextStyle(color: Colors.grey[600]),
                           enabledBorder: transparentEnabledBorder(),
                           focusedBorder: transparentFocusedBorder(),
                           errorBorder: transparentEnabledBorder(),
@@ -211,7 +211,6 @@ class EditNoteForm extends ConsumerState<EditNote> {
                             return errorEntry;
                           }
                           _titleField = value;
-
                           return null;
                         },
                       ),
@@ -228,8 +227,8 @@ class EditNoteForm extends ConsumerState<EditNote> {
                         decoration: InputDecoration(
                           fillColor: Colors.black87,
                           filled: false,
-                          hintStyle: const TextStyle(color: Colors.white),
                           hintText: description,
+                          hintStyle: TextStyle(color: Colors.grey[600]),
                           enabledBorder: transparentEnabledBorder(),
                           focusedBorder: transparentFocusedBorder(),
                           errorBorder: transparentEnabledBorder(),
