@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:keep/constants/text.dart';
 import 'package:keep/utilities/styles.dart';
+import 'package:keep/constants/widgets.dart';
 import 'package:keep/providers/auth_provider.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -91,13 +92,13 @@ class _LoginFormState extends ConsumerState<LoginForm> {
                   // the form is invalid.
                   if (_formKey.currentState!.validate()) {
                     // Process data.
-                    ref.read(authNotifierProvider.notifier).login(
-                        email: _emailField.toString(),
+                    var res = ref.read(authNotifierProvider.notifier).login(
+                        email: _emailField.toString().toLowerCase(),
                         password: _passwordField.toString());
-                  } else {
-                    setState(() {});
-                    //   snackBar(
-                    //       context, "User", "invalid");
+
+                    if (res == false) {
+                      snackBar(context, "Login", "invalid");
+                    }
                   }
                 },
                 child: const Text(login,
