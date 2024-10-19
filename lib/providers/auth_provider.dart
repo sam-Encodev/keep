@@ -27,12 +27,16 @@ class AuthNotifier extends Notifier {
         firstName: user.firstName);
   }
 
-  void signup(User user) {
-    ref.read(userNotifierProvider.notifier).addUser(user);
+  Object signup(User user) {
+    return ref.read(userNotifierProvider.notifier).addUser(user);
   }
 
-  void login({email, password}) {
-    ref.read(userNotifierProvider.notifier).findUser(email, password);
+  Object login({email, password}) {
+    return ref.read(userNotifierProvider.notifier).findUser(email, password);
+  }
+
+  Object edit(User user, newPassword) {
+    return ref.read(userNotifierProvider.notifier).editUser(user, newPassword);
   }
 
   void logout() {
