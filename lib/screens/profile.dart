@@ -3,7 +3,7 @@ import 'package:keep/models/user.dart';
 import 'package:keep/constants/text.dart';
 import 'package:go_router/go_router.dart';
 import 'package:keep/utilities/styles.dart';
-import 'package:keep/constants/widgets.dart';
+import 'package:keep/components/snack_bar.dart';
 import 'package:keep/providers/auth_provider.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
