@@ -2,13 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:keep/constants/text.dart';
 import 'package:go_router/go_router.dart';
 import 'package:keep/utilities/styles.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-class About extends ConsumerWidget {
+class About extends StatelessWidget {
   const About({super.key});
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
+  Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
           backgroundColor: Colors.black87,
