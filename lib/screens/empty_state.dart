@@ -18,7 +18,7 @@ class EmptyState extends StatelessWidget {
           const SizedBox(height: 10),
           if (!hideText)
             const Text(
-              newNote,
+              createNote,
               style: TextStyle(color: Colors.white, fontSize: 20),
             )
         ],
