@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:keep/models/user.dart';
 import 'package:keep/constants/text.dart';
-import 'package:go_router/go_router.dart';
 import 'package:keep/utilities/styles.dart';
 import 'package:keep/components/snack_bar.dart';
+import 'package:keep/components/back_button.dart';
 import 'package:keep/providers/auth_provider.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -38,12 +38,7 @@ class _Profile extends ConsumerState<Profile> {
           backgroundColor: Colors.black87,
           leading: Padding(
             padding: const EdgeInsets.all(spacing),
-            child: IconButton(
-                style: iconButtonStyle(),
-                padding: EdgeInsets.zero,
-                icon: const Icon(Icons.arrow_back, size: 30),
-                color: Colors.white,
-                onPressed: () => {context.pop()}),
+            child: goBackButton(context),
           ),
           title: const Text(profile,
               style: TextStyle(color: Colors.white, fontSize: 20)),

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:keep/constants/text.dart';
-import 'package:go_router/go_router.dart';
 import 'package:keep/utilities/styles.dart';
+import 'package:keep/components/back_button.dart';
 
 class About extends StatelessWidget {
   const About({super.key});
@@ -13,13 +13,7 @@ class About extends StatelessWidget {
           backgroundColor: Colors.black87,
           leading: Padding(
             padding: const EdgeInsets.all(8.0),
-            child: IconButton(
-              style: iconButtonStyle(),
-              padding: EdgeInsets.zero,
-              icon: const Icon(Icons.arrow_back, size: 30),
-              color: Colors.white,
-              onPressed: () => context.pop(),
-            ),
+            child: goBackButton(context),
           )),
       body: Container(
           padding: const EdgeInsets.all(10),

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:keep/utilities/styles.dart';
 import 'package:keep/routes/route_names.dart';
+import 'package:keep/components/back_button.dart';
 import 'package:keep/providers/notes_provider.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -20,13 +21,7 @@ class ViewNote extends ConsumerWidget {
         backgroundColor: Colors.black87,
         leading: Padding(
           padding: const EdgeInsets.all(8.0),
-          child: IconButton(
-            style: iconButtonStyle(),
-            padding: EdgeInsets.zero,
-            icon: const Icon(Icons.arrow_back, size: 30),
-            color: Colors.white,
-            onPressed: () => context.pop(),
-          ),
+          child: goBackButton(context),
         ),
         actions: [
           IconButton(

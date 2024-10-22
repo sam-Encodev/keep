@@ -4,6 +4,7 @@ import 'package:keep/constants/text.dart';
 import 'package:go_router/go_router.dart';
 import 'package:keep/utilities/styles.dart';
 import 'package:keep/components/color_clip.dart';
+import 'package:keep/components/back_button.dart';
 import 'package:keep/utilities/switch_color.dart';
 import 'package:keep/providers/notes_provider.dart';
 import 'package:keep/providers/router_provider.dart';
@@ -44,13 +45,7 @@ class EditNoteForm extends ConsumerState<EditNote> {
         backgroundColor: Colors.black87,
         leading: Padding(
           padding: const EdgeInsets.all(8.0),
-          child: IconButton(
-            style: iconButtonStyle(),
-            padding: EdgeInsets.zero,
-            icon: const Icon(Icons.arrow_back, size: 30),
-            color: Colors.white,
-            onPressed: () => context.pop(),
-          ),
+          child: goBackButton(context),
         ),
         actions: [
           IconButton(
