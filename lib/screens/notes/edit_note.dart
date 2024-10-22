@@ -47,6 +47,8 @@ class EditNoteForm extends ConsumerState<EditNote> {
           padding: const EdgeInsets.all(8.0),
           child: goBackButton(context),
         ),
+        title: const Text(editNote,
+            style: TextStyle(color: Colors.white, fontSize: 20)),
         actions: [
           IconButton(
             style: iconButtonStyle(),

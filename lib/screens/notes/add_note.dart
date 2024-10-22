@@ -36,8 +36,10 @@ class AddNoteForm extends ConsumerState<AddNote> {
         backgroundColor: Colors.black87,
         leading: Padding(
           padding: const EdgeInsets.all(8.0),
-         child: goBackButton(context),
+          child: goBackButton(context),
         ),
+        title: const Text(newNote,
+            style: TextStyle(color: Colors.white, fontSize: 20)),
         actions: [
           IconButton(
             style: iconButtonStyle(),
@@ -154,10 +156,7 @@ class AddNoteForm extends ConsumerState<AddNote> {
                         )
                       }
                     else
-                      {
-                        snackBar(context,
-                            message: addErrorEntry)
-                      }
+                      {snackBar(context, message: addErrorEntry)}
                   }),
         ],
       ),

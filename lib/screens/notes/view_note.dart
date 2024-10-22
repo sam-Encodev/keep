@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:keep/constants/text.dart';
 import 'package:keep/utilities/styles.dart';
 import 'package:keep/routes/route_names.dart';
 import 'package:keep/components/back_button.dart';
@@ -23,6 +24,8 @@ class ViewNote extends ConsumerWidget {
           padding: const EdgeInsets.all(8.0),
           child: goBackButton(context),
         ),
+        title: const Text(viewNote,
+            style: TextStyle(color: Colors.white, fontSize: 20)),
         actions: [
           IconButton(
             style: iconButtonStyle(),

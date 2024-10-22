@@ -10,11 +10,14 @@ class About extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-          backgroundColor: Colors.black87,
-          leading: Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: goBackButton(context),
-          )),
+        backgroundColor: Colors.black87,
+        leading: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: goBackButton(context),
+        ),
+        title: const Text(about,
+            style: TextStyle(color: Colors.white, fontSize: 20)),
+      ),
       body: Container(
           padding: const EdgeInsets.all(10),
           width: double.infinity,
