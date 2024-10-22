@@ -4,10 +4,11 @@ const skip = "Skip";
 // App
 const appName = "Notes";
 const errorEntry = "can't be blank";
-const newNote = "Create your first note";
+const createNote = "Create your first note";
 const errorLastNameEntry = "Last name can't be blank";
 
 // About
+const about = "About";
 const signOut = "Sign out";
 const devName = "Kwame Opam";
 const font = "Font - Nunito";
@@ -67,4 +68,11 @@ const userEmail = "game@gmail.com";
 const newUserEmail = "jones@gmail.com";
 
 // Add
+const newNote = "New Note";
 const addErrorEntry = "Title & description $errorEntry";
+
+// Edit
+const editNote = "Edit Note";
+
+// View
+const viewNote = "View";
