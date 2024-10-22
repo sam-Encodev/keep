@@ -25,17 +25,15 @@ class _SignupState extends State<Signup> {
           color: Colors.black87,
         ),
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
             const Text(
               getStarted,
               textAlign: TextAlign.left,
               style: TextStyle(
-                fontSize: 60,
+                fontSize: 50,
                 color: Colors.white,
               ),
-            ),
-            const SizedBox(
-              height: 15,
             ),
             const SignupForm(),
             Row(

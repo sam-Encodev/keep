@@ -25,17 +25,15 @@ class _LoginState extends State<Login> {
           color: Colors.black87,
         ),
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text(
               welcomeBack,
               textAlign: TextAlign.left,
               style: const TextStyle(
-                fontSize: 60,
+                fontSize: 50,
                 color: Colors.white,
               ),
-            ),
-            const SizedBox(
-              height: 15,
             ),
             const LoginForm(),
             Row(
