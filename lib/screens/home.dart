@@ -5,6 +5,7 @@ import 'package:keep/utilities/styles.dart';
 import 'package:keep/routes/route_names.dart';
 import 'package:flutter_popup/flutter_popup.dart';
 import 'package:keep/providers/auth_provider.dart';
+import 'package:keep/providers/theme_provider.dart';
 import 'package:keep/screens/notes/list_notes.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -14,13 +15,13 @@ class Home extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     var currentUser = ref.watch(authNotifierProvider);
+    var isDarkMode = ref.watch(themeStateProvider);
 
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: false,
-        backgroundColor: Colors.black87,
-        title: const Text(appName,
-            style: TextStyle(color: Colors.white, fontSize: 20)),
+        backgroundColor: Theme.of(context).colorScheme.primary,
+        title: Text(appName, style: Theme.of(context).textTheme.headlineMedium),
         actions: [
           IconButton(
             style: iconButtonStyle(),
@@ -28,6 +29,14 @@ class Home extends ConsumerWidget {
             color: Colors.white,
             onPressed: () => context.push('/notes/search'),
           ),
+          IconButton(
+              style: iconButtonStyle(),
+              icon:
+                  isDarkMode ? Icon(Icons.wb_sunny) : Icon(Icons.brightness_2),
+              color: Colors.white,
+              onPressed: () => {
+                    ref.read(themeStateProvider.notifier).setTheme(),
+                  }),
           CustomPopup(
             backgroundColor: Colors.black87,
             showArrow: false,
