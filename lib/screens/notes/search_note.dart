@@ -36,27 +36,28 @@ class _SearchNote extends ConsumerState<SearchNote> {
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: false,
-        backgroundColor: Colors.black87,
+        backgroundColor: Theme.of(context).colorScheme.surface,
         title: TextField(
           controller: textController,
-          style: const TextStyle(color: Colors.white),
+          style: TextStyle(color: Theme.of(context).colorScheme.primary),
           decoration: InputDecoration(
-              fillColor: Colors.black12,
+              fillColor: Theme.of(context).colorScheme.surfaceContainer,
               filled: true,
               hintText: placeholder,
-              hintStyle: TextStyle(color: Colors.grey[600]),
+              hintStyle:
+                  TextStyle(color: Theme.of(context).colorScheme.onSecondary),
               prefixIcon: IconButton(
-                  icon: const Icon(
+                  icon: Icon(
                     Icons.arrow_back,
                     size: 30,
-                    color: Colors.white,
+                    color: Theme.of(context).colorScheme.secondary,
                   ),
                   onPressed: () => context.pop()),
               suffixIcon: IconButton(
-                  icon: const Icon(
+                  icon: Icon(
                     Icons.close,
                     size: 30,
-                    color: Colors.white,
+                    color: Theme.of(context).colorScheme.secondary,
                   ),
                   onPressed: () => {
                         setState(() {
@@ -64,14 +65,8 @@ class _SearchNote extends ConsumerState<SearchNote> {
                         }),
                         ref.read(searchNotifierProvider.notifier).search("")
                       }),
-              enabledBorder: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(25.0),
-                borderSide: const BorderSide(color: Colors.black12),
-              ),
-              focusedBorder: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(25.0),
-                borderSide: const BorderSide(color: Colors.black54),
-              )),
+              enabledBorder: inputBorder(context),
+              focusedBorder: focusBorder(context)),
           onEditingComplete: () {
             FocusManager.instance.primaryFocus?.unfocus();
           },
@@ -83,8 +78,8 @@ class _SearchNote extends ConsumerState<SearchNote> {
       body: Container(
         padding: const EdgeInsets.all(10),
         width: double.infinity,
-        decoration: const BoxDecoration(
-          color: Colors.black87,
+        decoration: BoxDecoration(
+          color: Theme.of(context).colorScheme.surface,
         ),
         child: getNotes.isEmpty
             ? const EmptyState(uri: "search.svg", hideText: true)
@@ -100,8 +95,10 @@ class _SearchNote extends ConsumerState<SearchNote> {
                         SlidableAction(
                           label: 'Edit',
                           icon: Icons.edit,
-                          backgroundColor: Colors.black87,
-                          foregroundColor: Colors.white,
+                          backgroundColor:
+                              Theme.of(context).colorScheme.surface,
+                          foregroundColor:
+                              Theme.of(context).colorScheme.primary,
                           borderRadius: BorderRadius.circular(10),
                           padding:
                               const EdgeInsets.symmetric(horizontal: padding),
@@ -115,8 +112,10 @@ class _SearchNote extends ConsumerState<SearchNote> {
                         SlidableAction(
                           icon: Icons.delete,
                           label: 'Delete',
-                          backgroundColor: Colors.black87,
-                          foregroundColor: Colors.white,
+                          backgroundColor:
+                              Theme.of(context).colorScheme.surface,
+                          foregroundColor:
+                              Theme.of(context).colorScheme.primary,
                           borderRadius: BorderRadius.circular(10),
                           padding:
                               const EdgeInsets.symmetric(horizontal: padding),
@@ -139,23 +138,23 @@ class _SearchNote extends ConsumerState<SearchNote> {
                             context.push(RouteNames.viewNote(notes[index].id)),
                         title: Text(
                           notes[index].title,
-                          style: const TextStyle(
-                              color: Colors.black,
+                          style: TextStyle(
+                              color: Theme.of(context).colorScheme.onPrimary,
                               fontWeight: FontWeight.bold,
                               fontSize: 23),
                         ),
                         subtitle: Text(
                           dateFormatter(notes[index].timestamp),
-                          style: const TextStyle(color: Colors.black87),
+                          style: TextStyle(
+                              color: Theme.of(context).colorScheme.onPrimary),
                         ),
                       ),
                     ),
                   );
                 },
-                separatorBuilder: (BuildContext context, int index) =>
-                    const Divider(
+                separatorBuilder: (BuildContext context, int index) => Divider(
                   height: spacing,
-                  color: Colors.black87,
+                  color: Theme.of(context).colorScheme.surface,
                 ),
               ),
       ),

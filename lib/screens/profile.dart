@@ -35,18 +35,19 @@ class _Profile extends ConsumerState<Profile> {
     return Scaffold(
         appBar: AppBar(
           automaticallyImplyLeading: false,
-          backgroundColor: Colors.black87,
+          backgroundColor: Theme.of(context).colorScheme.surface,
           leading: Padding(
             padding: const EdgeInsets.all(spacing),
             child: goBackButton(context),
           ),
-          title: const Text(profile,
-              style: TextStyle(color: Colors.white, fontSize: 20)),
+          title: Text(profile,
+              style: TextStyle(
+                  color: Theme.of(context).colorScheme.primary, fontSize: 20)),
         ),
         body: Container(
           width: double.infinity,
-          decoration: const BoxDecoration(
-            color: Colors.black87,
+          decoration: BoxDecoration(
+            color: Theme.of(context).colorScheme.surface,
           ),
           child: Form(
             key: _formKey,
@@ -54,25 +55,27 @@ class _Profile extends ConsumerState<Profile> {
             child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
-                  const Padding(
+                  Padding(
                     padding: EdgeInsets.all(spacing),
                     child: Text(name,
                         style: TextStyle(
-                            color: Colors.white, fontSize: labelSize)),
+                            color: Theme.of(context).colorScheme.primary,
+                            fontSize: labelSize)),
                   ),
                   Padding(
                     padding: const EdgeInsets.all(spacing),
                     child: TextFormField(
                       key: const Key(name),
                       initialValue: userName,
-                      style: const TextStyle(color: Colors.white),
+                      style: TextStyle(
+                          color: Theme.of(context).colorScheme.primary),
                       decoration: InputDecoration(
-                          fillColor: Colors.black12,
+                          fillColor: Theme.of(context).colorScheme.surfaceContainer,
                           filled: true,
-                          enabledBorder: inputBorder(),
-                          focusedBorder: focusBorder(),
-                          errorBorder: inputBorder(),
-                          focusedErrorBorder: errorBorder(),
+                          enabledBorder: inputBorder(context),
+                          focusedBorder: focusBorder(context),
+                          errorBorder: inputBorder(context),
+                          focusedErrorBorder: errorBorder(context),
                           errorStyle: errorStyle()),
                       validator: (String? value) {
                         final splitName = value?.split(' ');
@@ -95,11 +98,12 @@ class _Profile extends ConsumerState<Profile> {
                       },
                     ),
                   ),
-                  const Padding(
+                   Padding(
                     padding: EdgeInsets.all(spacing),
                     child: Text(email,
                         style: TextStyle(
-                            color: Colors.white, fontSize: labelSize)),
+                            color: Theme.of(context).colorScheme.primary,
+                            fontSize: labelSize)),
                   ),
                   Padding(
                     padding: const EdgeInsets.all(spacing),
@@ -107,14 +111,15 @@ class _Profile extends ConsumerState<Profile> {
                       readOnly: true,
                       key: const Key(email),
                       initialValue: currentUser.email,
-                      style: const TextStyle(color: Colors.white),
+                      style: TextStyle(
+                          color: Theme.of(context).colorScheme.primary),
                       decoration: InputDecoration(
-                        fillColor: Colors.black12,
+                        fillColor: Theme.of(context).colorScheme.surfaceContainer,
                         filled: true,
-                        enabledBorder: inputBorder(),
-                        focusedBorder: focusBorder(),
-                        errorBorder: inputBorder(),
-                        focusedErrorBorder: errorBorder(),
+                        enabledBorder: inputBorder(context),
+                        focusedBorder: focusBorder(context),
+                        errorBorder: inputBorder(context),
+                        focusedErrorBorder: errorBorder(context),
                         errorStyle: errorStyle(),
                       ),
                       validator: (String? value) {
@@ -127,11 +132,12 @@ class _Profile extends ConsumerState<Profile> {
                       },
                     ),
                   ),
-                  const Padding(
+                  Padding(
                     padding: EdgeInsets.all(spacing),
                     child: Text(currentPassword,
                         style: TextStyle(
-                            color: Colors.white, fontSize: labelSize)),
+                            color: Theme.of(context).colorScheme.primary,
+                            fontSize: labelSize)),
                   ),
                   Padding(
                     padding: const EdgeInsets.all(spacing),
@@ -143,14 +149,15 @@ class _Profile extends ConsumerState<Profile> {
                       enableSuggestions: false,
                       autocorrect: false,
                       obscuringCharacter: "*",
-                      style: const TextStyle(color: Colors.white),
+                      style: TextStyle(
+                          color: Theme.of(context).colorScheme.primary),
                       decoration: InputDecoration(
-                          fillColor: Colors.black12,
+                          fillColor: Theme.of(context).colorScheme.surfaceContainer,
                           filled: true,
-                          enabledBorder: inputBorder(),
-                          focusedBorder: focusBorder(),
-                          errorBorder: inputBorder(),
-                          focusedErrorBorder: errorBorder(),
+                          enabledBorder: inputBorder(context),
+                          focusedBorder: focusBorder(context),
+                          errorBorder: inputBorder(context),
+                          focusedErrorBorder: errorBorder(context),
                           errorStyle: errorStyle()),
                       validator: (String? value) {
                         // if (value == null || value.isEmpty) {
@@ -161,11 +168,12 @@ class _Profile extends ConsumerState<Profile> {
                       },
                     ),
                   ),
-                  const Padding(
+                  Padding(
                     padding: EdgeInsets.all(spacing),
                     child: Text(newPassword,
                         style: TextStyle(
-                            color: Colors.white, fontSize: labelSize)),
+                            color: Theme.of(context).colorScheme.primary,
+                            fontSize: labelSize)),
                   ),
                   Padding(
                     padding: const EdgeInsets.all(spacing),
@@ -175,14 +183,15 @@ class _Profile extends ConsumerState<Profile> {
                       enableSuggestions: false,
                       autocorrect: false,
                       obscuringCharacter: "*",
-                      style: const TextStyle(color: Colors.white),
+                      style: TextStyle(
+                          color: Theme.of(context).colorScheme.primary),
                       decoration: InputDecoration(
-                          fillColor: Colors.black12,
+                          fillColor: Theme.of(context).colorScheme.surfaceContainer,
                           filled: true,
-                          enabledBorder: inputBorder(),
-                          focusedBorder: focusBorder(),
-                          errorBorder: inputBorder(),
-                          focusedErrorBorder: errorBorder(),
+                          enabledBorder: inputBorder(context),
+                          focusedBorder: focusBorder(context),
+                          errorBorder: inputBorder(context),
+                          focusedErrorBorder: errorBorder(context),
                           errorStyle: errorStyle()),
                       validator: (String? value) {
                         if (value == null || value.isEmpty) {

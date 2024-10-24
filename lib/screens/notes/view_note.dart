@@ -19,16 +19,17 @@ class ViewNote extends ConsumerWidget {
 
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.black87,
+        backgroundColor: Theme.of(context).colorScheme.surface,
         leading: Padding(
           padding: const EdgeInsets.all(8.0),
           child: goBackButton(context),
         ),
-        title: const Text(viewNote,
-            style: TextStyle(color: Colors.white, fontSize: 20)),
+        title: Text(viewNote,
+            style: TextStyle(
+                color: Theme.of(context).colorScheme.primary, fontSize: 20)),
         actions: [
           IconButton(
-            style: iconButtonStyle(),
+            style: iconButtonStyle(context),
             icon: const Icon(Icons.edit),
             color: Colors.white,
             onPressed: () => {context.push(RouteNames.editNote(note.id))},
@@ -38,8 +39,8 @@ class ViewNote extends ConsumerWidget {
       body: Container(
         padding: const EdgeInsets.all(10),
         width: double.infinity,
-        decoration: const BoxDecoration(
-          color: Colors.black87,
+        decoration: BoxDecoration(
+          color: Theme.of(context).colorScheme.surface,
         ),
         child: Column(
           children: [
@@ -50,13 +51,14 @@ class ViewNote extends ConsumerWidget {
                 children: <Widget>[
                   const SizedBox(height: 30),
                   Text(note.title,
-                      style: const TextStyle(
-                        color: Colors.white,
+                      style: TextStyle(
+                        color: Theme.of(context).colorScheme.primary,
                         fontSize: 30,
                       )),
                   Text(note.description,
-                      style:
-                          const TextStyle(color: Colors.white, fontSize: 20)),
+                      style: TextStyle(
+                          color: Theme.of(context).colorScheme.primary,
+                          fontSize: 20)),
                 ],
               ),
             )

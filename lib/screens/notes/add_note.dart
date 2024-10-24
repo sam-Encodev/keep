@@ -33,27 +33,27 @@ class AddNoteForm extends ConsumerState<AddNote> {
 
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.black87,
+        backgroundColor: Theme.of(context).colorScheme.surface,
         leading: Padding(
           padding: const EdgeInsets.all(8.0),
           child: goBackButton(context),
         ),
-        title: const Text(newNote,
-            style: TextStyle(color: Colors.white, fontSize: 20)),
+        title:  Text(newNote,
+            style: TextStyle(color: Theme.of(context).colorScheme.primary, fontSize: 20)),
         actions: [
           IconButton(
-            style: iconButtonStyle(),
+            style: iconButtonStyle(context),
             icon: const Icon(Icons.circle),
             color: SwitchColor.switchColor(_color!),
             onPressed: () => showDialog<void>(
                 context: context,
                 builder: (BuildContext context) {
                   return AlertDialog(
-                    backgroundColor: Colors.grey[900],
-                    title: const Center(
+                    backgroundColor: Theme.of(context).colorScheme.surface,
+                    title: Center(
                       child: Text(
                         pickColor,
-                        style: TextStyle(color: Colors.white),
+                        style: TextStyle(color: Theme.of(context).colorScheme.primary),
                       ),
                     ),
                     content: Column(
@@ -71,8 +71,8 @@ class AddNoteForm extends ConsumerState<AddNote> {
                                 icon: colorClip(e.values.first.toString()),
                                 label: Text(
                                   e.values.first.toString(),
-                                  style: const TextStyle(
-                                      color: Colors.white, fontSize: 20),
+                                  style: TextStyle(
+                                      color: Theme.of(context).colorScheme.primary, fontSize: 20),
                                 ),
                               ))
                           .toList(),
@@ -81,9 +81,9 @@ class AddNoteForm extends ConsumerState<AddNote> {
                 }),
           ),
           IconButton(
-              style: iconButtonStyle(),
+              style: iconButtonStyle(context),
               icon: const Icon(Icons.save),
-              color: Colors.white,
+              color: Theme.of(context).colorScheme.primary,
               onPressed: () => {
                     if (_titleField != null && _descriptionField != null)
                       {
@@ -91,10 +91,10 @@ class AddNoteForm extends ConsumerState<AddNote> {
                           context: context,
                           builder: (BuildContext context) {
                             return AlertDialog(
-                              backgroundColor: Colors.grey[900],
-                              title: const Icon(
+                         backgroundColor: Theme.of(context).colorScheme.surface,
+                              title: Icon(
                                 Icons.info,
-                                color: Colors.white,
+                                color: Theme.of(context).colorScheme.primary,
                               ),
                               content: const Row(
                                 mainAxisAlignment: MainAxisAlignment.center,
@@ -120,9 +120,9 @@ class AddNoteForm extends ConsumerState<AddNote> {
                                       },
                                       style:
                                           buttonStyle(color: Colors.redAccent),
-                                      child: const Text(no,
+                                      child: Text(no,
                                           style: TextStyle(
-                                              color: Colors.white,
+                                              color: Theme.of(context).colorScheme.primary,
                                               fontSize: 20))),
                                 ),
                                 SizedBox(
@@ -163,8 +163,8 @@ class AddNoteForm extends ConsumerState<AddNote> {
       body: Container(
         padding: const EdgeInsets.all(10),
         width: double.infinity,
-        decoration: const BoxDecoration(
-          color: Colors.black87,
+        decoration: BoxDecoration(
+          color: Theme.of(context).colorScheme.surface,
         ),
         child: Column(
           children: [
@@ -180,12 +180,12 @@ class AddNoteForm extends ConsumerState<AddNote> {
                         key: const Key(title),
                         maxLines: 1,
                         style:
-                            const TextStyle(color: Colors.white, fontSize: 55),
+                             TextStyle(color: Theme.of(context).colorScheme.primary, fontSize: 55),
                         decoration: InputDecoration(
-                          fillColor: Colors.black87,
+                          fillColor: Theme.of(context).colorScheme.surface,
                           filled: false,
                           hintText: title,
-                          hintStyle: TextStyle(color: Colors.grey[600]),
+                          hintStyle: TextStyle(color: Theme.of(context).colorScheme.onSecondary),
                           enabledBorder: transparentEnabledBorder(),
                           focusedBorder: transparentFocusedBorder(),
                           errorBorder: transparentEnabledBorder(),
@@ -206,12 +206,12 @@ class AddNoteForm extends ConsumerState<AddNote> {
                         enableSuggestions: false,
                         autocorrect: false,
                         style:
-                            const TextStyle(color: Colors.white, fontSize: 20),
+                             TextStyle(color: Theme.of(context).colorScheme.primary, fontSize: 20),
                         decoration: InputDecoration(
-                          fillColor: Colors.black87,
+                          fillColor: Theme.of(context).colorScheme.surface,
                           filled: false,
                           hintText: description,
-                          hintStyle: TextStyle(color: Colors.grey[600]),
+                          hintStyle: TextStyle(color: Theme.of(context).colorScheme.onSecondary),
                           enabledBorder: transparentEnabledBorder(),
                           focusedBorder: transparentFocusedBorder(),
                           errorBorder: transparentEnabledBorder(),

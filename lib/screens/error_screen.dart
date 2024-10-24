@@ -11,13 +11,13 @@ class ErrorScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.black87,
+        backgroundColor: Theme.of(context).colorScheme.surface,
       ),
       body: Container(
         padding: const EdgeInsets.all(10),
         width: double.infinity,
-        decoration: const BoxDecoration(
-          color: Colors.black87,
+        decoration: BoxDecoration(
+          color: Theme.of(context).colorScheme.surface,
         ),
         child: SizedBox(
           child: Column(

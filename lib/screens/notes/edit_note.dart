@@ -42,27 +42,29 @@ class EditNoteForm extends ConsumerState<EditNote> {
 
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.black87,
+        backgroundColor: Theme.of(context).colorScheme.surface,
         leading: Padding(
           padding: const EdgeInsets.all(8.0),
           child: goBackButton(context),
         ),
-        title: const Text(editNote,
-            style: TextStyle(color: Colors.white, fontSize: 20)),
+        title: Text(editNote,
+            style: TextStyle(
+                color: Theme.of(context).colorScheme.primary, fontSize: 20)),
         actions: [
           IconButton(
-            style: iconButtonStyle(),
+            style: iconButtonStyle(context),
             icon: const Icon(Icons.circle),
             color: SwitchColor.switchColor(_color ?? _oldColor),
             onPressed: () => showDialog<void>(
                 context: context,
                 builder: (BuildContext context) {
                   return AlertDialog(
-                    backgroundColor: Colors.grey[900],
-                    title: const Center(
+                    backgroundColor: Theme.of(context).colorScheme.surface,
+                    title: Center(
                       child: Text(
                         pickColor,
-                        style: TextStyle(color: Colors.white),
+                        style: TextStyle(
+                            color: Theme.of(context).colorScheme.primary),
                       ),
                     ),
                     content: Column(
@@ -80,8 +82,10 @@ class EditNoteForm extends ConsumerState<EditNote> {
                                 icon: colorClip(e.values.first.toString()),
                                 label: Text(
                                   e.values.first.toString(),
-                                  style: const TextStyle(
-                                      color: Colors.white, fontSize: 20),
+                                  style: TextStyle(
+                                      color:
+                                          Theme.of(context).colorScheme.primary,
+                                      fontSize: 20),
                                 ),
                               ))
                           .toList(),
@@ -90,9 +94,9 @@ class EditNoteForm extends ConsumerState<EditNote> {
                 }),
           ),
           IconButton(
-              style: iconButtonStyle(),
+              style: iconButtonStyle(context),
               icon: const Icon(Icons.save),
-              color: Colors.white,
+              color: Theme.of(context).colorScheme.primary,
               onPressed: () => {
                     if (_titleField != null && _descriptionField != null)
                       {
@@ -100,10 +104,10 @@ class EditNoteForm extends ConsumerState<EditNote> {
                           context: context,
                           builder: (BuildContext context) {
                             return AlertDialog(
-                              backgroundColor: Colors.grey[900],
-                              title: const Icon(
+                             backgroundColor: Theme.of(context).colorScheme.surface,
+                              title: Icon(
                                 Icons.info,
-                                color: Colors.white,
+                                color: Theme.of(context).colorScheme.primary,
                               ),
                               content: const Row(
                                 mainAxisAlignment: MainAxisAlignment.center,
@@ -129,9 +133,11 @@ class EditNoteForm extends ConsumerState<EditNote> {
                                       },
                                       style:
                                           buttonStyle(color: Colors.redAccent),
-                                      child: const Text(no,
+                                      child: Text(no,
                                           style: TextStyle(
-                                              color: Colors.white,
+                                              color: Theme.of(context)
+                                                  .colorScheme
+                                                  .primary,
                                               fontSize: 20))),
                                 ),
                                 SizedBox(
@@ -171,8 +177,8 @@ class EditNoteForm extends ConsumerState<EditNote> {
       body: Container(
         padding: const EdgeInsets.all(10),
         width: double.infinity,
-        decoration: const BoxDecoration(
-          color: Colors.black87,
+        decoration: BoxDecoration(
+          color: Theme.of(context).colorScheme.surface,
         ),
         child: Column(
           children: [
@@ -190,13 +196,14 @@ class EditNoteForm extends ConsumerState<EditNote> {
                         initialValue: note.title,
                         onChanged: (val) =>
                             {_titleField = val.isEmpty ? null : val},
-                        style:
-                            const TextStyle(color: Colors.white, fontSize: 55),
+                        style: TextStyle(
+                            color: Theme.of(context).colorScheme.primary,
+                            fontSize: 55),
                         decoration: InputDecoration(
-                          fillColor: Colors.black87,
+                          fillColor: Theme.of(context).colorScheme.surface,
                           filled: false,
                           hintText: title,
-                          hintStyle: TextStyle(color: Colors.grey[600]),
+                          hintStyle: TextStyle(color: Theme.of(context).colorScheme.onSecondary),
                           enabledBorder: transparentEnabledBorder(),
                           focusedBorder: transparentFocusedBorder(),
                           errorBorder: transparentEnabledBorder(),
@@ -219,13 +226,14 @@ class EditNoteForm extends ConsumerState<EditNote> {
                         maxLines: 10,
                         enableSuggestions: false,
                         autocorrect: false,
-                        style:
-                            const TextStyle(color: Colors.white, fontSize: 20),
+                        style: TextStyle(
+                            color: Theme.of(context).colorScheme.primary,
+                            fontSize: 20),
                         decoration: InputDecoration(
-                          fillColor: Colors.black87,
+                          fillColor: Theme.of(context).colorScheme.surface,
                           filled: false,
                           hintText: description,
-                          hintStyle: TextStyle(color: Colors.grey[600]),
+                          hintStyle: TextStyle(color: Theme.of(context).colorScheme.onSecondary),
                           enabledBorder: transparentEnabledBorder(),
                           focusedBorder: transparentFocusedBorder(),
                           errorBorder: transparentEnabledBorder(),

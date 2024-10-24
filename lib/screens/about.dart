@@ -10,19 +10,19 @@ class About extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.black87,
+        backgroundColor: Theme.of(context).colorScheme.surface,
         leading: Padding(
           padding: const EdgeInsets.all(8.0),
           child: goBackButton(context),
         ),
-        title: const Text(about,
-            style: TextStyle(color: Colors.white, fontSize: 20)),
+        title: Text(about,
+            style: TextStyle(color: Theme.of(context).colorScheme.primary, fontSize: 20)),
       ),
       body: Container(
           padding: const EdgeInsets.all(10),
           width: double.infinity,
-          decoration: const BoxDecoration(
-            color: Colors.black87,
+          decoration: BoxDecoration(
+            color: Theme.of(context).colorScheme.surface,
           ),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -32,14 +32,14 @@ class About extends StatelessWidget {
                 child: ListView(
                   shrinkWrap: true,
                   children: <Widget>[
-                    buildText(font),
-                    buildText(icons),
-                    buildText(author),
-                    buildText(designer),
+                    buildText(font, context),
+                    buildText(icons, context),
+                    buildText(author, context),
+                    buildText(designer, context),
                   ],
                 ),
               ),
-              buildText(version, height: 5.0),
+              buildText(version, context, height: 5.0),
             ],
           )),
     );

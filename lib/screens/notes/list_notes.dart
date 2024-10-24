@@ -34,8 +34,8 @@ class ListNotes extends ConsumerWidget {
                     SlidableAction(
                       label: 'Edit',
                       icon: Icons.edit,
-                      backgroundColor: Colors.black87,
-                      foregroundColor: Colors.white,
+                      backgroundColor: Theme.of(context).colorScheme.surface,
+                      foregroundColor: Theme.of(context).colorScheme.primary,
                       borderRadius: BorderRadius.circular(10),
                       padding: const EdgeInsets.symmetric(horizontal: padding),
                       onPressed: (_) => {
@@ -48,8 +48,8 @@ class ListNotes extends ConsumerWidget {
                     SlidableAction(
                       icon: Icons.delete,
                       label: 'Delete',
-                      backgroundColor: Colors.black87,
-                      foregroundColor: Colors.white,
+                      backgroundColor: Theme.of(context).colorScheme.surface,
+                      foregroundColor:     Theme.of(context).colorScheme.primary,
                       borderRadius: BorderRadius.circular(10),
                       padding: const EdgeInsets.symmetric(horizontal: padding),
                       onPressed: (_) => {
@@ -71,24 +71,24 @@ class ListNotes extends ConsumerWidget {
                         context.push(RouteNames.viewNote(notes[index].id)),
                     title: Text(
                       notes[index].title,
-                      style: const TextStyle(
-                          color: Colors.black,
+                      style: TextStyle(
+                          color: Theme.of(context).colorScheme.onPrimary,
                           fontWeight: FontWeight.bold,
                           fontSize: 23),
                     ),
                     subtitle: Text(
                       dateFormatter(notes[index].timestamp),
-                      style:
-                          const TextStyle(color: Colors.black87, fontSize: 13),
+                      style: TextStyle(
+                          color: Theme.of(context).colorScheme.onPrimary,
+                          fontSize: 13),
                     ),
                   ),
                 ),
               );
             },
-            separatorBuilder: (BuildContext context, int index) =>
-                const Divider(
+            separatorBuilder: (BuildContext context, int index) => Divider(
               height: spacing,
-              color: Colors.black87,
+              color: Theme.of(context).colorScheme.surface,
             ),
           );
   }

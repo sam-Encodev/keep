@@ -5,9 +5,9 @@ import 'package:dots_indicator/dots_indicator.dart';
 const spacing = 8.0;
 const padding = 10.0;
 
-iconButtonStyle() {
+iconButtonStyle(context) {
   return ButtonStyle(
-      backgroundColor: WidgetStateProperty.all(Colors.black87),
+      backgroundColor: WidgetStateProperty.all(Theme.of(context).colorScheme.surface),
       shape: WidgetStateProperty.all(
         RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(10.0),
@@ -28,25 +28,25 @@ buttonStyle({color = Colors.white}) {
   );
 }
 
-inputBorder() {
+inputBorder(context) {
   //return type is OutlineInputBorder
   return OutlineInputBorder(
     borderRadius: BorderRadius.circular(25.0),
-    borderSide: const BorderSide(color: Colors.black12),
+    borderSide: BorderSide(color: Theme.of(context).colorScheme.outline),
   );
 }
 
-focusBorder() {
+focusBorder(context) {
   return OutlineInputBorder(
     borderRadius: BorderRadius.circular(25.0),
-    borderSide: const BorderSide(color: Colors.black54),
+    borderSide: BorderSide(color: Theme.of(context).colorScheme.outlineVariant),
   );
 }
 
-errorBorder() {
+errorBorder(context) {
   return OutlineInputBorder(
     borderRadius: BorderRadius.circular(25.0),
-    borderSide: const BorderSide(color: Colors.black54),
+    borderSide: BorderSide(color: Theme.of(context).colorScheme.outlineVariant),
   );
 }
 
@@ -58,9 +58,9 @@ errorStyle() {
   );
 }
 
-dotsStyle() {
+dotsStyle(context) {
   return DotsDecorator(
-    color: const Color(0xFFBDBDBD),
+    color: Theme.of(context).colorScheme.outlineVariant,
     size: const Size(10.0, 5.0),
     shape: RoundedRectangleBorder(
       borderRadius: BorderRadius.circular(25.0),
@@ -69,6 +69,7 @@ dotsStyle() {
     activeShape: RoundedRectangleBorder(
       borderRadius: BorderRadius.circular(25.0),
     ),
+    activeColor: Theme.of(context).colorScheme.primary,
     spacing: const EdgeInsets.all(2.0),
   );
 }
@@ -107,9 +108,9 @@ buildSVG(String assetName) {
   );
 }
 
-buildText(String data, {height = 0.0}) {
+buildText(String data, context, {height = 0.0}) {
   return Text(
     data,
-    style: TextStyle(color: Colors.white, fontSize: 20, height: height),
+    style: TextStyle(color: Theme.of(context).colorScheme.primary, fontSize: 20, height: height),
   );
 }

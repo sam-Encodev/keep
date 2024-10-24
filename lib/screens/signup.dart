@@ -16,32 +16,32 @@ class _SignupState extends State<Signup> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.black87,
+        backgroundColor: Theme.of(context).colorScheme.surface,
       ),
       body: Container(
         padding: const EdgeInsets.all(10),
         width: double.infinity,
-        decoration: const BoxDecoration(
-          color: Colors.black87,
+        decoration: BoxDecoration(
+          color: Theme.of(context).colorScheme.surface,
         ),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            const Text(
+             Text(
               getStarted,
               textAlign: TextAlign.left,
               style: TextStyle(
                 fontSize: 50,
-                color: Colors.white,
+                color: Theme.of(context).colorScheme.primary,
               ),
             ),
             const SignupForm(),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                const Text(
+                 Text(
                   haveAnAccount,
-                  style: TextStyle(color: Colors.white),
+                  style: TextStyle(color: Theme.of(context).colorScheme.primary),
                 ),
                 TextButton(
                     onPressed: () => context.go(RouteNames.login),

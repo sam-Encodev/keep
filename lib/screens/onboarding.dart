@@ -72,10 +72,10 @@ class _OnboardState extends ConsumerState<Onboarding>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: Colors.black87,
+        backgroundColor: Theme.of(context).colorScheme.surface,
         appBar: AppBar(
           automaticallyImplyLeading: false,
-          backgroundColor: Colors.black87,
+          backgroundColor: Theme.of(context).colorScheme.surface,
           actions: [
             SizedBox(
               width: 78,
@@ -97,7 +97,7 @@ class _OnboardState extends ConsumerState<Onboarding>
               child: PageView.builder(
                 itemBuilder: (BuildContext context, int index) {
                   final stage = stages[index];
-                  return onBoard(stage);
+                  return onBoard(context, stage);
                 },
                 itemCount: stages.length,
                 controller: _pageViewController,
@@ -146,7 +146,7 @@ class PageIndicator extends ConsumerWidget {
           DotsIndicator(
             dotsCount: tabController.length,
             position: currentPageIndex,
-            decorator: dotsStyle(),
+            decorator: dotsStyle(context),
           ),
           Row(
             children: [
@@ -159,18 +159,18 @@ class PageIndicator extends ConsumerWidget {
                     onUpdateCurrentPageIndex(currentPageIndex - 1);
                   },
                   style: ButtonStyle(
-                      backgroundColor:
-                          WidgetStateProperty.all(Colors.deepPurpleAccent),
+                      backgroundColor: WidgetStateProperty.all(
+                          Theme.of(context).colorScheme.primary),
                       shape: WidgetStateProperty.all(
                         RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(50.0),
                         ),
                       )),
-                  icon: const Icon(
+                  icon: Icon(
                     Icons.arrow_left,
                     size: 35,
+                    color: Theme.of(context).colorScheme.surface,
                   ),
-                  color: Colors.white,
                 ),
               const SizedBox(width: 10),
               IconButton(
@@ -182,18 +182,18 @@ class PageIndicator extends ConsumerWidget {
                   onUpdateCurrentPageIndex(currentPageIndex + 1);
                 },
                 style: ButtonStyle(
-                    backgroundColor:
-                        WidgetStateProperty.all(Colors.deepPurpleAccent),
+                    backgroundColor: WidgetStateProperty.all(
+                        Theme.of(context).colorScheme.primary),
                     shape: WidgetStateProperty.all(
                       RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(50.0),
                       ),
                     )),
-                icon: const Icon(
+                icon: Icon(
                   Icons.arrow_right,
                   size: 35,
+                  color: Theme.of(context).colorScheme.surface,
                 ),
-                color: Colors.white,
               ),
             ],
           ),
