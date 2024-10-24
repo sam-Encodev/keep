@@ -15,11 +15,9 @@ class Keep extends ConsumerWidget {
 
     return MaterialApp.router(
       theme: ThemeData(
-        brightness: Brightness.light,
         colorScheme: lightColorScheme,
       ),
       darkTheme: ThemeData(
-        brightness: Brightness.dark,
         colorScheme: darkColorScheme,
       ),
       themeMode: isDarkMode ? ThemeMode.dark : ThemeMode.light,
