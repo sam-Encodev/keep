@@ -6,11 +6,8 @@ import 'package:flutter_native_splash/flutter_native_splash.dart';
 Future<void> main() async {
   WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
   FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
-  runApp(
-    ProviderScope(
-        child: MaterialApp(
-      home: const AppStartUp(),
-      debugShowCheckedModeBanner: false,
-    )),
-  );
+
+  runApp(ProviderScope(
+    child: AppStartUp(),
+  ));
 }
