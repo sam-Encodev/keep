@@ -17,7 +17,7 @@ const colors = [
     "name": 'green',
   },
   {
-    "name": 'white',
+    "name": 'grey',
   },
   {
     "name": 'indigo',
@@ -45,8 +45,8 @@ class SwitchColor {
         return Colors.blue;
       case 'indigo':
         return Colors.indigo;
-      case 'white':
-        return Colors.white;
+      case 'grey':
+        return Colors.grey;
       case 'pink':
         return Colors.pink;
       default:

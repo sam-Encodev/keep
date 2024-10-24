@@ -32,7 +32,7 @@ class NoteNotifier extends Notifier<List<Note>> {
             title: "Game",
             description: "I lied",
             timestamp: "2024-03-02T15:18:29.922343",
-            color: "white"),
+            color: "grey"),
         Note(
             id: 4,
             title: "Sleep",
