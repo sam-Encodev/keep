@@ -82,8 +82,9 @@ class _OnboardState extends ConsumerState<Onboarding>
                     {ref.read(appStateProvider.notifier).completeOnboarding()},
                 child: Text(
                   skip,
-                  style:
-                      TextStyle(color: Theme.of(context).colorScheme.tertiary),
+                  style: TextStyle(
+                      color: Theme.of(context).colorScheme.tertiary,
+                      fontSize: standardFont),
                 )),
           ),
         ),
