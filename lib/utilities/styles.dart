@@ -10,6 +10,7 @@ const minFont = 17.0;
 const maxFont = 50.0;
 const labelSize = 15.0;
 const errorFont = 12.0;
+
 const formIcons = 30.0;
 const maxIcons = 35.0;
 const standardIcon = 25.0;
@@ -22,6 +23,9 @@ const iconButtonRadius = 10.0;
 
 const minButton = 20.0;
 const maxButton = 40.0;
+
+const buttonWidth = 50.0;
+const maxButtonWidth = 100.0;
 
 iconButtonStyle(context) {
   return ButtonStyle(
@@ -64,6 +68,7 @@ textButtonStyle(context) {
   return ButtonStyle(
     backgroundColor:
         WidgetStateProperty.all(Theme.of(context).colorScheme.tertiary),
+    minimumSize: WidgetStateProperty.all(Size(maxButtonWidth, double.minPositive)),
     elevation: WidgetStateProperty.all(0),
     shape: WidgetStateProperty.all(
       RoundedRectangleBorder(
