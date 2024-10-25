@@ -11,21 +11,25 @@ onBoard(context, item) {
     mainAxisAlignment: MainAxisAlignment.center,
     children: [
       buildSVG(image),
-      SizedBox(height: 50),
+      SizedBox(height: maxHeight),
       Text(
         title,
+        textAlign: TextAlign.center,
         style: TextStyle(
             color: Theme.of(context).colorScheme.primary,
             fontSize: standardFont,
             fontWeight: FontWeight.w800),
       ),
-      SizedBox(height: 15),
+      SizedBox(height: minHeight),
       Padding(
-        padding: EdgeInsets.symmetric(horizontal: 20),
+        padding: EdgeInsets.symmetric(horizontal: minHeight),
         child: Text(
           body,
+          textAlign: TextAlign.center,
           style: TextStyle(
-              color: Theme.of(context).colorScheme.primary, fontSize: minFont, ),
+            color: Theme.of(context).colorScheme.primary,
+            fontSize: minFont,
+          ),
         ),
       )
     ],

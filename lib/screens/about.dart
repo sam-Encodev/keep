@@ -26,19 +26,16 @@ class About extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: <Widget>[
-              Align(
-                alignment: Alignment.centerLeft,
-                child: ListView(
-                  shrinkWrap: true,
-                  children: <Widget>[
-                    buildText(font, context),
-                    buildText(icons, context),
-                    buildText(author, context),
-                    buildText(designer, context),
-                  ],
-                ),
+              ListView(
+                shrinkWrap: true,
+                children: <Widget>[
+                  buildText(font, context),
+                  buildText(icons, context),
+                  buildText(author, context),
+                  buildText(designer, context),
+                ],
               ),
-              buildText(version, context, height: 5.0),
+              buildText(version, context, height: spacing),
             ],
           )),
     );
