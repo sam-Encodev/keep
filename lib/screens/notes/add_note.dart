@@ -32,11 +32,13 @@ class AddNoteForm extends ConsumerState<AddNote> {
     var index = getNotes.length;
 
     return Scaffold(
-        backgroundColor: Theme.of(context).colorScheme.surface,
+      backgroundColor: Theme.of(context).colorScheme.surface,
       appBar: AppBar(
         leading: goBackButton(context),
-        title:  Text(newNote,
-            style: TextStyle(color: Theme.of(context).colorScheme.primary, fontSize: standardFont)),
+        title: Text(newNote,
+            style: TextStyle(
+                color: Theme.of(context).colorScheme.primary,
+                fontSize: standardFont)),
         actions: [
           IconButton(
             style: iconButtonStyle(context),
@@ -46,11 +48,11 @@ class AddNoteForm extends ConsumerState<AddNote> {
                 context: context,
                 builder: (BuildContext context) {
                   return AlertDialog(
-               
                     title: Center(
                       child: Text(
                         pickColor,
-                        style: TextStyle(color: Theme.of(context).colorScheme.primary),
+                        style: TextStyle(
+                            color: Theme.of(context).colorScheme.primary),
                       ),
                     ),
                     content: Column(
@@ -69,7 +71,9 @@ class AddNoteForm extends ConsumerState<AddNote> {
                                 label: Text(
                                   e.values.first.toString(),
                                   style: TextStyle(
-                                      color: Theme.of(context).colorScheme.primary, fontSize: standardFont),
+                                      color:
+                                          Theme.of(context).colorScheme.primary,
+                                      fontSize: standardFont),
                                 ),
                               ))
                           .toList(),
@@ -88,65 +92,57 @@ class AddNoteForm extends ConsumerState<AddNote> {
                           context: context,
                           builder: (BuildContext context) {
                             return AlertDialog(
-                      
                               title: Icon(
                                 Icons.info,
-                                color: Theme.of(context).colorScheme.primary,
+                                size: maxIcons,
+                                color: Theme.of(context).colorScheme.tertiary,
                               ),
-                              content: const Row(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                crossAxisAlignment: CrossAxisAlignment.center,
-                                children: <Widget>[
-                                  Expanded(
-                                    child: Text(
-                                      prompt,
-                                      textAlign: TextAlign.center,
-                                      style: TextStyle(
-                                          color: Colors.red, fontSize: standardFont),
-                                    ),
-                                  )
-                                ],
+                              content: Text(
+                                prompt,
+                                textAlign: TextAlign.center,
+                                style: TextStyle(
+                                    color:
+                                        Theme.of(context).colorScheme.primary,
+                                    fontSize: standardFont),
                               ),
                               actionsAlignment: MainAxisAlignment.center,
                               actions: <Widget>[
-                                SizedBox(
-                                  width: 110,
-                                  child: FilledButton(
-                                      onPressed: () {
-                                        Navigator.of(context).pop();
-                                      },
-                                      style:
-                                          buttonStyle(context),
-                                      child: Text(no,
-                                          style: TextStyle(
-                                              color: Theme.of(context).colorScheme.primary,
-                                              fontSize: standardFont))),
-                                ),
-                                SizedBox(
-                                  width: 110,
-                                  child: FilledButton(
-                                      onPressed: () => {
-                                            ref
-                                                .read(noteNotifierProvider
-                                                    .notifier)
-                                                .addNote(Note(
-                                                    id: index,
-                                                    title: "$_titleField",
-                                                    description:
-                                                        "$_descriptionField",
-                                                    timestamp: _timestamp,
-                                                    color: "$_color")),
-                                            Navigator.of(context).pop(),
-                                            ref
-                                                .read(goRouterProvider)
-                                                .go(RouteNames.home)
-                                          },
-                                      style: buttonStyle(context),
-                                      child: Text(yes,
-                                          style: TextStyle(
-                                              color: Theme.of(context).colorScheme.primary,
-                                              fontSize: standardFont))),
-                                ),
+                                TextButton(
+                                    onPressed: () {
+                                      Navigator.of(context).pop();
+                                    },
+                                    child: Text(no,
+                                        style: TextStyle(
+                                            color: Theme.of(context)
+                                                .colorScheme
+                                                .tertiary,
+                                            fontSize: standardFont))),
+                                TextButton(
+                                    style: textButtonStyle(
+                                      context,
+                                    ),
+                                    onPressed: () => {
+                                          ref
+                                              .read(
+                                                  noteNotifierProvider.notifier)
+                                              .addNote(Note(
+                                                  id: index,
+                                                  title: "$_titleField",
+                                                  description:
+                                                      "$_descriptionField",
+                                                  timestamp: _timestamp,
+                                                  color: "$_color")),
+                                          Navigator.of(context).pop(),
+                                          ref
+                                              .read(goRouterProvider)
+                                              .go(RouteNames.home)
+                                        },
+                                    child: Text(yes,
+                                        style: TextStyle(
+                                            color: Theme.of(context)
+                                                .colorScheme
+                                                .primaryFixed,
+                                            fontSize: standardFont))),
                               ],
                             );
                           },
@@ -176,13 +172,15 @@ class AddNoteForm extends ConsumerState<AddNote> {
                       TextFormField(
                         key: const Key(title),
                         maxLines: 1,
-                        style:
-                             TextStyle(color: Theme.of(context).colorScheme.primary, fontSize: maxFont),
+                        style: TextStyle(
+                            color: Theme.of(context).colorScheme.primary,
+                            fontSize: maxFont),
                         decoration: InputDecoration(
                           fillColor: Theme.of(context).colorScheme.surface,
                           filled: false,
                           hintText: title,
-                          hintStyle: TextStyle(color: Theme.of(context).colorScheme.onSecondary),
+                          hintStyle: TextStyle(
+                              color: Theme.of(context).colorScheme.onSecondary),
                           enabledBorder: transparentEnabledBorder(),
                           focusedBorder: transparentFocusedBorder(),
                           errorBorder: transparentEnabledBorder(),
@@ -202,13 +200,15 @@ class AddNoteForm extends ConsumerState<AddNote> {
                         maxLines: 10,
                         enableSuggestions: false,
                         autocorrect: false,
-                        style:
-                             TextStyle(color: Theme.of(context).colorScheme.primary, fontSize: standardFont),
+                        style: TextStyle(
+                            color: Theme.of(context).colorScheme.primary,
+                            fontSize: standardFont),
                         decoration: InputDecoration(
                           fillColor: Theme.of(context).colorScheme.surface,
                           filled: false,
                           hintText: description,
-                          hintStyle: TextStyle(color: Theme.of(context).colorScheme.onSecondary),
+                          hintStyle: TextStyle(
+                              color: Theme.of(context).colorScheme.onSecondary),
                           enabledBorder: transparentEnabledBorder(),
                           focusedBorder: transparentFocusedBorder(),
                           errorBorder: transparentEnabledBorder(),

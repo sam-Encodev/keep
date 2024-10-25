@@ -41,7 +41,7 @@ class EditNoteForm extends ConsumerState<EditNote> {
     });
 
     return Scaffold(
-        backgroundColor: Theme.of(context).colorScheme.surface,
+      backgroundColor: Theme.of(context).colorScheme.surface,
       appBar: AppBar(
         leading: goBackButton(context),
         title: Text(editNote,
@@ -57,7 +57,6 @@ class EditNoteForm extends ConsumerState<EditNote> {
                 context: context,
                 builder: (BuildContext context) {
                   return AlertDialog(
-              
                     title: Center(
                       child: Text(
                         pickColor,
@@ -102,71 +101,54 @@ class EditNoteForm extends ConsumerState<EditNote> {
                           context: context,
                           builder: (BuildContext context) {
                             return AlertDialog(
-                              backgroundColor:
-                                  Theme.of(context).colorScheme.surface,
                               title: Icon(
                                 Icons.info,
-                                color: Theme.of(context).colorScheme.primary,
+                                size: maxIcons,
+                                color: Theme.of(context).colorScheme.tertiary,
                               ),
-                              content: const Row(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                crossAxisAlignment: CrossAxisAlignment.center,
-                                children: <Widget>[
-                                  Expanded(
-                                    child: Text(
-                                      prompt,
-                                      textAlign: TextAlign.center,
-                                      style: TextStyle(
-                                          color: Colors.red,
-                                          fontSize: standardFont),
-                                    ),
-                                  )
-                                ],
+                              content: Text(
+                                prompt,
+                                textAlign: TextAlign.center,
+                                style: TextStyle(
+                                    color:
+                                        Theme.of(context).colorScheme.primary,
+                                    fontSize: standardFont),
                               ),
                               actionsAlignment: MainAxisAlignment.center,
                               actions: <Widget>[
-                                SizedBox(
-                                  width: 110,
-                                  child: FilledButton(
-                                      onPressed: () {
-                                        Navigator.of(context).pop();
-                                      },
-                                      style: buttonStyle(
-                                        context,
-                                      ),
-                                      child: Text(no,
-                                          style: TextStyle(
-                                              color: Theme.of(context)
-                                                  .colorScheme
-                                                  .primary,
-                                              fontSize: standardFont))),
-                                ),
-                                SizedBox(
-                                  width: 110,
-                                  child: FilledButton(
-                                      onPressed: () {
-                                        String? finalColor =
-                                            _color ?? _oldColor;
-                                        ref
-                                            .read(noteNotifierProvider.notifier)
-                                            .editNote(Note(
-                                                id: note.id,
-                                                title: "$_titleField",
-                                                description:
-                                                    "$_descriptionField",
-                                                timestamp: _timestamp,
-                                                color: "$finalColor"));
-                                        Navigator.of(context).pop();
-                                        ref.read(goRouterProvider).pop();
-                                      },
-                                      style: buttonStyle(
-                                        context,
-                                      ),
-                                      child: Text(yes,
-                                          style: TextStyle(
-                                              color: Theme.of(context).colorScheme.primary,
-                                              fontSize: standardFont))),
-                                ),
+                                TextButton(
+                                    onPressed: () {
+                                      Navigator.of(context).pop();
+                                    },
+                                    child: Text(no,
+                                        style: TextStyle(
+                                            color: Theme.of(context)
+                                                .colorScheme
+                                                .tertiary,
+                                            fontSize: standardFont))),
+                                TextButton(
+                                    style: textButtonStyle(
+                                      context,
+                                    ),
+                                    onPressed: () {
+                                      String? finalColor = _color ?? _oldColor;
+                                      ref
+                                          .read(noteNotifierProvider.notifier)
+                                          .editNote(Note(
+                                              id: note.id,
+                                              title: "$_titleField",
+                                              description: "$_descriptionField",
+                                              timestamp: _timestamp,
+                                              color: "$finalColor"));
+                                      Navigator.of(context).pop();
+                                      ref.read(goRouterProvider).pop();
+                                    },
+                                    child: Text(yes,
+                                        style: TextStyle(
+                                            color: Theme.of(context)
+                                                .colorScheme
+                                                .primaryFixed,
+                                            fontSize: standardFont))),
                               ],
                             );
                           },
