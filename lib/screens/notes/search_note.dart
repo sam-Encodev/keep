@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:keep/constants/text.dart';
 import 'package:keep/utilities/styles.dart';
-import 'package:keep/screens/empty_state.dart';
+import 'package:keep/components/empty_state.dart';
 import 'package:keep/components/back_button.dart';
 import 'package:keep/providers/search_provider.dart';
 import 'package:keep/components/slidable_actions.dart';
@@ -29,7 +29,7 @@ class _SearchNote extends ConsumerState<SearchNote> {
     var notes = getNotes.toList();
 
     return Scaffold(
-        backgroundColor: Theme.of(context).colorScheme.surface,
+      backgroundColor: Theme.of(context).colorScheme.surface,
       appBar: AppBar(
         automaticallyImplyLeading: false,
         title: TextField(
@@ -45,7 +45,7 @@ class _SearchNote extends ConsumerState<SearchNote> {
               suffixIcon: IconButton(
                   icon: Icon(
                     Icons.close,
-                   size: standardIcon,
+                    size: standardIcon,
                     color: Theme.of(context).colorScheme.secondary,
                   ),
                   onPressed: () => {

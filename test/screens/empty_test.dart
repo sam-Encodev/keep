@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:keep/screens/empty_state.dart';
+import 'package:keep/components/empty_state.dart';
 
 void main() {
   testWidgets('show to Empty Page', (WidgetTester tester) async {

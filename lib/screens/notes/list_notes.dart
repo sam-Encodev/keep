@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:keep/utilities/styles.dart';
-import 'package:keep/screens/empty_state.dart';
+import 'package:keep/components/empty_state.dart';
 import 'package:keep/providers/notes_provider.dart';
 import 'package:keep/components/slidable_actions.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
