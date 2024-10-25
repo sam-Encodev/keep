@@ -40,15 +40,17 @@ class _LoginState extends State<Login> {
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                 Text(
+                Text(
                   noAccount,
-                  style: TextStyle(color: Theme.of(context).colorScheme.primary),
+                  style:
+                      TextStyle(color: Theme.of(context).colorScheme.primary),
                 ),
                 TextButton(
                     onPressed: () => {context.go(RouteNames.signup)},
-                    child: const Text(
+                    child: Text(
                       signUp,
-                      style: TextStyle(color: Colors.red),
+                      style: TextStyle(
+                          color: Theme.of(context).colorScheme.tertiary),
                     ))
               ],
             ),

@@ -76,20 +76,17 @@ class _OnboardState extends ConsumerState<Onboarding>
         appBar: AppBar(
           automaticallyImplyLeading: false,
           backgroundColor: Theme.of(context).colorScheme.surface,
-          actions: [
-            SizedBox(
-              width: 78,
-              child: FilledButton(
-                  onPressed: () => {
-                        ref.read(appStateProvider.notifier).completeOnboarding()
-                      },
-                  style: buttonStyle(),
-                  child: const Text(
-                    skip,
-                    style: TextStyle(color: Colors.redAccent),
-                  )),
-            )
-          ],
+          title: Align(
+            alignment: Alignment.centerRight,
+            child: TextButton(
+                onPressed: () =>
+                    {ref.read(appStateProvider.notifier).completeOnboarding()},
+                child: Text(
+                  skip,
+                  style:
+                      TextStyle(color: Theme.of(context).colorScheme.tertiary),
+                )),
+          ),
         ),
         body: Column(
           children: <Widget>[
@@ -161,11 +158,11 @@ class PageIndicator extends ConsumerWidget {
                   style: maxIconButtonStyle(context),
                   icon: Icon(
                     Icons.arrow_left,
-                    size: standardIcon,
-                    color: Theme.of(context).colorScheme.surface,
+                    size: maxIcons,
+                    color: Theme.of(context).colorScheme.primaryFixed,
                   ),
                 ),
-              const SizedBox(width: 10),
+              const SizedBox(width: standardSpacing),
               IconButton(
                 onPressed: () {
                   if (currentPageIndex == 2) {
@@ -177,8 +174,8 @@ class PageIndicator extends ConsumerWidget {
                 style: maxIconButtonStyle(context),
                 icon: Icon(
                   Icons.arrow_right,
-                  size: standardIcon,
-                  color: Theme.of(context).colorScheme.surface,
+                  size: maxIcons,
+                  color: Theme.of(context).colorScheme.primaryFixed,
                 ),
               ),
             ],
