@@ -5,6 +5,7 @@ import 'package:dots_indicator/dots_indicator.dart';
 const standardSpacing = 10.0;
 
 const spacing = 8.0;
+const minSpacing = 5.0;
 
 const minFont = 17.0;
 const maxFont = 50.0;
@@ -70,7 +71,8 @@ textButtonStyle(context) {
   return ButtonStyle(
     backgroundColor:
         WidgetStateProperty.all(Theme.of(context).colorScheme.tertiary),
-    minimumSize: WidgetStateProperty.all(Size(maxButtonWidth, double.minPositive)),
+    minimumSize:
+        WidgetStateProperty.all(Size(maxButtonWidth, double.minPositive)),
     shape: WidgetStateProperty.all(
       RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(buttonRadius),
@@ -112,11 +114,11 @@ errorStyle(context) {
 dotsStyle(context) {
   return DotsDecorator(
     color: Theme.of(context).colorScheme.outlineVariant,
-    size: const Size(10.0, 5.0),
+    size: const Size(10.0, minSpacing),
     shape: RoundedRectangleBorder(
       borderRadius: BorderRadius.circular(inputRadius),
     ),
-    activeSize: const Size(22.0, 5.0),
+    activeSize: const Size(22.0, minSpacing),
     activeShape: RoundedRectangleBorder(
       borderRadius: BorderRadius.circular(inputRadius),
     ),

@@ -27,7 +27,8 @@ class _LoginFormState extends ConsumerState<LoginForm> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
           Padding(
-            padding: const EdgeInsets.all(spacing),
+            padding: const EdgeInsets.symmetric(
+                horizontal: spacing, vertical: minSpacing),
             child: TextFormField(
               key: const Key(email),
               style: TextStyle(color: Theme.of(context).colorScheme.primary),
@@ -59,7 +60,8 @@ class _LoginFormState extends ConsumerState<LoginForm> {
             ),
           ),
           Padding(
-            padding: const EdgeInsets.all(spacing),
+            padding: const EdgeInsets.symmetric(
+                horizontal: spacing, vertical: minSpacing),
             child: TextFormField(
               key: const Key(password),
               obscureText: true,
@@ -93,7 +95,8 @@ class _LoginFormState extends ConsumerState<LoginForm> {
             ),
           ),
           Padding(
-            padding: const EdgeInsets.all(spacing),
+            padding: const EdgeInsets.symmetric(
+                horizontal: spacing, vertical: minSpacing),
             child: FilledButton(
                 key: const Key(login),
                 style: buttonStyle(context),

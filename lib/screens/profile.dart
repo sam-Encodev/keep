@@ -129,7 +129,7 @@ class _Profile extends ConsumerState<Profile> {
                           color: Theme.of(context).colorScheme.primary,
                           fontSize: labelSize)),
                   Padding(
-                    padding: const EdgeInsets.all(spacing),
+                    padding: const EdgeInsets.only(top: spacing),
                     child: TextFormField(
                       readOnly: true,
                       key: const Key(password),
