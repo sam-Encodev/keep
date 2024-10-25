@@ -35,7 +35,7 @@ class _SignupFormState extends ConsumerState<SignupForm> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
           Padding(
-            padding: const EdgeInsets.only(top: spacing),
+            padding: const EdgeInsets.all(spacing),
             child: TextFormField(
               key: const Key(firstName),
               style: TextStyle(color: Theme.of(context).colorScheme.primary),
@@ -66,7 +66,7 @@ class _SignupFormState extends ConsumerState<SignupForm> {
             ),
           ),
           Padding(
-            padding: const EdgeInsets.only(top: spacing),
+            padding: const EdgeInsets.all(spacing),
             child: TextFormField(
               key: const Key(lastName),
               style: TextStyle(color: Theme.of(context).colorScheme.primary),
@@ -97,7 +97,7 @@ class _SignupFormState extends ConsumerState<SignupForm> {
             ),
           ),
           Padding(
-            padding: const EdgeInsets.only(top: spacing),
+            padding: const EdgeInsets.all(spacing),
             child: TextFormField(
               key: const Key(email),
               style: TextStyle(color: Theme.of(context).colorScheme.primary),
@@ -128,7 +128,7 @@ class _SignupFormState extends ConsumerState<SignupForm> {
             ),
           ),
           Padding(
-            padding: const EdgeInsets.only(top: spacing),
+            padding: const EdgeInsets.all(spacing),
             child: TextFormField(
               key: const Key(password),
               obscureText: true,
@@ -162,7 +162,7 @@ class _SignupFormState extends ConsumerState<SignupForm> {
             ),
           ),
           Padding(
-            padding: const EdgeInsets.only(top: spacing),
+            padding: const EdgeInsets.all(spacing),
             child: FilledButton(
                 key: const Key(signUp),
                 style: buttonStyle(context),

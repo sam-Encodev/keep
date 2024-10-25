@@ -102,7 +102,7 @@ class _OnboardState extends ConsumerState<Onboarding>
               ),
             ),
             Container(
-              padding: const EdgeInsets.all(20),
+              padding: const EdgeInsets.all(standardSpacing),
               child: PageIndicator(
                 tabController: _tabController,
                 currentPageIndex: _currentPageIndex,

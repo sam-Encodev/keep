@@ -8,10 +8,8 @@ snackBar(context, {message}) {
       content: Row(
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
-          Padding(
-            padding: const EdgeInsets.only(right: spacing),
-            child: switchIcon(context, message),
-          ),
+          switchIcon(context, message),
+          SizedBox(width: spacing),
           Text(
             message,
             style: TextStyle(color: Theme.of(context).colorScheme.surface),

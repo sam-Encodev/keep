@@ -11,7 +11,7 @@ onBoard(context, item) {
     mainAxisAlignment: MainAxisAlignment.center,
     children: [
       buildSVG(image),
-      const SizedBox(height: 50),
+      SizedBox(height: 50),
       Text(
         title,
         style: TextStyle(
@@ -19,13 +19,13 @@ onBoard(context, item) {
             fontSize: standardFont,
             fontWeight: FontWeight.w800),
       ),
-      const SizedBox(height: 15),
+      SizedBox(height: 15),
       Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 20),
+        padding: EdgeInsets.symmetric(horizontal: 20),
         child: Text(
           body,
           style: TextStyle(
-              color: Theme.of(context).colorScheme.primary, fontSize: minFont),
+              color: Theme.of(context).colorScheme.primary, fontSize: minFont, ),
         ),
       )
     ],

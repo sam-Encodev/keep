@@ -30,7 +30,7 @@ class _Profile extends ConsumerState<Profile> {
     var userName = currentUser.firstName + " " + currentUser.lastName;
 
     return Scaffold(
-          backgroundColor: Theme.of(context).colorScheme.surface,
+        backgroundColor: Theme.of(context).colorScheme.surface,
         appBar: AppBar(
           automaticallyImplyLeading: false,
           leading: goBackButton(context),
@@ -40,6 +40,7 @@ class _Profile extends ConsumerState<Profile> {
                   fontSize: standardFont)),
         ),
         body: Container(
+          padding: const EdgeInsets.all(standardSpacing),
           width: double.infinity,
           decoration: BoxDecoration(
             color: Theme.of(context).colorScheme.surface,
@@ -50,13 +51,10 @@ class _Profile extends ConsumerState<Profile> {
             child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
-                  Padding(
-                    padding: EdgeInsets.all(spacing),
-                    child: Text(name,
-                        style: TextStyle(
-                            color: Theme.of(context).colorScheme.primary,
-                            fontSize: labelSize)),
-                  ),
+                  Text(name,
+                      style: TextStyle(
+                          color: Theme.of(context).colorScheme.primary,
+                          fontSize: labelSize)),
                   Padding(
                     padding: const EdgeInsets.all(spacing),
                     child: TextFormField(
@@ -94,13 +92,10 @@ class _Profile extends ConsumerState<Profile> {
                       },
                     ),
                   ),
-                  Padding(
-                    padding: EdgeInsets.all(spacing),
-                    child: Text(email,
-                        style: TextStyle(
-                            color: Theme.of(context).colorScheme.primary,
-                            fontSize: labelSize)),
-                  ),
+                  Text(email,
+                      style: TextStyle(
+                          color: Theme.of(context).colorScheme.primary,
+                          fontSize: labelSize)),
                   Padding(
                     padding: const EdgeInsets.all(spacing),
                     child: TextFormField(
@@ -129,13 +124,10 @@ class _Profile extends ConsumerState<Profile> {
                       },
                     ),
                   ),
-                  Padding(
-                    padding: EdgeInsets.all(spacing),
-                    child: Text(currentPassword,
-                        style: TextStyle(
-                            color: Theme.of(context).colorScheme.primary,
-                            fontSize: labelSize)),
-                  ),
+                  Text(currentPassword,
+                      style: TextStyle(
+                          color: Theme.of(context).colorScheme.primary,
+                          fontSize: labelSize)),
                   Padding(
                     padding: const EdgeInsets.all(spacing),
                     child: TextFormField(
@@ -166,13 +158,10 @@ class _Profile extends ConsumerState<Profile> {
                       },
                     ),
                   ),
-                  Padding(
-                    padding: EdgeInsets.all(spacing),
-                    child: Text(newPassword,
-                        style: TextStyle(
-                            color: Theme.of(context).colorScheme.primary,
-                            fontSize: labelSize)),
-                  ),
+                  Text(newPassword,
+                      style: TextStyle(
+                          color: Theme.of(context).colorScheme.primary,
+                          fontSize: labelSize)),
                   Padding(
                     padding: const EdgeInsets.all(spacing),
                     child: TextFormField(
