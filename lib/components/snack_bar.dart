@@ -10,7 +10,7 @@ snackBar(context, {message}) {
         children: [
           Padding(
             padding: const EdgeInsets.only(right: spacing),
-            child: switchIcon(message),
+            child: switchIcon(context, message),
           ),
           Text(
             message,
