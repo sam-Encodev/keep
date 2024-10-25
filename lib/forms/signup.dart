@@ -168,7 +168,7 @@ class _SignupFormState extends ConsumerState<SignupForm> {
                   }
                 },
                 child: Text(signUp,
-                    style: TextStyle(color: Theme.of(context).colorScheme.onTertiary, fontSize: standardFont))),
+                    style: TextStyle(color: Theme.of(context).colorScheme.primaryFixed, fontSize: standardFont))),
           ),
         ],
       ),
