@@ -75,7 +75,6 @@ class _OnboardState extends ConsumerState<Onboarding>
         backgroundColor: Theme.of(context).colorScheme.surface,
         appBar: AppBar(
           automaticallyImplyLeading: false,
-          backgroundColor: Theme.of(context).colorScheme.surface,
           title: Align(
             alignment: Alignment.centerRight,
             child: TextButton(

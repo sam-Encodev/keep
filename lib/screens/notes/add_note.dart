@@ -32,8 +32,8 @@ class AddNoteForm extends ConsumerState<AddNote> {
     var index = getNotes.length;
 
     return Scaffold(
-      appBar: AppBar(
         backgroundColor: Theme.of(context).colorScheme.surface,
+      appBar: AppBar(
         leading: goBackButton(context),
         title:  Text(newNote,
             style: TextStyle(color: Theme.of(context).colorScheme.primary, fontSize: standardFont)),
@@ -46,7 +46,7 @@ class AddNoteForm extends ConsumerState<AddNote> {
                 context: context,
                 builder: (BuildContext context) {
                   return AlertDialog(
-                    backgroundColor: Theme.of(context).colorScheme.surface,
+               
                     title: Center(
                       child: Text(
                         pickColor,
@@ -88,7 +88,7 @@ class AddNoteForm extends ConsumerState<AddNote> {
                           context: context,
                           builder: (BuildContext context) {
                             return AlertDialog(
-                         backgroundColor: Theme.of(context).colorScheme.surface,
+                      
                               title: Icon(
                                 Icons.info,
                                 color: Theme.of(context).colorScheme.primary,

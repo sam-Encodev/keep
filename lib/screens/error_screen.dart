@@ -10,9 +10,8 @@ class ErrorScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Theme.of(context).colorScheme.surface,
-      ),
+      backgroundColor: Theme.of(context).colorScheme.surface,
+      appBar: AppBar(),
       body: Container(
         padding: const EdgeInsets.all(standardSpacing),
         width: double.infinity,
@@ -29,7 +28,9 @@ class ErrorScreen extends StatelessWidget {
                   onPressed: () => context.go(RouteNames.home),
                   style: buttonStyle(context),
                   child: Text(goBack,
-                      style: TextStyle(color: Theme.of(context).colorScheme.primary, fontSize: standardFont))),
+                      style: TextStyle(
+                          color: Theme.of(context).colorScheme.primary,
+                          fontSize: standardFont))),
             ],
           ),
         ),

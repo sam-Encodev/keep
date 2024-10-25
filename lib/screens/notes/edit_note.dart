@@ -41,8 +41,8 @@ class EditNoteForm extends ConsumerState<EditNote> {
     });
 
     return Scaffold(
-      appBar: AppBar(
         backgroundColor: Theme.of(context).colorScheme.surface,
+      appBar: AppBar(
         leading: goBackButton(context),
         title: Text(editNote,
             style: TextStyle(
@@ -57,7 +57,7 @@ class EditNoteForm extends ConsumerState<EditNote> {
                 context: context,
                 builder: (BuildContext context) {
                   return AlertDialog(
-                    backgroundColor: Theme.of(context).colorScheme.surface,
+              
                     title: Center(
                       child: Text(
                         pickColor,

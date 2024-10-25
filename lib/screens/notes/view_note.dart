@@ -18,12 +18,13 @@ class ViewNote extends ConsumerWidget {
     var note = transformNotes[int.parse(extraString!)];
 
     return Scaffold(
+      backgroundColor: Theme.of(context).colorScheme.surface,
       appBar: AppBar(
-        backgroundColor: Theme.of(context).colorScheme.surface,
         leading: goBackButton(context),
         title: Text(viewNote,
             style: TextStyle(
-                color: Theme.of(context).colorScheme.primary, fontSize: standardFont)),
+                color: Theme.of(context).colorScheme.primary,
+                fontSize: standardFont)),
         actions: [
           IconButton(
             style: iconButtonStyle(context),
