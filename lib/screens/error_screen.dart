@@ -14,7 +14,7 @@ class ErrorScreen extends StatelessWidget {
         backgroundColor: Theme.of(context).colorScheme.surface,
       ),
       body: Container(
-        padding: const EdgeInsets.all(10),
+        padding: const EdgeInsets.all(standardSpacing),
         width: double.infinity,
         decoration: BoxDecoration(
           color: Theme.of(context).colorScheme.surface,
@@ -24,12 +24,12 @@ class ErrorScreen extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               buildSVG("error_404.svg"),
-              const SizedBox(height: 10),
+              const SizedBox(height: standardSpacing),
               FilledButton(
                   onPressed: () => context.go(RouteNames.home),
                   style: buttonStyle(),
                   child: const Text(goBack,
-                      style: TextStyle(color: Colors.redAccent, fontSize: 20))),
+                      style: TextStyle(color: Colors.redAccent, fontSize: standardFont))),
             ],
           ),
         ),

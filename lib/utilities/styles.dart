@@ -2,15 +2,42 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:dots_indicator/dots_indicator.dart';
 
+
+const standardSpacing = 10.0;
+
 const spacing = 8.0;
-const padding = 10.0;
+
+const minFont = 17.0;
+const maxFont = 50.0;
+const labelSize = 15.0;
+const errorFont = 12.0;
+const formIcons = 30.0;
+const standardIcon = 25.0;
+const standardFont = 20.0;
+
+const inputRadius = 25.0;
+const buttonRadius = 20.0;
+const maxButtonRadius = 50.0;
+const iconButtonRadius = 10.0;
 
 iconButtonStyle(context) {
   return ButtonStyle(
-      backgroundColor: WidgetStateProperty.all(Theme.of(context).colorScheme.surface),
+      backgroundColor:
+          WidgetStateProperty.all(Theme.of(context).colorScheme.surface),
       shape: WidgetStateProperty.all(
         RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(10.0),
+          borderRadius: BorderRadius.circular(iconButtonRadius),
+        ),
+      ));
+}
+
+maxIconButtonStyle(context) {
+  return ButtonStyle(
+      backgroundColor:
+          WidgetStateProperty.all(Theme.of(context).colorScheme.primary),
+      shape: WidgetStateProperty.all(
+        RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(maxButtonRadius),
         ),
       ));
 }
@@ -22,7 +49,7 @@ buttonStyle({color = Colors.white}) {
     elevation: WidgetStateProperty.all(0),
     shape: WidgetStateProperty.all(
       RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(20.0),
+        borderRadius: BorderRadius.circular(buttonRadius),
       ),
     ),
   );
@@ -31,28 +58,28 @@ buttonStyle({color = Colors.white}) {
 inputBorder(context) {
   //return type is OutlineInputBorder
   return OutlineInputBorder(
-    borderRadius: BorderRadius.circular(25.0),
+    borderRadius: BorderRadius.circular(inputRadius),
     borderSide: BorderSide(color: Theme.of(context).colorScheme.outline),
   );
 }
 
 focusBorder(context) {
   return OutlineInputBorder(
-    borderRadius: BorderRadius.circular(25.0),
+    borderRadius: BorderRadius.circular(inputRadius),
     borderSide: BorderSide(color: Theme.of(context).colorScheme.outlineVariant),
   );
 }
 
 errorBorder(context) {
   return OutlineInputBorder(
-    borderRadius: BorderRadius.circular(25.0),
+    borderRadius: BorderRadius.circular(inputRadius),
     borderSide: BorderSide(color: Theme.of(context).colorScheme.outlineVariant),
   );
 }
 
 errorStyle() {
   return const TextStyle(
-    fontSize: 12,
+    fontSize: errorFont,
     fontWeight: FontWeight.w400,
     color: Colors.redAccent,
   );
@@ -63,11 +90,11 @@ dotsStyle(context) {
     color: Theme.of(context).colorScheme.outlineVariant,
     size: const Size(10.0, 5.0),
     shape: RoundedRectangleBorder(
-      borderRadius: BorderRadius.circular(25.0),
+      borderRadius: BorderRadius.circular(inputRadius),
     ),
     activeSize: const Size(22.0, 5.0),
     activeShape: RoundedRectangleBorder(
-      borderRadius: BorderRadius.circular(25.0),
+      borderRadius: BorderRadius.circular(inputRadius),
     ),
     activeColor: Theme.of(context).colorScheme.primary,
     spacing: const EdgeInsets.all(2.0),
@@ -111,6 +138,9 @@ buildSVG(String assetName) {
 buildText(String data, context, {height = 0.0}) {
   return Text(
     data,
-    style: TextStyle(color: Theme.of(context).colorScheme.primary, fontSize: 20, height: height),
+    style: TextStyle(
+        color: Theme.of(context).colorScheme.primary,
+        fontSize: standardFont,
+        height: height),
   );
 }

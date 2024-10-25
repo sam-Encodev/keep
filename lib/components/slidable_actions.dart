@@ -28,8 +28,8 @@ class SlidableActions extends ConsumerWidget {
             icon: Icons.edit,
             backgroundColor: Theme.of(context).colorScheme.surface,
             foregroundColor: Theme.of(context).colorScheme.primary,
-            borderRadius: BorderRadius.circular(10),
-            padding: const EdgeInsets.symmetric(horizontal: padding),
+            borderRadius: BorderRadius.circular(iconButtonRadius),
+            padding: const EdgeInsets.symmetric(horizontal: standardSpacing),
             onPressed: (_) => {
               context.push(
                 RouteNames.editNote(notes[index].id),
@@ -42,8 +42,8 @@ class SlidableActions extends ConsumerWidget {
             label: 'Delete',
             backgroundColor: Theme.of(context).colorScheme.surface,
             foregroundColor: Theme.of(context).colorScheme.primary,
-            borderRadius: BorderRadius.circular(10),
-            padding: const EdgeInsets.symmetric(horizontal: padding),
+            borderRadius: BorderRadius.circular(iconButtonRadius),
+            padding: const EdgeInsets.symmetric(horizontal: standardSpacing),
             onPressed: (_) => {
               ref
                   .read(noteNotifierProvider.notifier)
@@ -56,7 +56,7 @@ class SlidableActions extends ConsumerWidget {
       child: Container(
         decoration: BoxDecoration(
             color: SwitchColor.switchColor(notes[index].color),
-            borderRadius: BorderRadius.circular(10)),
+            borderRadius: BorderRadius.circular(iconButtonRadius)),
         child: ListTile(
           onTap: () => context.push(RouteNames.viewNote(notes[index].id)),
           title: Text(
@@ -64,7 +64,7 @@ class SlidableActions extends ConsumerWidget {
             style: TextStyle(
                 color: Theme.of(context).colorScheme.onPrimary,
                 fontWeight: FontWeight.bold,
-                fontSize: 23),
+                fontSize: standardFont),
           ),
           subtitle: Text(
             dateFormatter(notes[index].timestamp),

@@ -15,12 +15,12 @@ class EmptyState extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           buildSVG(uri),
-          const SizedBox(height: 10),
+          const SizedBox(height: standardSpacing),
           if (!hideText)
             Text(
               createNote,
               style: TextStyle(
-                  color: Theme.of(context).colorScheme.primary, fontSize: 20),
+                  color: Theme.of(context).colorScheme.primary, fontSize: standardFont),
             )
         ],
       ),

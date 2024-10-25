@@ -17,9 +17,6 @@ class Profile extends ConsumerStatefulWidget {
 class _Profile extends ConsumerState<Profile> {
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
-  static const spacing = 8.0;
-  static const labelSize = 15.0;
-
   String? _lastName;
   String? _firstName;
   String? _newPassword;
@@ -36,13 +33,10 @@ class _Profile extends ConsumerState<Profile> {
         appBar: AppBar(
           automaticallyImplyLeading: false,
           backgroundColor: Theme.of(context).colorScheme.surface,
-          leading: Padding(
-            padding: const EdgeInsets.all(spacing),
-            child: goBackButton(context),
-          ),
+        leading: goBackButton(context),
           title: Text(profile,
               style: TextStyle(
-                  color: Theme.of(context).colorScheme.primary, fontSize: 20)),
+                  color: Theme.of(context).colorScheme.primary, fontSize: standardFont)),
         ),
         body: Container(
           width: double.infinity,
@@ -70,7 +64,8 @@ class _Profile extends ConsumerState<Profile> {
                       style: TextStyle(
                           color: Theme.of(context).colorScheme.primary),
                       decoration: InputDecoration(
-                          fillColor: Theme.of(context).colorScheme.surfaceContainer,
+                          fillColor:
+                              Theme.of(context).colorScheme.surfaceContainer,
                           filled: true,
                           enabledBorder: inputBorder(context),
                           focusedBorder: focusBorder(context),
@@ -98,7 +93,7 @@ class _Profile extends ConsumerState<Profile> {
                       },
                     ),
                   ),
-                   Padding(
+                  Padding(
                     padding: EdgeInsets.all(spacing),
                     child: Text(email,
                         style: TextStyle(
@@ -114,7 +109,8 @@ class _Profile extends ConsumerState<Profile> {
                       style: TextStyle(
                           color: Theme.of(context).colorScheme.primary),
                       decoration: InputDecoration(
-                        fillColor: Theme.of(context).colorScheme.surfaceContainer,
+                        fillColor:
+                            Theme.of(context).colorScheme.surfaceContainer,
                         filled: true,
                         enabledBorder: inputBorder(context),
                         focusedBorder: focusBorder(context),
@@ -152,7 +148,8 @@ class _Profile extends ConsumerState<Profile> {
                       style: TextStyle(
                           color: Theme.of(context).colorScheme.primary),
                       decoration: InputDecoration(
-                          fillColor: Theme.of(context).colorScheme.surfaceContainer,
+                          fillColor:
+                              Theme.of(context).colorScheme.surfaceContainer,
                           filled: true,
                           enabledBorder: inputBorder(context),
                           focusedBorder: focusBorder(context),
@@ -186,7 +183,8 @@ class _Profile extends ConsumerState<Profile> {
                       style: TextStyle(
                           color: Theme.of(context).colorScheme.primary),
                       decoration: InputDecoration(
-                          fillColor: Theme.of(context).colorScheme.surfaceContainer,
+                          fillColor:
+                              Theme.of(context).colorScheme.surfaceContainer,
                           filled: true,
                           enabledBorder: inputBorder(context),
                           focusedBorder: focusBorder(context),
@@ -228,7 +226,7 @@ class _Profile extends ConsumerState<Profile> {
                         },
                         child: const Text(updateProfile,
                             style: TextStyle(
-                                color: Colors.redAccent, fontSize: 20))),
+                                color: Colors.redAccent, fontSize: standardFont))),
                   ),
                 ]),
           ),

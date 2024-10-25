@@ -20,24 +20,21 @@ class ViewNote extends ConsumerWidget {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Theme.of(context).colorScheme.surface,
-        leading: Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: goBackButton(context),
-        ),
+        leading: goBackButton(context),
         title: Text(viewNote,
             style: TextStyle(
-                color: Theme.of(context).colorScheme.primary, fontSize: 20)),
+                color: Theme.of(context).colorScheme.primary, fontSize: standardFont)),
         actions: [
           IconButton(
             style: iconButtonStyle(context),
-            icon: const Icon(Icons.edit),
+            icon: const Icon(Icons.edit, size: standardIcon),
             color: Colors.white,
             onPressed: () => {context.push(RouteNames.editNote(note.id))},
           ),
         ],
       ),
       body: Container(
-        padding: const EdgeInsets.all(10),
+        padding: const EdgeInsets.all(standardSpacing),
         width: double.infinity,
         decoration: BoxDecoration(
           color: Theme.of(context).colorScheme.surface,
@@ -53,12 +50,12 @@ class ViewNote extends ConsumerWidget {
                   Text(note.title,
                       style: TextStyle(
                         color: Theme.of(context).colorScheme.primary,
-                        fontSize: 30,
+                        fontSize: maxFont,
                       )),
                   Text(note.description,
                       style: TextStyle(
                           color: Theme.of(context).colorScheme.primary,
-                          fontSize: 20)),
+                          fontSize: standardFont)),
                 ],
               ),
             )

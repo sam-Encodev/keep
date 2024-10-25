@@ -16,7 +16,7 @@ onBoard(context, item) {
         title,
         style: TextStyle(
             color: Theme.of(context).colorScheme.primary,
-            fontSize: 20,
+            fontSize: standardFont,
             fontWeight: FontWeight.w800),
       ),
       const SizedBox(height: 15),
@@ -25,7 +25,7 @@ onBoard(context, item) {
         child: Text(
           body,
           style: TextStyle(
-              color: Theme.of(context).colorScheme.primary, fontSize: 17),
+              color: Theme.of(context).colorScheme.primary, fontSize: minFont),
         ),
       )
     ],

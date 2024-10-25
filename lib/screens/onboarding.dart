@@ -158,17 +158,10 @@ class PageIndicator extends ConsumerWidget {
                     }
                     onUpdateCurrentPageIndex(currentPageIndex - 1);
                   },
-                  style: ButtonStyle(
-                      backgroundColor: WidgetStateProperty.all(
-                          Theme.of(context).colorScheme.primary),
-                      shape: WidgetStateProperty.all(
-                        RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(50.0),
-                        ),
-                      )),
+                  style: maxIconButtonStyle(context),
                   icon: Icon(
                     Icons.arrow_left,
-                    size: 35,
+                    size: standardIcon,
                     color: Theme.of(context).colorScheme.surface,
                   ),
                 ),
@@ -181,17 +174,10 @@ class PageIndicator extends ConsumerWidget {
                   }
                   onUpdateCurrentPageIndex(currentPageIndex + 1);
                 },
-                style: ButtonStyle(
-                    backgroundColor: WidgetStateProperty.all(
-                        Theme.of(context).colorScheme.primary),
-                    shape: WidgetStateProperty.all(
-                      RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(50.0),
-                      ),
-                    )),
+                style: maxIconButtonStyle(context),
                 icon: Icon(
                   Icons.arrow_right,
-                  size: 35,
+                  size: standardIcon,
                   color: Theme.of(context).colorScheme.surface,
                 ),
               ),

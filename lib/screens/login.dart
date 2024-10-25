@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:keep/forms/login.dart';
 import 'package:go_router/go_router.dart';
 import 'package:keep/constants/text.dart';
+import 'package:keep/utilities/styles.dart';
 import 'package:keep/routes/route_names.dart';
 
 class Login extends StatefulWidget {
@@ -19,7 +20,7 @@ class _LoginState extends State<Login> {
         backgroundColor: Theme.of(context).colorScheme.surface,
       ),
       body: Container(
-        padding: const EdgeInsets.all(10),
+        padding: const EdgeInsets.all(standardSpacing),
         width: double.infinity,
         decoration: BoxDecoration(
           color: Theme.of(context).colorScheme.surface,
@@ -31,7 +32,7 @@ class _LoginState extends State<Login> {
               welcomeBack,
               textAlign: TextAlign.left,
               style: TextStyle(
-                fontSize: 50,
+                fontSize: maxFont,
                 color: Theme.of(context).colorScheme.primary,
               ),
             ),

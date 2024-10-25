@@ -34,16 +34,13 @@ class AddNoteForm extends ConsumerState<AddNote> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Theme.of(context).colorScheme.surface,
-        leading: Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: goBackButton(context),
-        ),
+        leading: goBackButton(context),
         title:  Text(newNote,
-            style: TextStyle(color: Theme.of(context).colorScheme.primary, fontSize: 20)),
+            style: TextStyle(color: Theme.of(context).colorScheme.primary, fontSize: standardFont)),
         actions: [
           IconButton(
             style: iconButtonStyle(context),
-            icon: const Icon(Icons.circle),
+            icon: const Icon(Icons.circle, size: standardIcon),
             color: SwitchColor.switchColor(_color!),
             onPressed: () => showDialog<void>(
                 context: context,
@@ -72,7 +69,7 @@ class AddNoteForm extends ConsumerState<AddNote> {
                                 label: Text(
                                   e.values.first.toString(),
                                   style: TextStyle(
-                                      color: Theme.of(context).colorScheme.primary, fontSize: 20),
+                                      color: Theme.of(context).colorScheme.primary, fontSize: standardFont),
                                 ),
                               ))
                           .toList(),
@@ -82,7 +79,7 @@ class AddNoteForm extends ConsumerState<AddNote> {
           ),
           IconButton(
               style: iconButtonStyle(context),
-              icon: const Icon(Icons.save),
+              icon: const Icon(Icons.save, size: standardIcon),
               color: Theme.of(context).colorScheme.primary,
               onPressed: () => {
                     if (_titleField != null && _descriptionField != null)
@@ -105,7 +102,7 @@ class AddNoteForm extends ConsumerState<AddNote> {
                                       prompt,
                                       textAlign: TextAlign.center,
                                       style: TextStyle(
-                                          color: Colors.red, fontSize: 20),
+                                          color: Colors.red, fontSize: standardFont),
                                     ),
                                   )
                                 ],
@@ -123,7 +120,7 @@ class AddNoteForm extends ConsumerState<AddNote> {
                                       child: Text(no,
                                           style: TextStyle(
                                               color: Theme.of(context).colorScheme.primary,
-                                              fontSize: 20))),
+                                              fontSize: standardFont))),
                                 ),
                                 SizedBox(
                                   width: 110,
@@ -148,7 +145,7 @@ class AddNoteForm extends ConsumerState<AddNote> {
                                       child: const Text(yes,
                                           style: TextStyle(
                                               color: Colors.redAccent,
-                                              fontSize: 20))),
+                                              fontSize: standardFont))),
                                 ),
                               ],
                             );
@@ -161,7 +158,7 @@ class AddNoteForm extends ConsumerState<AddNote> {
         ],
       ),
       body: Container(
-        padding: const EdgeInsets.all(10),
+        padding: const EdgeInsets.all(standardSpacing),
         width: double.infinity,
         decoration: BoxDecoration(
           color: Theme.of(context).colorScheme.surface,
@@ -180,7 +177,7 @@ class AddNoteForm extends ConsumerState<AddNote> {
                         key: const Key(title),
                         maxLines: 1,
                         style:
-                             TextStyle(color: Theme.of(context).colorScheme.primary, fontSize: 55),
+                             TextStyle(color: Theme.of(context).colorScheme.primary, fontSize: maxFont),
                         decoration: InputDecoration(
                           fillColor: Theme.of(context).colorScheme.surface,
                           filled: false,
@@ -206,7 +203,7 @@ class AddNoteForm extends ConsumerState<AddNote> {
                         enableSuggestions: false,
                         autocorrect: false,
                         style:
-                             TextStyle(color: Theme.of(context).colorScheme.primary, fontSize: 20),
+                             TextStyle(color: Theme.of(context).colorScheme.primary, fontSize: standardFont),
                         decoration: InputDecoration(
                           fillColor: Theme.of(context).colorScheme.surface,
                           filled: false,

@@ -26,14 +26,16 @@ class Home extends ConsumerWidget {
         actions: [
           IconButton(
             style: iconButtonStyle(context),
-            icon: const Icon(Icons.search),
+            icon: Icon(Icons.search, size: standardIcon),
             color: Theme.of(context).colorScheme.secondary,
             onPressed: () => context.push('/notes/search'),
           ),
           IconButton(
               style: iconButtonStyle(context),
-              icon:
-                  isDarkMode ? Icon(Icons.wb_sunny) : Icon(Icons.brightness_2),
+              icon: Icon(
+                isDarkMode ? Icons.wb_sunny : Icons.brightness_2,
+                size: standardIcon,
+              ),
               color: Theme.of(context).colorScheme.secondary,
               onPressed: () => {
                     ref.read(themeStateProvider.notifier).setTheme(),
@@ -45,7 +47,10 @@ class Home extends ConsumerWidget {
               mainAxisSize: MainAxisSize.min,
               children: [
                 IconButton(
-                  icon: const Icon(Icons.info),
+                  icon: const Icon(
+                    Icons.info,
+                    size: standardIcon,
+                  ),
                   color: Theme.of(context).colorScheme.secondary,
                   onPressed: () => {
                     Navigator.of(context).pop(),
@@ -53,7 +58,10 @@ class Home extends ConsumerWidget {
                   },
                 ),
                 IconButton(
-                  icon: const Icon(Icons.account_circle_rounded),
+                  icon: const Icon(
+                    Icons.account_circle_rounded,
+                    size: standardIcon,
+                  ),
                   color: Theme.of(context).colorScheme.secondary,
                   onPressed: () => {
                     Navigator.of(context).pop(),
@@ -61,7 +69,10 @@ class Home extends ConsumerWidget {
                   },
                 ),
                 IconButton(
-                  icon: const Icon(Icons.logout),
+                  icon: const Icon(
+                    Icons.logout,
+                    size: standardIcon,
+                  ),
                   color: Theme.of(context).colorScheme.secondary,
                   onPressed: () => {
                     Navigator.of(context).pop(),
@@ -71,18 +82,18 @@ class Home extends ConsumerWidget {
               ],
             ),
             child: Container(
-              padding: EdgeInsets.only(left: 5, right: 10),
+              padding: EdgeInsets.only(left: 5, right: standardSpacing),
               child: Icon(
-                color: Theme.of(context).colorScheme.secondary,
                 Icons.more_vert,
-                opticalSize: 10.0,
+                size: standardIcon,
+                color: Theme.of(context).colorScheme.secondary,
               ),
             ),
           ),
         ],
       ),
       body: Container(
-          padding: const EdgeInsets.all(10),
+          padding: const EdgeInsets.all(standardSpacing),
           width: double.infinity,
           decoration: BoxDecoration(
             color: Theme.of(context).colorScheme.surface,
@@ -92,7 +103,7 @@ class Home extends ConsumerWidget {
         onPressed: () => context.push('/notes/new'),
         backgroundColor: Theme.of(context).colorScheme.surface,
         child: Icon(Icons.add,
-            size: 30, color: Theme.of(context).colorScheme.secondary),
+            size: standardIcon, color: Theme.of(context).colorScheme.secondary),
       ),
     );
   }

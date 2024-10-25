@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:keep/constants/text.dart';
-import 'package:go_router/go_router.dart';
 import 'package:keep/utilities/styles.dart';
 import 'package:keep/screens/empty_state.dart';
+import 'package:keep/components/back_button.dart';
 import 'package:keep/providers/search_provider.dart';
 import 'package:keep/components/slidable_actions.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -41,17 +41,11 @@ class _SearchNote extends ConsumerState<SearchNote> {
               hintText: placeholder,
               hintStyle:
                   TextStyle(color: Theme.of(context).colorScheme.onSecondary),
-              prefixIcon: IconButton(
-                  icon: Icon(
-                    Icons.arrow_back,
-                    size: 30,
-                    color: Theme.of(context).colorScheme.secondary,
-                  ),
-                  onPressed: () => context.pop()),
+              prefixIcon: goBackButton(context),
               suffixIcon: IconButton(
                   icon: Icon(
                     Icons.close,
-                    size: 30,
+                   size: standardIcon,
                     color: Theme.of(context).colorScheme.secondary,
                   ),
                   onPressed: () => {
@@ -71,7 +65,7 @@ class _SearchNote extends ConsumerState<SearchNote> {
         ),
       ),
       body: Container(
-        padding: const EdgeInsets.all(10),
+        padding: const EdgeInsets.all(standardSpacing),
         width: double.infinity,
         decoration: BoxDecoration(
           color: Theme.of(context).colorScheme.surface,

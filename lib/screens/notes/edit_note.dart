@@ -43,17 +43,14 @@ class EditNoteForm extends ConsumerState<EditNote> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Theme.of(context).colorScheme.surface,
-        leading: Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: goBackButton(context),
-        ),
+        leading: goBackButton(context),
         title: Text(editNote,
             style: TextStyle(
-                color: Theme.of(context).colorScheme.primary, fontSize: 20)),
+                color: Theme.of(context).colorScheme.primary, fontSize: standardFont)),
         actions: [
           IconButton(
             style: iconButtonStyle(context),
-            icon: const Icon(Icons.circle),
+            icon: const Icon(Icons.circle, size: standardIcon),
             color: SwitchColor.switchColor(_color ?? _oldColor),
             onPressed: () => showDialog<void>(
                 context: context,
@@ -85,7 +82,7 @@ class EditNoteForm extends ConsumerState<EditNote> {
                                   style: TextStyle(
                                       color:
                                           Theme.of(context).colorScheme.primary,
-                                      fontSize: 20),
+                                      fontSize: standardFont),
                                 ),
                               ))
                           .toList(),
@@ -95,7 +92,7 @@ class EditNoteForm extends ConsumerState<EditNote> {
           ),
           IconButton(
               style: iconButtonStyle(context),
-              icon: const Icon(Icons.save),
+              icon: const Icon(Icons.save, size: standardIcon),
               color: Theme.of(context).colorScheme.primary,
               onPressed: () => {
                     if (_titleField != null && _descriptionField != null)
@@ -118,7 +115,7 @@ class EditNoteForm extends ConsumerState<EditNote> {
                                       prompt,
                                       textAlign: TextAlign.center,
                                       style: TextStyle(
-                                          color: Colors.red, fontSize: 20),
+                                          color: Colors.red, fontSize: standardFont),
                                     ),
                                   )
                                 ],
@@ -138,7 +135,7 @@ class EditNoteForm extends ConsumerState<EditNote> {
                                               color: Theme.of(context)
                                                   .colorScheme
                                                   .primary,
-                                              fontSize: 20))),
+                                              fontSize: standardFont))),
                                 ),
                                 SizedBox(
                                   width: 110,
@@ -162,7 +159,7 @@ class EditNoteForm extends ConsumerState<EditNote> {
                                       child: const Text(yes,
                                           style: TextStyle(
                                               color: Colors.redAccent,
-                                              fontSize: 20))),
+                                              fontSize: standardFont))),
                                 ),
                               ],
                             );
@@ -175,7 +172,7 @@ class EditNoteForm extends ConsumerState<EditNote> {
         ],
       ),
       body: Container(
-        padding: const EdgeInsets.all(10),
+        padding: const EdgeInsets.all(standardSpacing),
         width: double.infinity,
         decoration: BoxDecoration(
           color: Theme.of(context).colorScheme.surface,
@@ -228,7 +225,7 @@ class EditNoteForm extends ConsumerState<EditNote> {
                         autocorrect: false,
                         style: TextStyle(
                             color: Theme.of(context).colorScheme.primary,
-                            fontSize: 20),
+                            fontSize: standardFont),
                         decoration: InputDecoration(
                           fillColor: Theme.of(context).colorScheme.surface,
                           filled: false,
