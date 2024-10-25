@@ -18,6 +18,7 @@ const lightColorScheme = ColorScheme(
     onTertiary: Color(0xFFFFFFFF),
     
     primaryFixed: Color(0xFFFFFFFF),
+    onPrimaryFixed: Color(0xFF4CAF50),
     );
 
 const darkColorScheme = ColorScheme(
@@ -35,8 +36,9 @@ const darkColorScheme = ColorScheme(
     surfaceContainer: Color(0xDD000000),
 
 
-    tertiary: Color.fromARGB(255, 244, 54, 54),
+    tertiary: Color(0xFFF43636),
     onTertiary: Color(0xFFFFFFFF),
     
     primaryFixed: Color(0xFFFFFFFF),
+    onPrimaryFixed: Color(0xFF4CAF50),
     );
