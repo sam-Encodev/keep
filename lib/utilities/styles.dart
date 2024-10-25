@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:dots_indicator/dots_indicator.dart';
 
-
 const standardSpacing = 10.0;
 
 const spacing = 8.0;
@@ -12,6 +11,7 @@ const maxFont = 50.0;
 const labelSize = 15.0;
 const errorFont = 12.0;
 const formIcons = 30.0;
+const maxIcons = 35.0;
 const standardIcon = 25.0;
 const standardFont = 20.0;
 
@@ -19,6 +19,9 @@ const inputRadius = 25.0;
 const buttonRadius = 20.0;
 const maxButtonRadius = 50.0;
 const iconButtonRadius = 10.0;
+
+const minButton = 20.0;
+const maxButton = 40.0;
 
 iconButtonStyle(context) {
   return ButtonStyle(
@@ -34,7 +37,7 @@ iconButtonStyle(context) {
 maxIconButtonStyle(context) {
   return ButtonStyle(
       backgroundColor:
-          WidgetStateProperty.all(Theme.of(context).colorScheme.primary),
+          WidgetStateProperty.all(Theme.of(context).colorScheme.tertiary),
       shape: WidgetStateProperty.all(
         RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(maxButtonRadius),
@@ -42,10 +45,25 @@ maxIconButtonStyle(context) {
       ));
 }
 
-buttonStyle({color = Colors.white}) {
+buttonStyle(context, {size = "medium"}) {
+  var type = size == "medium" ? 50.0 : 40.0;
   return ButtonStyle(
-    backgroundColor: WidgetStateProperty.all(color),
-    minimumSize: WidgetStateProperty.all(const Size(double.infinity, 40)),
+    backgroundColor:
+        WidgetStateProperty.all(Theme.of(context).colorScheme.tertiary),
+    minimumSize: WidgetStateProperty.all(Size(double.infinity, type)),
+    elevation: WidgetStateProperty.all(0),
+    shape: WidgetStateProperty.all(
+      RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(buttonRadius),
+      ),
+    ),
+  );
+}
+
+textButtonStyle(context) {
+  return ButtonStyle(
+    backgroundColor:
+        WidgetStateProperty.all(Theme.of(context).colorScheme.tertiary),
     elevation: WidgetStateProperty.all(0),
     shape: WidgetStateProperty.all(
       RoundedRectangleBorder(
@@ -77,11 +95,11 @@ errorBorder(context) {
   );
 }
 
-errorStyle() {
-  return const TextStyle(
+errorStyle(context) {
+  return TextStyle(
     fontSize: errorFont,
     fontWeight: FontWeight.w400,
-    color: Colors.redAccent,
+    color: Theme.of(context).colorScheme.onTertiary,
   );
 }
 
