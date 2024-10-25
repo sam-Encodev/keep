@@ -41,6 +41,7 @@ class Home extends ConsumerWidget {
                     ref.read(themeStateProvider.notifier).setTheme(),
                   }),
           CustomPopup(
+            backgroundColor: Theme.of(context).colorScheme.surface,
             showArrow: false,
             content: Column(
               mainAxisSize: MainAxisSize.min,
