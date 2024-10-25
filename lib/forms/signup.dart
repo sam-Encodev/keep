@@ -43,8 +43,13 @@ class _SignupFormState extends ConsumerState<SignupForm> {
                 fillColor: Theme.of(context).colorScheme.surfaceContainer,
                 filled: true,
                 hintText: firstName,
-                hintStyle: TextStyle(color: Theme.of(context).colorScheme.onSecondary),
-                prefixIcon: const Icon(Icons.account_circle,size: standardIcon),
+                hintStyle:
+                    TextStyle(color: Theme.of(context).colorScheme.onSecondary),
+                prefixIcon: Icon(
+                  Icons.account_circle,
+                  size: standardIcon,
+                  color: Theme.of(context).colorScheme.primary,
+                ),
                 enabledBorder: inputBorder(context),
                 focusedBorder: focusBorder(context),
                 errorBorder: inputBorder(context),
@@ -69,8 +74,13 @@ class _SignupFormState extends ConsumerState<SignupForm> {
                 fillColor: Theme.of(context).colorScheme.surfaceContainer,
                 filled: true,
                 hintText: lastName,
-                hintStyle: TextStyle(color: Theme.of(context).colorScheme.onSecondary),
-                prefixIcon: const Icon(Icons.account_circle,size: standardIcon),
+                hintStyle:
+                    TextStyle(color: Theme.of(context).colorScheme.onSecondary),
+                prefixIcon: Icon(
+                  Icons.account_circle,
+                  size: standardIcon,
+                  color: Theme.of(context).colorScheme.primary,
+                ),
                 enabledBorder: inputBorder(context),
                 focusedBorder: focusBorder(context),
                 errorBorder: inputBorder(context),
@@ -90,13 +100,18 @@ class _SignupFormState extends ConsumerState<SignupForm> {
             padding: const EdgeInsets.only(top: spacing),
             child: TextFormField(
               key: const Key(email),
-              style:  TextStyle(color: Theme.of(context).colorScheme.primary),
+              style: TextStyle(color: Theme.of(context).colorScheme.primary),
               decoration: InputDecoration(
                 fillColor: Theme.of(context).colorScheme.surfaceContainer,
                 filled: true,
                 hintText: email,
-                hintStyle: TextStyle(color: Theme.of(context).colorScheme.onSecondary),
-                prefixIcon: const Icon(Icons.account_circle, size: formIcons),
+                hintStyle:
+                    TextStyle(color: Theme.of(context).colorScheme.onSecondary),
+                prefixIcon: Icon(
+                  Icons.email,
+                  size: formIcons,
+                  color: Theme.of(context).colorScheme.primary,
+                ),
                 enabledBorder: inputBorder(context),
                 focusedBorder: focusBorder(context),
                 errorBorder: inputBorder(context),
@@ -120,13 +135,18 @@ class _SignupFormState extends ConsumerState<SignupForm> {
               enableSuggestions: false,
               autocorrect: false,
               obscuringCharacter: "*",
-              style:  TextStyle(color: Theme.of(context).colorScheme.primary),
+              style: TextStyle(color: Theme.of(context).colorScheme.primary),
               decoration: InputDecoration(
                   fillColor: Theme.of(context).colorScheme.surfaceContainer,
                   filled: true,
                   hintText: password,
-                  hintStyle: TextStyle(color: Theme.of(context).colorScheme.onSecondary),
-                  prefixIcon: const Icon(Icons.password, size: formIcons),
+                  hintStyle: TextStyle(
+                      color: Theme.of(context).colorScheme.onSecondary),
+                  prefixIcon: Icon(
+                    Icons.password,
+                    size: formIcons,
+                    color: Theme.of(context).colorScheme.primary,
+                  ),
                   enabledBorder: inputBorder(context),
                   focusedBorder: focusBorder(context),
                   errorBorder: inputBorder(context),
@@ -168,7 +188,9 @@ class _SignupFormState extends ConsumerState<SignupForm> {
                   }
                 },
                 child: Text(signUp,
-                    style: TextStyle(color: Theme.of(context).colorScheme.primaryFixed, fontSize: standardFont))),
+                    style: TextStyle(
+                        color: Theme.of(context).colorScheme.primaryFixed,
+                        fontSize: standardFont))),
           ),
         ],
       ),

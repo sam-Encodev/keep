@@ -35,8 +35,13 @@ class _LoginFormState extends ConsumerState<LoginForm> {
                 fillColor: Theme.of(context).colorScheme.surfaceContainer,
                 filled: true,
                 hintText: email,
-                hintStyle: TextStyle(color: Theme.of(context).colorScheme.onSecondary),
-                prefixIcon: const Icon(Icons.account_circle, size: formIcons),
+                hintStyle:
+                    TextStyle(color: Theme.of(context).colorScheme.onSecondary),
+                prefixIcon: Icon(
+                  Icons.email,
+                  size: formIcons,
+                  color: Theme.of(context).colorScheme.primary,
+                ),
                 enabledBorder: inputBorder(context),
                 focusedBorder: focusBorder(context),
                 errorBorder: inputBorder(context),
@@ -66,8 +71,13 @@ class _LoginFormState extends ConsumerState<LoginForm> {
                   fillColor: Theme.of(context).colorScheme.surfaceContainer,
                   filled: true,
                   hintText: password,
-                  hintStyle: TextStyle(color: Theme.of(context).colorScheme.onSecondary),
-                  prefixIcon: const Icon(Icons.password, size: formIcons),
+                  hintStyle: TextStyle(
+                      color: Theme.of(context).colorScheme.onSecondary),
+                  prefixIcon: Icon(
+                    Icons.password,
+                    size: formIcons,
+                    color: Theme.of(context).colorScheme.primary,
+                  ),
                   enabledBorder: inputBorder(context),
                   focusedBorder: focusBorder(context),
                   errorBorder: inputBorder(context),
@@ -102,7 +112,9 @@ class _LoginFormState extends ConsumerState<LoginForm> {
                   }
                 },
                 child: Text(login,
-                    style: TextStyle(color: Theme.of(context).colorScheme.primaryFixed, fontSize: standardFont))),
+                    style: TextStyle(
+                        color: Theme.of(context).colorScheme.primaryFixed,
+                        fontSize: standardFont))),
           ),
         ],
       ),
