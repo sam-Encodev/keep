@@ -116,7 +116,7 @@ class AddNoteForm extends ConsumerState<AddNote> {
                                         Navigator.of(context).pop();
                                       },
                                       style:
-                                          buttonStyle(color: Colors.redAccent),
+                                          buttonStyle(context),
                                       child: Text(no,
                                           style: TextStyle(
                                               color: Theme.of(context).colorScheme.primary,
@@ -141,10 +141,10 @@ class AddNoteForm extends ConsumerState<AddNote> {
                                                 .read(goRouterProvider)
                                                 .go(RouteNames.home)
                                           },
-                                      style: buttonStyle(),
-                                      child: const Text(yes,
+                                      style: buttonStyle(context),
+                                      child: Text(yes,
                                           style: TextStyle(
-                                              color: Colors.redAccent,
+                                              color: Theme.of(context).colorScheme.primary,
                                               fontSize: standardFont))),
                                 ),
                               ],

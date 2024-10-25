@@ -49,7 +49,7 @@ class _SignupFormState extends ConsumerState<SignupForm> {
                 focusedBorder: focusBorder(context),
                 errorBorder: inputBorder(context),
                 focusedErrorBorder: errorBorder(context),
-                errorStyle: errorStyle(),
+                errorStyle: errorStyle(context),
               ),
               validator: (String? value) {
                 if (value == null || value.isEmpty) {
@@ -75,7 +75,7 @@ class _SignupFormState extends ConsumerState<SignupForm> {
                 focusedBorder: focusBorder(context),
                 errorBorder: inputBorder(context),
                 focusedErrorBorder: errorBorder(context),
-                errorStyle: errorStyle(),
+                errorStyle: errorStyle(context),
               ),
               validator: (String? value) {
                 if (value == null || value.isEmpty) {
@@ -101,7 +101,7 @@ class _SignupFormState extends ConsumerState<SignupForm> {
                 focusedBorder: focusBorder(context),
                 errorBorder: inputBorder(context),
                 focusedErrorBorder: errorBorder(context),
-                errorStyle: errorStyle(),
+                errorStyle: errorStyle(context),
               ),
               validator: (String? value) {
                 if (value == null || value.isEmpty) {
@@ -131,7 +131,7 @@ class _SignupFormState extends ConsumerState<SignupForm> {
                   focusedBorder: focusBorder(context),
                   errorBorder: inputBorder(context),
                   focusedErrorBorder: errorBorder(context),
-                  errorStyle: errorStyle()),
+                  errorStyle: errorStyle(context)),
               validator: (String? value) {
                 if (value == null || value.isEmpty) {
                   return errorEntry;
@@ -145,7 +145,7 @@ class _SignupFormState extends ConsumerState<SignupForm> {
             padding: const EdgeInsets.only(top: spacing),
             child: FilledButton(
                 key: const Key(signUp),
-                style: buttonStyle(),
+                style: buttonStyle(context),
                 onPressed: () {
                   // Validate will return true if the form is valid, or false if
                   // the form is invalid.
@@ -167,8 +167,8 @@ class _SignupFormState extends ConsumerState<SignupForm> {
                     setState(() {});
                   }
                 },
-                child: const Text(signUp,
-                    style: TextStyle(color: Colors.redAccent, fontSize: standardFont))),
+                child: Text(signUp,
+                    style: TextStyle(color: Theme.of(context).colorScheme.onTertiary, fontSize: standardFont))),
           ),
         ],
       ),

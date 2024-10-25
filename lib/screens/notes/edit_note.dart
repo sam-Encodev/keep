@@ -46,7 +46,8 @@ class EditNoteForm extends ConsumerState<EditNote> {
         leading: goBackButton(context),
         title: Text(editNote,
             style: TextStyle(
-                color: Theme.of(context).colorScheme.primary, fontSize: standardFont)),
+                color: Theme.of(context).colorScheme.primary,
+                fontSize: standardFont)),
         actions: [
           IconButton(
             style: iconButtonStyle(context),
@@ -101,7 +102,8 @@ class EditNoteForm extends ConsumerState<EditNote> {
                           context: context,
                           builder: (BuildContext context) {
                             return AlertDialog(
-                             backgroundColor: Theme.of(context).colorScheme.surface,
+                              backgroundColor:
+                                  Theme.of(context).colorScheme.surface,
                               title: Icon(
                                 Icons.info,
                                 color: Theme.of(context).colorScheme.primary,
@@ -115,7 +117,8 @@ class EditNoteForm extends ConsumerState<EditNote> {
                                       prompt,
                                       textAlign: TextAlign.center,
                                       style: TextStyle(
-                                          color: Colors.red, fontSize: standardFont),
+                                          color: Colors.red,
+                                          fontSize: standardFont),
                                     ),
                                   )
                                 ],
@@ -128,8 +131,9 @@ class EditNoteForm extends ConsumerState<EditNote> {
                                       onPressed: () {
                                         Navigator.of(context).pop();
                                       },
-                                      style:
-                                          buttonStyle(color: Colors.redAccent),
+                                      style: buttonStyle(
+                                        context,
+                                      ),
                                       child: Text(no,
                                           style: TextStyle(
                                               color: Theme.of(context)
@@ -155,10 +159,12 @@ class EditNoteForm extends ConsumerState<EditNote> {
                                         Navigator.of(context).pop();
                                         ref.read(goRouterProvider).pop();
                                       },
-                                      style: buttonStyle(),
-                                      child: const Text(yes,
+                                      style: buttonStyle(
+                                        context,
+                                      ),
+                                      child: Text(yes,
                                           style: TextStyle(
-                                              color: Colors.redAccent,
+                                              color: Theme.of(context).colorScheme.primary,
                                               fontSize: standardFont))),
                                 ),
                               ],
@@ -200,7 +206,8 @@ class EditNoteForm extends ConsumerState<EditNote> {
                           fillColor: Theme.of(context).colorScheme.surface,
                           filled: false,
                           hintText: title,
-                          hintStyle: TextStyle(color: Theme.of(context).colorScheme.onSecondary),
+                          hintStyle: TextStyle(
+                              color: Theme.of(context).colorScheme.onSecondary),
                           enabledBorder: transparentEnabledBorder(),
                           focusedBorder: transparentFocusedBorder(),
                           errorBorder: transparentEnabledBorder(),
@@ -230,7 +237,8 @@ class EditNoteForm extends ConsumerState<EditNote> {
                           fillColor: Theme.of(context).colorScheme.surface,
                           filled: false,
                           hintText: description,
-                          hintStyle: TextStyle(color: Theme.of(context).colorScheme.onSecondary),
+                          hintStyle: TextStyle(
+                              color: Theme.of(context).colorScheme.onSecondary),
                           enabledBorder: transparentEnabledBorder(),
                           focusedBorder: transparentFocusedBorder(),
                           errorBorder: transparentEnabledBorder(),

@@ -27,9 +27,9 @@ class ErrorScreen extends StatelessWidget {
               const SizedBox(height: standardSpacing),
               FilledButton(
                   onPressed: () => context.go(RouteNames.home),
-                  style: buttonStyle(),
-                  child: const Text(goBack,
-                      style: TextStyle(color: Colors.redAccent, fontSize: standardFont))),
+                  style: buttonStyle(context),
+                  child: Text(goBack,
+                      style: TextStyle(color: Theme.of(context).colorScheme.primary, fontSize: standardFont))),
             ],
           ),
         ),

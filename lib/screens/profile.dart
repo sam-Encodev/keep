@@ -33,10 +33,11 @@ class _Profile extends ConsumerState<Profile> {
         appBar: AppBar(
           automaticallyImplyLeading: false,
           backgroundColor: Theme.of(context).colorScheme.surface,
-        leading: goBackButton(context),
+          leading: goBackButton(context),
           title: Text(profile,
               style: TextStyle(
-                  color: Theme.of(context).colorScheme.primary, fontSize: standardFont)),
+                  color: Theme.of(context).colorScheme.primary,
+                  fontSize: standardFont)),
         ),
         body: Container(
           width: double.infinity,
@@ -71,7 +72,7 @@ class _Profile extends ConsumerState<Profile> {
                           focusedBorder: focusBorder(context),
                           errorBorder: inputBorder(context),
                           focusedErrorBorder: errorBorder(context),
-                          errorStyle: errorStyle()),
+                          errorStyle: errorStyle(context)),
                       validator: (String? value) {
                         final splitName = value?.split(' ');
 
@@ -116,7 +117,7 @@ class _Profile extends ConsumerState<Profile> {
                         focusedBorder: focusBorder(context),
                         errorBorder: inputBorder(context),
                         focusedErrorBorder: errorBorder(context),
-                        errorStyle: errorStyle(),
+                        errorStyle: errorStyle(context),
                       ),
                       validator: (String? value) {
                         // if (value == null || value.isEmpty) {
@@ -155,7 +156,7 @@ class _Profile extends ConsumerState<Profile> {
                           focusedBorder: focusBorder(context),
                           errorBorder: inputBorder(context),
                           focusedErrorBorder: errorBorder(context),
-                          errorStyle: errorStyle()),
+                          errorStyle: errorStyle(context)),
                       validator: (String? value) {
                         // if (value == null || value.isEmpty) {
                         //   return errorEntry;
@@ -190,7 +191,7 @@ class _Profile extends ConsumerState<Profile> {
                           focusedBorder: focusBorder(context),
                           errorBorder: inputBorder(context),
                           focusedErrorBorder: errorBorder(context),
-                          errorStyle: errorStyle()),
+                          errorStyle: errorStyle(context)),
                       validator: (String? value) {
                         if (value == null || value.isEmpty) {
                           return errorEntry;
@@ -203,7 +204,7 @@ class _Profile extends ConsumerState<Profile> {
                   Padding(
                     padding: const EdgeInsets.all(spacing),
                     child: FilledButton(
-                        style: buttonStyle(),
+                        style: buttonStyle(context),
                         onPressed: () {
                           // Validate will return true if the form is valid, or false if
                           // the form is invalid.
@@ -224,9 +225,10 @@ class _Profile extends ConsumerState<Profile> {
                             }
                           }
                         },
-                        child: const Text(updateProfile,
+                        child: Text(updateProfile,
                             style: TextStyle(
-                                color: Colors.redAccent, fontSize: standardFont))),
+                                color: Theme.of(context).colorScheme.onTertiary,
+                                fontSize: standardFont))),
                   ),
                 ]),
           ),

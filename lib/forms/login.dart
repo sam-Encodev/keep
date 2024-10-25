@@ -41,7 +41,7 @@ class _LoginFormState extends ConsumerState<LoginForm> {
                 focusedBorder: focusBorder(context),
                 errorBorder: inputBorder(context),
                 focusedErrorBorder: errorBorder(context),
-                errorStyle: errorStyle(),
+                errorStyle: errorStyle(context),
               ),
               validator: (String? value) {
                 if (value == null || value.isEmpty) {
@@ -72,7 +72,7 @@ class _LoginFormState extends ConsumerState<LoginForm> {
                   focusedBorder: focusBorder(context),
                   errorBorder: inputBorder(context),
                   focusedErrorBorder: errorBorder(context),
-                  errorStyle: errorStyle()),
+                  errorStyle: errorStyle(context)),
               validator: (String? value) {
                 if (value == null || value.isEmpty) {
                   return errorEntry;
@@ -86,7 +86,7 @@ class _LoginFormState extends ConsumerState<LoginForm> {
             padding: const EdgeInsets.only(top: spacing),
             child: FilledButton(
                 key: const Key(login),
-                style: buttonStyle(),
+                style: buttonStyle(context),
                 onPressed: () {
                   // Validate will return true if the form is valid, or false if
                   // the form is invalid.
@@ -101,8 +101,8 @@ class _LoginFormState extends ConsumerState<LoginForm> {
                     }
                   }
                 },
-                child: const Text(login,
-                    style: TextStyle(color: Colors.redAccent, fontSize: standardFont))),
+                child: Text(login,
+                    style: TextStyle(color: Theme.of(context).colorScheme.primaryFixed, fontSize: standardFont))),
           ),
         ],
       ),
