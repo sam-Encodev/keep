@@ -209,7 +209,9 @@ class _Profile extends ConsumerState<Profile> {
                                     ),
                                     _newPassword.toString());
 
-                            if (res == false) {
+                            if (res == true) {
+                              snackBar(context, message: "Update successful");
+                            } else {
                               snackBar(context, message: "Update failed");
                             }
                           }
