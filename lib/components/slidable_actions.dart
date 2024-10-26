@@ -48,7 +48,7 @@ class SlidableActions extends ConsumerWidget {
               ref
                   .read(noteNotifierProvider.notifier)
                   .removeNote(notes[index].id),
-              snackBar(context, message: "${notes[index].title} deleted")
+              snackBar(context, message: "Note deleted")
             },
           ),
         ],
