@@ -29,7 +29,7 @@ class ViewNote extends ConsumerWidget {
           IconButton(
             style: iconButtonStyle(context),
             icon: const Icon(Icons.edit, size: standardIcon),
-            color: Colors.white,
+            color: Theme.of(context).colorScheme.primary,
             onPressed: () => {context.push(RouteNames.editNote(note.id))},
           ),
         ],
