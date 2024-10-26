@@ -69,7 +69,7 @@ const newUserEmail = "jones@gmail.com";
 
 // Add
 const newNote = "New Note";
-const addErrorEntry = "Title & description $errorEntry";
+const addErrorEntry = "Title or description $errorEntry";
 
 // Edit
 const editNote = "Edit Note";

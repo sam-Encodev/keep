@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:keep/constants/text.dart';
 import 'package:keep/utilities/styles.dart';
 
 switchIcon(context, message) {
@@ -9,6 +10,7 @@ switchIcon(context, message) {
           size: standardIcon,
           color: Theme.of(context).colorScheme.onPrimaryFixed);
 
+    case addErrorEntry:
     case "Login failed":
     case "Email already exists":
     case "Update failed":
