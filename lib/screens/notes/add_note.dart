@@ -147,8 +147,8 @@ class AddNoteForm extends ConsumerState<AddNote> {
                             );
                           },
                         )
-                      }
-                    else
+                      },
+                    if (_titleField == null || _descriptionField == null)
                       {snackBar(context, message: addErrorEntry)}
                   }),
         ],
@@ -185,7 +185,7 @@ class AddNoteForm extends ConsumerState<AddNote> {
                           focusedBorder: transparentFocusedBorder(),
                           errorBorder: transparentEnabledBorder(),
                           focusedErrorBorder: transparentErrorBorder(),
-                          // errorStyle: errorStyle(),
+                          errorStyle: errorStyle(context),
                         ),
                         validator: (String? value) {
                           if (value == null || value.isEmpty) {
@@ -213,7 +213,7 @@ class AddNoteForm extends ConsumerState<AddNote> {
                           focusedBorder: transparentFocusedBorder(),
                           errorBorder: transparentEnabledBorder(),
                           focusedErrorBorder: transparentErrorBorder(),
-                          // errorStyle: errorStyle()
+                          errorStyle: errorStyle(context),
                         ),
                         validator: (String? value) {
                           if (value == null || value.isEmpty) {

@@ -3,6 +3,7 @@ import 'package:keep/models/note.dart';
 import 'package:keep/constants/text.dart';
 import 'package:go_router/go_router.dart';
 import 'package:keep/utilities/styles.dart';
+import 'package:keep/components/snack_bar.dart';
 import 'package:keep/components/color_clip.dart';
 import 'package:keep/components/back_button.dart';
 import 'package:keep/utilities/switch_color.dart';
@@ -153,9 +154,9 @@ class EditNoteForm extends ConsumerState<EditNote> {
                             );
                           },
                         )
-                      }
-                    else
-                      {}
+                      },
+                    if (_titleField == null || _descriptionField == null)
+                      {snackBar(context, message: addErrorEntry)}
                   }),
         ],
       ),
@@ -194,7 +195,7 @@ class EditNoteForm extends ConsumerState<EditNote> {
                           focusedBorder: transparentFocusedBorder(),
                           errorBorder: transparentEnabledBorder(),
                           focusedErrorBorder: transparentErrorBorder(),
-                          // errorStyle: errorStyle(),
+                          errorStyle: errorStyle(context),
                         ),
                         validator: (String? value) {
                           if (value!.isEmpty) {
@@ -216,17 +217,17 @@ class EditNoteForm extends ConsumerState<EditNote> {
                             color: Theme.of(context).colorScheme.primary,
                             fontSize: standardFont),
                         decoration: InputDecoration(
-                          fillColor: Theme.of(context).colorScheme.surface,
-                          filled: false,
-                          hintText: description,
-                          hintStyle: TextStyle(
-                              color: Theme.of(context).colorScheme.onSecondary),
-                          enabledBorder: transparentEnabledBorder(),
-                          focusedBorder: transparentFocusedBorder(),
-                          errorBorder: transparentEnabledBorder(),
-                          focusedErrorBorder: transparentErrorBorder(),
-                          // errorStyle: errorStyle()
-                        ),
+                            fillColor: Theme.of(context).colorScheme.surface,
+                            filled: false,
+                            hintText: description,
+                            hintStyle: TextStyle(
+                                color:
+                                    Theme.of(context).colorScheme.onSecondary),
+                            enabledBorder: transparentEnabledBorder(),
+                            focusedBorder: transparentFocusedBorder(),
+                            errorBorder: transparentEnabledBorder(),
+                            focusedErrorBorder: transparentErrorBorder(),
+                            errorStyle: errorStyle(context)),
                         validator: (String? value) {
                           if (value == null || value.isEmpty) {
                             return errorEntry;
