@@ -12,18 +12,25 @@ class ThemeState extends Notifier {
     );
   }
 
-  void setTheme() {
-    if (state.isDark == !getThemeState()) {
-      state = Themer(theme: ThemeMode.dark, isDark: true);
-    } else {
-      state = Themer(theme: ThemeMode.light, isDark: false);
-    }
+  void setDark() {
+    state = Themer(theme: ThemeMode.dark, isDark: true);
+    return;
+  }
+
+  void setLight() {
+    state = Themer(theme: ThemeMode.light, isDark: false);
+    return;
   }
 
   bool getThemeState() {
     var brightness =
         SchedulerBinding.instance.platformDispatcher.platformBrightness;
-    return brightness == Brightness.dark;
+
+    if (brightness == Brightness.dark) {
+      return true;
+    } else {
+      return false;
+    }
   }
 }
 

@@ -14,7 +14,7 @@ class Home extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    var themer = ref.watch(themeStateProvider);
+    var themed = ref.watch(themeStateProvider);
     var currentUser = ref.watch(authNotifierProvider);
 
     return Scaffold(
@@ -30,16 +30,47 @@ class Home extends ConsumerWidget {
             color: Theme.of(context).colorScheme.secondary,
             onPressed: () => context.push('/notes/search'),
           ),
-          IconButton(
-              style: iconButtonStyle(context),
-              icon: Icon(
-                themer.isDark ? Icons.wb_sunny : Icons.brightness_2,
+          CustomPopup(
+            backgroundColor: Theme.of(context).colorScheme.surface,
+            showArrow: false,
+            content: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                if (themed.isDark != false)
+                  IconButton(
+                    icon: const Icon(
+                      Icons.wb_sunny,
+                      size: standardIcon,
+                    ),
+                    color: Theme.of(context).colorScheme.secondary,
+                    onPressed: () => {
+                      Navigator.of(context).pop(),
+                      ref.read(themeStateProvider.notifier).setLight()
+                    },
+                  ),
+                if (themed.isDark != true)
+                  IconButton(
+                    icon: const Icon(
+                      Icons.brightness_2,
+                      size: standardIcon,
+                    ),
+                    color: Theme.of(context).colorScheme.secondary,
+                    onPressed: () => {
+                      Navigator.of(context).pop(),
+                      ref.read(themeStateProvider.notifier).setDark()
+                    },
+                  ),
+              ],
+            ),
+            child: Container(
+              padding: EdgeInsets.only(left: 5, right: standardSpacing),
+              child: Icon(
+                Icons.settings,
                 size: standardIcon,
+                color: Theme.of(context).colorScheme.secondary,
               ),
-              color: Theme.of(context).colorScheme.secondary,
-              onPressed: () => {
-                    ref.read(themeStateProvider.notifier).setTheme(),
-                  }),
+            ),
+          ),
           CustomPopup(
             backgroundColor: Theme.of(context).colorScheme.surface,
             showArrow: false,
