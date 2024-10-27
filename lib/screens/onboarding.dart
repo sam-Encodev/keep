@@ -3,7 +3,7 @@ import 'package:keep/constants/text.dart';
 import 'package:keep/utilities/styles.dart';
 import 'package:keep/constants/onboard.dart';
 import 'package:keep/components/on_board.dart';
-import 'package:dots_indicator/dots_indicator.dart';
+import 'package:keep/components/page_indicator.dart';
 import 'package:keep/providers/app_state_provider.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -95,70 +95,5 @@ class _OnboardState extends ConsumerState<Onboarding>
             ),
           ],
         ));
-  }
-}
-
-class PageIndicator extends ConsumerWidget {
-  const PageIndicator({
-    super.key,
-    required this.tabController,
-    required this.currentPageIndex,
-    required this.onUpdateCurrentPageIndex,
-  });
-
-  final int currentPageIndex;
-  final TabController tabController;
-  final void Function(int) onUpdateCurrentPageIndex;
-
-  @override
-  Widget build(BuildContext context, WidgetRef ref) {
-    return Padding(
-      padding: const EdgeInsets.all(8.0),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: <Widget>[
-          DotsIndicator(
-            dotsCount: tabController.length,
-            position: currentPageIndex,
-            decorator: dotsStyle(context),
-          ),
-          Row(
-            children: [
-              if (currentPageIndex > 0)
-                IconButton(
-                  onPressed: () {
-                    if (currentPageIndex == 0) {
-                      return;
-                    }
-                    onUpdateCurrentPageIndex(currentPageIndex - 1);
-                  },
-                  style: maxIconButtonStyle(context),
-                  icon: Icon(
-                    Icons.arrow_left,
-                    size: maxIcons,
-                    color: Theme.of(context).colorScheme.primaryFixed,
-                  ),
-                ),
-              const SizedBox(width: standardSpacing),
-              IconButton(
-                onPressed: () {
-                  if (currentPageIndex == 2) {
-                    ref.read(appStateProvider.notifier).completeOnboarding();
-                    return;
-                  }
-                  onUpdateCurrentPageIndex(currentPageIndex + 1);
-                },
-                style: maxIconButtonStyle(context),
-                icon: Icon(
-                  Icons.arrow_right,
-                  size: maxIcons,
-                  color: Theme.of(context).colorScheme.primaryFixed,
-                ),
-              ),
-            ],
-          ),
-        ],
-      ),
-    );
   }
 }
