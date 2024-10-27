@@ -20,7 +20,7 @@ class SlidableActions extends ConsumerWidget {
     return Slidable(
       key: ValueKey(index),
       endActionPane: ActionPane(
-        motion: const ScrollMotion(),
+        motion: const DrawerMotion(),
         children: [
           const SizedBox(width: spacing),
           SlidableAction(
