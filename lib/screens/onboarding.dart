@@ -89,6 +89,7 @@ class _OnboardState extends ConsumerState<Onboarding>
           ),
         ),
         body: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: <Widget>[
             Expanded(
               child: PageView.builder(
