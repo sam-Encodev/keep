@@ -14,11 +14,11 @@ class Home extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    var isDarkMode = ref.watch(themeStateProvider);
+    var themer = ref.watch(themeStateProvider);
     var currentUser = ref.watch(authNotifierProvider);
 
     return Scaffold(
-          backgroundColor: Theme.of(context).colorScheme.surface,
+      backgroundColor: Theme.of(context).colorScheme.surface,
       appBar: AppBar(
         automaticallyImplyLeading: false,
         title: Text(appName,
@@ -33,7 +33,7 @@ class Home extends ConsumerWidget {
           IconButton(
               style: iconButtonStyle(context),
               icon: Icon(
-                isDarkMode ? Icons.wb_sunny : Icons.brightness_2,
+                themer.isDark ? Icons.wb_sunny : Icons.brightness_2,
                 size: standardIcon,
               ),
               color: Theme.of(context).colorScheme.secondary,

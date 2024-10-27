@@ -11,7 +11,7 @@ class Keep extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final router = ref.watch(goRouterProvider);
-    final isDarkMode = ref.watch(themeStateProvider);
+    final themer = ref.watch(themeStateProvider);
 
     return MaterialApp.router(
       theme: ThemeData(
@@ -20,7 +20,7 @@ class Keep extends ConsumerWidget {
       darkTheme: ThemeData(
         colorScheme: darkColorScheme,
       ),
-      themeMode: isDarkMode ? ThemeMode.dark : ThemeMode.light,
+      themeMode: themer.theme,
       title: notes,
       routerConfig: router,
       debugShowCheckedModeBanner: false,
