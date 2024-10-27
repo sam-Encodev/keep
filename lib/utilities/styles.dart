@@ -6,6 +6,7 @@ const standardSpacing = 10.0;
 
 const spacing = 8.0;
 const minSpacing = 5.0;
+const seSpacing = 2.0;
 
 const minFont = 17.0;
 const maxFont = 50.0;
@@ -114,7 +115,7 @@ errorStyle(context) {
 dotsStyle(context) {
   return DotsDecorator(
     color: Theme.of(context).colorScheme.outlineVariant,
-    size: const Size(10.0, minSpacing),
+    size: const Size(standardSpacing, minSpacing),
     shape: RoundedRectangleBorder(
       borderRadius: BorderRadius.circular(inputRadius),
     ),
@@ -123,7 +124,7 @@ dotsStyle(context) {
       borderRadius: BorderRadius.circular(inputRadius),
     ),
     activeColor: Theme.of(context).colorScheme.primary,
-    spacing: const EdgeInsets.all(2.0),
+    spacing: const EdgeInsets.all(seSpacing),
   );
 }
 

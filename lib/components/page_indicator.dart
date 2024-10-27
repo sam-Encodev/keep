@@ -15,8 +15,9 @@ class PageIndicator extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var maxLength = tabController.length - 1;
     return Padding(
-      padding: const EdgeInsets.all(8.0),
+      padding: const EdgeInsets.all(spacing),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: <Widget>[
@@ -40,7 +41,7 @@ class PageIndicator extends StatelessWidget {
               const SizedBox(width: standardSpacing),
               IconButton(
                 onPressed: () {
-                  if (currentPageIndex == 2) {
+                  if (currentPageIndex == maxLength) {
                     return;
                   }
                   onUpdateCurrentPageIndex(currentPageIndex + 1);
