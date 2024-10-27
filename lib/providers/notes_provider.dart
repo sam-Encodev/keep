@@ -41,12 +41,6 @@ class NoteNotifier extends Notifier<List<Note>> {
                 .subtractDuration(const Duration(days: 10, hours: 6))
                 .format(),
             color: "blue"),
-        Note(
-            id: 5,
-            title: "Game",
-            description: "I lied",
-            timestamp: "2024-03-02T15:18:29.922343",
-            color: "indigo"),
       ];
 
   void addNote(Note note) {
