@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:keep/utilities/styles.dart';
+import 'package:dots_indicator/dots_indicator.dart';
+import 'package:keep/providers/app_state_provider.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-class PageIndicator extends StatelessWidget {
+
+class PageIndicator extends ConsumerWidget {
   const PageIndicator({
     super.key,
     required this.tabController,
@@ -14,13 +18,18 @@ class PageIndicator extends StatelessWidget {
   final void Function(int) onUpdateCurrentPageIndex;
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     var maxLength = tabController.length - 1;
     return Padding(
       padding: const EdgeInsets.all(spacing),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: <Widget>[
+          DotsIndicator(
+            dotsCount: tabController.length,
+            position: currentPageIndex,
+            decorator: dotsStyle(context),
+          ),
           Row(
             children: [
               if (currentPageIndex > 0)
@@ -42,6 +51,7 @@ class PageIndicator extends StatelessWidget {
               IconButton(
                 onPressed: () {
                   if (currentPageIndex == maxLength) {
+                    ref.read(appStateProvider.notifier).completeOnboarding();
                     return;
                   }
                   onUpdateCurrentPageIndex(currentPageIndex + 1);
