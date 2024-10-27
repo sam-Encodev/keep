@@ -28,6 +28,7 @@ const colors = [
   {
     "name": 'orange',
   },
+  {"name": "indigo"}
 ];
 
 class SwitchColor {
