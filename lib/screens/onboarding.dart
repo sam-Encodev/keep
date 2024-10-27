@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/foundation.dart';
 import 'package:keep/constants/text.dart';
 import 'package:keep/utilities/styles.dart';
 import 'package:keep/constants/onboard.dart';
@@ -33,22 +32,6 @@ class _OnboardState extends ConsumerState<Onboarding>
     super.dispose();
     _pageViewController.dispose();
     _tabController.dispose();
-  }
-
-  bool get _isOnDesktopAndWeb {
-    if (kIsWeb) {
-      return true;
-    }
-    switch (defaultTargetPlatform) {
-      case TargetPlatform.macOS:
-      case TargetPlatform.linux:
-      case TargetPlatform.windows:
-        return true;
-      case TargetPlatform.android:
-      case TargetPlatform.iOS:
-      case TargetPlatform.fuchsia:
-        return true;
-    }
   }
 
   void _updateCurrentPageIndex(int index) {
@@ -107,7 +90,6 @@ class _OnboardState extends ConsumerState<Onboarding>
               child: PageIndicator(
                 tabController: _tabController,
                 currentPageIndex: _currentPageIndex,
-                isOnDesktopAndWeb: _isOnDesktopAndWeb,
                 onUpdateCurrentPageIndex: _updateCurrentPageIndex,
               ),
             ),
@@ -122,20 +104,14 @@ class PageIndicator extends ConsumerWidget {
     required this.tabController,
     required this.currentPageIndex,
     required this.onUpdateCurrentPageIndex,
-    required this.isOnDesktopAndWeb,
   });
 
   final int currentPageIndex;
   final TabController tabController;
   final void Function(int) onUpdateCurrentPageIndex;
-  final bool isOnDesktopAndWeb;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    if (!isOnDesktopAndWeb) {
-      return const SizedBox.shrink();
-    }
-
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: Row(
