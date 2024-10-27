@@ -12,7 +12,8 @@ flutter_native_splash:
   # of your splash screen to a solid color.  Use background_image to set the background of your
   # splash screen to a png image.  This is useful for gradients. The image will be stretch to the
   # size of the app. Only one parameter can be used, color and background_image cannot both be set.
-  color: "#202020"
+#  color: "#202020"
+#  background_image: "assets/background.png"
 
   # The image parameter allows you to specify an image used in the splash screen.  It must be a
   # png file and should be sized for 4x pixel density.
@@ -23,6 +24,29 @@ flutter_native_splash:
   # Following are specific parameters for Android 12+.
   android_12:
     image: assets/icons/icon-1-mod.png
+#    icon_background_color: "#202020"
 
     # Splash screen background color.
-    color: "#202020"
+#    color: "#202020"
+
+  # The android, ios and web parameters can be used to disable generating a splash screen on a given
+  # platform.
+  #android: false
+  #ios: false
+  web: false
+
+  # Platform specific images can be specified with the following parameters, which will override
+  # the respective parameter.  You may specify all, selected, or none of these parameters:
+  color_android: "#ffffff"
+  color_dark_android: "#202020"
+  color_ios: "#ffffff"
+  color_dark_ios: "#202020"
+
+  # The position of the splash image can be set with android_gravity, ios_content_mode, and
+  # web_image_mode parameters.  All default to center.
+  #
+  # android_gravity can be one of the following Android Gravity (see
+  # https://developer.android.com/reference/android/view/Gravity): bottom, center,
+  # center_horizontal, center_vertical, clip_horizontal, clip_vertical, end, fill, fill_horizontal,
+  # fill_vertical, left, right, start, or top.
+  android_gravity: center
