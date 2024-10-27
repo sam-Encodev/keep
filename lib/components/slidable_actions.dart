@@ -18,7 +18,7 @@ class SlidableActions extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     return Slidable(
-      key: ValueKey(index),
+      key: ValueKey(notes[index].id),
       endActionPane: ActionPane(
         motion: const ScrollMotion(),
         children: [
