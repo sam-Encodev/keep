@@ -171,3 +171,7 @@ buildText(String data, context, {height = 0.0}) {
         height: height),
   );
 }
+
+hintStyle() {
+  return TextStyle(color: Colors.grey[500]);
+}

@@ -189,8 +189,7 @@ class EditNoteForm extends ConsumerState<EditNote> {
                           fillColor: Theme.of(context).colorScheme.surface,
                           filled: false,
                           hintText: title,
-                          hintStyle: TextStyle(
-                              color: const Color(0xFF9E9E9E)),
+                          hintStyle: hintStyle(),
                           enabledBorder: transparentEnabledBorder(),
                           focusedBorder: transparentFocusedBorder(),
                           errorBorder: transparentEnabledBorder(),
@@ -220,9 +219,7 @@ class EditNoteForm extends ConsumerState<EditNote> {
                             fillColor: Theme.of(context).colorScheme.surface,
                             filled: false,
                             hintText: description,
-                            hintStyle: TextStyle(
-                                color:
-                                    Theme.of(context).colorScheme.onSecondary),
+                            hintStyle: hintStyle(),
                             enabledBorder: transparentEnabledBorder(),
                             focusedBorder: transparentFocusedBorder(),
                             errorBorder: transparentEnabledBorder(),
