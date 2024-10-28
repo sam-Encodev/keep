@@ -57,8 +57,6 @@ maxIconButtonStyle(context) {
 buttonStyle(context, {size = "medium"}) {
   var type = size == "medium" ? 50.0 : 40.0;
   return ButtonStyle(
-    backgroundColor:
-        WidgetStateProperty.all(Theme.of(context).colorScheme.primary),
     minimumSize: WidgetStateProperty.all(Size(double.infinity, type)),
     shape: WidgetStateProperty.all(
       RoundedRectangleBorder(

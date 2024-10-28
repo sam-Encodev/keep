@@ -11,12 +11,12 @@ class Keep extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final router = ref.watch(goRouterProvider);
-    final themed = ref.watch(themeStateProvider);
+    final theme = ref.watch(themeStateProvider);
 
     return MaterialApp.router(
       theme: AppTheme.light,
       darkTheme: AppTheme.dark,
-      themeMode: themed.theme,
+      themeMode: theme,
       title: notes,
       routerConfig: router,
       debugShowCheckedModeBanner: false,
