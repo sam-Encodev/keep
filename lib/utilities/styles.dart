@@ -108,7 +108,7 @@ errorStyle(context) {
   return TextStyle(
     fontSize: errorFont,
     fontWeight: FontWeight.w400,
-    color: Theme.of(context).colorScheme.tertiary,
+    color: Theme.of(context).colorScheme.error,
   );
 }
 

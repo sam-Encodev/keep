@@ -37,7 +37,7 @@ class _LoginFormState extends ConsumerState<LoginForm> {
                 filled: true,
                 hintText: email,
                 hintStyle:
-                    TextStyle(color: Theme.of(context).colorScheme.onSecondary),
+                    TextStyle(color: Colors.grey[500]),
                 prefixIcon: Icon(
                   Icons.email,
                   size: formIcons,
@@ -74,7 +74,7 @@ class _LoginFormState extends ConsumerState<LoginForm> {
                   filled: true,
                   hintText: password,
                   hintStyle: TextStyle(
-                      color: Theme.of(context).colorScheme.onSecondary),
+                      color: Colors.grey[500]),
                   prefixIcon: Icon(
                     Icons.password,
                     size: formIcons,

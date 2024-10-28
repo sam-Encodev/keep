@@ -62,13 +62,13 @@ class SlidableActions extends ConsumerWidget {
           title: Text(
             notes[index].title,
             style: TextStyle(
-                color: Theme.of(context).colorScheme.onPrimary,
+                color: Theme.of(context).colorScheme.primary,
                 fontWeight: FontWeight.bold,
                 fontSize: standardFont),
           ),
           subtitle: Text(
             dateFormatter(notes[index].timestamp),
-            style: TextStyle(color: Theme.of(context).colorScheme.onPrimary),
+            style: TextStyle(color: Theme.of(context).colorScheme.primary),
           ),
         ),
       ),
