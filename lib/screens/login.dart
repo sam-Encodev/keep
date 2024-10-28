@@ -32,7 +32,6 @@ class _LoginState extends State<Login> {
               textAlign: TextAlign.left,
               style: TextStyle(
                 fontSize: maxFont,
-                color: Theme.of(context).colorScheme.primary,
               ),
             ),
             const LoginForm(),
@@ -41,8 +40,6 @@ class _LoginState extends State<Login> {
               children: [
                 Text(
                   noAccount,
-                  style:
-                      TextStyle(color: Theme.of(context).colorScheme.primary),
                 ),
                 TextButton(
                     onPressed: () => {context.go(RouteNames.signup)},

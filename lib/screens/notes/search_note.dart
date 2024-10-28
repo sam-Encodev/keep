@@ -34,7 +34,6 @@ class _SearchNote extends ConsumerState<SearchNote> {
         automaticallyImplyLeading: false,
         title: TextField(
           controller: textController,
-          style: TextStyle(color: Theme.of(context).colorScheme.primary),
           decoration: InputDecoration(
               fillColor: inputFillColor(context),
               filled: true,
@@ -45,7 +44,6 @@ class _SearchNote extends ConsumerState<SearchNote> {
                   icon: Icon(
                     Icons.close,
                     size: standardIcon,
-                    color: Theme.of(context).colorScheme.primary,
                   ),
                   onPressed: () => {
                         setState(() {

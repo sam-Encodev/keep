@@ -34,10 +34,7 @@ class _Profile extends ConsumerState<Profile> {
         appBar: AppBar(
           automaticallyImplyLeading: false,
           leading: goBackButton(context),
-          title: Text(profile,
-              style: TextStyle(
-                  color: Theme.of(context).colorScheme.primary,
-                  fontSize: standardFont)),
+          title: Text(profile, style: TextStyle(fontSize: standardFont)),
         ),
         body: Container(
           padding: const EdgeInsets.all(standardSpacing),
@@ -51,17 +48,12 @@ class _Profile extends ConsumerState<Profile> {
             child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
-                  Text(name,
-                      style: TextStyle(
-                          color: Theme.of(context).colorScheme.primary,
-                          fontSize: labelSize)),
+                  Text(name, style: TextStyle(fontSize: labelSize)),
                   Padding(
                     padding: const EdgeInsets.all(spacing),
                     child: TextFormField(
                       key: const Key(name),
                       initialValue: userName,
-                      style: TextStyle(
-                          color: Theme.of(context).colorScheme.primary),
                       decoration: InputDecoration(
                           fillColor: inputFillColor(context),
                           filled: true,
@@ -91,18 +83,13 @@ class _Profile extends ConsumerState<Profile> {
                       },
                     ),
                   ),
-                  Text(email,
-                      style: TextStyle(
-                          color: Theme.of(context).colorScheme.primary,
-                          fontSize: labelSize)),
+                  Text(email, style: TextStyle(fontSize: labelSize)),
                   Padding(
                     padding: const EdgeInsets.all(spacing),
                     child: TextFormField(
                       readOnly: true,
                       key: const Key(email),
                       initialValue: currentUser.email,
-                      style: TextStyle(
-                          color: Theme.of(context).colorScheme.primary),
                       decoration: InputDecoration(
                         fillColor: inputFillColor(context),
                         filled: true,
@@ -122,10 +109,7 @@ class _Profile extends ConsumerState<Profile> {
                       },
                     ),
                   ),
-                  Text(currentPassword,
-                      style: TextStyle(
-                          color: Theme.of(context).colorScheme.primary,
-                          fontSize: labelSize)),
+                  Text(currentPassword, style: TextStyle(fontSize: labelSize)),
                   Padding(
                     padding: const EdgeInsets.all(spacing),
                     child: TextFormField(
@@ -136,8 +120,6 @@ class _Profile extends ConsumerState<Profile> {
                       enableSuggestions: false,
                       autocorrect: false,
                       obscuringCharacter: "*",
-                      style: TextStyle(
-                          color: Theme.of(context).colorScheme.primary),
                       decoration: InputDecoration(
                           fillColor: inputFillColor(context),
                           filled: true,
@@ -155,10 +137,7 @@ class _Profile extends ConsumerState<Profile> {
                       },
                     ),
                   ),
-                  Text(newPassword,
-                      style: TextStyle(
-                          color: Theme.of(context).colorScheme.primary,
-                          fontSize: labelSize)),
+                  Text(newPassword, style: TextStyle(fontSize: labelSize)),
                   Padding(
                     padding: const EdgeInsets.all(spacing),
                     child: TextFormField(
@@ -167,8 +146,6 @@ class _Profile extends ConsumerState<Profile> {
                       enableSuggestions: false,
                       autocorrect: false,
                       obscuringCharacter: "*",
-                      style: TextStyle(
-                          color: Theme.of(context).colorScheme.primary),
                       decoration: InputDecoration(
                           fillColor: inputFillColor(context),
                           filled: true,

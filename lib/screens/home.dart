@@ -21,13 +21,11 @@ class Home extends ConsumerWidget {
       backgroundColor: Theme.of(context).colorScheme.surface,
       appBar: AppBar(
         automaticallyImplyLeading: false,
-        title: Text(appName,
-            style: TextStyle(color: Theme.of(context).colorScheme.primary)),
+        title: Text(appName),
         actions: [
           IconButton(
             style: iconButtonStyle(context),
             icon: Icon(Icons.search, size: standardIcon),
-            color: Theme.of(context).colorScheme.primary,
             onPressed: () => context.push(RouteNames.searchNote),
           ),
           CustomPopup(
@@ -42,7 +40,6 @@ class Home extends ConsumerWidget {
                       Icons.wb_sunny,
                       size: standardIcon,
                     ),
-                    color: Theme.of(context).colorScheme.primary,
                     onPressed: () => {
                       Navigator.of(context).pop(),
                       ref.read(themeStateProvider.notifier).setLight()
@@ -54,7 +51,6 @@ class Home extends ConsumerWidget {
                       Icons.brightness_2,
                       size: standardIcon,
                     ),
-                    color: Theme.of(context).colorScheme.primary,
                     onPressed: () => {
                       Navigator.of(context).pop(),
                       ref.read(themeStateProvider.notifier).setDark()
@@ -67,7 +63,6 @@ class Home extends ConsumerWidget {
               child: Icon(
                 Icons.settings,
                 size: standardIcon,
-                color: Theme.of(context).colorScheme.primary,
               ),
             ),
           ),
@@ -82,7 +77,6 @@ class Home extends ConsumerWidget {
                     Icons.info,
                     size: standardIcon,
                   ),
-                  color: Theme.of(context).colorScheme.primary,
                   onPressed: () => {
                     Navigator.of(context).pop(),
                     context.push(RouteNames.about)
@@ -93,7 +87,6 @@ class Home extends ConsumerWidget {
                     Icons.account_circle_rounded,
                     size: standardIcon,
                   ),
-                  color: Theme.of(context).colorScheme.primary,
                   onPressed: () => {
                     Navigator.of(context).pop(),
                     context.push(RouteNames.profile(currentUser.id))
@@ -104,7 +97,6 @@ class Home extends ConsumerWidget {
                     Icons.logout,
                     size: standardIcon,
                   ),
-                  color: Theme.of(context).colorScheme.primary,
                   onPressed: () => {
                     Navigator.of(context).pop(),
                     ref.read(authNotifierProvider.notifier).logout()
@@ -117,7 +109,6 @@ class Home extends ConsumerWidget {
               child: Icon(
                 Icons.more_vert,
                 size: standardIcon,
-                color: Theme.of(context).colorScheme.primary,
               ),
             ),
           ),
@@ -133,8 +124,10 @@ class Home extends ConsumerWidget {
       floatingActionButton: FloatingActionButton(
         onPressed: () => context.push('/notes/new'),
         backgroundColor: Theme.of(context).colorScheme.secondaryContainer,
-        child: Icon(Icons.add,
-            size: standardIcon, color: Theme.of(context).colorScheme.primary),
+        child: Icon(
+          Icons.add,
+          size: standardIcon,
+        ),
       ),
     );
   }

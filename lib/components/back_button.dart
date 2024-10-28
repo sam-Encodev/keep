@@ -4,7 +4,6 @@ import 'package:keep/utilities/styles.dart';
 
 goBackButton(BuildContext context) {
   return IconButton(
-      icon: const Icon(Icons.arrow_back,size: standardIcon),
-      color: Theme.of(context).colorScheme.primary,
+      icon: const Icon(Icons.arrow_back, size: standardIcon),
       onPressed: () => {context.pop()});
 }

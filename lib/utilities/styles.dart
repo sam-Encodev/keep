@@ -165,10 +165,7 @@ buildSVG(String assetName) {
 buildText(String data, context, {height = 0.0}) {
   return Text(
     data,
-    style: TextStyle(
-        color: Theme.of(context).colorScheme.primary,
-        fontSize: standardFont,
-        height: height),
+    style: TextStyle(fontSize: standardFont, height: height),
   );
 }
 

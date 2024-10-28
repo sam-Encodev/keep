@@ -39,7 +39,7 @@ class _SignupFormState extends ConsumerState<SignupForm> {
                 horizontal: spacing, vertical: minSpacing),
             child: TextFormField(
               key: const Key(firstName),
-              style: TextStyle(color: Theme.of(context).colorScheme.primary),
+              style: TextStyle(),
               decoration: InputDecoration(
                 fillColor: inputFillColor(context),
                 filled: true,
@@ -48,7 +48,6 @@ class _SignupFormState extends ConsumerState<SignupForm> {
                 prefixIcon: Icon(
                   Icons.account_circle,
                   size: standardIcon,
-                  color: Theme.of(context).colorScheme.primary,
                 ),
                 enabledBorder: inputBorder(context),
                 focusedBorder: focusBorder(context),
@@ -70,7 +69,7 @@ class _SignupFormState extends ConsumerState<SignupForm> {
                 horizontal: spacing, vertical: minSpacing),
             child: TextFormField(
               key: const Key(lastName),
-              style: TextStyle(color: Theme.of(context).colorScheme.primary),
+              style: TextStyle(),
               decoration: InputDecoration(
                 fillColor: inputFillColor(context),
                 filled: true,
@@ -79,7 +78,6 @@ class _SignupFormState extends ConsumerState<SignupForm> {
                 prefixIcon: Icon(
                   Icons.account_circle,
                   size: standardIcon,
-                  color: Theme.of(context).colorScheme.primary,
                 ),
                 enabledBorder: inputBorder(context),
                 focusedBorder: focusBorder(context),
@@ -101,7 +99,7 @@ class _SignupFormState extends ConsumerState<SignupForm> {
                 horizontal: spacing, vertical: minSpacing),
             child: TextFormField(
               key: const Key(email),
-              style: TextStyle(color: Theme.of(context).colorScheme.primary),
+              style: TextStyle(),
               decoration: InputDecoration(
                 fillColor: inputFillColor(context),
                 filled: true,
@@ -110,7 +108,6 @@ class _SignupFormState extends ConsumerState<SignupForm> {
                 prefixIcon: Icon(
                   Icons.email,
                   size: formIcons,
-                  color: Theme.of(context).colorScheme.primary,
                 ),
                 enabledBorder: inputBorder(context),
                 focusedBorder: focusBorder(context),
@@ -136,7 +133,7 @@ class _SignupFormState extends ConsumerState<SignupForm> {
               enableSuggestions: false,
               autocorrect: false,
               obscuringCharacter: "*",
-              style: TextStyle(color: Theme.of(context).colorScheme.primary),
+              style: TextStyle(),
               decoration: InputDecoration(
                   fillColor: inputFillColor(context),
                   filled: true,
@@ -145,7 +142,6 @@ class _SignupFormState extends ConsumerState<SignupForm> {
                   prefixIcon: Icon(
                     Icons.password,
                     size: formIcons,
-                    color: Theme.of(context).colorScheme.primary,
                   ),
                   enabledBorder: inputBorder(context),
                   focusedBorder: focusBorder(context),

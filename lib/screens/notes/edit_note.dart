@@ -45,10 +45,7 @@ class EditNoteForm extends ConsumerState<EditNote> {
       backgroundColor: Theme.of(context).colorScheme.surface,
       appBar: AppBar(
         leading: goBackButton(context),
-        title: Text(editNote,
-            style: TextStyle(
-                color: Theme.of(context).colorScheme.primary,
-                fontSize: standardFont)),
+        title: Text(editNote, style: TextStyle(fontSize: standardFont)),
         actions: [
           IconButton(
             style: iconButtonStyle(context),
@@ -61,8 +58,6 @@ class EditNoteForm extends ConsumerState<EditNote> {
                     title: Center(
                       child: Text(
                         pickColor,
-                        style: TextStyle(
-                            color: Theme.of(context).colorScheme.primary),
                       ),
                     ),
                     content: Column(
@@ -94,7 +89,6 @@ class EditNoteForm extends ConsumerState<EditNote> {
           IconButton(
               style: iconButtonStyle(context),
               icon: const Icon(Icons.save, size: standardIcon),
-              color: Theme.of(context).colorScheme.primary,
               onPressed: () => {
                     if (_titleField != null && _descriptionField != null)
                       {
@@ -105,7 +99,6 @@ class EditNoteForm extends ConsumerState<EditNote> {
                               title: Icon(
                                 Icons.info,
                                 size: maxIcons,
-                                color: Theme.of(context).colorScheme.primary,
                               ),
                               content: Text(
                                 prompt,
@@ -182,9 +175,7 @@ class EditNoteForm extends ConsumerState<EditNote> {
                         initialValue: note.title,
                         onChanged: (val) =>
                             {_titleField = val.isEmpty ? null : val},
-                        style: TextStyle(
-                            color: Theme.of(context).colorScheme.primary,
-                            fontSize: 55),
+                        style: TextStyle(fontSize: 55),
                         decoration: InputDecoration(
                           fillColor: Theme.of(context).colorScheme.surface,
                           filled: false,
@@ -212,9 +203,7 @@ class EditNoteForm extends ConsumerState<EditNote> {
                         maxLines: 10,
                         enableSuggestions: false,
                         autocorrect: false,
-                        style: TextStyle(
-                            color: Theme.of(context).colorScheme.primary,
-                            fontSize: standardFont),
+                        style: TextStyle(fontSize: standardFont),
                         decoration: InputDecoration(
                             fillColor: Theme.of(context).colorScheme.surface,
                             filled: false,

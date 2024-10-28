@@ -19,8 +19,7 @@ class EmptyState extends StatelessWidget {
           if (!hideText)
             Text(
               createNote,
-              style: TextStyle(
-                  color: Theme.of(context).colorScheme.primary, fontSize: standardFont),
+              style: TextStyle(fontSize: standardFont),
             )
         ],
       ),

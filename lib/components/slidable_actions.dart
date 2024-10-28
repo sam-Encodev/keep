@@ -61,14 +61,11 @@ class SlidableActions extends ConsumerWidget {
           onTap: () => context.push(RouteNames.viewNote(notes[index].id)),
           title: Text(
             notes[index].title,
-            style: TextStyle(
-                color: Theme.of(context).colorScheme.primary,
-                fontWeight: FontWeight.bold,
-                fontSize: standardFont),
+            style:
+                TextStyle(fontWeight: FontWeight.bold, fontSize: standardFont),
           ),
           subtitle: Text(
             dateFormatter(notes[index].timestamp),
-            style: TextStyle(color: Theme.of(context).colorScheme.primary),
           ),
         ),
       ),

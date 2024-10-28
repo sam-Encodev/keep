@@ -12,10 +12,7 @@ class About extends StatelessWidget {
       backgroundColor: Theme.of(context).colorScheme.surface,
       appBar: AppBar(
         leading: goBackButton(context),
-        title: Text(about,
-            style: TextStyle(
-                color: Theme.of(context).colorScheme.primary,
-                fontSize: standardFont)),
+        title: Text(about, style: TextStyle(fontSize: standardFont)),
       ),
       body: Container(
           padding: const EdgeInsets.all(standardSpacing),

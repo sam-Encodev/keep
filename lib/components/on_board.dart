@@ -15,10 +15,7 @@ onBoard(context, item) {
       Text(
         title,
         textAlign: TextAlign.center,
-        style: TextStyle(
-            color: Theme.of(context).colorScheme.primary,
-            fontSize: standardFont,
-            fontWeight: FontWeight.w800),
+        style: TextStyle(fontSize: standardFont, fontWeight: FontWeight.w800),
       ),
       SizedBox(height: minHeight),
       Padding(
@@ -27,7 +24,6 @@ onBoard(context, item) {
           body,
           textAlign: TextAlign.center,
           style: TextStyle(
-            color: Theme.of(context).colorScheme.primary,
             fontSize: minFont,
           ),
         ),

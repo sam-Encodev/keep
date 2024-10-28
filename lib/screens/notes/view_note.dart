@@ -21,15 +21,11 @@ class ViewNote extends ConsumerWidget {
       backgroundColor: Theme.of(context).colorScheme.surface,
       appBar: AppBar(
         leading: goBackButton(context),
-        title: Text(viewNote,
-            style: TextStyle(
-                color: Theme.of(context).colorScheme.primary,
-                fontSize: standardFont)),
+        title: Text(viewNote, style: TextStyle(fontSize: standardFont)),
         actions: [
           IconButton(
             style: iconButtonStyle(context),
             icon: const Icon(Icons.edit, size: standardIcon),
-            color: Theme.of(context).colorScheme.primary,
             onPressed: () => {context.push(RouteNames.editNote(note.id))},
           ),
         ],
@@ -50,13 +46,10 @@ class ViewNote extends ConsumerWidget {
                   const SizedBox(height: 30),
                   Text(note.title,
                       style: TextStyle(
-                        color: Theme.of(context).colorScheme.primary,
                         fontSize: maxFont,
                       )),
                   Text(note.description,
-                      style: TextStyle(
-                          color: Theme.of(context).colorScheme.primary,
-                          fontSize: standardFont)),
+                      style: TextStyle(fontSize: standardFont)),
                 ],
               ),
             )
