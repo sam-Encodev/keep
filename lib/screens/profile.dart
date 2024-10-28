@@ -63,8 +63,7 @@ class _Profile extends ConsumerState<Profile> {
                       style: TextStyle(
                           color: Theme.of(context).colorScheme.primary),
                       decoration: InputDecoration(
-                          fillColor:
-                              inputFillColor(context),
+                          fillColor: inputFillColor(context),
                           filled: true,
                           enabledBorder: inputBorder(context),
                           focusedBorder: focusBorder(context),
@@ -105,8 +104,7 @@ class _Profile extends ConsumerState<Profile> {
                       style: TextStyle(
                           color: Theme.of(context).colorScheme.primary),
                       decoration: InputDecoration(
-                        fillColor:
-                            inputFillColor(context),
+                        fillColor: inputFillColor(context),
                         filled: true,
                         enabledBorder: inputBorder(context),
                         focusedBorder: focusBorder(context),
@@ -141,8 +139,7 @@ class _Profile extends ConsumerState<Profile> {
                       style: TextStyle(
                           color: Theme.of(context).colorScheme.primary),
                       decoration: InputDecoration(
-                          fillColor:
-                              inputFillColor(context),
+                          fillColor: inputFillColor(context),
                           filled: true,
                           enabledBorder: inputBorder(context),
                           focusedBorder: focusBorder(context),
@@ -173,8 +170,7 @@ class _Profile extends ConsumerState<Profile> {
                       style: TextStyle(
                           color: Theme.of(context).colorScheme.primary),
                       decoration: InputDecoration(
-                          fillColor:
-                              inputFillColor(context),
+                          fillColor: inputFillColor(context),
                           filled: true,
                           enabledBorder: inputBorder(context),
                           focusedBorder: focusBorder(context),
@@ -217,9 +213,7 @@ class _Profile extends ConsumerState<Profile> {
                           }
                         },
                         child: Text(updateProfile,
-                            style: TextStyle(
-                                color: Theme.of(context).colorScheme.onPrimary,
-                                fontSize: standardFont))),
+                            style: TextStyle(fontSize: standardFont))),
                   ),
                 ]),
           ),

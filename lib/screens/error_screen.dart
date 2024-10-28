@@ -27,10 +27,8 @@ class ErrorScreen extends StatelessWidget {
               FilledButton(
                   onPressed: () => context.go(RouteNames.home),
                   style: buttonStyle(context),
-                  child: Text(goBack,
-                      style: TextStyle(
-                          color: Theme.of(context).colorScheme.primary,
-                          fontSize: standardFont))),
+                  child:
+                      Text(goBack, style: TextStyle(fontSize: standardFont))),
             ],
           ),
         ),

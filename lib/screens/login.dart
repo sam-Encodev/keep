@@ -48,8 +48,6 @@ class _LoginState extends State<Login> {
                     onPressed: () => {context.go(RouteNames.signup)},
                     child: Text(
                       signUp,
-                      style: TextStyle(
-                          color: Theme.of(context).colorScheme.outline),
                     ))
               ],
             ),

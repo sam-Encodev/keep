@@ -16,9 +16,8 @@ class _SignupState extends State<Signup> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: Theme.of(context).colorScheme.surface,
-      appBar: AppBar(
-      ),
+      backgroundColor: Theme.of(context).colorScheme.surface,
+      appBar: AppBar(),
       body: Container(
         padding: const EdgeInsets.all(standardSpacing),
         width: double.infinity,
@@ -28,7 +27,7 @@ class _SignupState extends State<Signup> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-             Text(
+            Text(
               getStarted,
               textAlign: TextAlign.left,
               style: TextStyle(
@@ -40,15 +39,15 @@ class _SignupState extends State<Signup> {
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                 Text(
+                Text(
                   haveAnAccount,
-                  style: TextStyle(color: Theme.of(context).colorScheme.primary),
+                  style:
+                      TextStyle(color: Theme.of(context).colorScheme.primary),
                 ),
                 TextButton(
                     onPressed: () => context.go(RouteNames.login),
                     child: Text(
                       login,
-                      style: TextStyle(color: Theme.of(context).colorScheme.outline),
                     ))
               ],
             ),
