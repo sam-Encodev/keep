@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:keep/constants/colors.dart';
+import 'package:keep/constants/color_scheme.dart';
 import 'package:keep/providers/theme_provider.dart';
 import 'package:keep/providers/router_provider.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -14,12 +14,8 @@ class Keep extends ConsumerWidget {
     final themed = ref.watch(themeStateProvider);
 
     return MaterialApp.router(
-      theme: ThemeData(
-        colorScheme: lightColorScheme,
-      ),
-      darkTheme: ThemeData(
-        colorScheme: darkColorScheme,
-      ),
+      theme: AppTheme.light,
+      darkTheme: AppTheme.dark,
       themeMode: themed.theme,
       title: notes,
       routerConfig: router,
