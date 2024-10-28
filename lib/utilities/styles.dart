@@ -46,7 +46,7 @@ iconButtonStyle(context) {
 maxIconButtonStyle(context) {
   return ButtonStyle(
       backgroundColor:
-          WidgetStateProperty.all(Theme.of(context).colorScheme.tertiary),
+          WidgetStateProperty.all(Theme.of(context).colorScheme.primary),
       shape: WidgetStateProperty.all(
         RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(maxButtonRadius),
@@ -58,7 +58,7 @@ buttonStyle(context, {size = "medium"}) {
   var type = size == "medium" ? 50.0 : 40.0;
   return ButtonStyle(
     backgroundColor:
-        WidgetStateProperty.all(Theme.of(context).colorScheme.tertiary),
+        WidgetStateProperty.all(Theme.of(context).colorScheme.primary),
     minimumSize: WidgetStateProperty.all(Size(double.infinity, type)),
     shape: WidgetStateProperty.all(
       RoundedRectangleBorder(
@@ -71,7 +71,7 @@ buttonStyle(context, {size = "medium"}) {
 textButtonStyle(context) {
   return ButtonStyle(
     backgroundColor:
-        WidgetStateProperty.all(Theme.of(context).colorScheme.tertiary),
+        WidgetStateProperty.all(Theme.of(context).colorScheme.primary),
     minimumSize:
         WidgetStateProperty.all(Size(maxButtonWidth, double.minPositive)),
     shape: WidgetStateProperty.all(
@@ -86,14 +86,14 @@ inputBorder(context) {
   //return type is OutlineInputBorder
   return OutlineInputBorder(
     borderRadius: BorderRadius.circular(inputRadius),
-    borderSide: BorderSide(color: Theme.of(context).colorScheme.outline),
+    borderSide: BorderSide(color: Theme.of(context).colorScheme.outlineVariant),
   );
 }
 
 focusBorder(context) {
   return OutlineInputBorder(
     borderRadius: BorderRadius.circular(inputRadius),
-    borderSide: BorderSide(color: Theme.of(context).colorScheme.outlineVariant),
+    borderSide: BorderSide(color: Theme.of(context).colorScheme.outline),
   );
 }
 
@@ -114,7 +114,7 @@ errorStyle(context) {
 
 dotsStyle(context) {
   return DotsDecorator(
-    color: Theme.of(context).colorScheme.outlineVariant,
+    color: Theme.of(context).colorScheme.outline,
     size: const Size(standardSpacing, minSpacing),
     shape: RoundedRectangleBorder(
       borderRadius: BorderRadius.circular(inputRadius),
@@ -173,5 +173,9 @@ buildText(String data, context, {height = 0.0}) {
 }
 
 hintStyle(context) {
-  return TextStyle(color: Theme.of(context).colorScheme.primaryFixed);
+  return TextStyle(color: Theme.of(context).colorScheme.outline);
+}
+
+inputFillColor(context) {
+  return Theme.of(context).colorScheme.onPrimary;
 }

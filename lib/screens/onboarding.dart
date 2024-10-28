@@ -66,7 +66,7 @@ class _OnboardState extends ConsumerState<Onboarding>
                 child: Text(
                   skip,
                   style: TextStyle(
-                      color: Theme.of(context).colorScheme.tertiary,
+                      color: Theme.of(context).colorScheme.outline,
                       fontSize: standardFont),
                 )),
           ),

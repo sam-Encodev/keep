@@ -95,7 +95,7 @@ class AddNoteForm extends ConsumerState<AddNote> {
                               title: Icon(
                                 Icons.info,
                                 size: maxIcons,
-                                color: Theme.of(context).colorScheme.tertiary,
+                                color: Theme.of(context).colorScheme.primary,
                               ),
                               content: Text(
                                 prompt,
@@ -115,7 +115,7 @@ class AddNoteForm extends ConsumerState<AddNote> {
                                         style: TextStyle(
                                             color: Theme.of(context)
                                                 .colorScheme
-                                                .tertiary,
+                                                .primary,
                                             fontSize: standardFont))),
                                 TextButton(
                                     style: textButtonStyle(

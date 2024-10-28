@@ -18,3 +18,17 @@ switchIcon(context, message) {
           size: standardIcon, color: Theme.of(context).colorScheme.error);
   }
 }
+
+switchBG(context, message) {
+  switch (message) {
+    case "Note deleted":
+    case "Update successful":
+      return Color.fromARGB(255, 209, 255, 171);
+
+    case addErrorEntry:
+    case "Login failed":
+    case "Email already exists":
+    case "Update failed":
+      return Color(0xFF93000A);
+  }
+}

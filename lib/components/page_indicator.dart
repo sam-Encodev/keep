@@ -44,7 +44,7 @@ class PageIndicator extends ConsumerWidget {
                   icon: Icon(
                     Icons.arrow_left,
                     size: maxIcons,
-                    color: Theme.of(context).colorScheme.primaryFixed,
+                    color: Theme.of(context).colorScheme.onPrimary,
                   ),
                 ),
               const SizedBox(width: standardSpacing),
@@ -60,7 +60,7 @@ class PageIndicator extends ConsumerWidget {
                 icon: Icon(
                   Icons.arrow_right,
                   size: maxIcons,
-                  color: Theme.of(context).colorScheme.primaryFixed,
+                  color: Theme.of(context).colorScheme.onPrimary,
                 ),
               ),
             ],

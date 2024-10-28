@@ -41,7 +41,7 @@ class _SignupFormState extends ConsumerState<SignupForm> {
               key: const Key(firstName),
               style: TextStyle(color: Theme.of(context).colorScheme.primary),
               decoration: InputDecoration(
-                fillColor: Theme.of(context).colorScheme.surfaceContainer,
+                fillColor: inputFillColor(context),
                 filled: true,
                 hintText: firstName,
                 hintStyle: hintStyle(context),
@@ -72,7 +72,7 @@ class _SignupFormState extends ConsumerState<SignupForm> {
               key: const Key(lastName),
               style: TextStyle(color: Theme.of(context).colorScheme.primary),
               decoration: InputDecoration(
-                fillColor: Theme.of(context).colorScheme.surfaceContainer,
+                fillColor: inputFillColor(context),
                 filled: true,
                 hintText: lastName,
                 hintStyle: hintStyle(context),
@@ -103,7 +103,7 @@ class _SignupFormState extends ConsumerState<SignupForm> {
               key: const Key(email),
               style: TextStyle(color: Theme.of(context).colorScheme.primary),
               decoration: InputDecoration(
-                fillColor: Theme.of(context).colorScheme.surfaceContainer,
+                fillColor: inputFillColor(context),
                 filled: true,
                 hintText: email,
                 hintStyle: hintStyle(context),
@@ -138,7 +138,7 @@ class _SignupFormState extends ConsumerState<SignupForm> {
               obscuringCharacter: "*",
               style: TextStyle(color: Theme.of(context).colorScheme.primary),
               decoration: InputDecoration(
-                  fillColor: Theme.of(context).colorScheme.surfaceContainer,
+                  fillColor: inputFillColor(context),
                   filled: true,
                   hintText: password,
                   hintStyle: TextStyle(color: Colors.grey[500]),

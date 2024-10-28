@@ -49,7 +49,7 @@ class _LoginState extends State<Login> {
                     child: Text(
                       signUp,
                       style: TextStyle(
-                          color: Theme.of(context).colorScheme.tertiary),
+                          color: Theme.of(context).colorScheme.outline),
                     ))
               ],
             ),

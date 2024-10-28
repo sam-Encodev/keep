@@ -64,7 +64,7 @@ class _Profile extends ConsumerState<Profile> {
                           color: Theme.of(context).colorScheme.primary),
                       decoration: InputDecoration(
                           fillColor:
-                              Theme.of(context).colorScheme.surfaceContainer,
+                              inputFillColor(context),
                           filled: true,
                           enabledBorder: inputBorder(context),
                           focusedBorder: focusBorder(context),
@@ -106,7 +106,7 @@ class _Profile extends ConsumerState<Profile> {
                           color: Theme.of(context).colorScheme.primary),
                       decoration: InputDecoration(
                         fillColor:
-                            Theme.of(context).colorScheme.surfaceContainer,
+                            inputFillColor(context),
                         filled: true,
                         enabledBorder: inputBorder(context),
                         focusedBorder: focusBorder(context),
@@ -142,7 +142,7 @@ class _Profile extends ConsumerState<Profile> {
                           color: Theme.of(context).colorScheme.primary),
                       decoration: InputDecoration(
                           fillColor:
-                              Theme.of(context).colorScheme.surfaceContainer,
+                              inputFillColor(context),
                           filled: true,
                           enabledBorder: inputBorder(context),
                           focusedBorder: focusBorder(context),
@@ -174,7 +174,7 @@ class _Profile extends ConsumerState<Profile> {
                           color: Theme.of(context).colorScheme.primary),
                       decoration: InputDecoration(
                           fillColor:
-                              Theme.of(context).colorScheme.surfaceContainer,
+                              inputFillColor(context),
                           filled: true,
                           enabledBorder: inputBorder(context),
                           focusedBorder: focusBorder(context),

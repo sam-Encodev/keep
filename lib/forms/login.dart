@@ -33,7 +33,7 @@ class _LoginFormState extends ConsumerState<LoginForm> {
               key: const Key(email),
               style: TextStyle(color: Theme.of(context).colorScheme.primary),
               decoration: InputDecoration(
-                fillColor: Theme.of(context).colorScheme.surfaceContainer,
+                fillColor: inputFillColor(context),
                 filled: true,
                 hintText: email,
                 hintStyle:
@@ -70,7 +70,7 @@ class _LoginFormState extends ConsumerState<LoginForm> {
               obscuringCharacter: "*",
               style: TextStyle(color: Theme.of(context).colorScheme.primary),
               decoration: InputDecoration(
-                  fillColor: Theme.of(context).colorScheme.surfaceContainer,
+                  fillColor: inputFillColor(context),
                   filled: true,
                   hintText: password,
                   hintStyle: hintStyle(context),
