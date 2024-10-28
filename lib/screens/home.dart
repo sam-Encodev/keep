@@ -28,7 +28,7 @@ class Home extends ConsumerWidget {
             style: iconButtonStyle(context),
             icon: Icon(Icons.search, size: standardIcon),
             color: Theme.of(context).colorScheme.secondary,
-            onPressed: () => context.push('/notes/search'),
+            onPressed: () => context.push(RouteNames.searchNote),
           ),
           CustomPopup(
             backgroundColor: Theme.of(context).colorScheme.surface,

@@ -9,6 +9,7 @@ class RouteNames {
   static const view = ":noteId";
   static const edit = "edit/:noteId";
 
+  static const searchNote = "/notes/$search";
   static viewNote(noteId) => "/notes/$noteId";
   static profile(userId) => "/profile/$userId";
   static editNote(noteId) => "/notes/edit/$noteId";
