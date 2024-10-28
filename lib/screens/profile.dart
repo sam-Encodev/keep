@@ -218,7 +218,7 @@ class _Profile extends ConsumerState<Profile> {
                         },
                         child: Text(updateProfile,
                             style: TextStyle(
-                                color: Theme.of(context).colorScheme.onTertiary,
+                                color: Theme.of(context).colorScheme.onPrimary,
                                 fontSize: standardFont))),
                   ),
                 ]),

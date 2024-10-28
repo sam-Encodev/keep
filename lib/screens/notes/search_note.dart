@@ -39,7 +39,7 @@ class _SearchNote extends ConsumerState<SearchNote> {
               fillColor: Theme.of(context).colorScheme.surfaceContainer,
               filled: true,
               hintText: placeholder,
-              hintStyle: hintStyle(),
+              hintStyle: hintStyle(context),
               prefixIcon: goBackButton(context),
               suffixIcon: IconButton(
                   icon: Icon(

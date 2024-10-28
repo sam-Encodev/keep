@@ -8,13 +8,13 @@ switchIcon(context, message) {
     case "Update successful":
       return Icon(Icons.check_circle_outline_outlined,
           size: standardIcon,
-          color: Theme.of(context).colorScheme.onPrimaryFixed);
+          color: Colors.green);
 
     case addErrorEntry:
     case "Login failed":
     case "Email already exists":
     case "Update failed":
       return Icon(Icons.error_outline_outlined,
-          size: standardIcon, color: Theme.of(context).colorScheme.tertiary);
+          size: standardIcon, color: Theme.of(context).colorScheme.error);
   }
 }

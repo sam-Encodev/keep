@@ -172,6 +172,6 @@ buildText(String data, context, {height = 0.0}) {
   );
 }
 
-hintStyle() {
-  return TextStyle(color: Colors.grey[500]);
+hintStyle(context) {
+  return TextStyle(color: Theme.of(context).colorScheme.primaryFixed);
 }

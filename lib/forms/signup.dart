@@ -44,7 +44,7 @@ class _SignupFormState extends ConsumerState<SignupForm> {
                 fillColor: Theme.of(context).colorScheme.surfaceContainer,
                 filled: true,
                 hintText: firstName,
-                hintStyle: hintStyle(),
+                hintStyle: hintStyle(context),
                 prefixIcon: Icon(
                   Icons.account_circle,
                   size: standardIcon,
@@ -75,7 +75,7 @@ class _SignupFormState extends ConsumerState<SignupForm> {
                 fillColor: Theme.of(context).colorScheme.surfaceContainer,
                 filled: true,
                 hintText: lastName,
-                hintStyle: hintStyle(),
+                hintStyle: hintStyle(context),
                 prefixIcon: Icon(
                   Icons.account_circle,
                   size: standardIcon,
@@ -106,7 +106,7 @@ class _SignupFormState extends ConsumerState<SignupForm> {
                 fillColor: Theme.of(context).colorScheme.surfaceContainer,
                 filled: true,
                 hintText: email,
-                hintStyle: hintStyle(),
+                hintStyle: hintStyle(context),
                 prefixIcon: Icon(
                   Icons.email,
                   size: formIcons,
@@ -190,7 +190,7 @@ class _SignupFormState extends ConsumerState<SignupForm> {
                 },
                 child: Text(signUp,
                     style: TextStyle(
-                        color: Theme.of(context).colorScheme.primaryFixed,
+                        color: Theme.of(context).colorScheme.onPrimary,
                         fontSize: standardFont))),
           ),
         ],
