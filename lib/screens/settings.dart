@@ -5,13 +5,16 @@ import 'package:keep/components/back_button.dart';
 import 'package:keep/providers/theme_provider.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+
 class Settings extends ConsumerWidget {
-  const Settings({
+    const Settings({
     super.key,
+
   });
 
+
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
+  Widget build(BuildContext context,  WidgetRef ref) {
     var theme = ref.watch(themeStateProvider);
 
     return Scaffold(
@@ -29,7 +32,7 @@ class Settings extends ConsumerWidget {
           ),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
-            crossAxisAlignment: CrossAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
               Text(
                 themeManager,
