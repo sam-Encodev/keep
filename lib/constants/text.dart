@@ -76,3 +76,10 @@ const editNote = "Edit Note";
 
 // View
 const viewNote = "View";
+
+// Settings
+const settings = "Settings";
+const themeManager = "Theme Manager";
+const system = "System";
+const light = "Light";
+const dark = "Dark";

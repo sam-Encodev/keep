@@ -3,6 +3,7 @@ import 'package:keep/screens/home.dart';
 import 'package:keep/screens/about.dart';
 import 'package:keep/screens/login.dart';
 import 'package:go_router/go_router.dart';
+import 'package:keep/screens/settings.dart';
 import 'package:keep/screens/signup.dart';
 import 'package:keep/screens/profile.dart';
 import 'package:keep/screens/onboarding.dart';
@@ -59,6 +60,11 @@ final goRouterProvider = Provider<GoRouter>((ref) {
         name: 'profile',
         path: RouteNames.profile(":userId"),
         builder: (context, state) => const Profile(),
+      ),
+      GoRoute(
+        name: 'settings',
+        path: RouteNames.settings,
+        builder: (context, state) => const Settings(),
       ),
       GoRoute(
         name: 'onboard',

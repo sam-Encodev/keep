@@ -5,7 +5,6 @@ import 'package:keep/utilities/styles.dart';
 import 'package:keep/routes/route_names.dart';
 import 'package:flutter_popup/flutter_popup.dart';
 import 'package:keep/providers/auth_provider.dart';
-import 'package:keep/providers/theme_provider.dart';
 import 'package:keep/screens/notes/list_notes.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -14,7 +13,6 @@ class Home extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    var themed = ref.watch(themeStateProvider);
     var currentUser = ref.watch(authNotifierProvider);
 
     return Scaffold(
@@ -27,44 +25,6 @@ class Home extends ConsumerWidget {
             style: iconButtonStyle(context),
             icon: Icon(Icons.search, size: standardIcon),
             onPressed: () => context.push(RouteNames.searchNote),
-          ),
-          CustomPopup(
-            backgroundColor: Theme.of(context).colorScheme.surface,
-            showArrow: false,
-            content: Column(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                if (themed.isDark != false)
-                  IconButton(
-                    icon: const Icon(
-                      Icons.wb_sunny,
-                      size: standardIcon,
-                    ),
-                    onPressed: () => {
-                      Navigator.of(context).pop(),
-                      ref.read(themeStateProvider.notifier).setLight()
-                    },
-                  ),
-                if (themed.isDark != true)
-                  IconButton(
-                    icon: const Icon(
-                      Icons.brightness_2,
-                      size: standardIcon,
-                    ),
-                    onPressed: () => {
-                      Navigator.of(context).pop(),
-                      ref.read(themeStateProvider.notifier).setDark()
-                    },
-                  ),
-              ],
-            ),
-            child: Container(
-              padding: EdgeInsets.only(left: 5, right: standardSpacing),
-              child: Icon(
-                Icons.settings,
-                size: standardIcon,
-              ),
-            ),
           ),
           CustomPopup(
             backgroundColor: Theme.of(context).colorScheme.surface,
@@ -90,6 +50,16 @@ class Home extends ConsumerWidget {
                   onPressed: () => {
                     Navigator.of(context).pop(),
                     context.push(RouteNames.profile(currentUser.id))
+                  },
+                ),
+                IconButton(
+                  icon: const Icon(
+                    Icons.settings,
+                    size: standardIcon,
+                  ),
+                  onPressed: () => {
+                    Navigator.of(context).pop(),
+                    context.push(RouteNames.settings)
                   },
                 ),
                 IconButton(
@@ -122,7 +92,7 @@ class Home extends ConsumerWidget {
           ),
           child: ListNotes()),
       floatingActionButton: FloatingActionButton(
-        onPressed: () => context.push('/notes/new'),
+        onPressed: () => context.push(RouteNames.newNote),
         backgroundColor: Theme.of(context).colorScheme.secondaryContainer,
         child: Icon(
           Icons.add,
