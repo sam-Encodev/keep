@@ -61,14 +61,15 @@ class _OnboardState extends ConsumerState<Onboarding>
           title: Align(
             alignment: Alignment.centerRight,
             child: TextButton(
-                onPressed: () =>
-                    {ref.read(appStateProvider.notifier).completeOnboarding()},
-                child: Text(
-                  skip,
-                  style: TextStyle(
-                      color: Theme.of(context).colorScheme.outline,
-                      fontSize: standardFont),
-                )),
+              child: Text(
+                skip,
+                style: TextStyle(
+                    color: Theme.of(context).colorScheme.outline,
+                    fontSize: standardFont),
+              ),
+              onPressed: () =>
+                  {ref.read(appStateProvider.notifier).skipOnboard()},
+            ),
           ),
         ),
         body: Column(
