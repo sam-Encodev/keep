@@ -14,14 +14,14 @@ class ListNotes extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     var getNotes = ref.watch(noteNotifierProvider);
-    var notes = getNotes.reversed.toList();
+    var notes = getNotes.toList();
 
     return getNotes.isEmpty
         ? const EmptyState(uri: "service_book.svg")
         : ListView.separated(
-            itemCount: getNotes.length.toInt(),
+            itemCount: notes.length.toInt(),
             itemBuilder: (BuildContext context, int index) {
-              return SlidableActions(index: index, notes: notes);
+              return SlidableActions(note: notes[index]);
             },
             separatorBuilder: (BuildContext context, int index) => Divider(
               height: spacing,

@@ -72,7 +72,7 @@ class _SearchNote extends ConsumerState<SearchNote> {
             : ListView.separated(
                 itemCount: getNotes.length.toInt(),
                 itemBuilder: (BuildContext context, int index) {
-                  return SlidableActions(index: index, notes: notes);
+                  return SlidableActions(note: notes[index]);
                 },
                 separatorBuilder: (BuildContext context, int index) => Divider(
                   height: spacing,

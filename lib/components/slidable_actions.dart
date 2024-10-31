@@ -10,15 +10,14 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 
 class SlidableActions extends ConsumerWidget {
-  final dynamic index;
-  final dynamic notes;
+  final dynamic note;
 
-  const SlidableActions({super.key, this.index, this.notes});
+  const SlidableActions({super.key, this.note});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     return Slidable(
-      key: ValueKey(notes[index].id),
+      key: ValueKey(note.id),
       endActionPane: ActionPane(
         motion: const ScrollMotion(),
         children: [
@@ -32,7 +31,7 @@ class SlidableActions extends ConsumerWidget {
             padding: const EdgeInsets.symmetric(horizontal: standardSpacing),
             onPressed: (_) => {
               context.push(
-                RouteNames.editNote(notes[index].id),
+                RouteNames.editNote(note.id),
               )
             },
           ),
@@ -45,9 +44,7 @@ class SlidableActions extends ConsumerWidget {
             borderRadius: BorderRadius.circular(iconButtonRadius),
             padding: const EdgeInsets.symmetric(horizontal: standardSpacing),
             onPressed: (_) => {
-              ref
-                  .read(noteNotifierProvider.notifier)
-                  .removeNote(notes[index].id),
+              ref.read(noteNotifierProvider.notifier).removeNote(note.id),
               snackBar(context, message: "Note deleted")
             },
           ),
@@ -55,17 +52,17 @@ class SlidableActions extends ConsumerWidget {
       ),
       child: Container(
         decoration: BoxDecoration(
-            color: SwitchColor.switchColor(notes[index].color),
+            color: SwitchColor.switchColor(note.color),
             borderRadius: BorderRadius.circular(iconButtonRadius)),
         child: ListTile(
-          onTap: () => context.push(RouteNames.viewNote(notes[index].id)),
+          onTap: () => context.push(RouteNames.viewNote(note.id)),
           title: Text(
-            notes[index].title,
+            note.title,
             style:
                 TextStyle(fontWeight: FontWeight.bold, fontSize: standardFont),
           ),
           subtitle: Text(
-            dateFormatter(notes[index].timestamp),
+            dateFormatter(note.timestamp),
           ),
         ),
       ),
