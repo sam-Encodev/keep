@@ -5,12 +5,6 @@ import 'package:riverpod_annotation/riverpod_annotation.dart';
 class NoteNotifier extends Notifier<List<Note>> {
   @override
   List<Note> build() => [
-     Note(
-            id: 0,
-            title: "Game",
-            description: "I lied",
-            timestamp: "2024-03-02T15:18:29.922343",
-            color: "red"),
         Note(
             id: 1,
             title: "Sleep",
@@ -83,7 +77,18 @@ class NoteNotifier extends Notifier<List<Note>> {
                 .subtractDuration(const Duration(days: 10, hours: 6))
                 .format(),
             color: "yellow"),
+        Note(
+            id: 11,
+            title: "Game",
+            description: "I lied",
+            timestamp: "2024-03-02T15:18:29.922343",
+            color: "red"),
       ];
+
+  Note findNote(noteID) {
+    var note = state.firstWhere((test) => test.id == noteID);
+    return note;
+  }
 
   void addNote(Note note) {
     if (!state.contains(note)) {

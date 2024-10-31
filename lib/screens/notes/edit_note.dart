@@ -31,9 +31,10 @@ class EditNoteForm extends ConsumerState<EditNote> {
   @override
   Widget build(BuildContext context) {
     final extraString = GoRouterState.of(context).pathParameters['noteId'];
-    var getNotes = ref.watch(noteNotifierProvider);
-    var transformNotes = getNotes.toList();
-    var note = transformNotes[int.parse(extraString!)];
+
+    var note = ref
+        .watch(noteNotifierProvider.notifier)
+        .findNote(int.parse(extraString!));
 
     setState(() {
       _oldColor = note.color;

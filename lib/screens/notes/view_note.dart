@@ -13,9 +13,10 @@ class ViewNote extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final extraString = GoRouterState.of(context).pathParameters['noteId'];
-    var getNotes = ref.watch(noteNotifierProvider);
-    var transformNotes = getNotes.toList();
-    var note = transformNotes[int.parse(extraString!)];
+
+    var note = ref
+        .watch(noteNotifierProvider.notifier)
+        .findNote(int.parse(extraString!));
 
     return Scaffold(
       backgroundColor: Theme.of(context).colorScheme.surface,
