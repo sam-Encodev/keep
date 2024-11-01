@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:keep/constants/text.dart';
 import 'package:keep/utilities/styles.dart';
+import 'package:keep/components/go_back.dart';
 import 'package:keep/routes/route_names.dart';
-import 'package:keep/components/back_button.dart';
 import 'package:keep/providers/notes_provider.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -21,7 +21,7 @@ class ViewNote extends ConsumerWidget {
     return Scaffold(
       backgroundColor: Theme.of(context).colorScheme.surface,
       appBar: AppBar(
-        leading: goBackButton(context),
+        leading: GoBack(),
         title: Text(viewNote, style: TextStyle(fontSize: standardFont)),
         actions: [
           IconButton(

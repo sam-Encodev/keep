@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:keep/constants/text.dart';
 import 'package:keep/utilities/styles.dart';
-import 'package:keep/components/back_button.dart';
+import 'package:keep/components/go_back.dart';
 
 class About extends StatelessWidget {
   const About({super.key});
@@ -11,7 +11,7 @@ class About extends StatelessWidget {
     return Scaffold(
       backgroundColor: Theme.of(context).colorScheme.surface,
       appBar: AppBar(
-        leading: goBackButton(context),
+        leading: GoBack(),
         title: Text(about, style: TextStyle(fontSize: standardFont)),
       ),
       body: Container(

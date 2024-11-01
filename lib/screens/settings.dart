@@ -1,27 +1,24 @@
 import 'package:flutter/material.dart';
 import 'package:keep/constants/text.dart';
 import 'package:keep/utilities/styles.dart';
-import 'package:keep/components/back_button.dart';
+import 'package:keep/components/go_back.dart';
 import 'package:keep/providers/theme_provider.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-
 class Settings extends ConsumerWidget {
-    const Settings({
+  const Settings({
     super.key,
-
   });
 
-
   @override
-  Widget build(BuildContext context,  WidgetRef ref) {
+  Widget build(BuildContext context, WidgetRef ref) {
     var theme = ref.watch(themeStateProvider);
 
     return Scaffold(
         backgroundColor: Theme.of(context).colorScheme.surface,
         appBar: AppBar(
           automaticallyImplyLeading: false,
-          leading: goBackButton(context),
+          leading: GoBack(),
           title: Text(settings, style: TextStyle(fontSize: standardFont)),
         ),
         body: Container(

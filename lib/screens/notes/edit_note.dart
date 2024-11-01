@@ -3,9 +3,9 @@ import 'package:keep/models/note.dart';
 import 'package:keep/constants/text.dart';
 import 'package:go_router/go_router.dart';
 import 'package:keep/utilities/styles.dart';
+import 'package:keep/components/go_back.dart';
 import 'package:keep/components/snack_bar.dart';
 import 'package:keep/components/color_clip.dart';
-import 'package:keep/components/back_button.dart';
 import 'package:keep/utilities/switch_color.dart';
 import 'package:keep/providers/notes_provider.dart';
 import 'package:keep/providers/router_provider.dart';
@@ -45,7 +45,7 @@ class EditNoteForm extends ConsumerState<EditNote> {
     return Scaffold(
       backgroundColor: Theme.of(context).colorScheme.surface,
       appBar: AppBar(
-        leading: goBackButton(context),
+        leading: GoBack(),
         title: Text(editNote, style: TextStyle(fontSize: standardFont)),
         actions: [
           IconButton(

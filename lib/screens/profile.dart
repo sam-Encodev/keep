@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:keep/models/user.dart';
 import 'package:keep/constants/text.dart';
 import 'package:keep/utilities/styles.dart';
+import 'package:keep/components/go_back.dart';
 import 'package:keep/components/snack_bar.dart';
-import 'package:keep/components/back_button.dart';
 import 'package:keep/providers/auth_provider.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -33,7 +33,7 @@ class _Profile extends ConsumerState<Profile> {
         backgroundColor: Theme.of(context).colorScheme.surface,
         appBar: AppBar(
           automaticallyImplyLeading: false,
-          leading: goBackButton(context),
+          leading: GoBack(),
           title: Text(profile, style: TextStyle(fontSize: standardFont)),
         ),
         body: Container(

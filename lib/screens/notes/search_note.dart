@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:keep/constants/text.dart';
 import 'package:keep/utilities/styles.dart';
+import 'package:keep/components/go_back.dart';
 import 'package:keep/components/empty_state.dart';
-import 'package:keep/components/back_button.dart';
 import 'package:keep/providers/search_provider.dart';
 import 'package:keep/components/slidable_actions.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -39,7 +39,7 @@ class _SearchNote extends ConsumerState<SearchNote> {
               filled: true,
               hintText: placeholder,
               hintStyle: hintStyle(context),
-              prefixIcon: goBackButton(context),
+              prefixIcon: GoBack(),
               suffixIcon: IconButton(
                   icon: Icon(
                     Icons.close,
