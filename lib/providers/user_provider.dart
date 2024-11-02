@@ -89,7 +89,6 @@ class UserNotifier extends Notifier<List<User>> {
           createdAt: oldUser.first.createdAt);
 
       ref.read(authNotifierProvider.notifier).setUser(update);
-      ref.read(appStateProvider.notifier).homeState();
       return true;
     }
 
