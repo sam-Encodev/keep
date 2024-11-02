@@ -184,6 +184,7 @@ class _Profile extends ConsumerState<Profile> {
 
                             if (res == true) {
                               snackBar(context, message: "Update successful");
+                              _formKey.currentState?.reset();
                             } else {
                               snackBar(context, message: "Update failed");
                             }
