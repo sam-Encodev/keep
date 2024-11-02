@@ -111,7 +111,9 @@ class EditNoteForm extends ConsumerState<EditNote> {
                               ),
                               actionsAlignment: MainAxisAlignment.center,
                               actions: <Widget>[
-                                TextButton(
+                                OutlinedButton(
+                                     style: textButtonStyle(context,
+                                        type: "secondary"),
                                     onPressed: () {
                                       Navigator.of(context).pop();
                                     },

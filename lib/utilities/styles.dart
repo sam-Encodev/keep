@@ -27,7 +27,7 @@ const minButton = 20.0;
 const maxButton = 40.0;
 
 const buttonWidth = 50.0;
-const maxButtonWidth = 100.0;
+const maxButtonWidth = 120.0;
 
 const maxHeight = 50.0;
 const minHeight = 20.0;
@@ -66,12 +66,12 @@ buttonStyle(context, {size = "medium"}) {
   );
 }
 
-textButtonStyle(context) {
+textButtonStyle(context, {type = "primary"}) {
   return ButtonStyle(
-    backgroundColor:
-        WidgetStateProperty.all(Theme.of(context).colorScheme.primary),
-    minimumSize:
-        WidgetStateProperty.all(Size(maxButtonWidth, double.minPositive)),
+    backgroundColor: type == "primary"
+        ? WidgetStateProperty.all(Theme.of(context).colorScheme.primary)
+        : null,
+    minimumSize: WidgetStateProperty.all(Size(maxButtonWidth, maxHeight)),
     shape: WidgetStateProperty.all(
       RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(buttonRadius),

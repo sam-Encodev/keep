@@ -100,7 +100,9 @@ class AddNoteForm extends ConsumerState<AddNote> {
                               ),
                               actionsAlignment: MainAxisAlignment.center,
                               actions: <Widget>[
-                                TextButton(
+                                OutlinedButton(
+                                    style: textButtonStyle(context,
+                                        type: "secondary"),
                                     onPressed: () {
                                       Navigator.of(context).pop();
                                     },
@@ -111,9 +113,7 @@ class AddNoteForm extends ConsumerState<AddNote> {
                                                 .primary,
                                             fontSize: standardFont))),
                                 TextButton(
-                                    style: textButtonStyle(
-                                      context,
-                                    ),
+                                    style: textButtonStyle(context),
                                     onPressed: () => {
                                           ref
                                               .read(
