@@ -25,7 +25,7 @@ class SlidableActions extends ConsumerWidget {
           SlidableAction(
             label: 'Edit',
             icon: Icons.edit,
-            backgroundColor: Theme.of(context).colorScheme.surface,
+            
             foregroundColor: Theme.of(context).colorScheme.primary,
             borderRadius: BorderRadius.circular(iconButtonRadius),
             padding: const EdgeInsets.symmetric(horizontal: standardSpacing),
@@ -39,7 +39,7 @@ class SlidableActions extends ConsumerWidget {
           SlidableAction(
             icon: Icons.delete,
             label: 'Delete',
-            backgroundColor: Theme.of(context).colorScheme.surface,
+            
             foregroundColor: Theme.of(context).colorScheme.primary,
             borderRadius: BorderRadius.circular(iconButtonRadius),
             padding: const EdgeInsets.symmetric(horizontal: standardSpacing),

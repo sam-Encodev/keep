@@ -15,7 +15,7 @@ class Settings extends ConsumerWidget {
     var theme = ref.watch(themeStateProvider);
 
     return Scaffold(
-        backgroundColor: Theme.of(context).colorScheme.surface,
+        
         appBar: AppBar(
           automaticallyImplyLeading: false,
           leading: GoBack(),

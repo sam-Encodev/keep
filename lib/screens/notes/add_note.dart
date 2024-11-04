@@ -33,7 +33,7 @@ class AddNoteForm extends ConsumerState<AddNote> {
     var index = getNotes.length;
 
     return Scaffold(
-      backgroundColor: Theme.of(context).colorScheme.surface,
+      
       appBar: AppBar(
         leading: GoBack(),
         title: Text(newNote, style: TextStyle(fontSize: standardFont)),

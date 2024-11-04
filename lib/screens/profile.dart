@@ -32,7 +32,7 @@ class _Profile extends ConsumerState<Profile> {
     var userName = currentUser.firstName + " " + currentUser.lastName;
 
     return Scaffold(
-        backgroundColor: Theme.of(context).colorScheme.surface,
+        
         appBar: AppBar(
           automaticallyImplyLeading: false,
           leading: GoBack(),

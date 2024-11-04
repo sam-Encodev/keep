@@ -16,7 +16,7 @@ class Home extends ConsumerWidget {
     var currentUser = ref.watch(authNotifierProvider);
 
     return Scaffold(
-      backgroundColor: Theme.of(context).colorScheme.surface,
+      
       appBar: AppBar(
         automaticallyImplyLeading: false,
         title: Text(appName),
@@ -27,7 +27,7 @@ class Home extends ConsumerWidget {
             onPressed: () => context.push(RouteNames.searchNote),
           ),
           CustomPopup(
-            backgroundColor: Theme.of(context).colorScheme.surface,
+            
             showArrow: false,
             content: Column(
               mainAxisSize: MainAxisSize.min,

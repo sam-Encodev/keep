@@ -16,7 +16,7 @@ class _LoginState extends State<Login> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Theme.of(context).colorScheme.surface,
+      
       appBar: AppBar(),
       body: Container(
         padding: const EdgeInsets.all(standardSpacing),

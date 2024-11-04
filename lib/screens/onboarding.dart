@@ -55,7 +55,7 @@ class _OnboardState extends ConsumerState<Onboarding>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: Theme.of(context).colorScheme.surface,
+        
         appBar: AppBar(
           automaticallyImplyLeading: false,
           title: Align(

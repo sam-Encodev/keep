@@ -29,7 +29,7 @@ class _SearchNote extends ConsumerState<SearchNote> {
     var notes = getNotes.toList();
 
     return Scaffold(
-      backgroundColor: Theme.of(context).colorScheme.surface,
+      
       appBar: AppBar(
         automaticallyImplyLeading: false,
         title: TextField(
