@@ -23,6 +23,8 @@ class _SignupFormState extends ConsumerState<SignupForm> {
   String? _firstNameField;
   final String _timestamp = DateTime.timestamp().toString();
 
+  bool _submitted = false;
+
   @override
   Widget build(BuildContext context) {
     var getUsers = ref.watch(userNotifierProvider);
@@ -30,7 +32,9 @@ class _SignupFormState extends ConsumerState<SignupForm> {
 
     return Form(
       key: _formKey,
-      autovalidateMode: AutovalidateMode.onUserInteraction,
+      autovalidateMode: _submitted
+          ? AutovalidateMode.onUserInteraction
+          : AutovalidateMode.disabled,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
@@ -166,6 +170,7 @@ class _SignupFormState extends ConsumerState<SignupForm> {
                 onPressed: () {
                   // Validate will return true if the form is valid, or false if
                   // the form is invalid.
+                  setState(() => _submitted = true);
                   if (_formKey.currentState!.validate()) {
                     // Process data.
                     var res = ref.read(authNotifierProvider.notifier).signup(

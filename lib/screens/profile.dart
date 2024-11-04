@@ -22,6 +22,8 @@ class _Profile extends ConsumerState<Profile> {
   String? _newPassword;
   final String _updateAt = DateTime.timestamp().toString();
 
+  bool _submitted = false;
+
   @override
   Widget build(
     BuildContext context,
@@ -44,7 +46,9 @@ class _Profile extends ConsumerState<Profile> {
           ),
           child: Form(
             key: _formKey,
-            autovalidateMode: AutovalidateMode.onUserInteraction,
+            autovalidateMode: _submitted
+                ? AutovalidateMode.onUserInteraction
+                : AutovalidateMode.disabled,
             child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
@@ -170,6 +174,7 @@ class _Profile extends ConsumerState<Profile> {
                         onPressed: () {
                           // Validate will return true if the form is valid, or false if
                           // the form is invalid.
+                          setState(() => _submitted = true);
                           if (_formKey.currentState!.validate()) {
                             // Process data.
                             var res =

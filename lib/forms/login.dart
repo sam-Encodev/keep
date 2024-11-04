@@ -18,11 +18,15 @@ class _LoginFormState extends ConsumerState<LoginForm> {
   String? _emailField;
   String? _passwordField;
 
+  bool _submitted = false;
+
   @override
   Widget build(BuildContext context) {
     return Form(
       key: _formKey,
-      autovalidateMode: AutovalidateMode.onUserInteraction,
+      autovalidateMode: _submitted
+          ? AutovalidateMode.onUserInteraction
+          : AutovalidateMode.disabled,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
@@ -99,6 +103,7 @@ class _LoginFormState extends ConsumerState<LoginForm> {
                 onPressed: () {
                   // Validate will return true if the form is valid, or false if
                   // the form is invalid.
+                  setState(() => _submitted = true);
                   if (_formKey.currentState!.validate()) {
                     // Process data.
                     var res = ref.read(authNotifierProvider.notifier).login(

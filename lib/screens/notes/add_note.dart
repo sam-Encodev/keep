@@ -4,7 +4,6 @@ import 'package:keep/constants/text.dart';
 import 'package:keep/utilities/styles.dart';
 import 'package:keep/routes/route_names.dart';
 import 'package:keep/components/go_back.dart';
-import 'package:keep/components/snack_bar.dart';
 import 'package:keep/components/color_clip.dart';
 import 'package:keep/utilities/switch_color.dart';
 import 'package:keep/providers/notes_provider.dart';
@@ -25,6 +24,8 @@ class AddNoteForm extends ConsumerState<AddNote> {
   String? _descriptionField;
   String? _color = colors[2].values.first;
   final String _timestamp = DateTime.timestamp().toString();
+
+  bool _submitted = false;
 
   @override
   Widget build(BuildContext context) {
@@ -80,7 +81,8 @@ class AddNoteForm extends ConsumerState<AddNote> {
               style: iconButtonStyle(context),
               icon: const Icon(Icons.save, size: standardIcon),
               onPressed: () => {
-                    if (_titleField != null && _descriptionField != null)
+                    setState(() => _submitted = true),
+                    if (_formKey.currentState!.validate())
                       {
                         showDialog<void>(
                           context: context,
@@ -141,8 +143,6 @@ class AddNoteForm extends ConsumerState<AddNote> {
                           },
                         )
                       },
-                    if (_titleField == null || _descriptionField == null)
-                      {snackBar(context, message: addErrorEntry)}
                   }),
         ],
       ),
@@ -158,7 +158,9 @@ class AddNoteForm extends ConsumerState<AddNote> {
                 alignment: Alignment.centerLeft,
                 child: Form(
                   key: _formKey,
-                  autovalidateMode: AutovalidateMode.onUserInteraction,
+                  autovalidateMode: _submitted
+                      ? AutovalidateMode.onUserInteraction
+                      : AutovalidateMode.disabled,
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[

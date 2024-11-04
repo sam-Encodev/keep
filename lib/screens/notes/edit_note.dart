@@ -27,6 +27,7 @@ class EditNoteForm extends ConsumerState<EditNote> {
   final String _timestamp = DateTime.timestamp().toString();
 
   String? _oldColor;
+  bool _submitted = false;
 
   @override
   Widget build(BuildContext context) {
@@ -91,7 +92,8 @@ class EditNoteForm extends ConsumerState<EditNote> {
               style: iconButtonStyle(context),
               icon: const Icon(Icons.save, size: standardIcon),
               onPressed: () => {
-                    if (_titleField != null && _descriptionField != null)
+                    setState(() => _submitted = true),
+                    if (_formKey.currentState!.validate())
                       {
                         showDialog<void>(
                           context: context,
@@ -112,7 +114,7 @@ class EditNoteForm extends ConsumerState<EditNote> {
                               actionsAlignment: MainAxisAlignment.center,
                               actions: <Widget>[
                                 OutlinedButton(
-                                     style: textButtonStyle(context,
+                                    style: textButtonStyle(context,
                                         type: "secondary"),
                                     onPressed: () {
                                       Navigator.of(context).pop();
@@ -151,8 +153,6 @@ class EditNoteForm extends ConsumerState<EditNote> {
                           },
                         )
                       },
-                    if (_titleField == null || _descriptionField == null)
-                      {snackBar(context, message: addErrorEntry)}
                   }),
         ],
       ),
@@ -168,7 +168,9 @@ class EditNoteForm extends ConsumerState<EditNote> {
                 alignment: Alignment.centerLeft,
                 child: Form(
                   key: _formKey,
-                  autovalidateMode: AutovalidateMode.onUserInteraction,
+                  autovalidateMode: _submitted
+                      ? AutovalidateMode.onUserInteraction
+                      : AutovalidateMode.disabled,
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
