@@ -44,7 +44,6 @@ class EditNoteForm extends ConsumerState<EditNote> {
     });
 
     return Scaffold(
-      
       appBar: AppBar(
         leading: GoBack(),
         title: Text(editNote, style: TextStyle(fontSize: standardFont)),

@@ -32,7 +32,6 @@ class _Profile extends ConsumerState<Profile> {
     var userName = currentUser.firstName + " " + currentUser.lastName;
 
     return Scaffold(
-        
         appBar: AppBar(
           automaticallyImplyLeading: false,
           leading: GoBack(),

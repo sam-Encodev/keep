@@ -19,7 +19,6 @@ class ViewNote extends ConsumerWidget {
         .findNote(int.parse(extraString!));
 
     return Scaffold(
-      
       appBar: AppBar(
         leading: GoBack(),
         title: Text(viewNote, style: TextStyle(fontSize: standardFont)),

@@ -15,7 +15,6 @@ class Settings extends ConsumerWidget {
     var theme = ref.watch(themeStateProvider);
 
     return Scaffold(
-        
         appBar: AppBar(
           automaticallyImplyLeading: false,
           leading: GoBack(),

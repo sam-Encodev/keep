@@ -16,7 +16,6 @@ class Home extends ConsumerWidget {
     var currentUser = ref.watch(authNotifierProvider);
 
     return Scaffold(
-      
       appBar: AppBar(
         automaticallyImplyLeading: false,
         title: Text(appName),
@@ -27,7 +26,6 @@ class Home extends ConsumerWidget {
             onPressed: () => context.push(RouteNames.searchNote),
           ),
           CustomPopup(
-            
             showArrow: false,
             content: Column(
               mainAxisSize: MainAxisSize.min,

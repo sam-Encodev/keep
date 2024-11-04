@@ -9,7 +9,6 @@ class About extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      
       appBar: AppBar(
         leading: GoBack(),
         title: Text(about, style: TextStyle(fontSize: standardFont)),

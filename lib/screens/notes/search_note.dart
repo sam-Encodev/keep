@@ -29,7 +29,6 @@ class _SearchNote extends ConsumerState<SearchNote> {
     var notes = getNotes.toList();
 
     return Scaffold(
-      
       appBar: AppBar(
         automaticallyImplyLeading: false,
         title: TextField(
