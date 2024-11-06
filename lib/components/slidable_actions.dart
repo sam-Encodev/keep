@@ -10,9 +10,10 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 
 class SlidableActions extends ConsumerWidget {
+  final int index;
   final dynamic note;
 
-  const SlidableActions({super.key, this.note});
+  const SlidableActions({super.key, this.note, required this.index});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -25,7 +26,6 @@ class SlidableActions extends ConsumerWidget {
           SlidableAction(
             label: 'Edit',
             icon: Icons.edit,
-            
             foregroundColor: Theme.of(context).colorScheme.primary,
             borderRadius: BorderRadius.circular(iconButtonRadius),
             padding: const EdgeInsets.symmetric(horizontal: standardSpacing),
@@ -39,13 +39,19 @@ class SlidableActions extends ConsumerWidget {
           SlidableAction(
             icon: Icons.delete,
             label: 'Delete',
-            
             foregroundColor: Theme.of(context).colorScheme.primary,
             borderRadius: BorderRadius.circular(iconButtonRadius),
             padding: const EdgeInsets.symmetric(horizontal: standardSpacing),
             onPressed: (_) => {
-              ref.read(noteNotifierProvider.notifier).removeNote(note.id),
-              snackBar(context, message: "Note deleted")
+              ref
+                  .read(noteNotifierProvider.notifier)
+                  .removeNote(note.id, index),
+              snackBar(
+                context,
+                message: "Note deleted",
+                withAction: true,
+                ref: ref,
+              )
             },
           ),
         ],

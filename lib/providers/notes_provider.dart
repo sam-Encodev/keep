@@ -1,5 +1,6 @@
 import 'package:jiffy/jiffy.dart';
 import 'package:keep/models/note.dart';
+import 'package:keep/providers/notes_mod_provider.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 class NoteNotifier extends Notifier<List<Note>> {
@@ -96,8 +97,15 @@ class NoteNotifier extends Notifier<List<Note>> {
     }
   }
 
-  void removeNote(noteID) {
+  void removeNote(noteID, index) {
+    final note = state.elementAt(index);
+    ref.read(noteModeNotifierProvider.notifier).setNote(index, note);
     state = state.where((p) => p.id != noteID).toList();
+  }
+
+  void undoRemove() {
+    final getNote = ref.watch(noteModeNotifierProvider);
+    state.insert(getNote["index"], getNote["note"]);
   }
 
   void editNote(Note note) {

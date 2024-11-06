@@ -1,14 +1,22 @@
 import 'package:flutter/material.dart';
+import 'package:keep/providers/notes_provider.dart';
 
-snackBar(context, {message}) {
+snackBar(context, {message, withAction = false, ref}) {
+  final SnackBarAction? action = withAction
+      ? SnackBarAction(
+          label: 'Undo',
+          onPressed: () {
+            ref.read(noteNotifierProvider.notifier).undoRemove();
+            ref.invalidate(noteNotifierProvider);
+          },
+        )
+      : null;
+
   return ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-      content: Row(
-        mainAxisAlignment: MainAxisAlignment.start,
-        children: [
-          Text(
-            message,
-            style: TextStyle(color: Theme.of(context).colorScheme.onPrimary),
-          )
-        ],
-      )));
+    content: Text(
+      message,
+      style: TextStyle(color: Theme.of(context).colorScheme.onPrimary),
+    ),
+    action: action,
+  ));
 }
