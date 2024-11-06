@@ -63,9 +63,6 @@ class _SearchNote extends ConsumerState<SearchNote> {
       body: Container(
         padding: const EdgeInsets.all(standardSpacing),
         width: double.infinity,
-        decoration: BoxDecoration(
-          color: Theme.of(context).colorScheme.surface,
-        ),
         child: getNotes.isEmpty
             ? const EmptyState(uri: "search.svg", hideText: true)
             : ListView.separated(
@@ -75,7 +72,7 @@ class _SearchNote extends ConsumerState<SearchNote> {
                 },
                 separatorBuilder: (BuildContext context, int index) => Divider(
                   height: spacing,
-                  color: Theme.of(context).colorScheme.surface,
+                  color: Theme.of(context).colorScheme.onPrimary,
                 ),
               ),
       ),

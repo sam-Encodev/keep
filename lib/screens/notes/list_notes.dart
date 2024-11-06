@@ -25,7 +25,7 @@ class ListNotes extends ConsumerWidget {
             },
             separatorBuilder: (BuildContext context, int index) => Divider(
               height: spacing,
-              color: Theme.of(context).colorScheme.surface,
+                color: Theme.of(context).colorScheme.onPrimary,
             ),
           );
   }

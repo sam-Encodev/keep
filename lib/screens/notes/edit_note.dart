@@ -76,10 +76,7 @@ class EditNoteForm extends ConsumerState<EditNote> {
                                 icon: colorClip(e.values.first.toString()),
                                 label: Text(
                                   e.values.first.toString(),
-                                  style: TextStyle(
-                                      color:
-                                          Theme.of(context).colorScheme.primary,
-                                      fontSize: standardFont),
+                                  style: TextStyle(fontSize: standardFont),
                                 ),
                               ))
                           .toList(),
@@ -105,10 +102,7 @@ class EditNoteForm extends ConsumerState<EditNote> {
                               content: Text(
                                 prompt,
                                 textAlign: TextAlign.center,
-                                style: TextStyle(
-                                    color:
-                                        Theme.of(context).colorScheme.primary,
-                                    fontSize: standardFont),
+                                style: TextStyle(fontSize: standardFont),
                               ),
                               actionsAlignment: MainAxisAlignment.center,
                               actions: <Widget>[
@@ -119,11 +113,8 @@ class EditNoteForm extends ConsumerState<EditNote> {
                                       Navigator.of(context).pop();
                                     },
                                     child: Text(no,
-                                        style: TextStyle(
-                                            color: Theme.of(context)
-                                                .colorScheme
-                                                .primary,
-                                            fontSize: standardFont))),
+                                        style:
+                                            TextStyle(fontSize: standardFont))),
                                 TextButton(
                                     style: textButtonStyle(
                                       context,
@@ -158,9 +149,6 @@ class EditNoteForm extends ConsumerState<EditNote> {
       body: Container(
         padding: const EdgeInsets.all(standardSpacing),
         width: double.infinity,
-        decoration: BoxDecoration(
-          color: Theme.of(context).colorScheme.surface,
-        ),
         child: Column(
           children: [
             Align(
@@ -181,7 +169,6 @@ class EditNoteForm extends ConsumerState<EditNote> {
                             {_titleField = val.isEmpty ? null : val},
                         style: TextStyle(fontSize: 55),
                         decoration: InputDecoration(
-                          fillColor: Theme.of(context).colorScheme.surface,
                           filled: false,
                           hintText: title,
                           hintStyle: hintStyle(context),
@@ -209,7 +196,6 @@ class EditNoteForm extends ConsumerState<EditNote> {
                         autocorrect: false,
                         style: TextStyle(fontSize: standardFont),
                         decoration: InputDecoration(
-                            fillColor: Theme.of(context).colorScheme.surface,
                             filled: false,
                             hintText: description,
                             hintStyle: hintStyle(context),

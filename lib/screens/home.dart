@@ -26,6 +26,7 @@ class Home extends ConsumerWidget {
             onPressed: () => context.push(RouteNames.searchNote),
           ),
           CustomPopup(
+            backgroundColor: Theme.of(context).colorScheme.surface,
             showArrow: false,
             content: Column(
               mainAxisSize: MainAxisSize.min,
@@ -85,13 +86,9 @@ class Home extends ConsumerWidget {
       body: Container(
           padding: const EdgeInsets.all(standardSpacing),
           width: double.infinity,
-          decoration: BoxDecoration(
-            color: Theme.of(context).colorScheme.surface,
-          ),
           child: ListNotes()),
       floatingActionButton: FloatingActionButton(
         onPressed: () => context.push(RouteNames.newNote),
-        backgroundColor: Theme.of(context).colorScheme.secondaryContainer,
         child: Icon(
           Icons.add,
           size: standardIcon,

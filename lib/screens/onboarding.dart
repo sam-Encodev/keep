@@ -62,9 +62,7 @@ class _OnboardState extends ConsumerState<Onboarding>
             child: TextButton(
               child: Text(
                 skip,
-                style: TextStyle(
-                    color: Theme.of(context).colorScheme.outline,
-                    fontSize: standardFont),
+                style: TextStyle(fontSize: standardFont),
               ),
               onPressed: () =>
                   {ref.read(appStateProvider.notifier).skipOnboard()},

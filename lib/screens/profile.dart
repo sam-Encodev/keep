@@ -40,9 +40,6 @@ class _Profile extends ConsumerState<Profile> {
         body: Container(
           padding: const EdgeInsets.all(standardSpacing),
           width: double.infinity,
-          decoration: BoxDecoration(
-            color: Theme.of(context).colorScheme.surface,
-          ),
           child: Form(
             key: _formKey,
             autovalidateMode: _submitted

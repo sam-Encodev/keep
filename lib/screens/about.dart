@@ -16,9 +16,6 @@ class About extends StatelessWidget {
       body: Container(
           padding: const EdgeInsets.all(standardSpacing),
           width: double.infinity,
-          decoration: BoxDecoration(
-            color: Theme.of(context).colorScheme.surface,
-          ),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: <Widget>[
