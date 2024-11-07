@@ -21,7 +21,7 @@ class ViewNote extends ConsumerWidget {
     return Scaffold(
       appBar: AppBar(
         leading: GoBack(),
-        title: Text(viewNote, style: TextStyle(fontSize: standardFont)),
+        title: Text(viewNote, style: Theme.of(context).textTheme.titleLarge),
         actions: [
           IconButton(
             style: iconButtonStyle(context),
@@ -33,23 +33,14 @@ class ViewNote extends ConsumerWidget {
       body: Container(
         padding: const EdgeInsets.all(standardSpacing),
         width: double.infinity,
-        child: Column(
+        child: ListView(
+          shrinkWrap: true,
           children: [
-            Align(
-              alignment: Alignment.centerLeft,
-              child: ListView(
-                shrinkWrap: true,
-                children: <Widget>[
-                  const SizedBox(height: 30),
-                  Text(note.title,
-                      style: TextStyle(
-                        fontSize: maxFont,
-                      )),
-                  Text(note.description,
-                      style: TextStyle(fontSize: standardFont)),
-                ],
-              ),
-            )
+            Text(note.title,
+                style: Theme.of(context).textTheme.displayLarge),
+            const SizedBox(height: minHeight),
+            Text(note.description,
+                style: Theme.of(context).textTheme.titleLarge),
           ],
         ),
       ),

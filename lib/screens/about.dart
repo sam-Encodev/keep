@@ -17,7 +17,7 @@ class About extends StatelessWidget {
           padding: const EdgeInsets.all(standardSpacing),
           width: double.infinity,
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            mainAxisAlignment: MainAxisAlignment.start,
             children: <Widget>[
               ListView(
                 shrinkWrap: true,
@@ -28,7 +28,6 @@ class About extends StatelessWidget {
                   buildText(designer, context),
                 ],
               ),
-              buildText(version, context, height: spacing),
             ],
           )),
     );

@@ -35,7 +35,7 @@ class AddNoteForm extends ConsumerState<AddNote> {
     return Scaffold(
       appBar: AppBar(
         leading: GoBack(),
-        title: Text(newNote, style: TextStyle(fontSize: standardFont)),
+        title: Text(newNote, style: Theme.of(context).textTheme.titleLarge),
         actions: [
           IconButton(
             style: iconButtonStyle(context),
@@ -65,7 +65,11 @@ class AddNoteForm extends ConsumerState<AddNote> {
                                 icon: colorClip(e.values.first.toString()),
                                 label: Text(
                                   e.values.first.toString(),
-                                  style: TextStyle(fontSize: standardFont, color: Theme.of(context).colorScheme.onPrimaryContainer),
+                                  style: TextStyle(
+                                      fontSize: standardFont,
+                                      color: Theme.of(context)
+                                          .colorScheme
+                                          .onPrimaryContainer),
                                 ),
                               ))
                           .toList(),
@@ -139,68 +143,61 @@ class AddNoteForm extends ConsumerState<AddNote> {
       body: Container(
         padding: const EdgeInsets.all(standardSpacing),
         width: double.infinity,
-        child: Column(
-          children: [
-            Align(
-                alignment: Alignment.centerLeft,
-                child: Form(
-                  key: _formKey,
-                  autovalidateMode: _submitted
-                      ? AutovalidateMode.onUserInteraction
-                      : AutovalidateMode.disabled,
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: <Widget>[
-                      TextFormField(
-                        key: const Key(title),
-                        maxLines: 1,
-                        style: TextStyle(fontSize: maxFont),
-                        decoration: InputDecoration(
-                          filled: false,
-                          hintText: title,
-                          hintStyle: hintStyle(context),
-                          enabledBorder: transparentEnabledBorder(),
-                          focusedBorder: transparentFocusedBorder(),
-                          errorBorder: transparentEnabledBorder(),
-                          focusedErrorBorder: transparentErrorBorder(),
-                          errorStyle: errorStyle(context),
-                        ),
-                        validator: (String? value) {
-                          if (value == null || value.isEmpty) {
-                            return errorEntry;
-                          }
-                          _titleField = value;
-                          return null;
-                        },
-                      ),
-                      TextFormField(
-                        key: const Key(description),
-                        maxLines: 10,
-                        enableSuggestions: false,
-                        autocorrect: false,
-                        style: TextStyle(fontSize: standardFont),
-                        decoration: InputDecoration(
-                          filled: false,
-                          hintText: description,
-                          hintStyle: hintStyle(context),
-                          enabledBorder: transparentEnabledBorder(),
-                          focusedBorder: transparentFocusedBorder(),
-                          errorBorder: transparentEnabledBorder(),
-                          focusedErrorBorder: transparentErrorBorder(),
-                          errorStyle: errorStyle(context),
-                        ),
-                        validator: (String? value) {
-                          if (value == null || value.isEmpty) {
-                            return errorEntry;
-                          }
-                          _descriptionField = value;
-                          return null;
-                        },
-                      ),
-                    ],
-                  ),
-                )),
-          ],
+        child: Form(
+          key: _formKey,
+          autovalidateMode: _submitted
+              ? AutovalidateMode.onUserInteraction
+              : AutovalidateMode.disabled,
+          child: Column(
+            children: <Widget>[
+              TextFormField(
+                key: const Key(title),
+                maxLines: 1,
+                style: TextStyle(fontSize: maxFont),
+                decoration: InputDecoration(
+                  filled: false,
+                  hintText: title,
+                  hintStyle: hintStyle(context),
+                  enabledBorder: transparentEnabledBorder(),
+                  focusedBorder: transparentFocusedBorder(),
+                  errorBorder: transparentEnabledBorder(),
+                  focusedErrorBorder: transparentErrorBorder(),
+                  errorStyle: errorStyle(context),
+                ),
+                validator: (String? value) {
+                  if (value == null || value.isEmpty) {
+                    return errorEntry;
+                  }
+                  _titleField = value;
+                  return null;
+                },
+              ),
+              TextFormField(
+                key: const Key(description),
+                maxLines: 10,
+                enableSuggestions: false,
+                autocorrect: false,
+                style: TextStyle(fontSize: standardFont),
+                decoration: InputDecoration(
+                  filled: false,
+                  hintText: description,
+                  hintStyle: hintStyle(context),
+                  enabledBorder: transparentEnabledBorder(),
+                  focusedBorder: transparentFocusedBorder(),
+                  errorBorder: transparentEnabledBorder(),
+                  focusedErrorBorder: transparentErrorBorder(),
+                  errorStyle: errorStyle(context),
+                ),
+                validator: (String? value) {
+                  if (value == null || value.isEmpty) {
+                    return errorEntry;
+                  }
+                  _descriptionField = value;
+                  return null;
+                },
+              ),
+            ],
+          ),
         ),
       ),
     );

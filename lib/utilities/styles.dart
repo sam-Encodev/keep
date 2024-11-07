@@ -30,6 +30,7 @@ const buttonWidth = 50.0;
 const maxButtonWidth = 120.0;
 
 const maxHeight = 50.0;
+const midHeight = 30.0;
 const minHeight = 20.0;
 
 const displayLarge = 57.0;
@@ -186,7 +187,7 @@ buildSVG(String assetName) {
 buildText(String data, context, {height = 0.0}) {
   return Text(
     data,
-    style: TextStyle(fontSize: standardFont, height: height),
+    style: Theme.of(context).textTheme.titleLarge,
   );
 }
 

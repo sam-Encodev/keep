@@ -65,7 +65,7 @@ class _OnboardState extends ConsumerState<Onboarding>
                 skip,
                 style: TextStyle(
                     color: Theme.of(context).colorScheme.outline,
-                    fontSize: standardFont),
+                    fontSize: titleMedium),
               ),
               onPressed: () =>
                   {ref.read(appStateProvider.notifier).skipOnboard()},

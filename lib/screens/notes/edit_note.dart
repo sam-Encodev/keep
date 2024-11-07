@@ -4,7 +4,6 @@ import 'package:keep/constants/text.dart';
 import 'package:go_router/go_router.dart';
 import 'package:keep/utilities/styles.dart';
 import 'package:keep/components/go_back.dart';
-import 'package:keep/components/snack_bar.dart';
 import 'package:keep/components/color_clip.dart';
 import 'package:keep/utilities/switch_color.dart';
 import 'package:keep/providers/notes_provider.dart';
@@ -46,7 +45,7 @@ class EditNoteForm extends ConsumerState<EditNote> {
     return Scaffold(
       appBar: AppBar(
         leading: GoBack(),
-        title: Text(editNote, style: TextStyle(fontSize: standardFont)),
+        title: Text(editNote, style: Theme.of(context).textTheme.titleLarge),
         actions: [
           IconButton(
             style: iconButtonStyle(context),
@@ -153,73 +152,67 @@ class EditNoteForm extends ConsumerState<EditNote> {
       body: Container(
         padding: const EdgeInsets.all(standardSpacing),
         width: double.infinity,
-        child: Column(
-          children: [
-            Align(
-                alignment: Alignment.centerLeft,
-                child: Form(
-                  key: _formKey,
-                  autovalidateMode: _submitted
-                      ? AutovalidateMode.onUserInteraction
-                      : AutovalidateMode.disabled,
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: <Widget>[
-                      TextFormField(
-                        key: const Key(title),
-                        maxLines: 1,
-                        initialValue: note.title,
-                        onChanged: (val) =>
-                            {_titleField = val.isEmpty ? null : val},
-                        style: TextStyle(fontSize: 55),
-                        decoration: InputDecoration(
-                          filled: false,
-                          hintText: title,
-                          hintStyle: hintStyle(context),
-                          enabledBorder: transparentEnabledBorder(),
-                          focusedBorder: transparentFocusedBorder(),
-                          errorBorder: transparentEnabledBorder(),
-                          focusedErrorBorder: transparentErrorBorder(),
-                          errorStyle: errorStyle(context),
-                        ),
-                        validator: (String? value) {
-                          if (value!.isEmpty) {
-                            return errorEntry;
-                          }
-                          _titleField = value;
-                          return null;
-                        },
-                      ),
-                      TextFormField(
-                        key: const Key(description),
-                        initialValue: note.description,
-                        onChanged: (val) =>
-                            {_descriptionField = val.isEmpty ? null : val},
-                        maxLines: 10,
-                        enableSuggestions: false,
-                        autocorrect: false,
-                        style: TextStyle(fontSize: standardFont),
-                        decoration: InputDecoration(
-                            filled: false,
-                            hintText: description,
-                            hintStyle: hintStyle(context),
-                            enabledBorder: transparentEnabledBorder(),
-                            focusedBorder: transparentFocusedBorder(),
-                            errorBorder: transparentEnabledBorder(),
-                            focusedErrorBorder: transparentErrorBorder(),
-                            errorStyle: errorStyle(context)),
-                        validator: (String? value) {
-                          if (value == null || value.isEmpty) {
-                            return errorEntry;
-                          }
-                          _descriptionField = value;
-                          return null;
-                        },
-                      ),
-                    ],
-                  ),
-                )),
-          ],
+        child: Form(
+          key: _formKey,
+          autovalidateMode: _submitted
+              ? AutovalidateMode.onUserInteraction
+              : AutovalidateMode.disabled,
+          child: Column(
+          
+            children: [
+              TextFormField(
+                key: const Key(title),
+                maxLines: 1,
+                initialValue: note.title,
+                onChanged: (val) =>
+                    {_titleField = val.isEmpty ? null : val},
+                style: TextStyle(fontSize: 55),
+                decoration: InputDecoration(
+                  filled: false,
+                  hintText: title,
+                  hintStyle: hintStyle(context),
+                  enabledBorder: transparentEnabledBorder(),
+                  focusedBorder: transparentFocusedBorder(),
+                  errorBorder: transparentEnabledBorder(),
+                  focusedErrorBorder: transparentErrorBorder(),
+                  errorStyle: errorStyle(context),
+                ),
+                validator: (String? value) {
+                  if (value!.isEmpty) {
+                    return errorEntry;
+                  }
+                  _titleField = value;
+                  return null;
+                },
+              ),
+              TextFormField(
+                key: const Key(description),
+                initialValue: note.description,
+                onChanged: (val) =>
+                    {_descriptionField = val.isEmpty ? null : val},
+                maxLines: 10,
+                enableSuggestions: false,
+                autocorrect: false,
+                style: TextStyle(fontSize: standardFont),
+                decoration: InputDecoration(
+                    filled: false,
+                    hintText: description,
+                    hintStyle: hintStyle(context),
+                    enabledBorder: transparentEnabledBorder(),
+                    focusedBorder: transparentFocusedBorder(),
+                    errorBorder: transparentEnabledBorder(),
+                    focusedErrorBorder: transparentErrorBorder(),
+                    errorStyle: errorStyle(context)),
+                validator: (String? value) {
+                  if (value == null || value.isEmpty) {
+                    return errorEntry;
+                  }
+                  _descriptionField = value;
+                  return null;
+                },
+              ),
+            ],
+          ),
         ),
       ),
     );
