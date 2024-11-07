@@ -32,6 +32,26 @@ const maxButtonWidth = 120.0;
 const maxHeight = 50.0;
 const minHeight = 20.0;
 
+const displayLarge = 57.0;
+const displayMedium = 45.0;
+const displaySmall = 36.0;
+
+const headlineLarge = 32.0;
+const headlineMedium = 28.0;
+const headlineSmall = 24.0;
+
+const titleLarge = 22.0;
+const titleMedium = 16.0;
+const titleSmall = 14.0;
+
+const bodyLarge = 16.0;
+const bodyMedium = 14.0;
+const bodySmall = 12.0;
+
+const labelLarge = 14.0;
+const labelMedium = 12.0;
+const labelSmall = 11.0;
+
 iconButtonStyle(context) {
   return ButtonStyle(
       backgroundColor:
