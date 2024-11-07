@@ -61,7 +61,8 @@ class _Profile extends ConsumerState<Profile> {
                           focusedBorder: focusBorder(context),
                           errorBorder: inputBorder(context),
                           focusedErrorBorder: errorBorder(context),
-                          errorStyle: errorStyle(context)),
+                          errorStyle: errorStyle(context)
+                      ),
                       validator: (String? value) {
                         final splitName = value?.split(' ');
 

@@ -56,13 +56,16 @@ class _OnboardState extends ConsumerState<Onboarding>
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
+          backgroundColor: Colors.transparent,
           automaticallyImplyLeading: false,
           title: Align(
             alignment: Alignment.centerRight,
             child: TextButton(
               child: Text(
                 skip,
-                style: TextStyle(fontSize: standardFont),
+                style: TextStyle(
+                    color: Theme.of(context).colorScheme.outline,
+                    fontSize: standardFont),
               ),
               onPressed: () =>
                   {ref.read(appStateProvider.notifier).skipOnboard()},

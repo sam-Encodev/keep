@@ -76,7 +76,11 @@ class EditNoteForm extends ConsumerState<EditNote> {
                                 icon: colorClip(e.values.first.toString()),
                                 label: Text(
                                   e.values.first.toString(),
-                                  style: TextStyle(fontSize: standardFont),
+                                  style: TextStyle(
+                                      fontSize: standardFont,
+                                      color: Theme.of(context)
+                                          .colorScheme
+                                          .onPrimaryContainer),
                                 ),
                               ))
                           .toList(),

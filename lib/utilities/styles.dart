@@ -34,6 +34,8 @@ const minHeight = 20.0;
 
 iconButtonStyle(context) {
   return ButtonStyle(
+      backgroundColor:
+          WidgetStateProperty.all(Theme.of(context).colorScheme.surface),
       shape: WidgetStateProperty.all(
         RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(iconButtonRadius),
@@ -43,6 +45,8 @@ iconButtonStyle(context) {
 
 maxIconButtonStyle(context) {
   return ButtonStyle(
+      backgroundColor:
+          WidgetStateProperty.all(Theme.of(context).colorScheme.primary),
       shape: WidgetStateProperty.all(
         RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(maxButtonRadius),
@@ -65,7 +69,7 @@ buttonStyle(context, {size = "medium"}) {
 textButtonStyle(context, {type = "primary"}) {
   return ButtonStyle(
     backgroundColor: type == "primary"
-        ? WidgetStateProperty.all(Theme.of(context).colorScheme.onPrimary)
+        ? WidgetStateProperty.all(Theme.of(context).colorScheme.primary)
         : null,
     minimumSize: WidgetStateProperty.all(Size(maxButtonWidth, maxHeight)),
     shape: WidgetStateProperty.all(
@@ -80,21 +84,20 @@ inputBorder(context) {
   //return type is OutlineInputBorder
   return OutlineInputBorder(
     borderRadius: BorderRadius.circular(inputRadius),
-    borderSide: BorderSide(color: Theme.of(context).colorScheme.outlineVariant),
+    borderSide: BorderSide(color: Theme.of(context).colorScheme.outline),
   );
 }
 
 focusBorder(context) {
   return OutlineInputBorder(
     borderRadius: BorderRadius.circular(inputRadius),
-    borderSide: BorderSide(color: Theme.of(context).colorScheme.outline),
+    borderSide: BorderSide(color: Theme.of(context).colorScheme.primary),
   );
 }
 
 errorBorder(context) {
   return OutlineInputBorder(
     borderRadius: BorderRadius.circular(inputRadius),
-    borderSide: BorderSide(color: Theme.of(context).colorScheme.outlineVariant),
   );
 }
 
@@ -104,6 +107,10 @@ errorStyle(context) {
     fontWeight: FontWeight.w400,
     color: Theme.of(context).colorScheme.error,
   );
+}
+
+inputFillColor(context) {
+  return Theme.of(context).colorScheme.onError;
 }
 
 dotsStyle(context) {
@@ -165,8 +172,4 @@ buildText(String data, context, {height = 0.0}) {
 
 hintStyle(context) {
   return TextStyle(color: Theme.of(context).colorScheme.outline);
-}
-
-inputFillColor(context) {
-  return Theme.of(context).colorScheme.onPrimary;
 }

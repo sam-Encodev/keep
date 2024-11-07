@@ -26,7 +26,8 @@ class SlidableActions extends ConsumerWidget {
           SlidableAction(
             label: 'Edit',
             icon: Icons.edit,
-            foregroundColor: Theme.of(context).colorScheme.primary,
+            foregroundColor: Theme.of(context).colorScheme.onPrimaryContainer,
+            backgroundColor: Colors.transparent,
             borderRadius: BorderRadius.circular(iconButtonRadius),
             padding: const EdgeInsets.symmetric(horizontal: standardSpacing),
             onPressed: (_) => {
@@ -39,7 +40,8 @@ class SlidableActions extends ConsumerWidget {
           SlidableAction(
             icon: Icons.delete,
             label: 'Delete',
-            foregroundColor: Theme.of(context).colorScheme.primary,
+            foregroundColor: Theme.of(context).colorScheme.onPrimaryContainer,
+            backgroundColor: Colors.transparent,
             borderRadius: BorderRadius.circular(iconButtonRadius),
             padding: const EdgeInsets.symmetric(horizontal: standardSpacing),
             onPressed: (_) => {
@@ -64,11 +66,14 @@ class SlidableActions extends ConsumerWidget {
           onTap: () => context.push(RouteNames.viewNote(note.id)),
           title: Text(
             note.title,
-            style:
-                TextStyle(fontWeight: FontWeight.bold, fontSize: standardFont),
+            style: TextStyle(
+                fontWeight: FontWeight.bold,
+                fontSize: standardFont,
+                color: Theme.of(context).colorScheme.onSecondary),
           ),
           subtitle: Text(
             dateFormatter(note.timestamp),
+            style: TextStyle(color: Theme.of(context).colorScheme.onSecondary),
           ),
         ),
       ),
