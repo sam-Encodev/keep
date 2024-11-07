@@ -15,7 +15,7 @@ onBoard(context, item) {
       Text(
         title,
         textAlign: TextAlign.center,
-        style: TextStyle(fontSize: standardFont, fontWeight: FontWeight.w800),
+        style: TextStyle(fontSize: titleLarge, fontWeight: FontWeight.w800),
       ),
       SizedBox(height: minHeight),
       Padding(

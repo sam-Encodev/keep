@@ -11,7 +11,7 @@ class About extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         leading: GoBack(),
-        title: Text(about, style: TextStyle(fontSize: standardFont)),
+        title: Text(about, style: Theme.of(context).textTheme.titleLarge),
       ),
       body: Container(
           padding: const EdgeInsets.all(standardSpacing),

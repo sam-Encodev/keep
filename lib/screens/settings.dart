@@ -18,7 +18,7 @@ class Settings extends ConsumerWidget {
         appBar: AppBar(
           automaticallyImplyLeading: false,
           leading: GoBack(),
-          title: Text(settings, style: TextStyle(fontSize: standardFont)),
+          title: Text(settings, style: Theme.of(context).textTheme.titleLarge),
         ),
         body: Container(
           padding: const EdgeInsets.all(standardSpacing),

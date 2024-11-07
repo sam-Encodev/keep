@@ -35,7 +35,7 @@ class _Profile extends ConsumerState<Profile> {
         appBar: AppBar(
           automaticallyImplyLeading: false,
           leading: GoBack(),
-          title: Text(profile, style: TextStyle(fontSize: standardFont)),
+          title: Text(profile, style: Theme.of(context).textTheme.titleLarge),
         ),
         body: Container(
           padding: const EdgeInsets.all(standardSpacing),

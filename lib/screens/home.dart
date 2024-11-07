@@ -18,7 +18,7 @@ class Home extends ConsumerWidget {
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: false,
-        title: Text(appName),
+        title: Text(appName, style: Theme.of(context).textTheme.titleLarge),
         actions: [
           IconButton(
             style: iconButtonStyle(context),
