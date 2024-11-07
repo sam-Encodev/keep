@@ -22,7 +22,8 @@ class Settings extends ConsumerWidget {
         ),
         body: Container(
           padding: const EdgeInsets.all(standardSpacing),
-          width: double.infinity,
+          width: double.maxFinite,
+          height: double.maxFinite,
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.stretch,

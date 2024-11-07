@@ -85,7 +85,8 @@ class Home extends ConsumerWidget {
       ),
       body: Container(
           padding: const EdgeInsets.all(standardSpacing),
-          width: double.infinity,
+          width: double.maxFinite,
+          height: double.maxFinite,
           child: ListNotes()),
       floatingActionButton: FloatingActionButton(
         onPressed: () => context.push(RouteNames.newNote),

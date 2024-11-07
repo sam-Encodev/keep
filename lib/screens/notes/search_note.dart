@@ -62,7 +62,8 @@ class _SearchNote extends ConsumerState<SearchNote> {
       ),
       body: Container(
         padding: const EdgeInsets.all(standardSpacing),
-        width: double.infinity,
+        width: double.maxFinite,
+        height: double.maxFinite,
         child: getNotes.isEmpty
             ? const EmptyState(uri: "search.svg", hideText: true)
             : ListView.separated(

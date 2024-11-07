@@ -32,7 +32,8 @@ class ViewNote extends ConsumerWidget {
       ),
       body: Container(
         padding: const EdgeInsets.all(standardSpacing),
-        width: double.infinity,
+        width: double.maxFinite,
+        height: double.maxFinite,
         child: ListView(
           shrinkWrap: true,
           children: [

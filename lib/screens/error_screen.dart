@@ -15,7 +15,8 @@ class ErrorScreen extends StatelessWidget {
       ),
       body: Container(
         padding: const EdgeInsets.all(standardSpacing),
-        width: double.infinity,
+        width: double.maxFinite,
+        height: double.maxFinite,
         child: SizedBox(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,

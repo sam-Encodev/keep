@@ -15,19 +15,15 @@ class About extends StatelessWidget {
       ),
       body: Container(
           padding: const EdgeInsets.all(standardSpacing),
-          width: double.infinity,
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.start,
+          width: double.maxFinite,
+          height: double.maxFinite,
+          child: ListView(
+            shrinkWrap: true,
             children: <Widget>[
-              ListView(
-                shrinkWrap: true,
-                children: <Widget>[
-                  buildText(font, context),
-                  buildText(icons, context),
-                  buildText(author, context),
-                  buildText(designer, context),
-                ],
-              ),
+              buildText(font, context),
+              buildText(icons, context),
+              buildText(author, context),
+              buildText(designer, context),
             ],
           )),
     );

@@ -151,7 +151,8 @@ class EditNoteForm extends ConsumerState<EditNote> {
       ),
       body: Container(
         padding: const EdgeInsets.all(standardSpacing),
-        width: double.infinity,
+        width: double.maxFinite,
+        height: double.maxFinite,
         child: Form(
           key: _formKey,
           autovalidateMode: _submitted

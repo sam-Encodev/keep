@@ -21,7 +21,8 @@ class _LoginState extends State<Login> {
       ),
       body: Container(
         padding: const EdgeInsets.all(standardSpacing),
-        width: double.infinity,
+        width: double.maxFinite,
+        height: double.maxFinite,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
