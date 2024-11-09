@@ -31,6 +31,7 @@ class AddNoteForm extends ConsumerState<AddNote> {
   Widget build(BuildContext context) {
     var getNotes = ref.watch(noteNotifierProvider);
     var index = getNotes.length;
+    var newNoteID = index + 1;
 
     return Scaffold(
       appBar: AppBar(
@@ -115,7 +116,7 @@ class AddNoteForm extends ConsumerState<AddNote> {
                                               .read(
                                                   noteNotifierProvider.notifier)
                                               .addNote(Note(
-                                                  id: index,
+                                                  id: newNoteID,
                                                   title: "$_titleField",
                                                   description:
                                                       "$_descriptionField",
