@@ -62,8 +62,7 @@ class _Profile extends ConsumerState<Profile> {
                           focusedBorder: focusBorder(context),
                           errorBorder: inputBorder(context),
                           focusedErrorBorder: errorBorder(context),
-                          errorStyle: errorStyle(context)
-                      ),
+                          errorStyle: errorStyle(context)),
                       validator: (String? value) {
                         final splitName = value?.split(' ');
 
@@ -101,14 +100,6 @@ class _Profile extends ConsumerState<Profile> {
                         focusedErrorBorder: errorBorder(context),
                         errorStyle: errorStyle(context),
                       ),
-                      validator: (String? value) {
-                        // if (value == null || value.isEmpty) {
-                        //   return errorEntry;
-                        // }
-                        //
-                        // _email = value;
-                        // return null;
-                      },
                     ),
                   ),
                   Text(currentPassword, style: TextStyle(fontSize: labelSize)),
@@ -130,13 +121,6 @@ class _Profile extends ConsumerState<Profile> {
                           errorBorder: inputBorder(context),
                           focusedErrorBorder: errorBorder(context),
                           errorStyle: errorStyle(context)),
-                      validator: (String? value) {
-                        // if (value == null || value.isEmpty) {
-                        //   return errorEntry;
-                        // }
-                        // _currentPassword = value;
-                        // return null;
-                      },
                     ),
                   ),
                   Text(newPassword, style: TextStyle(fontSize: labelSize)),
