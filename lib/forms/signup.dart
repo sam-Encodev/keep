@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:keep/models/user.dart';
 import 'package:keep/constants/text.dart';
+import 'package:keep/utilities/date.dart';
 import 'package:keep/utilities/styles.dart';
 import 'package:keep/components/snack_bar.dart';
 import 'package:keep/providers/auth_provider.dart';
@@ -21,8 +22,7 @@ class _SignupFormState extends ConsumerState<SignupForm> {
   String? _passwordField;
   String? _lastNameField;
   String? _firstNameField;
-  final String _timestamp = DateTime.timestamp().toString();
-
+  final String _timestamp = timestamp;
   bool _submitted = false;
 
   @override

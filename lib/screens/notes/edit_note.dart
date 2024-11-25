@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:keep/models/note.dart';
 import 'package:keep/constants/text.dart';
 import 'package:go_router/go_router.dart';
+import 'package:keep/utilities/date.dart';
 import 'package:keep/utilities/styles.dart';
 import 'package:keep/components/go_back.dart';
 import 'package:keep/components/color_clip.dart';
@@ -23,8 +24,7 @@ class EditNoteForm extends ConsumerState<EditNote> {
   String? _color;
   String? _titleField;
   String? _descriptionField;
-  final String _timestamp = DateTime.timestamp().toString();
-
+  final String _timestamp = timestamp;
   String? _oldColor;
   bool _submitted = false;
 

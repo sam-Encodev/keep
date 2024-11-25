@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:keep/models/note.dart';
 import 'package:keep/constants/text.dart';
+import 'package:keep/utilities/date.dart';
 import 'package:keep/utilities/styles.dart';
 import 'package:keep/routes/route_names.dart';
 import 'package:keep/components/go_back.dart';
@@ -23,8 +24,7 @@ class AddNoteForm extends ConsumerState<AddNote> {
   String? _titleField;
   String? _descriptionField;
   String? _color = colors[2].values.first;
-  final String _timestamp = DateTime.timestamp().toString();
-
+  final String _timestamp = timestamp;
   bool _submitted = false;
 
   @override

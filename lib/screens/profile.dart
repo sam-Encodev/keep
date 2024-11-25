@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:keep/models/user.dart';
 import 'package:keep/constants/text.dart';
+import 'package:keep/utilities/date.dart';
 import 'package:keep/utilities/styles.dart';
 import 'package:keep/components/go_back.dart';
 import 'package:keep/components/snack_bar.dart';
@@ -20,8 +21,7 @@ class _Profile extends ConsumerState<Profile> {
   String? _lastName;
   String? _firstName;
   String? _newPassword;
-  final String _updateAt = DateTime.timestamp().toString();
-
+  final String _updateAt = timestamp;
   bool _submitted = false;
 
   @override
