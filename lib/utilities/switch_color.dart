@@ -28,11 +28,10 @@ const colors = [
   {
     "name": 'orange',
   },
-  {"name": "indigo"}
 ];
 
 class SwitchColor {
-  static Color switchColor([color = ""]) {
+  static Color color([color = ""]) {
     switch (color) {
       case "red":
         return Colors.redAccent;

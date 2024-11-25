@@ -60,7 +60,7 @@ class SlidableActions extends ConsumerWidget {
       ),
       child: Container(
         decoration: BoxDecoration(
-            color: SwitchColor.switchColor(note.color),
+            color: SwitchColor.color(note.color),
             borderRadius: BorderRadius.circular(iconButtonRadius)),
         child: ListTile(
           onTap: () => context.push(RouteNames.viewNote(note.id)),

@@ -41,7 +41,7 @@ class AddNoteForm extends ConsumerState<AddNote> {
           IconButton(
             style: iconButtonStyle(context),
             icon: const Icon(Icons.circle, size: standardIcon),
-            color: SwitchColor.switchColor(_color!),
+            color: SwitchColor.color(_color!),
             onPressed: () => showDialog<void>(
                 context: context,
                 builder: (BuildContext context) {

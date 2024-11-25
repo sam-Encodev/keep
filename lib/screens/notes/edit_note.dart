@@ -50,7 +50,7 @@ class EditNoteForm extends ConsumerState<EditNote> {
           IconButton(
             style: iconButtonStyle(context),
             icon: const Icon(Icons.circle, size: standardIcon),
-            color: SwitchColor.switchColor(_color ?? _oldColor),
+            color: SwitchColor.color(_color ?? _oldColor),
             onPressed: () => showDialog<void>(
                 context: context,
                 builder: (BuildContext context) {
