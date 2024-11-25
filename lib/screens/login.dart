@@ -41,7 +41,7 @@ class _LoginState extends State<Login> {
                   noAccount,
                 ),
                 TextButton(
-                    onPressed: () => {context.go(RouteNames.signup)},
+                    onPressed: () => {context.go(RouteName.signup)},
                     child: Text(
                       signUp,
                     ))

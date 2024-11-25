@@ -41,7 +41,7 @@ class _SignupState extends State<Signup> {
                   haveAnAccount,
                 ),
                 TextButton(
-                    onPressed: () => context.go(RouteNames.login),
+                    onPressed: () => context.go(RouteName.login),
                     child: Text(
                       login,
                     ))

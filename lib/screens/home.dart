@@ -20,7 +20,7 @@ class Home extends ConsumerWidget {
           IconButton(
             style: iconButtonStyle(context),
             icon: Icon(Icons.search, size: standardIcon),
-            onPressed: () => context.push(RouteNames.searchNote),
+            onPressed: () => context.push(RouteName.searchNote),
           ),
           CascadingMenu(),
         ],
@@ -31,7 +31,7 @@ class Home extends ConsumerWidget {
           height: double.maxFinite,
           child: ListNotes()),
       floatingActionButton: FloatingActionButton(
-        onPressed: () => context.push(RouteNames.newNote),
+        onPressed: () => context.push(RouteName.newNote),
         child: Icon(
           Icons.add,
           size: standardIcon,

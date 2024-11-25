@@ -125,7 +125,7 @@ class AddNoteForm extends ConsumerState<AddNote> {
                                           Navigator.of(context).pop(),
                                           ref
                                               .read(goRouterProvider)
-                                              .go(RouteNames.home)
+                                              .go(RouteName.home)
                                         },
                                     child: Text(yes,
                                         style: TextStyle(

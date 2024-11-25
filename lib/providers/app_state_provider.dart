@@ -12,7 +12,7 @@ class AppState extends Notifier {
   }
 
   void completeOnboarding() {
-    ref.read(goRouterProvider).go(RouteNames.home);
+    ref.read(goRouterProvider).go(RouteName.home);
     ref.read(sharedPreferencesProvider).setBool("skipOnboard", true);
   }
 
@@ -21,19 +21,19 @@ class AppState extends Notifier {
         ref.watch(sharedPreferencesProvider).getBool("skipOnboard") ?? false;
 
     if (skipOnboard) {
-      return ref.read(goRouterProvider).go(RouteNames.home);
+      return ref.read(goRouterProvider).go(RouteName.home);
     } else {
-      ref.read(goRouterProvider).go(RouteNames.onboard);
+      ref.read(goRouterProvider).go(RouteName.onboard);
     }
   }
 
   void logoutState() {
     ref.read(sharedPreferencesProvider).setBool("skipOnboard", false);
-    ref.read(goRouterProvider).go(RouteNames.login);
+    ref.read(goRouterProvider).go(RouteName.login);
   }
 
   void homeState() {
-    ref.read(goRouterProvider).go(RouteNames.home);
+    ref.read(goRouterProvider).go(RouteName.home);
   }
 }
 

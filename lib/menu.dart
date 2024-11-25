@@ -28,19 +28,19 @@ class _MyCascadingMenuState extends ConsumerState<CascadingMenu> {
       menuChildren: <Widget>[
         MenuItemButton(
           onPressed: () {
-            context.push(RouteNames.about);
+            context.push(RouteName.about);
           },
           child: const Text('About'),
         ),
         MenuItemButton(
           onPressed: () {
-            context.push(RouteNames.profile(currentUser.id));
+            context.push(RouteName.profile(currentUser.id));
           },
           child: const Text('Profile'),
         ),
         MenuItemButton(
           onPressed: () {
-            context.push(RouteNames.settings);
+            context.push(RouteName.settings);
           },
           child: const Text('Settings'),
         ),

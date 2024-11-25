@@ -26,7 +26,7 @@ class ViewNote extends ConsumerWidget {
           IconButton(
             style: iconButtonStyle(context),
             icon: const Icon(Icons.edit, size: standardIcon),
-            onPressed: () => {context.push(RouteNames.editNote(note.id))},
+            onPressed: () => {context.push(RouteName.editNote(note.id))},
           ),
         ],
       ),
@@ -37,8 +37,7 @@ class ViewNote extends ConsumerWidget {
         child: ListView(
           shrinkWrap: true,
           children: [
-            Text(note.title,
-                style: Theme.of(context).textTheme.displayLarge),
+            Text(note.title, style: Theme.of(context).textTheme.displayLarge),
             const SizedBox(height: minHeight),
             Text(note.description,
                 style: Theme.of(context).textTheme.titleLarge),

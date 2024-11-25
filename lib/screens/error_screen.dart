@@ -24,7 +24,7 @@ class ErrorScreen extends StatelessWidget {
               buildSVG("error_404.svg"),
               const SizedBox(height: standardSpacing),
               FilledButton(
-                  onPressed: () => context.go(RouteNames.home),
+                  onPressed: () => context.go(RouteName.home),
                   style: buttonStyle(context),
                   child:
                       Text(goBack, style: TextStyle(fontSize: standardFont))),

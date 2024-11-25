@@ -22,7 +22,7 @@ final _shellNavigatorOther = GlobalKey<NavigatorState>(debugLabel: 'other');
 final goRouterProvider = Provider<GoRouter>((ref) {
   return GoRouter(
     navigatorKey: _rootNavigatorKey,
-    initialLocation: RouteNames.login,
+    initialLocation: RouteName.login,
     routes: [
       ShellRoute(
           navigatorKey: _shellNavigatorNotes,
@@ -33,29 +33,29 @@ final goRouterProvider = Provider<GoRouter>((ref) {
           },
           routes: [
             GoRoute(
-                path: RouteNames.home,
+                path: RouteName.home,
                 builder: (context, state) {
                   return Home();
                 },
                 routes: [
                   GoRoute(
                     name: "add-note",
-                    path: RouteNames.add,
+                    path: RouteName.add,
                     builder: (context, state) => const AddNote(),
                   ),
                   GoRoute(
                     name: "search-note",
-                    path: RouteNames.search,
+                    path: RouteName.search,
                     builder: (context, state) => const SearchNote(),
                   ),
                   GoRoute(
                     name: "view-note",
-                    path: RouteNames.view,
+                    path: RouteName.view,
                     builder: (context, state) => const ViewNote(),
                   ),
                   GoRoute(
                     name: "edit-note",
-                    path: RouteNames.edit,
+                    path: RouteName.edit,
                     builder: (context, state) => const EditNote(),
                   )
                 ])
@@ -69,37 +69,37 @@ final goRouterProvider = Provider<GoRouter>((ref) {
           },
           routes: [
             GoRoute(
-              path: RouteNames.login,
+              path: RouteName.login,
               builder: (context, state) {
                 return Login();
               },
             ),
             GoRoute(
-              path: RouteNames.signup,
+              path: RouteName.signup,
               builder: (context, state) {
                 return Signup();
               },
             ),
             GoRoute(
-              path: RouteNames.about,
+              path: RouteName.about,
               builder: (context, state) {
                 return About();
               },
             ),
             GoRoute(
-              path: RouteNames.settings,
+              path: RouteName.settings,
               builder: (context, state) {
                 return Settings();
               },
             ),
             GoRoute(
-              path: RouteNames.onboard,
+              path: RouteName.onboard,
               builder: (context, state) {
                 return Onboarding();
               },
             ),
             GoRoute(
-              path: RouteNames.profile(":userId"),
+              path: RouteName.profile(":userId"),
               builder: (context, state) {
                 return Profile();
               },

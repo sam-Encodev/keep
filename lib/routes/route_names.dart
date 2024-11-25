@@ -1,4 +1,4 @@
-class RouteNames {
+class RouteName {
   static const home = "/notes";
   static const login = "/login";
   static const about = "/about";

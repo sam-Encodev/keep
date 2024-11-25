@@ -32,7 +32,7 @@ class SlidableActions extends ConsumerWidget {
             padding: const EdgeInsets.symmetric(horizontal: standardSpacing),
             onPressed: (_) => {
               context.push(
-                RouteNames.editNote(note.id),
+                RouteName.editNote(note.id),
               )
             },
           ),
@@ -63,7 +63,7 @@ class SlidableActions extends ConsumerWidget {
             color: SwitchColor.color(note.color),
             borderRadius: BorderRadius.circular(iconButtonRadius)),
         child: ListTile(
-          onTap: () => context.push(RouteNames.viewNote(note.id)),
+          onTap: () => context.push(RouteName.viewNote(note.id)),
           title: Text(
             note.title,
             style: TextStyle(
