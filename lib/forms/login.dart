@@ -55,7 +55,6 @@ class _LoginFormState extends ConsumerState<LoginForm> {
                 if (value == null || value.isEmpty) {
                   return errorEntry;
                 }
-
                 _emailField = value;
                 return null;
               },
