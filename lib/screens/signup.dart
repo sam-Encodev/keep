@@ -18,6 +18,7 @@ class _SignupState extends State<Signup> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.transparent,
+        automaticallyImplyLeading: false,
       ),
       body: Container(
         padding: const EdgeInsets.all(standardSpacing),
