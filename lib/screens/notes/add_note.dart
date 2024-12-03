@@ -21,11 +21,11 @@ class AddNote extends ConsumerStatefulWidget {
 class AddNoteForm extends ConsumerState<AddNote> {
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
-  String? _color;
   String? _titleField;
   bool _submitted = false;
   String? _descriptionField;
   final String _timestamp = timestamp;
+  String? _color = colors[2].values.first;
 
   @override
   Widget build(BuildContext context) {
@@ -41,7 +41,7 @@ class AddNoteForm extends ConsumerState<AddNote> {
           IconButton(
             style: iconButtonStyle(context),
             icon: const Icon(Icons.circle, size: standardIcon),
-            color: SwitchColor.color(),
+            color: SwitchColor.color(_color!),
             onPressed: () => showDialog<void>(
                 context: context,
                 builder: (BuildContext context) {
