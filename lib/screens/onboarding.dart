@@ -58,9 +58,8 @@ class _OnboardState extends ConsumerState<Onboarding>
         appBar: AppBar(
           backgroundColor: Colors.transparent,
           automaticallyImplyLeading: false,
-          title: Align(
-            alignment: Alignment.centerRight,
-            child: TextButton(
+          actions: [
+            TextButton(
               child: Text(
                 skip,
                 style: TextStyle(
@@ -69,8 +68,8 @@ class _OnboardState extends ConsumerState<Onboarding>
               ),
               onPressed: () =>
                   {ref.read(appStateProvider.notifier).skipOnboard()},
-            ),
-          ),
+            )
+          ],
         ),
         body: Column(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
