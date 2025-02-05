@@ -29,7 +29,7 @@ class _Profile extends ConsumerState<Profile> {
     BuildContext context,
   ) {
     var currentUser = ref.watch(authNotifierProvider);
-    var userName = currentUser.firstName + " " + currentUser.lastName;
+    var userName = '${currentUser.firstName} ${currentUser.lastName}';
 
     return Scaffold(
         appBar: AppBar(
