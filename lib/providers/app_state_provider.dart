@@ -22,9 +22,8 @@ class AppState extends Notifier {
 
     if (skipOnboard) {
       return ref.read(goRouterProvider).go(RouteName.home);
-    } else {
-      ref.read(goRouterProvider).go(RouteName.onboard);
     }
+    ref.read(goRouterProvider).go(RouteName.onboard);
   }
 
   void logoutState() {

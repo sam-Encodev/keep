@@ -56,9 +56,8 @@ class UserNotifier extends Notifier<List<User>> {
       ref.read(authNotifierProvider.notifier).setUser(user);
       ref.read(appStateProvider.notifier).loginState();
       return true;
-    } else {
-      return false;
     }
+    return false;
   }
 
   Object editUser(User user, newPassword) {
