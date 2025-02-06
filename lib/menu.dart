@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:keep/constants/text.dart';
 import 'package:keep/routes/route_names.dart';
 import 'package:keep/providers/auth_provider.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -30,25 +31,25 @@ class _MyCascadingMenuState extends ConsumerState<CascadingMenu> {
           onPressed: () {
             context.push(RouteName.about);
           },
-          child: const Text('About'),
+          child: const Text(about),
         ),
         MenuItemButton(
           onPressed: () {
             context.push(RouteName.profile(currentUser.id));
           },
-          child: const Text('Profile'),
+          child: const Text(profile),
         ),
         MenuItemButton(
           onPressed: () {
             context.push(RouteName.settings);
           },
-          child: const Text('Settings'),
+          child: const Text(settings),
         ),
         MenuItemButton(
           onPressed: () {
             ref.read(authNotifierProvider.notifier).logout();
           },
-          child: const Text('Logout'),
+          child: const Text(logout),
         ),
       ],
       builder: (_, MenuController controller, Widget? child) {

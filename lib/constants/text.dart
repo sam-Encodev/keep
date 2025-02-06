@@ -1,5 +1,6 @@
 // Onboard
 const skip = "Skip";
+const skipOnboard = "skipOnboard";
 
 // App
 const appName = "Notes";
@@ -83,3 +84,6 @@ const themeManager = "Theme Manager";
 const system = "System";
 const light = "Light";
 const dark = "Dark";
+
+// Home
+const logout = "Logout";

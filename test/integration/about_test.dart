@@ -1,14 +1,23 @@
 import 'package:flutter/material.dart';
-import 'package:keep/widgets/keep.dart';
 import 'package:keep/constants/text.dart';
+import 'package:keep/widgets/app_start_up.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:keep/providers/lean_providers.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 void main() {
   testWidgets('Navigates to About Page', (WidgetTester tester) async {
-    await tester.pumpWidget(const ProviderScope(
-      child: Keep(),
-    ));
+    SharedPreferences.setMockInitialValues({skipOnboard: false});
+    final sharedPreferences = await SharedPreferences.getInstance();
+    await tester.pumpWidget(
+      ProviderScope(
+        overrides: [
+          sharedPreferencesProvider.overrideWithValue(sharedPreferences)
+        ],
+        child: AppStartUp(),
+      ),
+    );
 
     // Login
     expect(find.text(welcomeBack), findsOneWidget);
@@ -29,18 +38,18 @@ void main() {
     await tester.pumpAndSettle(const Duration(seconds: 5));
 
     // Home
+    expect(find.byIcon(Icons.search), findsOneWidget);
     expect(find.byIcon(Icons.more_vert), findsOneWidget);
     await tester.tap(find.byIcon(Icons.more_vert));
     await tester.pumpAndSettle(const Duration(seconds: 5));
-    expect(find.byIcon(Icons.info), findsOneWidget);
-    await tester.tap(find.byIcon(Icons.info));
+    expect(find.text(about), findsOneWidget);
+    await tester.tap(find.text(about));
     await tester.pumpAndSettle(const Duration(seconds: 5));
 
     // About
     expect(find.text(font), findsOneWidget);
     expect(find.text(icons), findsOneWidget);
     expect(find.text(author), findsOneWidget);
-    expect(find.text(version), findsOneWidget);
     expect(find.text(designer), findsOneWidget);
     expect(find.byIcon(Icons.arrow_back), findsOneWidget);
   });
