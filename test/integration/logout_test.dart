@@ -1,23 +1,14 @@
+import '../provider.dart';
 import 'package:flutter/material.dart';
 import 'package:keep/constants/text.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:keep/widgets/app_start_up.dart';
-import 'package:keep/providers/lean_providers.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 void main() {
   testWidgets('Logout user', (WidgetTester tester) async {
-    SharedPreferences.setMockInitialValues({skipOnboard: true});
-    final sharedPreferences = await SharedPreferences.getInstance();
-    await tester.pumpWidget(
-      ProviderScope(
-        overrides: [
-          sharedPreferencesProvider.overrideWithValue(sharedPreferences)
-        ],
-        child: AppStartUp(),
-      ),
-    );
+    SharedPreferences.setMockInitialValues({skipOnboard: false});
+    final pref = await SharedPreferences.getInstance();
+    await tester.pumpWidget(BaseProvider(sharedPreferences: pref));
 
     // Login
     expect(find.text(welcomeBack), findsOneWidget);
