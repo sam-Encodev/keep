@@ -6,7 +6,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 void main() {
   testWidgets('Navigates to Search Page', (WidgetTester tester) async {
-    SharedPreferences.setMockInitialValues({skipOnboard: false});
+    SharedPreferences.setMockInitialValues({skipOnboard: true});
     final pref = await SharedPreferences.getInstance();
     await tester.pumpWidget(BaseProvider(sharedPreferences: pref));
     
