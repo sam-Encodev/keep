@@ -1,5 +1,5 @@
 # Keep
-[![Github Actions](https://github.com/sam-Encodev/keep/actions/workflows/test.yml/badge.svg)](https://github.com/sam-Encodev/keep/actions/workflows/test.yml)
+[![Test-Build](https://github.com/sam-Encodev/keep/actions/workflows/test-build.yml/badge.svg)](https://github.com/sam-Encodev/keep/actions/workflows/test-build.yml)
 
 A simple notes app built with Flutter.
 Functionalities include:
