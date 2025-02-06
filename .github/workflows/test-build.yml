@@ -59,7 +59,7 @@ jobs:
         uses: actions/setup-java@v4.4.0
         with:
           distribution: 'oracle'
-          java-version: '17'
+          java-version: '21'
       - name: Update os packages
         run: |
             sudo apt-get update
