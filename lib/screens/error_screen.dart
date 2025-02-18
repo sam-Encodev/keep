@@ -27,7 +27,7 @@ class ErrorScreen extends StatelessWidget {
                   onPressed: () => context.go(RouteName.home),
                   style: buttonStyle(context),
                   child:
-                      Text(goBack, style: TextStyle(fontSize: standardFont))),
+                      Text(goBack, style: Theme.of(context).textTheme.titleLarge)),
             ],
           ),
         ),

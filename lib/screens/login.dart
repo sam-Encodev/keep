@@ -29,9 +29,7 @@ class _LoginState extends State<Login> {
             Text(
               welcomeBack,
               textAlign: TextAlign.left,
-              style: TextStyle(
-                fontSize: maxFont,
-              ),
+              style: Theme.of(context).textTheme.displayMedium,
             ),
             const LoginForm(),
             Row(

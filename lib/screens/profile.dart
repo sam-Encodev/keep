@@ -49,7 +49,7 @@ class _Profile extends ConsumerState<Profile> {
             child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
-                  Text(name, style: TextStyle(fontSize: labelSize)),
+                  Text(name, style: Theme.of(context).textTheme.labelLarge),
                   Padding(
                     padding: const EdgeInsets.all(spacing),
                     child: TextFormField(
@@ -84,7 +84,7 @@ class _Profile extends ConsumerState<Profile> {
                       },
                     ),
                   ),
-                  Text(email, style: TextStyle(fontSize: labelSize)),
+                  Text(email, style: Theme.of(context).textTheme.labelLarge),
                   Padding(
                     padding: const EdgeInsets.all(spacing),
                     child: TextFormField(
@@ -102,7 +102,8 @@ class _Profile extends ConsumerState<Profile> {
                       ),
                     ),
                   ),
-                  Text(currentPassword, style: TextStyle(fontSize: labelSize)),
+                  Text(currentPassword,
+                      style: Theme.of(context).textTheme.labelLarge),
                   Padding(
                     padding: const EdgeInsets.all(spacing),
                     child: TextFormField(
@@ -123,7 +124,8 @@ class _Profile extends ConsumerState<Profile> {
                           errorStyle: errorStyle(context)),
                     ),
                   ),
-                  Text(newPassword, style: TextStyle(fontSize: labelSize)),
+                  Text(newPassword,
+                      style: Theme.of(context).textTheme.labelLarge),
                   Padding(
                     padding: const EdgeInsets.all(spacing),
                     child: TextFormField(
@@ -178,7 +180,7 @@ class _Profile extends ConsumerState<Profile> {
                           }
                         },
                         child: Text(updateProfile,
-                            style: TextStyle(fontSize: standardFont))),
+                            style: Theme.of(context).textTheme.titleLarge)),
                   ),
                 ]),
           ),

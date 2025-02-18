@@ -124,7 +124,7 @@ errorBorder(context) {
 
 errorStyle(context) {
   return TextStyle(
-    fontSize: errorFont,
+    fontSize: Theme.of(context).textTheme.labelMedium?.fontSize,
     fontWeight: FontWeight.w400,
     color: Theme.of(context).colorScheme.error,
   );

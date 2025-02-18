@@ -77,7 +77,10 @@ class EditNoteForm extends ConsumerState<EditNote> {
                                 label: Text(
                                   e.values.first.toString(),
                                   style: TextStyle(
-                                      fontSize: standardFont,
+                                      fontSize: Theme.of(context)
+                                          .textTheme
+                                          .titleLarge
+                                          ?.fontSize,
                                       color: Theme.of(context)
                                           .colorScheme
                                           .onPrimaryContainer),
@@ -106,7 +109,7 @@ class EditNoteForm extends ConsumerState<EditNote> {
                               content: Text(
                                 prompt,
                                 textAlign: TextAlign.center,
-                                style: TextStyle(fontSize: standardFont),
+                                style: Theme.of(context).textTheme.titleLarge,
                               ),
                               actionsAlignment: MainAxisAlignment.center,
                               actions: <Widget>[
@@ -117,8 +120,9 @@ class EditNoteForm extends ConsumerState<EditNote> {
                                       Navigator.of(context).pop();
                                     },
                                     child: Text(no,
-                                        style:
-                                            TextStyle(fontSize: standardFont))),
+                                        style: Theme.of(context)
+                                            .textTheme
+                                            .titleLarge)),
                                 TextButton(
                                     style: textButtonStyle(
                                       context,
@@ -166,7 +170,7 @@ class EditNoteForm extends ConsumerState<EditNote> {
                 maxLines: 1,
                 initialValue: note.title,
                 onChanged: (val) => {_titleField = val.isEmpty ? null : val},
-                style: TextStyle(fontSize: 55),
+                style: Theme.of(context).textTheme.displayMedium,
                 decoration: InputDecoration(
                   filled: false,
                   hintText: title,
@@ -193,7 +197,7 @@ class EditNoteForm extends ConsumerState<EditNote> {
                 maxLines: 10,
                 enableSuggestions: false,
                 autocorrect: false,
-                style: TextStyle(fontSize: standardFont),
+                style: Theme.of(context).textTheme.titleLarge,
                 decoration: InputDecoration(
                     filled: false,
                     hintText: description,

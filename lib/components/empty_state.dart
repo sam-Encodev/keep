@@ -17,10 +17,7 @@ class EmptyState extends StatelessWidget {
           buildSVG(uri),
           const SizedBox(height: standardSpacing),
           if (!hideText)
-            Text(
-              createNote,
-              style: TextStyle(fontSize: titleLarge),
-            )
+            Text(createNote, style: Theme.of(context).textTheme.titleLarge)
         ],
       ),
     );

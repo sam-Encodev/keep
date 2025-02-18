@@ -68,7 +68,7 @@ class AddNoteForm extends ConsumerState<AddNote> {
                                 label: Text(
                                   e.values.first.toString(),
                                   style: TextStyle(
-                                      fontSize: standardFont,
+                                      fontSize: Theme.of(context).textTheme.titleLarge?.fontSize,
                                       color: Theme.of(context)
                                           .colorScheme
                                           .onPrimaryContainer),
@@ -97,7 +97,7 @@ class AddNoteForm extends ConsumerState<AddNote> {
                               content: Text(
                                 prompt,
                                 textAlign: TextAlign.center,
-                                style: TextStyle(fontSize: standardFont),
+                                style: Theme.of(context).textTheme.titleLarge,
                               ),
                               actionsAlignment: MainAxisAlignment.center,
                               actions: <Widget>[
@@ -109,7 +109,7 @@ class AddNoteForm extends ConsumerState<AddNote> {
                                     },
                                     child: Text(no,
                                         style:
-                                            TextStyle(fontSize: standardFont))),
+                                           Theme.of(context).textTheme.titleLarge)),
                                 TextButton(
                                     style: textButtonStyle(context),
                                     onPressed: () => {
@@ -133,7 +133,7 @@ class AddNoteForm extends ConsumerState<AddNote> {
                                             color: Theme.of(context)
                                                 .colorScheme
                                                 .onPrimary,
-                                            fontSize: standardFont))),
+                                            fontSize: Theme.of(context).textTheme.titleLarge?.fontSize))),
                               ],
                             );
                           },
@@ -156,7 +156,7 @@ class AddNoteForm extends ConsumerState<AddNote> {
               TextFormField(
                 key: const Key(title),
                 maxLines: 1,
-                style: TextStyle(fontSize: maxFont),
+                style: Theme.of(context).textTheme.displayMedium,
                 decoration: InputDecoration(
                   filled: false,
                   hintText: title,
@@ -180,7 +180,7 @@ class AddNoteForm extends ConsumerState<AddNote> {
                 maxLines: 10,
                 enableSuggestions: false,
                 autocorrect: false,
-                style: TextStyle(fontSize: standardFont),
+                style: Theme.of(context).textTheme.titleLarge,
                 decoration: InputDecoration(
                   filled: false,
                   hintText: description,

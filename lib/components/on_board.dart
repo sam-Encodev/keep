@@ -15,7 +15,7 @@ onBoard(context, item) {
       Text(
         title,
         textAlign: TextAlign.center,
-        style: TextStyle(fontSize: titleLarge, fontWeight: FontWeight.w800),
+        style: TextStyle(fontSize:  Theme.of(context).textTheme.titleLarge?.fontSize, fontWeight: FontWeight.w800),
       ),
       SizedBox(height: minHeight),
       Padding(
@@ -23,9 +23,7 @@ onBoard(context, item) {
         child: Text(
           body,
           textAlign: TextAlign.center,
-          style: TextStyle(
-            fontSize: minFont,
-          ),
+          style: Theme.of(context).textTheme.titleMedium,
         ),
       )
     ],

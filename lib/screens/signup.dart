@@ -30,9 +30,7 @@ class _SignupState extends State<Signup> {
             Text(
               getStarted,
               textAlign: TextAlign.left,
-              style: TextStyle(
-                fontSize: maxFont,
-              ),
+              style: Theme.of(context).textTheme.displayMedium,
             ),
             const SignupForm(),
             Row(
