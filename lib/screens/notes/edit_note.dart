@@ -65,6 +65,7 @@ class EditNoteForm extends ConsumerState<EditNote> {
                       mainAxisSize: MainAxisSize.min,
                       children: colors
                           .map((e) => TextButton.icon(
+                                style: ButtonStyle(),
                                 onPressed: () {
                                   setState(() {
                                     _color = e.values.first.toString();
@@ -159,14 +160,12 @@ class EditNoteForm extends ConsumerState<EditNote> {
               ? AutovalidateMode.onUserInteraction
               : AutovalidateMode.disabled,
           child: Column(
-          
             children: [
               TextFormField(
                 key: const Key(title),
                 maxLines: 1,
                 initialValue: note.title,
-                onChanged: (val) =>
-                    {_titleField = val.isEmpty ? null : val},
+                onChanged: (val) => {_titleField = val.isEmpty ? null : val},
                 style: TextStyle(fontSize: 55),
                 decoration: InputDecoration(
                   filled: false,

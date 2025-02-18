@@ -56,6 +56,7 @@ class AddNoteForm extends ConsumerState<AddNote> {
                       mainAxisSize: MainAxisSize.min,
                       children: colors
                           .map((e) => TextButton.icon(
+                                style: ButtonStyle(),
                                 onPressed: () {
                                   setState(() {
                                     _color = e.values.first.toString();
