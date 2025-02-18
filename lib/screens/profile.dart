@@ -180,7 +180,13 @@ class _Profile extends ConsumerState<Profile> {
                           }
                         },
                         child: Text(updateProfile,
-                            style: Theme.of(context).textTheme.titleLarge)),
+                            style: TextStyle(
+                                fontSize: Theme.of(context)
+                                    .textTheme
+                                    .titleLarge!
+                                    .fontSize,
+                                color:
+                                    Theme.of(context).colorScheme.onPrimary))),
                   ),
                 ]),
           ),

@@ -114,7 +114,10 @@ class _LoginFormState extends ConsumerState<LoginForm> {
                     }
                   }
                 },
-                child: Text(login, style: Theme.of(context).textTheme.titleLarge)),
+                child: Text(login, style: TextStyle(
+                  fontSize: Theme.of(context).textTheme.titleLarge!.fontSize,
+                   color: Theme.of(context).colorScheme.onPrimary
+                   ))),
           ),
         ],
       ),
