@@ -145,7 +145,10 @@ class EditNoteForm extends ConsumerState<EditNote> {
                                             color: Theme.of(context)
                                                 .colorScheme
                                                 .onPrimary,
-                                            fontSize: standardFont))),
+                                            fontSize: Theme.of(context)
+                                                .textTheme
+                                                .titleLarge!
+                                                .fontSize))),
                               ],
                             );
                           },
