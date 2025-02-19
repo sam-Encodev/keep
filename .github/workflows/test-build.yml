@@ -86,7 +86,6 @@ jobs:
       - name: Download APK
         uses: actions/download-artifact@v4.1.8
         with:
-          name: app-release
           path: test-apk
           merge-multiple: true
       - run: ls -R test-apk
