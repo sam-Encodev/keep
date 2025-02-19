@@ -11,7 +11,7 @@ onBoard(context, item) {
     mainAxisAlignment: MainAxisAlignment.center,
     children: [
       buildSVG(image),
-      SizedBox(height: maxHeight),
+      SizedBox(height: midHeight),
       Text(
         title,
         textAlign: TextAlign.center,
