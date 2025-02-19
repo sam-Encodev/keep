@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:keep/constants/color_scheme.dart';
+import 'package:keep/constants/theme.dart';
 import 'package:keep/providers/theme_provider.dart';
 import 'package:keep/providers/router_provider.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
