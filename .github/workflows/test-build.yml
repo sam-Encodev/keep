@@ -11,9 +11,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
-        uses: actions/checkout@v4.2.1
+        uses: actions/checkout@v4.2.2
       - name: Set up Flutter
-        uses: subosito/flutter-action@v2.16.0
+        uses: subosito/flutter-action@v2.18.0
         id: flutter-action
         with:
           cache: true
@@ -31,13 +31,13 @@ jobs:
         run: flutter test
       - name: Upload test logs
         if: failure()
-        uses: actions/upload-artifact@v4.4.3
+        uses: actions/upload-artifact@v4.6.0
         with:
           name: test-logs
           path: log/
       - name: Publish to Telegram
         if: always()
-        uses: cbrgm/telegram-github-action@v1.0.27
+        uses: cbrgm/telegram-github-action@v1.2.3
         with:
           protect-content: true
           disable-web-page-preview: false
@@ -54,7 +54,7 @@ jobs:
     needs: [test]
     steps:
       - name: Checkout code
-        uses: actions/checkout@v4.2.1
+        uses: actions/checkout@v4.2.2
       - name: Setup Java JDK
         uses: actions/setup-java@v4.4.0
         with:
@@ -63,7 +63,7 @@ jobs:
       - name: Update os packages
         run: |
             sudo apt-get update
-      - uses: subosito/flutter-action@v2.16.0
+      - uses: subosito/flutter-action@v2.18.0
         id: flutter-action
         with:
           cache: true
@@ -78,18 +78,21 @@ jobs:
       - name: Build APK
         run: flutter build apk
       - name: Archive APK
-        uses: actions/upload-artifact@v4.4.3
+        uses: actions/upload-artifact@v4.6.0
         id: artifact-upload-step
         with:
           name: test-apk
           path: build/app/outputs/flutter-apk/*.apk
       - name: Download APK
         uses: actions/download-artifact@v4.1.8
-      - name: Display structure of downloaded files
-        run: ls -R
+        with:
+          name: app-release
+          path: test-apk
+          merge-multiple: true
+      - run: ls -R test-apk
       - name: Publish to Telegram
         if: ${{ steps.artifact-upload-step.outputs.artifact-id }}
-        uses: cbrgm/telegram-github-action@v1.0.27
+        uses: cbrgm/telegram-github-action@v1.2.3
         with:
           protect-content: true
           disable-web-page-preview: false
