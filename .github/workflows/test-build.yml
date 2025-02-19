@@ -83,6 +83,13 @@ jobs:
         with:
           name: test-apk
           path: build/app/outputs/flutter-apk/*.apk
+      - name: Download APK
+        uses: actions/download-artifact@v4
+        with:
+          path: artifact
+          pattern: artifact-*
+          merge-multiple: true
+      - run: ls -R artifact
       - name: Publish to Telegram
         if: ${{ steps.artifact-upload-step.outputs.artifact-id }}
         uses: cbrgm/telegram-github-action@v1.0.27
