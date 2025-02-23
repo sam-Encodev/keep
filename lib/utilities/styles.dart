@@ -119,6 +119,7 @@ focusBorder(context) {
 errorBorder(context) {
   return OutlineInputBorder(
     borderRadius: BorderRadius.circular(inputRadius),
+        borderSide: BorderSide(color: Theme.of(context).colorScheme.error),
   );
 }
 
