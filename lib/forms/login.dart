@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:keep/constants/text.dart';
 import 'package:keep/utilities/styles.dart';
 import 'package:keep/components/snack_bar.dart';
@@ -20,6 +21,19 @@ class _LoginFormState extends ConsumerState<LoginForm> {
 
   bool _submitted = false;
 
+  void submit() {
+    setState(() => _submitted = true);
+    if (_formKey.currentState!.validate()) {
+      var res = ref.read(authNotifierProvider.notifier).login(
+          email: _emailField.toString().toLowerCase(),
+          password: _passwordField.toString());
+
+      if (res == false) {
+        snackBar(context, message: "Login failed");
+      }
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Form(
@@ -34,31 +48,33 @@ class _LoginFormState extends ConsumerState<LoginForm> {
             padding: const EdgeInsets.symmetric(
                 horizontal: spacing, vertical: minSpacing),
             child: TextFormField(
-              key: const Key(email),
-              style: TextStyle(),
-              decoration: InputDecoration(
-                fillColor: inputFillColor(context),
-                filled: true,
-                hintText: email,
-                hintStyle: hintStyle(context),
-                prefixIcon: Icon(
-                  Icons.email,
-                  size: formIcons,
+                key: const Key(email),
+                style: TextStyle(),
+                decoration: InputDecoration(
+                  fillColor: inputFillColor(context),
+                  filled: true,
+                  hintText: email,
+                  hintStyle: hintStyle(context),
+                  prefixIcon: Icon(
+                    Icons.email,
+                    size: formIcons,
+                  ),
+                  enabledBorder: inputBorder(context),
+                  focusedBorder: focusBorder(context),
+                  errorBorder: inputBorder(context),
+                  focusedErrorBorder: errorBorder(context),
+                  errorStyle: errorStyle(context),
                 ),
-                enabledBorder: inputBorder(context),
-                focusedBorder: focusBorder(context),
-                errorBorder: inputBorder(context),
-                focusedErrorBorder: errorBorder(context),
-                errorStyle: errorStyle(context),
-              ),
-              validator: (String? value) {
-                if (value == null || value.isEmpty) {
-                  return errorEntry;
-                }
-                _emailField = value;
-                return null;
-              },
-            ),
+                validator: (String? value) {
+                  if (value == null || value.isEmpty) {
+                    return errorEntry;
+                  }
+                  _emailField = value;
+                  return null;
+                },
+                textInputAction: TextInputAction.next,
+                keyboardType: TextInputType.emailAddress,
+                autofillHints: const [AutofillHints.email]),
           ),
           Padding(
             padding: const EdgeInsets.symmetric(
@@ -91,6 +107,12 @@ class _LoginFormState extends ConsumerState<LoginForm> {
                 _passwordField = value;
                 return null;
               },
+              onFieldSubmitted: (value) {
+                TextInput.finishAutofillContext();
+                submit();
+              },
+              keyboardType: TextInputType.visiblePassword,
+              autofillHints: const [AutofillHints.password],
             ),
           ),
           Padding(
@@ -99,25 +121,12 @@ class _LoginFormState extends ConsumerState<LoginForm> {
             child: FilledButton(
                 key: const Key(login),
                 style: buttonStyle(context),
-                onPressed: () {
-                  // Validate will return true if the form is valid, or false if
-                  // the form is invalid.
-                  setState(() => _submitted = true);
-                  if (_formKey.currentState!.validate()) {
-                    // Process data.
-                    var res = ref.read(authNotifierProvider.notifier).login(
-                        email: _emailField.toString().toLowerCase(),
-                        password: _passwordField.toString());
-
-                    if (res == false) {
-                      snackBar(context, message: "Login failed");
-                    }
-                  }
-                },
-                child: Text(login, style: TextStyle(
-                  fontSize: Theme.of(context).textTheme.titleLarge!.fontSize,
-                   color: Theme.of(context).colorScheme.onPrimary
-                   ))),
+                onPressed: submit,
+                child: Text(login,
+                    style: TextStyle(
+                        fontSize:
+                            Theme.of(context).textTheme.titleLarge!.fontSize,
+                        color: Theme.of(context).colorScheme.onPrimary))),
           ),
         ],
       ),

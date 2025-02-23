@@ -31,7 +31,7 @@ class _SearchNote extends ConsumerState<SearchNote> {
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: false,
-        title: TextField(
+        title: TextFormField(
           controller: textController,
           decoration: InputDecoration(
               fillColor: inputFillColor(context),
@@ -58,6 +58,8 @@ class _SearchNote extends ConsumerState<SearchNote> {
           onChanged: (text) {
             ref.read(searchNotifierProvider.notifier).search(text);
           },
+          keyboardType: TextInputType.text,
+          textCapitalization: TextCapitalization.words,
         ),
       ),
       body: Container(

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:keep/models/user.dart';
 import 'package:keep/constants/text.dart';
 import 'package:keep/utilities/date.dart';
@@ -23,6 +24,27 @@ class _Profile extends ConsumerState<Profile> {
   String? _newPassword;
   final String _updateAt = timestamp;
   bool _submitted = false;
+
+  void submit(currentUserID) {
+    setState(() => _submitted = true);
+    if (_formKey.currentState!.validate()) {
+      var res = ref.read(authNotifierProvider.notifier).edit(
+          User(
+            id: currentUserID,
+            firstName: _firstName.toString(),
+            lastName: _lastName.toString(),
+            updatedAt: _updateAt,
+          ),
+          _newPassword.toString());
+
+      if (res == true) {
+        snackBar(context, message: "Update successful");
+        _formKey.currentState?.reset();
+      } else {
+        snackBar(context, message: "Update failed");
+      }
+    }
+  }
 
   @override
   Widget build(
@@ -82,6 +104,10 @@ class _Profile extends ConsumerState<Profile> {
 
                         return null;
                       },
+                      keyboardType: TextInputType.name,
+                      textInputAction: TextInputAction.next,
+                      autofillHints: const [AutofillHints.name],
+                      textCapitalization: TextCapitalization.words,
                     ),
                   ),
                   Text(email, style: Theme.of(context).textTheme.labelLarge),
@@ -100,6 +126,9 @@ class _Profile extends ConsumerState<Profile> {
                         focusedErrorBorder: errorBorder(context),
                         errorStyle: errorStyle(context),
                       ),
+                      textInputAction: TextInputAction.next,
+                      keyboardType: TextInputType.emailAddress,
+                      autofillHints: const [AutofillHints.email],
                     ),
                   ),
                   Text(currentPassword,
@@ -122,6 +151,12 @@ class _Profile extends ConsumerState<Profile> {
                           errorBorder: inputBorder(context),
                           focusedErrorBorder: errorBorder(context),
                           errorStyle: errorStyle(context)),
+                      onFieldSubmitted: (_) {
+                        TextInput.finishAutofillContext();
+                      },
+                      textInputAction: TextInputAction.next,
+                      keyboardType: TextInputType.visiblePassword,
+                      autofillHints: const [AutofillHints.password],
                     ),
                   ),
                   Text(newPassword,
@@ -149,36 +184,19 @@ class _Profile extends ConsumerState<Profile> {
                         _newPassword = value;
                         return null;
                       },
+                      onFieldSubmitted: (_) {
+                        TextInput.finishAutofillContext();
+                        submit(currentUser.id);
+                      },
+                      keyboardType: TextInputType.visiblePassword,
+                      autofillHints: const [AutofillHints.password],
                     ),
                   ),
                   Padding(
                     padding: const EdgeInsets.all(spacing),
                     child: FilledButton(
                         style: buttonStyle(context),
-                        onPressed: () {
-                          // Validate will return true if the form is valid, or false if
-                          // the form is invalid.
-                          setState(() => _submitted = true);
-                          if (_formKey.currentState!.validate()) {
-                            // Process data.
-                            var res =
-                                ref.read(authNotifierProvider.notifier).edit(
-                                    User(
-                                      id: currentUser.id,
-                                      firstName: _firstName.toString(),
-                                      lastName: _lastName.toString(),
-                                      updatedAt: _updateAt,
-                                    ),
-                                    _newPassword.toString());
-
-                            if (res == true) {
-                              snackBar(context, message: "Update successful");
-                              _formKey.currentState?.reset();
-                            } else {
-                              snackBar(context, message: "Update failed");
-                            }
-                          }
-                        },
+                        onPressed: () => submit(currentUser.id),
                         child: Text(updateProfile,
                             style: TextStyle(
                                 fontSize: Theme.of(context)

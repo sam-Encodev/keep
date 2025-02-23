@@ -10,8 +10,9 @@ class SearchNotifier extends Notifier<List<Note>> {
     var getNotes = ref.watch(noteNotifierProvider);
 
     if (query.isNotEmpty) {
-      state =
-          getNotes.where((p) => p.title.toLowerCase().contains(query)).toList();
+      state = getNotes
+          .where((p) => p.title.toLowerCase().contains(query.toLowerCase()))
+          .toList();
     } else {
       state = [];
     }

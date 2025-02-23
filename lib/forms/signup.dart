@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:keep/models/user.dart';
 import 'package:keep/constants/text.dart';
 import 'package:keep/utilities/date.dart';
@@ -24,6 +25,25 @@ class _SignupFormState extends ConsumerState<SignupForm> {
   String? _firstNameField;
   final String _timestamp = timestamp;
   bool _submitted = false;
+
+  void submit(index) {
+    setState(() => _submitted = true);
+    if (_formKey.currentState!.validate()) {
+      var res = ref.read(authNotifierProvider.notifier).signup(User(
+          id: index,
+          firstName: _firstNameField.toString(),
+          lastName: _lastNameField.toString(),
+          createdAt: _timestamp,
+          email: _emailField.toString().toLowerCase(),
+          password: _passwordField.toString()));
+
+      if (res == false) {
+        snackBar(context, message: "Email already exists");
+      }
+    } else {
+      setState(() {});
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -66,6 +86,10 @@ class _SignupFormState extends ConsumerState<SignupForm> {
                 _firstNameField = value;
                 return null;
               },
+              keyboardType: TextInputType.name,
+              textInputAction: TextInputAction.next,
+              textCapitalization: TextCapitalization.words,
+              autofillHints: const [AutofillHints.givenName],
             ),
           ),
           Padding(
@@ -96,6 +120,10 @@ class _SignupFormState extends ConsumerState<SignupForm> {
                 _lastNameField = value;
                 return null;
               },
+              keyboardType: TextInputType.name,
+              textInputAction: TextInputAction.next,
+              textCapitalization: TextCapitalization.words,
+              autofillHints: const [AutofillHints.familyName],
             ),
           ),
           Padding(
@@ -126,6 +154,9 @@ class _SignupFormState extends ConsumerState<SignupForm> {
                 _emailField = value;
                 return null;
               },
+              textInputAction: TextInputAction.next,
+              keyboardType: TextInputType.emailAddress,
+              autofillHints: const [AutofillHints.email],
             ),
           ),
           Padding(
@@ -159,6 +190,12 @@ class _SignupFormState extends ConsumerState<SignupForm> {
                 _passwordField = value;
                 return null;
               },
+              onFieldSubmitted: (_) {
+                TextInput.finishAutofillContext();
+                submit(index);
+              },
+              keyboardType: TextInputType.visiblePassword,
+              autofillHints: const [AutofillHints.password],
             ),
           ),
           Padding(
@@ -167,32 +204,12 @@ class _SignupFormState extends ConsumerState<SignupForm> {
             child: FilledButton(
                 key: const Key(signUp),
                 style: buttonStyle(context),
-                onPressed: () {
-                  // Validate will return true if the form is valid, or false if
-                  // the form is invalid.
-                  setState(() => _submitted = true);
-                  if (_formKey.currentState!.validate()) {
-                    // Process data.
-                    var res = ref.read(authNotifierProvider.notifier).signup(
-                        User(
-                            id: index,
-                            firstName: _firstNameField.toString(),
-                            lastName: _lastNameField.toString(),
-                            createdAt: _timestamp,
-                            email: _emailField.toString().toLowerCase(),
-                            password: _passwordField.toString()));
-
-                    if (res == false) {
-                      snackBar(context, message: "Email already exists");
-                    }
-                  } else {
-                    setState(() {});
-                  }
-                },
-                child: Text(signUp, style: TextStyle(
-                     fontSize: Theme.of(context).textTheme.titleLarge!.fontSize,
-                   color: Theme.of(context).colorScheme.onPrimary
-                ))),
+                onPressed: () => submit(index),
+                child: Text(signUp,
+                    style: TextStyle(
+                        fontSize:
+                            Theme.of(context).textTheme.titleLarge!.fontSize,
+                        color: Theme.of(context).colorScheme.onPrimary))),
           ),
         ],
       ),

@@ -68,7 +68,10 @@ class AddNoteForm extends ConsumerState<AddNote> {
                                 label: Text(
                                   e.values.first.toString(),
                                   style: TextStyle(
-                                      fontSize: Theme.of(context).textTheme.titleLarge?.fontSize,
+                                      fontSize: Theme.of(context)
+                                          .textTheme
+                                          .titleLarge
+                                          ?.fontSize,
                                       color: Theme.of(context)
                                           .colorScheme
                                           .onPrimaryContainer),
@@ -108,8 +111,9 @@ class AddNoteForm extends ConsumerState<AddNote> {
                                       Navigator.of(context).pop();
                                     },
                                     child: Text(no,
-                                        style:
-                                           Theme.of(context).textTheme.titleLarge)),
+                                        style: Theme.of(context)
+                                            .textTheme
+                                            .titleLarge)),
                                 TextButton(
                                     style: textButtonStyle(context),
                                     onPressed: () => {
@@ -133,7 +137,10 @@ class AddNoteForm extends ConsumerState<AddNote> {
                                             color: Theme.of(context)
                                                 .colorScheme
                                                 .onPrimary,
-                                            fontSize: Theme.of(context).textTheme.titleLarge?.fontSize))),
+                                            fontSize: Theme.of(context)
+                                                .textTheme
+                                                .titleLarge
+                                                ?.fontSize))),
                               ],
                             );
                           },
@@ -154,51 +161,55 @@ class AddNoteForm extends ConsumerState<AddNote> {
           child: Column(
             children: <Widget>[
               TextFormField(
-                key: const Key(title),
-                maxLines: 1,
-                style: Theme.of(context).textTheme.displayMedium,
-                decoration: InputDecoration(
-                  filled: false,
-                  hintText: title,
-                  hintStyle: hintStyle(context),
-                  enabledBorder: transparentEnabledBorder(),
-                  focusedBorder: transparentFocusedBorder(),
-                  errorBorder: transparentEnabledBorder(),
-                  focusedErrorBorder: transparentErrorBorder(),
-                  errorStyle: errorStyle(context),
-                ),
-                validator: (String? value) {
-                  if (value == null || value.isEmpty) {
-                    return errorEntry;
-                  }
-                  _titleField = value;
-                  return null;
-                },
-              ),
+                  key: const Key(title),
+                  maxLines: 1,
+                  style: Theme.of(context).textTheme.displayMedium,
+                  decoration: InputDecoration(
+                    filled: false,
+                    hintText: title,
+                    hintStyle: hintStyle(context),
+                    enabledBorder: transparentEnabledBorder(),
+                    focusedBorder: transparentFocusedBorder(),
+                    errorBorder: transparentEnabledBorder(),
+                    focusedErrorBorder: transparentErrorBorder(),
+                    errorStyle: errorStyle(context),
+                  ),
+                  validator: (String? value) {
+                    if (value == null || value.isEmpty) {
+                      return errorEntry;
+                    }
+                    _titleField = value;
+                    return null;
+                  },
+                  textInputAction: TextInputAction.next,
+                  keyboardType: TextInputType.text,
+                  textCapitalization: TextCapitalization.words),
               TextFormField(
-                key: const Key(description),
-                maxLines: 10,
-                enableSuggestions: false,
-                autocorrect: false,
-                style: Theme.of(context).textTheme.titleLarge,
-                decoration: InputDecoration(
-                  filled: false,
-                  hintText: description,
-                  hintStyle: hintStyle(context),
-                  enabledBorder: transparentEnabledBorder(),
-                  focusedBorder: transparentFocusedBorder(),
-                  errorBorder: transparentEnabledBorder(),
-                  focusedErrorBorder: transparentErrorBorder(),
-                  errorStyle: errorStyle(context),
-                ),
-                validator: (String? value) {
-                  if (value == null || value.isEmpty) {
-                    return errorEntry;
-                  }
-                  _descriptionField = value;
-                  return null;
-                },
-              ),
+                  key: const Key(description),
+                  maxLines: 10,
+                  enableSuggestions: false,
+                  autocorrect: false,
+                  style: Theme.of(context).textTheme.titleLarge,
+                  decoration: InputDecoration(
+                    filled: false,
+                    hintText: description,
+                    hintStyle: hintStyle(context),
+                    enabledBorder: transparentEnabledBorder(),
+                    focusedBorder: transparentFocusedBorder(),
+                    errorBorder: transparentEnabledBorder(),
+                    focusedErrorBorder: transparentErrorBorder(),
+                    errorStyle: errorStyle(context),
+                  ),
+                  validator: (String? value) {
+                    if (value == null || value.isEmpty) {
+                      return errorEntry;
+                    }
+                    _descriptionField = value;
+                    return null;
+                  },
+                  textInputAction: TextInputAction.newline,
+                  keyboardType: TextInputType.multiline,
+                  textCapitalization: TextCapitalization.sentences),
             ],
           ),
         ),
