@@ -32,6 +32,7 @@ class _SearchNote extends ConsumerState<SearchNote> {
       appBar: AppBar(
         automaticallyImplyLeading: false,
         title: TextFormField(
+          autofocus: true,
           controller: textController,
           decoration: InputDecoration(
               fillColor: inputFillColor(context),

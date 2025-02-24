@@ -75,6 +75,7 @@ class _Profile extends ConsumerState<Profile> {
                   Padding(
                     padding: const EdgeInsets.all(spacing),
                     child: TextFormField(
+                      autofocus: true,
                       key: const Key(name),
                       initialValue: userName,
                       decoration: InputDecoration(

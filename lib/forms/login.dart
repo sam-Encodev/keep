@@ -48,6 +48,7 @@ class _LoginFormState extends ConsumerState<LoginForm> {
             padding: const EdgeInsets.symmetric(
                 horizontal: spacing, vertical: minSpacing),
             child: TextFormField(
+               autofocus: true,
                 key: const Key(email),
                 style: TextStyle(),
                 decoration: InputDecoration(

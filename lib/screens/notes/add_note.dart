@@ -161,6 +161,7 @@ class AddNoteForm extends ConsumerState<AddNote> {
           child: Column(
             children: <Widget>[
               TextFormField(
+                  autofocus: true,
                   key: const Key(title),
                   maxLines: 1,
                   style: Theme.of(context).textTheme.displayMedium,

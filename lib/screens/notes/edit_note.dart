@@ -169,6 +169,7 @@ class EditNoteForm extends ConsumerState<EditNote> {
           child: Column(
             children: [
               TextFormField(
+                  autofocus: true,
                   key: const Key(title),
                   maxLines: 1,
                   initialValue: note.title,

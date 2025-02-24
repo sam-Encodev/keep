@@ -62,6 +62,7 @@ class _SignupFormState extends ConsumerState<SignupForm> {
             padding: const EdgeInsets.symmetric(
                 horizontal: spacing, vertical: minSpacing),
             child: TextFormField(
+               autofocus: true,
               key: const Key(firstName),
               style: TextStyle(),
               decoration: InputDecoration(
