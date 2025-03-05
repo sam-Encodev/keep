@@ -87,3 +87,10 @@ const dark = "Dark";
 
 // Home
 const logout = "Logout";
+
+const list = [
+  {"id": 1, "name": font},
+  {"id": 2, "name": icons},
+  {"id": 3, "name": author},
+  {"id": 4, "name": designer}
+];

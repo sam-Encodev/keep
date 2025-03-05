@@ -185,13 +185,6 @@ buildSVG(String assetName) {
   );
 }
 
-buildText(String data, context, {height = 0.0}) {
-  return Text(
-    data,
-    style: Theme.of(context).textTheme.titleLarge,
-  );
-}
-
 hintStyle(context) {
   return TextStyle(color: Theme.of(context).colorScheme.outline);
 }

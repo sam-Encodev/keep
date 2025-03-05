@@ -19,12 +19,12 @@ class About extends StatelessWidget {
           height: double.maxFinite,
           child: ListView(
             shrinkWrap: true,
-            children: <Widget>[
-              buildText(font, context),
-              buildText(icons, context),
-              buildText(author, context),
-              buildText(designer, context),
-            ],
+            children: list
+                .map((e) => Text(
+                      e.values.last.toString(),
+                      style: Theme.of(context).textTheme.titleLarge,
+                    ))
+                .toList(),
           )),
     );
   }
