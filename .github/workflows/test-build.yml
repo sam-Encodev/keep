@@ -76,7 +76,7 @@ jobs:
       - name: Update flutter dependencies
         run: flutter pub upgrade
       - name: Build APK
-        run: flutter build apk
+        run: flutter build apk --split-per-abi --analyze-size
       - name: Archive APK
         uses: actions/upload-artifact@v4.6.0
         id: artifact-upload-step
