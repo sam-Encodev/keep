@@ -14,10 +14,10 @@ const colors = [
     "name": 'lime',
   },
   {
-    "name": 'green',
+    "name": 'grey',
   },
   {
-    "name": 'grey',
+    "name": 'green',
   },
   {
     "name": 'indigo',

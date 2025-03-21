@@ -67,8 +67,8 @@ class SlidableActions extends ConsumerWidget {
           title: Text(
             note.title,
             style: TextStyle(
-                fontWeight: FontWeight.bold,
-                fontSize:  Theme.of(context).textTheme.titleMedium?.fontSize,
+                fontWeight: FontWeight.w500,
+                fontSize:  Theme.of(context).textTheme.titleLarge?.fontSize,
                 color: Theme.of(context).colorScheme.shadow),
           ),
           subtitle: Text(
