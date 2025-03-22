@@ -1,4 +1,4 @@
-import 'package:keep/menu.dart';
+import 'package:keep/components/menu.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:keep/constants/text.dart';
