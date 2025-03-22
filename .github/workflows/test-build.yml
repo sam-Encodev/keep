@@ -35,12 +35,10 @@ jobs:
         with:
           name: test-logs
           path: log
-      - name: Telegram Message Action
+      - name: Send Telegram Notification
         if: always()
-        uses: cbrgm/telegram-github-action@v1.3.1
+        uses: cbrgm/telegram-github-action@v1.3.2
         with:
-          protect-content: true
-          disable-web-page-preview: false
           token: ${{ secrets.TELEGRAM_TOKEN }}
           to: ${{ secrets.TELEGRAM_CHAT_ID }}
           message: |
@@ -89,15 +87,12 @@ jobs:
           path: test-apk
           merge-multiple: true
       - run: ls -R test-apk
-      - name: Publish to Telegram
+      - name: Send Telegram Notification
         if: ${{ steps.artifact-upload-step.outputs.artifact-id }}
-        uses: cbrgm/telegram-github-action@v1.3.1
+        uses: cbrgm/telegram-github-action@v1.3.2
         with:
-          protect-content: true
-          disable-web-page-preview: false
           token: ${{ secrets.TELEGRAM_TOKEN }}
           to: ${{ secrets.TELEGRAM_CHAT_ID }}
           message: |
-            Workflow: ${{ github.workflow }}
             Author: ${{ github.actor }}
             DL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}/artifacts/${{ steps.artifact-upload-step.outputs.artifact-id }}
