@@ -37,7 +37,7 @@ jobs:
           path: log
       - name: Telegram Message Action
         if: always()
-        uses: cbrgm/telegram-github-action@v1.3.2
+        uses: cbrgm/telegram-github-action@v1.3.1
         with:
           protect-content: true
           disable-web-page-preview: false
@@ -91,7 +91,7 @@ jobs:
       - run: ls -R test-apk
       - name: Publish to Telegram
         if: ${{ steps.artifact-upload-step.outputs.artifact-id }}
-        uses: cbrgm/telegram-github-action@v1.3.2
+        uses: cbrgm/telegram-github-action@v1.3.1
         with:
           protect-content: true
           disable-web-page-preview: false
