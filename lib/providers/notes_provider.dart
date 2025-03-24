@@ -111,9 +111,9 @@ class NoteNotifier extends Notifier<List<Note>> {
   void editNote(Note note) {
     var oldNote = state.where((p) => p.id == note.id);
     oldNote.first.title = note.title;
-    oldNote.first.description = note.description;
     oldNote.first.color = note.color;
     oldNote.first.timestamp = note.timestamp;
+    oldNote.first.description = note.description;
 
     state = [...state];
   }

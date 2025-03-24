@@ -79,11 +79,11 @@ const editNote = "Edit Note";
 const viewNote = "View";
 
 // Settings
+const dark = "Dark";
+const light = "Light";
+const system = "System";
 const settings = "Settings";
 const themeManager = "Theme Manager";
-const system = "System";
-const light = "Light";
-const dark = "Dark";
 
 // Home
 const logout = "Logout";
