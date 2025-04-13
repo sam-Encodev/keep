@@ -22,68 +22,6 @@ class NoteNotifier extends Notifier<List<Note>> {
                 .subtractDuration(const Duration(days: 10, hours: 6))
                 .format(),
             color: "pink"),
-        Note(
-            id: 3,
-            title: "Game",
-            description: "I lied",
-            timestamp: "2024-03-02T15:18:29.922343",
-            color: "white"),
-        Note(
-            id: 4,
-            title: "Sleep",
-            description: "I lied",
-            timestamp: Jiffy.parse(DateTime.timestamp().toString())
-                .subtractDuration(const Duration(days: 10, hours: 6))
-                .format(),
-            color: "blue"),
-        Note(
-            id: 5,
-            title: "Game",
-            description: "I lied",
-            timestamp: "2024-03-02T15:18:29.922343",
-            color: "indigo"),
-        Note(
-            id: 6,
-            title: "Sleep",
-            description: "I lied",
-            timestamp: Jiffy.parse(DateTime.timestamp().toString())
-                .subtractDuration(const Duration(days: 10, hours: 6))
-                .format(),
-            color: "orange"),
-        Note(
-            id: 7,
-            title: "Game",
-            description: "I lied",
-            timestamp: "2024-03-02T15:18:29.922343",
-            color: "green"),
-        Note(
-            id: 8,
-            title: "Sleep",
-            description: "I lied",
-            timestamp: Jiffy.parse(DateTime.timestamp().toString())
-                .subtractDuration(const Duration(days: 10, hours: 6))
-                .format(),
-            color: "lime"),
-        Note(
-            id: 9,
-            title: "Game",
-            description: "I lied",
-            timestamp: "2024-03-02T15:18:29.922343",
-            color: "red"),
-        Note(
-            id: 10,
-            title: "Sleep",
-            description: "I lied",
-            timestamp: Jiffy.parse(DateTime.timestamp().toString())
-                .subtractDuration(const Duration(days: 10, hours: 6))
-                .format(),
-            color: "yellow"),
-        Note(
-            id: 11,
-            title: "Game",
-            description: "I lied",
-            timestamp: "2024-03-02T15:18:29.922343",
-            color: "red"),
       ];
 
   Note findNote(noteID) {
