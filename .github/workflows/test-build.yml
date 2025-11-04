@@ -57,7 +57,7 @@ jobs:
         uses: actions/setup-java@v5.0.0
         with:
           distribution: 'oracle'
-          java-version: '25'
+          java-version: '24'
       - name: Update os packages
         run: |
             sudo apt-get update
