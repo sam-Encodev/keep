@@ -1,7 +1,7 @@
 import 'package:keep/models/user.dart';
 import 'package:keep/providers/auth_provider.dart';
 import 'package:keep/providers/app_state_provider.dart';
-import 'package:riverpod_annotation/riverpod_annotation.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 class UserNotifier extends Notifier<List<User>> {
   @override

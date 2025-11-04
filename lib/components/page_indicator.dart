@@ -4,7 +4,6 @@ import 'package:dots_indicator/dots_indicator.dart';
 import 'package:keep/providers/app_state_provider.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-
 class PageIndicator extends ConsumerWidget {
   const PageIndicator({
     super.key,
@@ -27,7 +26,7 @@ class PageIndicator extends ConsumerWidget {
         children: <Widget>[
           DotsIndicator(
             dotsCount: tabController.length,
-            position: currentPageIndex,
+            position: currentPageIndex.toDouble(),
             decorator: dotsStyle(context),
           ),
           Row(

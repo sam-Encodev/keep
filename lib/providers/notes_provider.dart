@@ -1,7 +1,7 @@
 import 'package:jiffy/jiffy.dart';
 import 'package:keep/models/note.dart';
 import 'package:keep/providers/notes_mod_provider.dart';
-import 'package:riverpod_annotation/riverpod_annotation.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 class NoteNotifier extends Notifier<List<Note>> {
   @override
